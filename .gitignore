@@ -1,0 +1,25 @@
+# Ignore build directories
+build/
+test_src/build/
+
+# Ignore CMake generated files
+CMakeCache.txt
+CMakeFiles/
+
+# Ignore object files and dependency files
+*.o
+*.so
+*.a
+*.o.*
+*.d
+*.o.d
+
+# Ignore logs and other artifacts
+*.log
+*.tmp
+*.bak
+
+*~
+*.swp
+.DS_Store
+
