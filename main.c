@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 22:01:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/16 22:17:49 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/16 22:39:43 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 */
 #define WINDOW_WIDTH  800
 #define WINDOW_HEIGHT 600
-#define SQUARE_SIZE   50
+#define SQUARE_SIZE   5
 #define MOVE_STEP     10
 
 /*
@@ -60,18 +60,18 @@ void    draw_square(t_data *data)
 */
 int key_hook(int keycode, t_data *data)
 {
-    if (keycode == 53)  // ESC
+    if (keycode == 50)  // ESC
     {
         mlx_destroy_window(data->mlx, data->win);
         exit(0);
     }
-    else if (keycode == 13)  // W key: move up
+    else if (keycode == 53)  // W key: move up
         data->square_y -= MOVE_STEP;
-    else if (keycode == 1)   // S key: move down
+    else if (keycode == 54)   // S key: move down
         data->square_y += MOVE_STEP;
-    else if (keycode == 0)   // A key: move left
+    else if (keycode == 55)   // A key: move left
         data->square_x -= MOVE_STEP;
-    else if (keycode == 2)   // D key: move right
+    else if (keycode == 56)   // D key: move right
         data->square_x += MOVE_STEP;
     
     /* Clear the window and redraw the square at the new position */
