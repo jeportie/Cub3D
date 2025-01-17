@@ -4,3 +4,6 @@
 [submodule "lib/libgc"]
 	path = lib/libgc
 	url = https://github.com/jeportie/libgc.git
+[submodule "lib/minilibx"]
+	path = lib/minilibx
+	url = https://github.com/jeportie/minilibx.git
