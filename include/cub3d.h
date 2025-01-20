@@ -7,18 +7,9 @@
 # include <stdio.h>
 # include <unistd.h>  // for close, etc.
 # include <math.h>     // for cos, sin, etc. (may need -lm)
+# include "define.h"
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
-
-# define WINDOW_WIDTH   800
-# define WINDOW_HEIGHT  600
-
-# define MAP_WIDTH      8
-# define MAP_HEIGHT     8
-# define TILE_SIZE      64
-
-# define SPEED          200.0  // Movement speed in pixels per second
-# define ROT_SPEED      1.0    // Radians per second (will multiply by 5)
 
 typedef struct s_player
 {
@@ -58,19 +49,6 @@ typedef struct s_data
     int             map_offset_y;
 }   t_data;
 
-/**
- * Global 8x8 map
- */
-static char g_map[MAP_HEIGHT][MAP_WIDTH + 1] =
-{
-    "11111111",
-    "10000001",
-    "10000001",
-    "10000001",
-    "10000001",
-    "10000001",
-    "1P000001",
-    "11111111"
-};
+int put_pixel_to_image(t_image *img, int x, int y, int color);
 
 #endif
