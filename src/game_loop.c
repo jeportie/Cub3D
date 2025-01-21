@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 13:36:15 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 20:15:37 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	game_loop(t_data *data)
 	if (delta > 0.1)
 		delta = 0.1;
 	data->delta_accumulator += delta;
-//	printf("delta = %.6f, accumulator = %.6f\n", delta, data->delta_accumulator);
+	printf("delta = %.6f, accumulator = %.6f\n", delta, data->delta_accumulator);
 	time_step = 1.0 / 60.0;
 	while (data->delta_accumulator >= time_step)
 	{
