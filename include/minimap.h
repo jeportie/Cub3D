@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:51:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/20 21:58:43 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:24:12 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "cub3d.h"
 
-int	compute_map_offset(t_data *data);
 int	print_map(void);
 int	draw_map(t_data *data);
 int	draw_tile(t_data *data, int row, int col, int base_color);

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 10:05:38 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:22:26 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,6 @@ typedef struct s_data
 	t_player		player;
 	struct timespec	last_time;
 	double			delta_accumulator;
-	int				map_offset_x;
-	int				map_offset_y;
 }				t_data;
 
 int	game_loop(t_data *data);

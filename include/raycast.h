@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 20:58:12 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:31:26 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_ray
     float rx;
     float ry;
     float dist;
-}   t_ray;
+}   t_rayinfo;
 
 int draw_rays(t_data *data);
 

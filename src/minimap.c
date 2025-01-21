@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:53:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 20:13:54 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:24:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,22 +23,6 @@ char	g_map[MAP_SIZE + 1] = {
 	"1P000001"
 	"11111111"
 };
-
-int	compute_map_offset(t_data *data)
-{
-	int	map_pixel_width;
-	int	map_pixel_height;
-
-	map_pixel_width = MAP_WIDTH * TILE_SIZE;
-	map_pixel_height = MAP_HEIGHT * TILE_SIZE;
-	data->map_offset_x = (WINDOW_WIDTH - map_pixel_width) / 2;
-	data->map_offset_y = (WINDOW_HEIGHT - map_pixel_height) / 2;
-	if (data->map_offset_x < 0)
-		data->map_offset_x = 0;
-	if (data->map_offset_y < 0)
-		data->map_offset_y = 0;
-	return (0);
-}
 
 int	print_map(void)
 {
@@ -76,8 +60,8 @@ int	draw_tile(t_data *data, int row, int col, int base_color)
 		px = 0;
 		while (px < TILE_SIZE)
 		{
-			x = data->map_offset_x + col * TILE_SIZE + px;
-			y = data->map_offset_y + row * TILE_SIZE + py;
+			x = col * TILE_SIZE + px;
+			y = row * TILE_SIZE + py;
 			color = base_color;
 			if (py == 0 || py == TILE_SIZE - 1
 				|| px == 0 || px == TILE_SIZE - 1)

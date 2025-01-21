@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 10:05:52 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:22:00 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	main(void)
 	}
 	ft_printf("MLX initialized and window created.\n");
 	init_image(&data);
-	compute_map_offset(&data);
 	player_init(&data);
 	print_map();
 	if (clock_gettime(CLOCK_MONOTONIC, &data.last_time) != 0)
