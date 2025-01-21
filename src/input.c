@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:44:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/20 22:48:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 09:46:06 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	key_press(int keycode, t_data *data)
 {
 	ft_printf("Key Pressed: keycode = %d\n", keycode);
-	fflush(stdout);
 	if (keycode == 65307)
 	{
 		ft_printf("ESC pressed. Exiting.\n");
@@ -40,7 +39,6 @@ int	key_press(int keycode, t_data *data)
 int	key_release(int keycode, t_data *data)
 {
 	ft_printf("Key Released: keycode = %d\n", keycode);
-	fflush(stdout);
 	if (keycode == 65361)
 		data->player.rot_left = false;
 	else if (keycode == 65363)

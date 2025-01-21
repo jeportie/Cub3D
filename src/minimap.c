@@ -6,22 +6,23 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:53:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/20 23:05:19 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:07:18 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minimap.h"
+#include "../include/engine.h"
 
 char g_map[MAP_HEIGHT][MAP_WIDTH + 1] =
 {
-    "11111111",
-    "10000001",
-    "10000001",
-    "10000001",
-    "10000001",
-    "10000001",
-    "1P000001",
-    "11111111"
+	"11111111",
+	"10000001",
+	"10000001",
+	"10000001",
+	"10000001",
+	"10000001",
+	"1P000001",
+	"11111111"
 };
 
 int	compute_map_offset(t_data *data)
@@ -146,7 +147,7 @@ int	draw_direction_line(t_data *data, int center_x, int center_y)
 	int	lx;
 	int	ly;
 
-	line_length = 30;
+	line_length = 15;
 	i = 0;
 	while (i < line_length)
 	{

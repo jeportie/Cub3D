@@ -6,11 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 23:10:44 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/20 23:18:19 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 09:45:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/engine.h"
+#include "../include/error.h"
 
 double	get_time_in_seconds(struct timespec ts)
 {
@@ -52,7 +53,7 @@ int	init_image(t_data *data)
 	data->img.img_ptr = mlx_new_image(data->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	if (!data->img.img_ptr)
 	{
-		ft_dprintf(2, "Error: mlx_new_image() failed.\n");
+		ft_dprintf(2, ERR_MLX_IMAGE);
 		exit(1);
 	}
 	data->img.addr = mlx_get_data_addr(data->img.img_ptr,
@@ -61,7 +62,7 @@ int	init_image(t_data *data)
 			&data->img.endian);
 	if (!data->img.addr)
 	{
-		ft_dprintf(2, "Error: mlx_get_data_addr() failed.\n");
+		ft_dprintf(2, ERR_MLX_DATA);
 		exit(1);
 	}
 	return (0);

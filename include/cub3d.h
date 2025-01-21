@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
+/*   Updated: 2025/01/21 10:05:38 by jeportie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CUB3D_H
 # define CUB3D_H
 
@@ -13,42 +25,40 @@
 
 typedef struct s_player
 {
-    double  x;          // Player x-position (pixels)
-    double  y;          // Player y-position (pixels)
-    double  angle;      // Player viewing angle in radians
-    double  dx;         // cos(angle)
-    double  dy;         // sin(angle)
-
-    bool    move_up;
-    bool    move_down;
-    bool    move_left;
-    bool    move_right;
-
-    bool    rot_left;   // Pressing left arrow
-    bool    rot_right;  // Pressing right arrow
-}   t_player;
+	double	x; // Player x-position (pixels)
+	double	y; // Player y-position (pixels)
+	double	angle; // Player viewing angle in radians
+	double	dx; // cos(angle)
+	double	dy; // sin(angle)
+	bool	move_up;
+	bool	move_down;
+	bool	move_left;
+	bool	move_right;
+	bool	rot_left; // Pressing left arrow
+	bool	rot_right; // Pressing right arrow
+}			t_player;
 
 typedef struct s_image
 {
-    void    *img_ptr;
-    char    *addr;
-    int     bpp;            // bits per pixel
-    int     line_len;
-    int     endian;
-}   t_image;
+	void	*img_ptr;
+	char	*addr;
+	int		bpp; // bits per pixel
+	int		line_len;
+	int		endian;
+}	t_image;
 
 typedef struct s_data
 {
-    void            *mlx;
-    void            *win;
-    t_image         img;
-    t_player        player;
-    struct timespec last_time;
-    double          delta_accumulator;
-    int             map_offset_x;
-    int             map_offset_y;
-}   t_data;
+	void			*mlx;
+	void			*win;
+	t_image			img;
+	t_player		player;
+	struct timespec	last_time;
+	double			delta_accumulator;
+	int				map_offset_x;
+	int				map_offset_y;
+}				t_data;
 
-int put_pixel_to_image(t_image *img, int x, int y, int color);
+int	game_loop(t_data *data);
 
 #endif
