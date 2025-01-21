@@ -15,11 +15,12 @@ NAME = cub3D
 ### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
-  src/player.c \
   src/engine.c \
   src/input.c \
-  src/game_loop.c \
-  src/minimap.c 
+  src/minimap.c \
+  src/player.c \
+  src/raycast.c \
+  src/game_loop.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #

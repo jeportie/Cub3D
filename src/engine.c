@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 23:10:44 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 09:45:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:27:08 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ int	clear_image(t_image *img, int color)
 	int	x;
 
 	y = 0;
-	x = 0;
 	while (y < WINDOW_HEIGHT)
 	{
+		x = 0;
 		while (x < WINDOW_WIDTH)
 		{
 			put_pixel_to_image(img, x, y, color);

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 10:04:57 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 13:36:15 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include "../include/minimap.h"
 #include "../include/player.h"
 #include "../include/engine.h"
+#include "../include/raycast.h"
 #include "../include/error.h"
 
 int	game_loop(t_data *data)
@@ -29,8 +30,10 @@ int	game_loop(t_data *data)
 	}
 	delta = get_time_in_seconds(current_time) - get_time_in_seconds(data->last_time);
 	data->last_time = current_time;
+	if (delta > 0.1)
+		delta = 0.1;
 	data->delta_accumulator += delta;
-	printf("delta = %.6f, accumulator = %.6f\n", delta, data->delta_accumulator);
+//	printf("delta = %.6f, accumulator = %.6f\n", delta, data->delta_accumulator);
 	time_step = 1.0 / 60.0;
 	while (data->delta_accumulator >= time_step)
 	{
@@ -40,6 +43,7 @@ int	game_loop(t_data *data)
 	clear_image(&data->img, 0x000000);
 	draw_map(data);
 	draw_player(data);
+	draw_rays(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img_ptr, 0, 0);
 	return (0);
 }
