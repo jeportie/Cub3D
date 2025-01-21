@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:26:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/20 23:01:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:52:39 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	player_init(t_data *data)
 		col = 0;
 		while (col < MAP_WIDTH)
 		{
-			if (g_map[row][col] == 'P')
+			if (g_map[row * MAP_WIDTH + col] == 'P')
 			{
 				data->player.x = data->map_offset_x + col * TILE_SIZE
 					+ (TILE_SIZE / 2);

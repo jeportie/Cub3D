@@ -6,22 +6,21 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:53:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 10:07:18 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 10:48:31 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minimap.h"
 #include "../include/engine.h"
 
-char g_map[MAP_HEIGHT][MAP_WIDTH + 1] =
-{
-	"11111111",
-	"10000001",
-	"10000001",
-	"10000001",
-	"10000001",
-	"10000001",
-	"1P000001",
+char	g_map[MAP_SIZE + 1] = {
+	"11111111"
+	"10010001"
+	"10010001"
+	"10010011"
+	"10000001"
+	"10000001"
+	"1P000001"
 	"11111111"
 };
 
@@ -53,7 +52,7 @@ int	print_map(void)
 		col = 0;
 		while (col < MAP_WIDTH)
 		{
-			ft_printf("%c ", g_map[row][col]);
+			ft_printf("%c ", g_map[row * MAP_WIDTH + col]);
 			col++;
 		}
 		ft_printf("\n");
@@ -104,7 +103,7 @@ int	draw_map(t_data *data)
 		col = 0;
 		while (col < MAP_WIDTH)
 		{
-			tile = g_map[row][col];
+			tile = g_map[row * MAP_WIDTH + col];
 			if (tile == '1')
 				base_color = 0xFFFFFF;
 			else
@@ -153,7 +152,7 @@ int	draw_direction_line(t_data *data, int center_x, int center_y)
 	{
 		lx = center_x + (int)(data->player.dx * i);
 		ly = center_y + (int)(data->player.dy * i);
-		put_pixel_to_image(&data->img, lx, ly, 0x00FF00);
+		put_pixel_to_image(&data->img, lx, ly, 0x6495ED);
 		i++;
 	}
 	return (0);
