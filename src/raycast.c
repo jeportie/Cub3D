@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:27:34 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 21:30:58 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 22:26:37 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ static void draw_line(t_data *data, int x0, int y0, int x1, int y1, int color)
     }
 }
 
-// Cast vertical
 static t_rayinfo castVerticalRay(t_data *data, float angle)
 {
     t_rayinfo result;
