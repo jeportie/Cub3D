@@ -4,6 +4,8 @@
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
 !_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+ALICEBLUE	include/colors.h	36;"	d
+ANTIQUEWHITE	include/colors.h	37;"	d
 ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	583;"	d	file:
 ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	586;"	d	file:
 ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	589;"	d	file:
@@ -50,10 +52,20 @@ ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCom
 ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	723;"	d	file:
 ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	726;"	d	file:
 ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	730;"	d	file:
+AZURE	include/colors.h	38;"	d
+BEIGE	include/colors.h	39;"	d
+BISQUE	include/colors.h	40;"	d
+BLACK	include/colors.h	17;"	d
+BLANCHEDALMOND	include/colors.h	41;"	d
 BLUE	Makefile	/^BLUE    = \\033[34m$/;"	m
+BLUE	include/colors.h	21;"	d
+BLUEVIOLET	include/colors.h	42;"	d
 BOLD	Makefile	/^BOLD    = \\033[1m$/;"	m
+BROWN	include/colors.h	43;"	d
 BUFFER_SIZE	lib/libft/include/libft.h	28;"	d
 BUFFER_SIZE	lib/libft/include/printf.h	27;"	d
+BURLYWOOD	include/colors.h	44;"	d
+CADETBLUE	include/colors.h	45;"	d
 CC	Makefile	/^CC = 		cc$/;"	m
 CC	Makefile	/^default: CC = cc$/;"	m
 CC	Makefile	/^san: CC = clang$/;"	m
@@ -69,9 +81,11 @@ CFLAGS	lib/libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	lib/libgc/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	lib/minilibx/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
 CFLAGS	lib/minilibx/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
+CHOCOLATE	include/colors.h	46;"	d
 CMAKE_BINARY_DIR	lib/libft/test_src/build/Makefile	/^CMAKE_BINARY_DIR = \/root\/projects\/minishell\/lib\/libft\/test_src\/build$/;"	m
 CMAKE_COMMAND	lib/libft/test_src/build/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
 CMAKE_SOURCE_DIR	lib/libft/test_src/build/Makefile	/^CMAKE_SOURCE_DIR = \/root\/projects\/minishell\/lib\/libft\/test_src$/;"	m
+COLORS_H	include/colors.h	14;"	d
 COMPILER_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	109;"	d	file:
 COMPILER_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	117;"	d	file:
 COMPILER_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	123;"	d	file:
@@ -249,7 +263,12 @@ COMPILER_VERSION_TWEAK	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CM
 COMPILER_VERSION_TWEAK	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	393;"	d	file:
 COMPILER_VERSION_TWEAK	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	403;"	d	file:
 COMPILER_VERSION_TWEAK	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	51;"	d	file:
+CORAL	include/colors.h	47;"	d
+CORNFLOWERBLUE	include/colors.h	48;"	d
+CORNSILK	include/colors.h	49;"	d
+CRIMSON	include/colors.h	50;"	d
 CUB3D_H	include/cub3d.h	14;"	d
+CYAN	include/colors.h	23;"	d
 C_VERSION	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	817;"	d	file:
 C_VERSION	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	819;"	d	file:
 C_VERSION	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	822;"	d	file:
@@ -257,12 +276,37 @@ C_VERSION	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerI
 C_VERSION	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	826;"	d	file:
 C_VERSION	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	828;"	d	file:
 C_VERSION	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	830;"	d	file:
+DARKBLUE	include/colors.h	51;"	d
+DARKCYAN	include/colors.h	52;"	d
+DARKGOLDENROD	include/colors.h	53;"	d
+DARKGRAY	include/colors.h	54;"	d
+DARKGREEN	include/colors.h	55;"	d
+DARKGREY	include/colors.h	56;"	d
+DARKKHAKI	include/colors.h	57;"	d
+DARKMAGENTA	include/colors.h	58;"	d
+DARKOLIVEGREEN	include/colors.h	59;"	d
+DARKORANGE	include/colors.h	60;"	d
+DARKORCHID	include/colors.h	61;"	d
+DARKRED	include/colors.h	62;"	d
+DARKSALMON	include/colors.h	63;"	d
+DARKSEAGREEN	include/colors.h	64;"	d
+DARKSLATEBLUE	include/colors.h	65;"	d
+DARKSLATEGRAY	include/colors.h	66;"	d
+DARKSLATEGREY	include/colors.h	67;"	d
+DARKTURQUOISE	include/colors.h	68;"	d
+DARKVIOLET	include/colors.h	69;"	d
 DEC	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	734;"	d	file:
+DEEPPINK	include/colors.h	70;"	d
+DEEPSKYBLUE	include/colors.h	71;"	d
 DEFINE_H	include/define.h	14;"	d
 DEPFLAGS	Makefile	/^DEPFLAGS =  -MMD -MP$/;"	m
 DEPS	Makefile	/^DEPS = 		$(OBJ:.o=.d)$/;"	m
+DIMGRAY	include/colors.h	72;"	d
+DIMGREY	include/colors.h	73;"	d
+DODGERBLUE	include/colors.h	74;"	d
 ENGINE_H	include/engine.h	14;"	d
 ENV_DISPLAY	lib/minilibx/mlx_int.h	43;"	d
+EPSILON	include/define.h	32;"	d
 EQUALS	lib/libft/test_src/build/Makefile	/^EQUALS = =$/;"	m
 ERNOFORMAT	lib/libft/include/printf.h	/^	ERNOFORMAT,$/;"	e	enum:e_error
 ERNOMEM	lib/libft/include/printf.h	/^	ERNOMEM,$/;"	e	enum:e_error
@@ -276,10 +320,23 @@ ERR_MLX_IMAGE	include/error.h	19;"	d
 ERR_MLX_INIT	include/error.h	17;"	d
 ERR_MLX_WINDOW	include/error.h	18;"	d
 ERR_NO_TRUECOLOR	lib/minilibx/mlx_int.h	45;"	d
+FIREBRICK	include/colors.h	75;"	d
+FLORALWHITE	include/colors.h	76;"	d
+FORESTGREEN	include/colors.h	77;"	d
+FOV_DEGREES	include/define.h	34;"	d
+GAINSBORO	include/colors.h	78;"	d
 GAME_TITLE	include/define.h	16;"	d
+GHOSTWHITE	include/colors.h	79;"	d
+GOLD	include/colors.h	80;"	d
+GOLDENROD	include/colors.h	81;"	d
+GRAY	include/colors.h	26;"	d
 GREEN	Makefile	/^GREEN   = \\033[32m$/;"	m
+GREEN	include/colors.h	30;"	d
+GREY	include/colors.h	27;"	d
 HELG	Makefile	/^HELG =      valgrind --tool=helgrind --history-level=full \\$/;"	m
 HEX	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	745;"	d	file:
+HONEYDEW	include/colors.h	82;"	d
+HOTPINK	include/colors.h	83;"	d
 ID_VOID_MAIN	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	6;"	d	file:
 IM1_SX	lib/minilibx/test/main.c	7;"	d	file:
 IM1_SY	lib/minilibx/test/main.c	8;"	d	file:
@@ -289,28 +346,144 @@ INC	lib/minilibx/Makefile.mk	/^INC	=%%%%$/;"	m
 INC	lib/minilibx/test/Makefile.mk	/^INC=%%%%$/;"	m
 INCLIB	lib/minilibx/test/Makefile.mk	/^INCLIB=$(INC)\/..\/lib$/;"	m
 INCLUDES	Makefile	/^INCLUDES = -I.\/include -I.\/lib\/minilibx -I.\/lib\/libgc\/include -I.\/lib\/libft\/include$/;"	m
+INDIANRED	include/colors.h	84;"	d
+INDIGO	include/colors.h	85;"	d
+INNER_OFFSET	include/define.h	35;"	d
 INPUT_H	include/input.h	14;"	d
+IVORY	include/colors.h	86;"	d
+KEY_0	include/input.h	47;"	d
+KEY_1	include/input.h	48;"	d
+KEY_2	include/input.h	49;"	d
+KEY_3	include/input.h	50;"	d
+KEY_4	include/input.h	51;"	d
+KEY_5	include/input.h	52;"	d
+KEY_6	include/input.h	53;"	d
+KEY_7	include/input.h	54;"	d
+KEY_8	include/input.h	55;"	d
+KEY_9	include/input.h	56;"	d
+KEY_A	include/input.h	19;"	d
+KEY_ALT	include/input.h	84;"	d
+KEY_APOSTROPHE	include/input.h	96;"	d
+KEY_B	include/input.h	20;"	d
+KEY_BACKSLASH	include/input.h	94;"	d
+KEY_BACKSPACE	include/input.h	86;"	d
+KEY_C	include/input.h	21;"	d
+KEY_CAPSLOCK	include/input.h	81;"	d
+KEY_COMMA	include/input.h	98;"	d
+KEY_CONTROL	include/input.h	83;"	d
+KEY_D	include/input.h	22;"	d
+KEY_DOWN_ARROW	include/input.h	62;"	d
+KEY_E	include/input.h	23;"	d
+KEY_ENTER	include/input.h	87;"	d
+KEY_EQUAL	include/input.h	91;"	d
+KEY_ESC	include/input.h	79;"	d
+KEY_F	include/input.h	24;"	d
+KEY_F1	include/input.h	65;"	d
+KEY_F10	include/input.h	74;"	d
+KEY_F11	include/input.h	75;"	d
+KEY_F12	include/input.h	76;"	d
+KEY_F2	include/input.h	66;"	d
+KEY_F3	include/input.h	67;"	d
+KEY_F4	include/input.h	68;"	d
+KEY_F5	include/input.h	69;"	d
+KEY_F6	include/input.h	70;"	d
+KEY_F7	include/input.h	71;"	d
+KEY_F8	include/input.h	72;"	d
+KEY_F9	include/input.h	73;"	d
+KEY_G	include/input.h	25;"	d
+KEY_GRAVE	include/input.h	97;"	d
+KEY_H	include/input.h	26;"	d
+KEY_I	include/input.h	27;"	d
+KEY_J	include/input.h	28;"	d
+KEY_K	include/input.h	29;"	d
+KEY_L	include/input.h	30;"	d
+KEY_LEFT_ARROW	include/input.h	59;"	d
+KEY_LEFT_BRACE	include/input.h	92;"	d
+KEY_M	include/input.h	31;"	d
+KEY_MINUS	include/input.h	90;"	d
+KEY_N	include/input.h	32;"	d
+KEY_O	include/input.h	33;"	d
+KEY_P	include/input.h	34;"	d
+KEY_PERIOD	include/input.h	99;"	d
+KEY_Q	include/input.h	35;"	d
+KEY_R	include/input.h	36;"	d
+KEY_RIGHT_ARROW	include/input.h	61;"	d
+KEY_RIGHT_BRACE	include/input.h	93;"	d
+KEY_S	include/input.h	37;"	d
+KEY_SEMICOLON	include/input.h	95;"	d
+KEY_SHIFT	include/input.h	82;"	d
+KEY_SLASH	include/input.h	100;"	d
+KEY_SPACE	include/input.h	85;"	d
+KEY_T	include/input.h	38;"	d
+KEY_TAB	include/input.h	80;"	d
+KEY_U	include/input.h	39;"	d
+KEY_UP_ARROW	include/input.h	60;"	d
+KEY_V	include/input.h	40;"	d
+KEY_W	include/input.h	41;"	d
+KEY_X	include/input.h	42;"	d
+KEY_Y	include/input.h	43;"	d
+KEY_Z	include/input.h	44;"	d
+KHAKI	include/colors.h	87;"	d
+LAVENDER	include/colors.h	88;"	d
+LAVENDERBLUSH	include/colors.h	89;"	d
+LAWNGREEN	include/colors.h	90;"	d
 LDFLAGS	Makefile	/^LDFLAGS = -L.\/lib\/minilibx -lmlx -L.\/lib\/libgc -lgc -L.\/lib\/libft -lft \\$/;"	m
+LEMONCHIFFON	include/colors.h	91;"	d
 LFLAGS	lib/minilibx/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
 LIBFT_H	lib/libft/include/libft.h	14;"	d
 LIBGC_H	lib/libgc/include/libgc.h	14;"	d
+LIGHTBLUE	include/colors.h	92;"	d
+LIGHTCORAL	include/colors.h	93;"	d
+LIGHTCYAN	include/colors.h	94;"	d
+LIGHTGOLDENYELLOW	include/colors.h	95;"	d
+LIGHTGRAY	include/colors.h	96;"	d
+LIGHTGREEN	include/colors.h	97;"	d
+LIGHTGREY	include/colors.h	98;"	d
+LIGHTPINK	include/colors.h	99;"	d
+LIGHTSALMON	include/colors.h	100;"	d
+LIGHTSEAGREEN	include/colors.h	101;"	d
+LIGHTSKYBLUE	include/colors.h	102;"	d
+LIGHTSLATEGRAY	include/colors.h	103;"	d
+LIGHTSLATEGREY	include/colors.h	104;"	d
+LIGHTSTEELBLUE	include/colors.h	105;"	d
+LIGHTYELLOW	include/colors.h	106;"	d
+LIME	include/colors.h	20;"	d
+LIMEGREEN	include/colors.h	107;"	d
+LINEN	include/colors.h	108;"	d
 LOCALHOST	lib/minilibx/mlx_int.h	44;"	d
+MAGENTA	include/colors.h	24;"	d
 MAP_HEIGHT	include/define.h	22;"	d
 MAP_SIZE	include/define.h	23;"	d
 MAP_WIDTH	include/define.h	21;"	d
+MAROON	include/colors.h	28;"	d
+MEDIUMAQUAMARINE	include/colors.h	109;"	d
+MEDIUMBLUE	include/colors.h	110;"	d
+MEDIUMORCHID	include/colors.h	111;"	d
+MEDIUMPURPLE	include/colors.h	112;"	d
+MEDIUMSEAGREEN	include/colors.h	113;"	d
+MEDIUMSLATEBLUE	include/colors.h	114;"	d
+MEDIUMSPRINGGREEN	include/colors.h	115;"	d
+MEDIUMTURQUOISE	include/colors.h	116;"	d
+MEDIUMVIOLETRED	include/colors.h	117;"	d
+MIDNIGHTBLUE	include/colors.h	118;"	d
 MINIMAP_H	include/minimap.h	14;"	d
+MINTCREAM	include/colors.h	119;"	d
+MISTYROSE	include/colors.h	120;"	d
 MLX_H	lib/minilibx/mlx.h	32;"	d
 MLX_INT_H	lib/minilibx/mlx_int.h	19;"	d
 MLX_MAX_EVENT	lib/minilibx/mlx_int.h	40;"	d
 MLX_TYPE_SHM	lib/minilibx/mlx_int.h	37;"	d
 MLX_TYPE_SHM_PIXMAP	lib/minilibx/mlx_int.h	36;"	d
 MLX_TYPE_XIMAGE	lib/minilibx/mlx_int.h	38;"	d
+MOCCASIN	include/colors.h	121;"	d
 NAME	Makefile	/^NAME = cub3D$/;"	m
 NAME	lib/libft/Makefile	/^NAME = libft.a$/;"	m
 NAME	lib/libgc/Makefile	/^NAME = libgc.a$/;"	m
 NAME	lib/minilibx/Makefile.mk	/^NAME		= libmlx.a$/;"	m
 NAME	lib/minilibx/test/Makefile.mk	/^NAME= mlx-test$/;"	m
 NAME_UNAME	lib/minilibx/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
+NAVAJOWHITE	include/colors.h	122;"	d
+NAVY	include/colors.h	33;"	d
 NOERR	lib/libft/include/printf.h	/^	NOERR,$/;"	e	enum:e_error
 OBJ	Makefile	/^OBJ = 		$(SRC:$(SRC_DIR)\/%.c=$(OBJ_DIR)\/%.o)$/;"	m
 OBJ	lib/libft/Makefile	/^OBJ = $(SRC:.c=.o)$/;"	m
@@ -319,6 +492,19 @@ OBJ	lib/minilibx/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%.c=%.o))$/;
 OBJ	lib/minilibx/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
 OBJ_DIR	Makefile	/^OBJ_DIR = 	obj$/;"	m
 OBJ_DIR	lib/minilibx/Makefile.mk	/^OBJ_DIR = obj$/;"	m
+OLDLACE	include/colors.h	123;"	d
+OLIVE	include/colors.h	29;"	d
+OLIVEDRAB	include/colors.h	124;"	d
+ORANGERED	include/colors.h	125;"	d
+ORCHID	include/colors.h	126;"	d
+PALEGOLDENROD	include/colors.h	127;"	d
+PALEGREEN	include/colors.h	128;"	d
+PALETURQUOISE	include/colors.h	129;"	d
+PALEVIOLETRED	include/colors.h	130;"	d
+PAPAYAWHIP	include/colors.h	131;"	d
+PEACHPUFF	include/colors.h	132;"	d
+PERU	include/colors.h	133;"	d
+PINK	include/colors.h	134;"	d
 PLATFORM_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	466;"	d	file:
 PLATFORM_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	469;"	d	file:
 PLATFORM_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	472;"	d	file:
@@ -355,17 +541,31 @@ PLATFORM_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompile
 PLATFORM_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	569;"	d	file:
 PLATFORM_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	572;"	d	file:
 PLAYER_H	include/player.h	14;"	d
+PLUM	include/colors.h	135;"	d
+POWDERBLUE	include/colors.h	136;"	d
 PRINTF_H	lib/libft/include/printf.h	14;"	d
+PURPLE	include/colors.h	31;"	d
 RAYCAST_H	include/raycast.h	14;"	d
 RAYS	include/define.h	31;"	d
+REBECCAPURPLE	include/colors.h	137;"	d
 RED	Makefile	/^RED     = \\033[31m$/;"	m
+RED	include/colors.h	19;"	d
 RESET	Makefile	/^RESET   = \\033[0m$/;"	m
 RETURN	lib/minilibx/mlx_xpm.c	17;"	d	file:
 RM	lib/libft/test_src/build/Makefile	/^RM = \/usr\/bin\/cmake -E rm -f$/;"	m
+ROSYBROWN	include/colors.h	138;"	d
 ROT_SPEED	include/define.h	27;"	d
+ROYALBLUE	include/colors.h	139;"	d
+SADDLEBROWN	include/colors.h	140;"	d
+SALMON	include/colors.h	141;"	d
+SANDYBROWN	include/colors.h	142;"	d
 SANITIZE	Makefile	/^SANITIZE = 	-g3 -fPIC -fsanitize=thread$/;"	m
 SCRIPT_URL	Makefile	/^SCRIPT_URL = https:\/\/github.com\/jeromeDev94\/make_interface.git$/;"	m
+SEAGREEN	include/colors.h	143;"	d
+SEASHELL	include/colors.h	144;"	d
 SHELL	lib/libft/test_src/build/Makefile	/^SHELL = \/bin\/sh$/;"	m
+SIENNA	include/colors.h	145;"	d
+SILVER	include/colors.h	25;"	d
 SIMULATE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	27;"	d	file:
 SIMULATE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	30;"	d	file:
 SIMULATE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	319;"	d	file:
@@ -392,7 +592,13 @@ SIMULATE_VERSION_MINOR	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CM
 SIMULATE_VERSION_PATCH	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	105;"	d	file:
 SIMULATE_VERSION_PATCH	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	364;"	d	file:
 SIMULATE_VERSION_PATCH	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	67;"	d	file:
+SKYBLUE	include/colors.h	146;"	d
+SLATEBLUE	include/colors.h	147;"	d
+SLATEGRAY	include/colors.h	148;"	d
+SLATEGREY	include/colors.h	149;"	d
+SNOW	include/colors.h	150;"	d
 SPEED	include/define.h	26;"	d
+SPRINGGREEN	include/colors.h	151;"	d
 SQUARE_SIZE	include/define.h	29;"	d
 SRC	Makefile	/^SRC = \\$/;"	m
 SRC	lib/libft/Makefile	/^SRC = \\$/;"	m
@@ -411,28 +617,40 @@ START_TEST	lib/libft/test_src/printf/test_ft_snprintf.c	/^START_TEST(test_simple
 START_TEST	lib/libft/test_src/printf/test_ft_snprintf.c	/^START_TEST(test_truncation)$/;"	f
 START_TEST	lib/libft/test_src/printf/test_ft_snprintf.c	/^START_TEST(test_various_specifiers)$/;"	f
 START_TEST	test_src/check_testunit_template.c	/^START_TEST(name_of_the_test_function)$/;"	f
+STEELBLUE	include/colors.h	152;"	d
 STRINGIFY	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	462;"	d	file:
 STRINGIFY_HELPER	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	461;"	d	file:
+TAN	include/colors.h	153;"	d
+TEAL	include/colors.h	32;"	d
+THISTLE	include/colors.h	154;"	d
 TILE_SIZE	include/define.h	24;"	d
+TOMATO	include/colors.h	155;"	d
 TOTAL_STEPS	Makefile	/^TOTAL_STEPS := $(words $(OBJ))$/;"	m
+TURQUOISE	include/colors.h	156;"	d
 UNAME	lib/minilibx/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
 UNAME	lib/minilibx/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
 VALG	Makefile	/^VALG =		valgrind -s --leak-check=full \\$/;"	m
 VERBOSE	Makefile	/^VERBOSE ?= @$/;"	m
 VERBOSE	Makefile	/^classic: VERBOSE =$/;"	m
 VFLAGS	Makefile	/^VFLAGS = 	-g3 -fPIC $/;"	m
+VIOLET	include/colors.h	157;"	d
 WARN_SHM_ATTACH	lib/minilibx/mlx_int.h	46;"	d
+WHEAT	include/colors.h	158;"	d
+WHITE	include/colors.h	18;"	d
+WHITESMOKE	include/colors.h	159;"	d
 WIN1_SX	lib/minilibx/test/main.c	5;"	d	file:
 WIN1_SY	lib/minilibx/test/main.c	6;"	d	file:
 WINDOW_HEIGHT	include/define.h	19;"	d
 WINDOW_WIDTH	include/define.h	18;"	d
 X_ShmAttach	lib/minilibx/mlx_new_image.c	20;"	d	file:
 YELLOW	Makefile	/^YELLOW  = \\033[33m$/;"	m
+YELLOW	include/colors.h	22;"	d
+YELLOWGREEN	include/colors.h	160;"	d
 __has_include	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	17;"	d	file:
 addr	include/cub3d.h	/^	char	*addr;$/;"	m	struct:s_image
-angle	include/cub3d.h	/^	double	angle; \/\/ Player viewing angle in radians$/;"	m	struct:s_player
+angle	include/cub3d.h	/^	double	angle;$/;"	m	struct:s_player
 at_exit	lib/minilibx/test/run_tests.sh	/^at_exit() {$/;"	f
-bpp	include/cub3d.h	/^	int		bpp; \/\/ bits per pixel$/;"	m	struct:s_image
+bpp	include/cub3d.h	/^	int		bpp;$/;"	m	struct:s_image
 bpp	lib/minilibx/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img
 bpp1	lib/minilibx/test/main.c	/^int	bpp1;$/;"	v
 bpp2	lib/minilibx/test/main.c	/^int	bpp2;$/;"	v
@@ -441,16 +659,20 @@ bpp4	lib/minilibx/test/main.c	/^int	bpp4;$/;"	v
 buf_fd	lib/libft/include/printf.h	/^	int		buf_fd;$/;"	m	struct:s_buffer
 buf_last	lib/libft/include/printf.h	/^	char	buf_last;$/;"	m	struct:s_buffer
 buffer	lib/libft/include/printf.h	/^	char	*buffer;$/;"	m	struct:s_buffer
-castHorizontalRay	src/raycast.c	/^static t_rayinfo castHorizontalRay(t_data *data, float angle)$/;"	f	file:
-castVerticalRay	src/raycast.c	/^static t_rayinfo castVerticalRay(t_data *data, float angle)$/;"	f	file:
+cast_horizontal_ray	src/raycast.c	/^t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle)$/;"	f
+cast_vertical_ray	src/raycast.c	/^t_rayinfo cast_vertical_ray(t_data *data, float ray_angle)$/;"	f
 clean	lib/minilibx/configure	/^clean(){$/;"	f
 clear_image	src/engine.c	/^int	clear_image(t_image *img, int color)$/;"	f
 cmap	lib/minilibx/mlx_int.h	/^	Colormap	cmap;$/;"	m	struct:s_xvar
 col	lib/minilibx/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col
+color	include/cub3d.h	/^	int	color;$/;"	m	struct:s_line_data
 color	lib/minilibx/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name
 color_map_1	lib/minilibx/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f
 color_map_2	lib/minilibx/test/main.c	/^int	color_map_2(unsigned char *data,int bpp,int sl,int w,int h,int endian, int type)$/;"	f
 const	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	10;"	d	file:
+cos_a	include/raycast.h	/^	float	cos_a;				\/\/ cosine_angle: cosine of the ray angle$/;"	m	struct:s_ray_cast_vars
+cur_x	include/raycast.h	/^	float	cur_x;	\/\/ current_x: current x coordinate while drawing the line$/;"	m	struct:s_line_vars
+cur_y	include/raycast.h	/^	float	cur_y;	\/\/ current_y: current y coordinate while drawing the line$/;"	m	struct:s_line_vars
 data	lib/minilibx/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img
 data1	lib/minilibx/test/main.c	/^char	*data1;$/;"	v
 data2	lib/minilibx/test/main.c	/^char	*data2;$/;"	v
@@ -458,20 +680,26 @@ data3	lib/minilibx/test/main.c	/^char	*data3;$/;"	v
 data4	lib/minilibx/test/main.c	/^char	*data4;$/;"	v
 decrgb	lib/minilibx/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar
 delta_accumulator	include/cub3d.h	/^	double			delta_accumulator;$/;"	m	struct:s_data
+delta_x	include/raycast.h	/^	float	delta_x;			\/\/ delta_x: difference between collision x and$/;"	m	struct:s_ray_cast_vars
+delta_y	include/raycast.h	/^	float	delta_y;			\/\/ delta_y: difference between collision y and$/;"	m	struct:s_ray_cast_vars
 depth	lib/minilibx/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar
 display	lib/minilibx/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar
-dist	include/raycast.h	/^    float dist;$/;"	m	struct:s_ray
+dist	include/raycast.h	/^	float	dist;$/;"	m	struct:s_ray
+dist_primary	include/raycast.h	/^	float	dist_primary;		\/\/ distance_primary: distance along the primary$/;"	m	struct:s_ray_cast_vars
+distance	include/raycast.h	/^	float	distance;			\/\/ distance: computed Euclidean distance from$/;"	m	struct:s_ray_cast_vars
 do_flush	lib/minilibx/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar
 draw_direction_line	src/minimap.c	/^int	draw_direction_line(t_data *data, int center_x, int center_y)$/;"	f
-draw_line	src/raycast.c	/^static void draw_line(t_data *data, int x0, int y0, int x1, int y1, int color)$/;"	f	file:
+draw_line	src/raycast.c	/^int	draw_line(t_data *data, t_line_data ldata)$/;"	f
 draw_map	src/minimap.c	/^int	draw_map(t_data *data)$/;"	f
 draw_player	src/minimap.c	/^int	draw_player(t_data *data)$/;"	f
 draw_rays	next_step.c	/^int	draw_rays()$/;"	f
-draw_rays	src/raycast.c	/^int draw_rays(t_data *data)$/;"	f
+draw_rays	src/raycast.c	/^int	draw_rays(t_data *data)$/;"	f
 draw_square	src/minimap.c	/^int	draw_square(t_data *data, int x_start, int y_start)$/;"	f
 draw_tile	src/minimap.c	/^int	draw_tile(t_data *data, int row, int col, int base_color)$/;"	f
-dx	include/cub3d.h	/^	double	dx; \/\/ cos(angle)$/;"	m	struct:s_player
-dy	include/cub3d.h	/^	double	dy; \/\/ sin(angle)$/;"	m	struct:s_player
+dx	include/cub3d.h	/^	double	dx;$/;"	m	struct:s_player
+dx	include/raycast.h	/^	int		dx;		\/\/ delta_x: difference in x between start and end$/;"	m	struct:s_line_vars
+dy	include/cub3d.h	/^	double	dy;$/;"	m	struct:s_player
+dy	include/raycast.h	/^	int		dy;		\/\/ delta_y: difference in y between start and end$/;"	m	struct:s_line_vars
 e_error	lib/libft/include/printf.h	/^typedef enum e_error$/;"	g
 end_loop	lib/minilibx/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar
 endian	include/cub3d.h	/^	int		endian;$/;"	m	struct:s_image
@@ -486,6 +714,7 @@ expose_param	lib/minilibx/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win
 expose_win1	lib/minilibx/test/main.c	/^int	expose_win1(void *p)$/;"	f
 expose_win2	lib/minilibx/test/main.c	/^int	expose_win2(void *p)$/;"	f
 fd	lib/libgc/include/libgc.h	/^	int					fd;$/;"	m	struct:s_gc_node
+flag	include/raycast.h	/^	int		flag;				\/\/ flag_direction: for vertical (looking left) $/;"	m	struct:s_ray_cast_vars
 flag_hash	lib/libft/include/printf.h	/^	int			flag_hash;$/;"	m	struct:s_format_spec
 flag_minus	lib/libft/include/printf.h	/^	int			flag_minus;$/;"	m	struct:s_format_spec
 flag_plus	lib/libft/include/printf.h	/^	int			flag_plus;$/;"	m	struct:s_format_spec
@@ -626,6 +855,7 @@ height	lib/minilibx/mlx_int.h	/^	int				height;$/;"	m	struct:s_img
 helper	lib/libgc/src/gc_realloc.c	/^static void	*helper(t_gc_node *current, void *ptr, size_t size, t_gc *gcl)$/;"	f	file:
 hook	lib/minilibx/mlx_int.h	/^	int		(*hook)();$/;"	m	struct:s_event_list
 hooks	lib/minilibx/mlx_int.h	/^	t_event_list		hooks[MLX_MAX_EVENT];$/;"	m	struct:s_win_list
+i	include/raycast.h	/^	int		i;		\/\/ loop_index: iteration counter$/;"	m	struct:s_line_vars
 im1	lib/minilibx/test/main.c	/^void    *im1;$/;"	v
 im2	lib/minilibx/test/main.c	/^void	*im2;$/;"	v
 im3	lib/minilibx/test/main.c	/^void	*im3;$/;"	v
@@ -633,6 +863,8 @@ im4	lib/minilibx/test/main.c	/^void	*im4;$/;"	v
 image	lib/minilibx/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img
 img	include/cub3d.h	/^	t_image			img;$/;"	m	struct:s_data
 img_ptr	include/cub3d.h	/^	void	*img_ptr;$/;"	m	struct:s_image
+inc_x	include/raycast.h	/^	float	inc_x;	\/\/ increment_x: x increment per step$/;"	m	struct:s_line_vars
+inc_y	include/raycast.h	/^	float	inc_y;	\/\/ increment_y: y increment per step$/;"	m	struct:s_line_vars
 index	lib/libft/include/printf.h	/^	int		index;$/;"	m	struct:s_buffer
 info_arch	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	/^char const* info_arch = "INFO" ":" "arch[" ARCHITECTURE_ID "]";$/;"	v
 info_compiler	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	/^char const* info_compiler = "INFO" ":" "compiler[" COMPILER_ID "]";$/;"	v
@@ -649,6 +881,8 @@ info_version_internal	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMa
 init	lib/libgc/src/gc_nest_register.c	/^static t_gc_node	*init(t_gc_node *new_node, void *ptr, t_gc *gcl)$/;"	f	file:
 init	lib/libgc/src/gc_register.c	/^static t_gc_node	*init(t_gc_node *new_node, const char *filename, t_gc *gcl)$/;"	f	file:
 init_image	src/engine.c	/^int	init_image(t_data *data)$/;"	f
+intercept_primary	include/raycast.h	/^	float	intercept_primary;	\/\/ intercept_primary: first grid intercept on $/;"	m	struct:s_ray_cast_vars
+intercept_secondary	include/raycast.h	/^	float	intercept_secondary;\/\/ intercept_secondary: first grid intercept on$/;"	m	struct:s_ray_cast_vars
 is_array	lib/libgc/include/libgc.h	/^	bool				is_array;$/;"	m	struct:s_gc_node
 is_locked	lib/libgc/include/libgc.h	/^	bool				is_locked;$/;"	m	struct:s_gc_node
 is_marked	lib/libgc/include/libgc.h	/^	bool				is_marked;$/;"	m	struct:s_gc_node
@@ -668,6 +902,7 @@ log_info	lib/minilibx/configure	/^log_info(){$/;"	f
 log_info	lib/minilibx/test/run_tests.sh	/^log_info(){$/;"	f
 logging	lib/minilibx/configure	/^logging(){$/;"	f
 logging	lib/minilibx/test/run_tests.sh	/^logging(){$/;"	f
+loop_counter	include/raycast.h	/^	int		loop_counter;		\/\/ loop_index: counter for looping along the ray$/;"	m	struct:s_ray_cast_vars
 loop_hook	lib/minilibx/mlx_int.h	/^	int			(*loop_hook)();$/;"	m	struct:s_xvar
 loop_param	lib/minilibx/mlx_int.h	/^	void		*loop_param;$/;"	m	struct:s_xvar
 main	lib/libft/check_testunit_template.c	/^int main(void)$/;"	f
@@ -679,6 +914,7 @@ main	lib/minilibx/test/new_win.c	/^int main()$/;"	f
 main	lib/minilibx/test/run_tests.sh	/^main(){$/;"	f
 main	main.c	/^int	main(void)$/;"	f
 main	test_src/check_testunit_template.c	/^int main(void)$/;"	f
+map_index	include/raycast.h	/^	int		map_index;			\/\/ map_index: index in the global map array$/;"	m	struct:s_ray_cast_vars
 mask	lib/minilibx/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list
 max_size	lib/libft/include/printf.h	/^	size_t	max_size;$/;"	m	struct:s_buffer
 mlx	include/cub3d.h	/^	void			*mlx;$/;"	m	struct:s_data
@@ -775,6 +1011,8 @@ pix	lib/minilibx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img
 player	include/cub3d.h	/^	t_player		player;$/;"	m	struct:s_data
 player_init	src/player.c	/^int	player_init(t_data *data)$/;"	f
 player_update	src/player.c	/^int	player_update(t_data *data, double delta_time)$/;"	f
+player_x	include/raycast.h	/^	float	player_x;			\/\/ player_x_position: player’s x coordinate$/;"	m	struct:s_ray_cast_vars
+player_y	include/raycast.h	/^	float	player_y;			\/\/ player_y_position: player’s y coordinate$/;"	m	struct:s_ray_cast_vars
 precision	lib/libft/include/printf.h	/^	int			precision;$/;"	m	struct:s_format_spec
 print_map	src/minimap.c	/^int	print_map(void)$/;"	f
 private_cmap	lib/minilibx/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar
@@ -782,11 +1020,13 @@ pshm_format	lib/minilibx/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar
 ptr	lib/libgc/include/libgc.h	/^	void				*ptr;$/;"	m	struct:s_gc_node
 put_pixel_to_image	src/engine.c	/^int	put_pixel_to_image(t_image *img, int x, int y, int color)$/;"	f
 qnxnto	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+ray_collision_x	include/raycast.h	/^	float	ray_collision_x;	\/\/ ray_collision_x: final x coordinate where the$/;"	m	struct:s_ray_cast_vars
+ray_collision_y	include/raycast.h	/^	float	ray_collision_y;	\/\/ ray_collision_y: final y coordinate where the$/;"	m	struct:s_ray_cast_vars
 root	lib/minilibx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar
-rot_left	include/cub3d.h	/^	bool	rot_left; \/\/ Pressing left arrow$/;"	m	struct:s_player
-rot_right	include/cub3d.h	/^	bool	rot_right; \/\/ Pressing right arrow$/;"	m	struct:s_player
-rx	include/raycast.h	/^    float rx;$/;"	m	struct:s_ray
-ry	include/raycast.h	/^    float ry;$/;"	m	struct:s_ray
+rot_left	include/cub3d.h	/^	bool	rot_left;$/;"	m	struct:s_player
+rot_right	include/cub3d.h	/^	bool	rot_right;$/;"	m	struct:s_player
+rx	include/raycast.h	/^	float	rx;$/;"	m	struct:s_ray
+ry	include/raycast.h	/^	float	ry;$/;"	m	struct:s_ray
 s_buffer	lib/libft/include/printf.h	/^typedef struct s_buffer$/;"	s
 s_col_name	lib/minilibx/mlx_int.h	/^struct	s_col_name$/;"	s
 s_data	include/cub3d.h	/^typedef struct s_data$/;"	s
@@ -796,8 +1036,11 @@ s_garbage_collector	lib/libgc/include/libgc.h	/^typedef struct s_garbage_collect
 s_gc_node	lib/libgc/include/libgc.h	/^typedef struct s_gc_node$/;"	s
 s_image	include/cub3d.h	/^typedef struct s_image$/;"	s
 s_img	lib/minilibx/mlx_int.h	/^typedef struct	s_img$/;"	s
+s_line_data	include/cub3d.h	/^typedef struct s_line_data$/;"	s
+s_line_vars	include/raycast.h	/^typedef struct s_line_vars$/;"	s
 s_player	include/cub3d.h	/^typedef struct s_player$/;"	s
 s_ray	include/raycast.h	/^typedef struct s_ray$/;"	s
+s_ray_cast_vars	include/raycast.h	/^typedef struct s_ray_cast_vars$/;"	s
 s_win_list	lib/minilibx/mlx_int.h	/^typedef struct	s_win_list$/;"	s
 s_xpm_col	lib/minilibx/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
 s_xvar	lib/minilibx/mlx_int.h	/^typedef struct	s_xvar$/;"	s
@@ -809,13 +1052,18 @@ setup	test_src/check_testunit_template.c	/^void setup(void)$/;"	f
 shm	lib/minilibx/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img
 shm_att_pb	lib/minilibx/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f
 show_help	lib/minilibx/configure	/^show_help(){$/;"	f
+show_rays	include/cub3d.h	/^	bool			show_rays;$/;"	m	struct:s_data
 sigint_handler	lib/minilibx/test/run_tests.sh	/^sigint_handler(){$/;"	f
+sin_a	include/raycast.h	/^	float	sin_a;				\/\/ sine_angle: sine of the ray angle$/;"	m	struct:s_ray_cast_vars
 size	lib/libgc/include/libgc.h	/^	size_t				size;$/;"	m	struct:s_gc_node
 size_line	lib/minilibx/mlx_int.h	/^	int				size_line;$/;"	m	struct:s_img
 sl1	lib/minilibx/test/main.c	/^int	sl1;$/;"	v
 sl2	lib/minilibx/test/main.c	/^int	sl2;$/;"	v
 sl3	lib/minilibx/test/main.c	/^int	sl3;$/;"	v
 sl4	lib/minilibx/test/main.c	/^int	sl4;$/;"	v
+step_primary	include/raycast.h	/^	float	step_primary;		\/\/ step_primary: grid step size in the primary $/;"	m	struct:s_ray_cast_vars
+step_secondary	include/raycast.h	/^	float	step_secondary;		\/\/ step_secondary: grid step size in the $/;"	m	struct:s_ray_cast_vars
+steps	include/raycast.h	/^	int		steps;	\/\/ number_of_steps: how many steps to iterate$/;"	m	struct:s_line_vars
 strlcpy_is_not_posix	lib/minilibx/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f
 t_buffer	lib/libft/include/printf.h	/^}			t_buffer;$/;"	t	typeref:struct:s_buffer
 t_data	include/cub3d.h	/^}				t_data;$/;"	t	typeref:struct:s_data
@@ -826,18 +1074,25 @@ t_gc	lib/libgc/include/libgc.h	/^}				t_gc;$/;"	t	typeref:struct:s_garbage_colle
 t_gc_node	lib/libgc/include/libgc.h	/^}				t_gc_node;$/;"	t	typeref:struct:s_gc_node
 t_image	include/cub3d.h	/^}	t_image;$/;"	t	typeref:struct:s_image
 t_img	lib/minilibx/mlx_int.h	/^}				t_img;$/;"	t	typeref:struct:s_img
+t_line_data	include/cub3d.h	/^}	t_line_data;$/;"	t	typeref:struct:s_line_data
+t_line_vars	include/raycast.h	/^}	t_line_vars;$/;"	t	typeref:struct:s_line_vars
 t_player	include/cub3d.h	/^}			t_player;$/;"	t	typeref:struct:s_player
-t_rayinfo	include/raycast.h	/^}   t_rayinfo;$/;"	t	typeref:struct:s_ray
+t_ray_cast_vars	include/raycast.h	/^}	t_ray_cast_vars;$/;"	t	typeref:struct:s_ray_cast_vars
+t_rayinfo	include/raycast.h	/^}	t_rayinfo;$/;"	t	typeref:struct:s_ray
 t_win_list	lib/minilibx/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
 t_xpm_col	lib/minilibx/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
 t_xvar	lib/minilibx/mlx_int.h	/^}				t_xvar;$/;"	t	typeref:struct:s_xvar
+tan_a	include/raycast.h	/^	float	tan_a;				\/\/ tangent_angle: tangent of the ray angle$/;"	m	struct:s_ray_cast_vars
 teardown	lib/libft/check_testunit_template.c	/^void teardown(void)$/;"	f
 teardown	lib/libft/test_src/printf/test_ft_snprintf.c	/^void teardown(void)$/;"	f
 teardown	test_src/check_testunit_template.c	/^void teardown(void)$/;"	f
 temp_file	lib/libgc/include/libgc.h	/^	char				*temp_file;$/;"	m	struct:s_gc_node
 test_default_main	lib/minilibx/test/run_tests.sh	/^test_default_main(){$/;"	f
+tile_x	include/raycast.h	/^	int		tile_x;				\/\/ tile_x_index: current map tile index in the x$/;"	m	struct:s_ray_cast_vars
+tile_y	include/raycast.h	/^	int		tile_y;				\/\/ tile_y_index: current map tile index in the y$/;"	m	struct:s_ray_cast_vars
 type	lib/libft/include/printf.h	/^	char		type;$/;"	m	struct:s_format_spec
 type	lib/minilibx/mlx_int.h	/^	int				type;$/;"	m	struct:s_img
+use_inner_edge	include/cub3d.h	/^	bool			use_inner_edge;$/;"	m	struct:s_data
 use_xshm	lib/minilibx/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar
 visual	lib/minilibx/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar
 volatile	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	11;"	d	file:
@@ -854,7 +1109,11 @@ win_list	lib/minilibx/mlx_int.h	/^	t_win_list	*win_list;$/;"	m	struct:s_xvar
 window	lib/minilibx/mlx_int.h	/^	Window				window;$/;"	m	struct:s_win_list
 wm_delete_window	lib/minilibx/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struct:s_xvar
 wm_protocols	lib/minilibx/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar
-x	include/cub3d.h	/^	double	x; \/\/ Player x-position (pixels)$/;"	m	struct:s_player
+x	include/cub3d.h	/^	double	x;$/;"	m	struct:s_player
+x0	include/cub3d.h	/^	int	x0;$/;"	m	struct:s_line_data
+x1	include/cub3d.h	/^	int	x1;$/;"	m	struct:s_line_data
 xpm1_x	lib/minilibx/test/main.c	/^int	xpm1_x;$/;"	v
 xpm1_y	lib/minilibx/test/main.c	/^int	xpm1_y;$/;"	v
-y	include/cub3d.h	/^	double	y; \/\/ Player y-position (pixels)$/;"	m	struct:s_player
+y	include/cub3d.h	/^	double	y;$/;"	m	struct:s_player
+y0	include/cub3d.h	/^	int	y0;$/;"	m	struct:s_line_data
+y1	include/cub3d.h	/^	int	y1;$/;"	m	struct:s_line_data

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:26:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 21:26:49 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 10:50:09 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	player_update(t_data *data, double delta_time)
 	double	move_distance;
 
 	// 1) Rotation
-	rotation_factor = ROT_SPEED * 5.0;
+	rotation_factor = ROT_SPEED;
 	if (data->player.rot_left)
 		data->player.angle -= rotation_factor * delta_time;
 	if (data->player.rot_right)

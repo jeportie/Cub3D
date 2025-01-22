@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 21:22:26 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 14:28:33 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,33 @@
 # include <stdbool.h>
 # include <time.h>
 # include <stdio.h>
-# include <unistd.h>  // for close, etc.
-# include <math.h>     // for cos, sin, etc. (may need -lm)
+# include <unistd.h>
+# include <math.h>
 # include "define.h"
+# include "colors.h"
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
 
 typedef struct s_player
 {
-	double	x; // Player x-position (pixels)
-	double	y; // Player y-position (pixels)
-	double	angle; // Player viewing angle in radians
-	double	dx; // cos(angle)
-	double	dy; // sin(angle)
+	double	x;
+	double	y;
+	double	angle;
+	double	dx;
+	double	dy;
 	bool	move_up;
 	bool	move_down;
 	bool	move_left;
 	bool	move_right;
-	bool	rot_left; // Pressing left arrow
-	bool	rot_right; // Pressing right arrow
+	bool	rot_left;
+	bool	rot_right;
 }			t_player;
 
 typedef struct s_image
 {
 	void	*img_ptr;
 	char	*addr;
-	int		bpp; // bits per pixel
+	int		bpp;
 	int		line_len;
 	int		endian;
 }	t_image;
@@ -55,7 +56,18 @@ typedef struct s_data
 	t_player		player;
 	struct timespec	last_time;
 	double			delta_accumulator;
+	bool			show_rays;
+	bool			use_inner_edge;
 }				t_data;
+
+typedef struct s_line_data
+{
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	color;
+}	t_line_data;
 
 int	game_loop(t_data *data);
 

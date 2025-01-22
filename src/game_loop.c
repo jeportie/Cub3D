@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 20:15:37 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 13:28:44 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ int	game_loop(t_data *data)
 	clear_image(&data->img, 0x000000);
 	draw_map(data);
 	draw_player(data);
-	draw_rays(data);
+	if (data->show_rays)
+		draw_rays(data);
 	mlx_put_image_to_window(data->mlx, data->win, data->img.img_ptr, 0, 0);
 	return (0);
 }

@@ -6,21 +6,22 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:53:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 21:24:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 11:52:31 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minimap.h"
 #include "../include/engine.h"
+#include "../include/colors.h"
 
 char	g_map[MAP_SIZE + 1] = {
 	"11111111"
 	"10010001"
 	"10010001"
 	"10010011"
+	"10001001"
 	"10000001"
-	"10000001"
-	"1P000001"
+	"1P000101"
 	"11111111"
 };
 
@@ -65,7 +66,7 @@ int	draw_tile(t_data *data, int row, int col, int base_color)
 			color = base_color;
 			if (py == 0 || py == TILE_SIZE - 1
 				|| px == 0 || px == TILE_SIZE - 1)
-				color = 0x666666;
+				color = GREY;
 			put_pixel_to_image(&data->img, x, y, color);
 			px++;
 		}
@@ -89,9 +90,9 @@ int	draw_map(t_data *data)
 		{
 			tile = g_map[row * MAP_WIDTH + col];
 			if (tile == '1')
-				base_color = 0xFFFFFF;
+				base_color = WHITE;
 			else
-				base_color = 0x000000;
+				base_color = BLACK;
 			draw_tile(data, row, col, base_color);
 			col++;
 		}
@@ -115,7 +116,7 @@ int	draw_square(t_data *data, int x_start, int y_start)
 		{
 			draw_col = x_start + col;
 			draw_row = y_start + row;
-			put_pixel_to_image(&data->img, draw_col, draw_row, 0xFF0000);
+			put_pixel_to_image(&data->img, draw_col, draw_row, RED);
 			col++;
 		}
 		row++;
@@ -136,7 +137,7 @@ int	draw_direction_line(t_data *data, int center_x, int center_y)
 	{
 		lx = center_x + (int)(data->player.dx * i);
 		ly = center_y + (int)(data->player.dy * i);
-		put_pixel_to_image(&data->img, lx, ly, 0x6495ED);
+		put_pixel_to_image(&data->img, lx, ly, PURPLE);
 		i++;
 	}
 	return (0);
