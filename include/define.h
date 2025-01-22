@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 14:09:16 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:47:02 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define EPSILON		0.0001f
 
 # define FOV_DEGREES	60.0f
-# define INNER_OFFSET	1.0f
+# define INNER_OFFSET	-0.01f
+# define MAX_STEPS 64
 
 #endif

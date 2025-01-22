@@ -456,6 +456,7 @@ MAP_HEIGHT	include/define.h	22;"	d
 MAP_SIZE	include/define.h	23;"	d
 MAP_WIDTH	include/define.h	21;"	d
 MAROON	include/colors.h	28;"	d
+MAX_STEPS	include/define.h	36;"	d
 MEDIUMAQUAMARINE	include/colors.h	109;"	d
 MEDIUMBLUE	include/colors.h	110;"	d
 MEDIUMORCHID	include/colors.h	111;"	d
@@ -692,7 +693,6 @@ draw_direction_line	src/minimap.c	/^int	draw_direction_line(t_data *data, int ce
 draw_line	src/raycast.c	/^int	draw_line(t_data *data, t_line_data ldata)$/;"	f
 draw_map	src/minimap.c	/^int	draw_map(t_data *data)$/;"	f
 draw_player	src/minimap.c	/^int	draw_player(t_data *data)$/;"	f
-draw_rays	next_step.c	/^int	draw_rays()$/;"	f
 draw_rays	src/raycast.c	/^int	draw_rays(t_data *data)$/;"	f
 draw_square	src/minimap.c	/^int	draw_square(t_data *data, int x_start, int y_start)$/;"	f
 draw_tile	src/minimap.c	/^int	draw_tile(t_data *data, int row, int col, int base_color)$/;"	f
@@ -881,6 +881,7 @@ info_version_internal	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMa
 init	lib/libgc/src/gc_nest_register.c	/^static t_gc_node	*init(t_gc_node *new_node, void *ptr, t_gc *gcl)$/;"	f	file:
 init	lib/libgc/src/gc_register.c	/^static t_gc_node	*init(t_gc_node *new_node, const char *filename, t_gc *gcl)$/;"	f	file:
 init_image	src/engine.c	/^int	init_image(t_data *data)$/;"	f
+intercept_mode	src/raycast.c	/^int	intercept_mode(t_data *data, t_ray_cast_vars *ray, char c)$/;"	f
 intercept_primary	include/raycast.h	/^	float	intercept_primary;	\/\/ intercept_primary: first grid intercept on $/;"	m	struct:s_ray_cast_vars
 intercept_secondary	include/raycast.h	/^	float	intercept_secondary;\/\/ intercept_secondary: first grid intercept on$/;"	m	struct:s_ray_cast_vars
 is_array	lib/libgc/include/libgc.h	/^	bool				is_array;$/;"	m	struct:s_gc_node

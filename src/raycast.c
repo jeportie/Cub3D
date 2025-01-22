@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:04:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 14:37:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:44:07 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,31 @@ int	draw_line(t_data *data, t_line_data ldata)
 	return (0);
 }
 
+int	intercept_mode(t_data *data, t_ray_cast_vars *ray, char c)
+{
+	float	player;
+
+	if (c == 'v')
+		player = ray->player_x;
+	else if (c == 'h')
+		player = ray->player_y;
+	if (data->use_inner_edge)
+	{
+		if (!ray->flag)
+			ray->intercept_primary = floorf(player / TILE_SIZE) * TILE_SIZE + TILE_SIZE - INNER_OFFSET;
+		else
+			ray->intercept_primary = floorf(player / TILE_SIZE) * TILE_SIZE + INNER_OFFSET;
+	}
+	else
+	{
+		if (ray->flag)
+			ray->intercept_primary = floorf(player / TILE_SIZE) * TILE_SIZE;
+		else
+			ray->intercept_primary = floorf(player / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
+	}
+	return (0);
+}
+
 t_rayinfo cast_vertical_ray(t_data *data, float ray_angle)
 {
 	t_ray_cast_vars	v;
@@ -64,20 +89,8 @@ t_rayinfo cast_vertical_ray(t_data *data, float ray_angle)
 			v.cos_a = -EPSILON;
 	}
 	v.flag = (v.cos_a < 0);
-	if (data->use_inner_edge)
-	{
-		if (v.flag)
-			v.intercept_primary = floorf(v.player_x / TILE_SIZE) * TILE_SIZE + TILE_SIZE - INNER_OFFSET;
-		else
-			v.intercept_primary = floorf(v.player_x / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
-	}
-	else
-	{
-		if (v.flag)
-			v.intercept_primary = floorf(v.player_x / TILE_SIZE) * TILE_SIZE;
-		else
-			v.intercept_primary = floorf(v.player_x / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
-	}	v.dist_primary = v.intercept_primary - v.player_x;
+	intercept_mode(data, &v, 'v');
+	v.dist_primary = v.intercept_primary - v.player_x;
 	v.tan_a = v.sin_a / v.cos_a;
 	v.intercept_secondary = v.player_y + v.dist_primary * v.tan_a;
 	if (v.flag)
@@ -128,20 +141,7 @@ t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle)
 			h.sin_a = -EPSILON;
 	}
 	h.flag = (h.sin_a < 0);
-	if (data->use_inner_edge)
-	{
-		if (h.flag)
-			h.intercept_primary = floorf(h.player_y / TILE_SIZE) * TILE_SIZE + TILE_SIZE - INNER_OFFSET;
-		else
-			h.intercept_primary = floorf(h.player_y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
-	}
-	else
-	{
-		if (h.flag)
-			h.intercept_primary = floorf(h.player_y / TILE_SIZE) * TILE_SIZE;
-		else
-			h.intercept_primary = floorf(h.player_y / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
-	}
+	intercept_mode(data, &h, 'h');
 	h.dist_primary = h.intercept_primary - h.player_y;
 	h.tan_a = h.cos_a / h.sin_a;
 	h.intercept_secondary = h.player_x + h.dist_primary * h.tan_a;

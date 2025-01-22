@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 21:22:00 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 16:45:17 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,5 @@ int	main(void)
 	mlx_loop(data.mlx);
 	return (0);
 }
+
+
