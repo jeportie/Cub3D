@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 11:17:33 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:53:57 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,17 @@ typedef struct s_ray
 	float	rx;
 	float	ry;
 	float	dist;
+	int		color;
 }	t_rayinfo;
 
+typedef enum e_wall_type
+{
+	WALL_NONE,       // Initial state
+	WALL_VERTICAL,   // Wall hit by vertical ray
+	WALL_HORIZONTAL  // Wall hit by horizontal ray
+}	t_wall_type;
+
 int	draw_rays(t_data *data);
+int	draw_3D_view(t_data *data);
 
 #endif

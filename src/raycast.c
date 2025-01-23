@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:04:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 16:44:07 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/23 00:42:01 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	intercept_mode(t_data *data, t_ray_cast_vars *ray, char c)
 		player = ray->player_x;
 	else if (c == 'h')
 		player = ray->player_y;
-	if (data->use_inner_edge)
+	if (!data->use_inner_edge)
 	{
 		if (!ray->flag)
 			ray->intercept_primary = floorf(player / TILE_SIZE) * TILE_SIZE + TILE_SIZE - INNER_OFFSET;
@@ -199,16 +199,135 @@ int	draw_rays(t_data *data)
 		vertical_ray = cast_vertical_ray(data, ray_angle);
 		horizontal_ray = cast_horizontal_ray(data, ray_angle);
 		if (vertical_ray.dist < horizontal_ray.dist)
+		{
+			ldata.color = GREEN;
 			chosen = vertical_ray;
+		}
 		else
+		{
+			ldata.color = LIGHTGREEN;
 			chosen = horizontal_ray;
+		}
 		ldata.x0 = (int)data->player.x;
 		ldata.y0 = (int)data->player.y;
 		ldata.x1 = (int)chosen.rx;
 		ldata.y1 = (int)chosen.ry;
-		ldata.color = GREEN;
 		draw_line(data, ldata);
 		i++;
 	}
 	return (0);
+}
+
+void	draw_ceiling_floor(t_data *data)
+{
+	int x;
+	int y;
+
+	// Draw the ceiling
+	for (x = THREE_D_X; x < WINDOW_WIDTH; x++)
+	{
+		for (y = 0; y < THREE_D_HEIGHT / 2; y++)
+			put_pixel_to_image(&data->img, x, y, SKYBLUE);
+	}
+
+	// Draw the floor
+	for (x = THREE_D_X; x < WINDOW_WIDTH; x++)
+	{
+		for (y = THREE_D_HEIGHT / 2; y < THREE_D_HEIGHT; y++)
+			put_pixel_to_image(&data->img, x, y, DARKKHAKI);
+	}
+}
+
+int	draw_3D_view(t_data *data)
+{
+    int			i;
+    const float	fov = FOV_DEGREES * (M_PI / 180.0f);
+    float		start_angle;
+    float		ray_angle;
+    t_rayinfo	vertical_ray;
+    t_rayinfo	horizontal_ray;
+    t_rayinfo	chosen;
+    float		corrected_distance;
+    int			wall_height;
+	int			old_wall_height = 0;
+    int			line_offset;
+    int			x_screen;
+	t_wall_type current_wall;
+    t_wall_type	prev_wall = -1; // Initialize with an invalid value
+
+    draw_ceiling_floor(data);
+    start_angle = data->player.angle - (fov / 2);
+    i = 0;
+    while (i < RAYS)
+    {
+        ray_angle = start_angle + i * (fov / (RAYS - 1));
+
+        // Normalize angle to [0, 2π)
+        while (ray_angle < 0)
+            ray_angle += 2.0f * M_PI;
+        while (ray_angle >= 2.0f * M_PI)
+            ray_angle -= 2.0f * M_PI;
+
+        vertical_ray = cast_vertical_ray(data, ray_angle);
+        horizontal_ray = cast_horizontal_ray(data, ray_angle);
+
+        // Determine which ray hit first
+        if (vertical_ray.dist < horizontal_ray.dist)
+        {
+            chosen = vertical_ray;
+            chosen.color = RED;
+			current_wall = WALL_VERTICAL;
+        }
+        else
+        {
+            chosen = horizontal_ray;
+            chosen.color = GOLD; 
+			current_wall = WALL_HORIZONTAL;
+        }
+        // Correct fish-eye distortion
+        float ca = data->player.angle - ray_angle;
+        // Normalize ca to [-π, π)
+        if (ca < -M_PI)
+            ca += 2.0f * M_PI;
+        if (ca >= M_PI)
+            ca -= 2.0f * M_PI;
+        corrected_distance = chosen.dist * cosf(ca);
+
+        // Prevent division by zero
+        if (corrected_distance < 0.0001f)
+            corrected_distance = 0.0001f;
+
+        // Calculate wall height based on distance
+        // Adjust scaling factor as needed
+        wall_height = (int)((TILE_SIZE / corrected_distance) * (THREE_D_WIDTH / 2) / tanf(fov / 2));
+
+        // Limit wall height to window height
+        if (wall_height > THREE_D_HEIGHT)
+            wall_height = THREE_D_HEIGHT;
+
+        // Calculate vertical offset to center the wall slice
+        line_offset = (THREE_D_HEIGHT / 2) - (wall_height / 2);
+
+        // Calculate the x position on the screen for this ray
+        x_screen = THREE_D_X + (i * THREE_D_WIDTH) / RAYS;
+
+        // Draw the wall slice as a vertical line
+        int	y;
+        for (y = 0; y < wall_height; y++)
+        {
+            if (y == 0 || y == wall_height -1)
+                put_pixel_to_image(&data->img, x_screen, y + line_offset, BLACK);
+            else
+			{
+				if (current_wall != prev_wall || old_wall_height - wall_height > 20 || wall_height - old_wall_height > 20)
+					put_pixel_to_image(&data->img, x_screen, y + line_offset, BLACK);
+				else
+					put_pixel_to_image(&data->img, x_screen, y + line_offset, chosen.color);
+			}
+        }
+        prev_wall = current_wall;
+		old_wall_height = wall_height;
+        i++;
+    }
+    return (0);
 }

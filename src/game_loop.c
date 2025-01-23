@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 13:28:44 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:11:37 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	game_loop(t_data *data)
 		data->delta_accumulator -= time_step;
 	}
 	clear_image(&data->img, 0x000000);
+	draw_3D_view(data);
 	draw_map(data);
 	draw_player(data);
 	if (data->show_rays)
