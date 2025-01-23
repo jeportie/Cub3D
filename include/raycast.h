@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 23:53:57 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/23 10:48:46 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,15 @@ typedef enum e_wall_type
 	WALL_VERTICAL,   // Wall hit by vertical ray
 	WALL_HORIZONTAL  // Wall hit by horizontal ray
 }	t_wall_type;
+
+// Structure to store wall slice information
+typedef struct s_wall_slice
+{
+    t_wall_type wall_type;  // Type of wall: vertical or horizontal
+    int wall_height;        // Height of the wall slice
+    int x_screen;           // X-coordinate on the screen where the slice is drawn
+    int line_offset;        // Y-coordinate offset to center the slice vertically
+} t_wall_slice;
 
 int	draw_rays(t_data *data);
 int	draw_3D_view(t_data *data);

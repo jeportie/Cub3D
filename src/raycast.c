@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:04:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/23 00:42:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/23 10:56:44 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -320,7 +320,9 @@ int	draw_3D_view(t_data *data)
             else
 			{
 				if (current_wall != prev_wall || old_wall_height - wall_height > 20 || wall_height - old_wall_height > 20)
+				{
 					put_pixel_to_image(&data->img, x_screen, y + line_offset, BLACK);
+				}
 				else
 					put_pixel_to_image(&data->img, x_screen, y + line_offset, chosen.color);
 			}
