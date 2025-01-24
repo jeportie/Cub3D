@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 14:28:33 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:30:22 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,12 +52,12 @@ typedef struct s_data
 {
 	void			*mlx;
 	void			*win;
-	t_image			img;
+	t_image			img[2];
+	int				current_img;
 	t_player		player;
 	struct timespec	last_time;
 	double			delta_accumulator;
 	bool			show_rays;
-	bool			use_inner_edge;
 }				t_data;
 
 typedef struct s_line_data
@@ -69,6 +69,9 @@ typedef struct s_line_data
 	int	color;
 }	t_line_data;
 
+extern char g_map[MAP_SIZE + 1];
+
 int	game_loop(t_data *data);
+int	print_map(void);
 
 #endif

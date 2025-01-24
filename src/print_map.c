@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minimap.h                                          :+:      :+:    :+:   */
+/*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 20:51:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 21:24:12 by jeportie         ###   ########.fr       */
+/*   Created: 2025/01/24 17:31:07 by jeportie          #+#    #+#             */
+/*   Updated: 2025/01/24 17:31:26 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINIMAP_H
-# define MINIMAP_H
+#include "../include/cub3d.h"
 
-# include "cub3d.h"
+int	print_map(void)
+{
+	int	row;
+	int	col;
 
-int	print_map(void);
-int	draw_map(t_data *data);
-int	draw_tile(t_data *data, int row, int col, int base_color);
-int	draw_player(t_data *data);
-int	draw_square(t_data *data, int x_start, int y_start);
-int	draw_direction_line(t_data *data, int center_x, int center_y);
-
-#endif
+	ft_printf("Map layout (0=floor, 1=wall, P=player):\n");
+	row = 0;
+	while (row < MAP_HEIGHT)
+	{
+		col = 0;
+		while (col < MAP_WIDTH)
+		{
+			ft_printf("%c ", g_map[row * MAP_WIDTH + col]);
+			col++;
+		}
+		ft_printf("\n");
+		row++;
+	}
+	ft_printf("\n");
+	return (0);
+}

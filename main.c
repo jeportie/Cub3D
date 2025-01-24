@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 16:45:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/24 17:24:54 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,17 @@
 #include "include/input.h"
 #include "include/engine.h"
 #include "include/error.h"
+
+char	g_map[MAP_SIZE + 1] = {
+	"11111111"
+	"10010001"
+	"10010001"
+	"10010011"
+	"10001001"
+	"10000001"
+	"1P000101"
+	"11111111"
+};
 
 int	main(void)
 {

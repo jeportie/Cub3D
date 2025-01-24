@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 23:10:44 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/21 13:27:08 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/24 09:47:58 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,29 @@ int	clear_image(t_image *img, int color)
 
 int	init_image(t_data *data)
 {
-	data->img.img_ptr = mlx_new_image(data->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	if (!data->img.img_ptr)
+	int	i;
+
+	i = 0;
+	while (i < 2)
 	{
-		ft_dprintf(2, ERR_MLX_IMAGE);
-		exit(1);
+		data->img[i].img_ptr
+			= mlx_new_image(data->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
+		if (!data->img[i].img_ptr)
+		{
+			ft_dprintf(2, ERR_MLX_IMAGE);
+			exit(1);
+		}
+		data->img[i].addr = mlx_get_data_addr(data->img[i].img_ptr,
+				&data->img[i].bpp,
+				&data->img[i].line_len,
+				&data->img[i].endian);
+		if (!data->img[i].addr)
+		{
+			ft_dprintf(2, ERR_MLX_DATA);
+			exit(1);
+		}
+		i++;
 	}
-	data->img.addr = mlx_get_data_addr(data->img.img_ptr,
-			&data->img.bpp,
-			&data->img.line_len,
-			&data->img.endian);
-	if (!data->img.addr)
-	{
-		ft_dprintf(2, ERR_MLX_DATA);
-		exit(1);
-	}
+	data->current_img = 0;
 	return (0);
 }

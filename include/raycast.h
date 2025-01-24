@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/23 10:48:46 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/24 15:47:48 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ typedef struct s_ray_cast_vars
 								// the player to the collision point
 }	t_ray_cast_vars;
 
-typedef struct s_ray
+typedef struct s_rayinfo
 {
 	float	rx;
 	float	ry;
@@ -95,7 +95,28 @@ typedef struct s_wall_slice
     int line_offset;        // Y-coordinate offset to center the slice vertically
 } t_wall_slice;
 
-int	draw_rays(t_data *data);
-int	draw_3D_view(t_data *data);
+typedef struct s_ray
+{
+    float angle;             // Current ray angle
+    t_rayinfo vertical;     // Information from vertical ray casting
+    t_rayinfo horizontal;   // Information from horizontal ray casting
+    t_rayinfo chosen;       // The chosen ray (closest intersection)
+    float corrected_distance;// Distance corrected for fisheye
+    int wall_height;        // Height of the wall slice
+    t_wall_type current_wall;// Type of wall hit (vertical/horizontal)
+} t_ray;
+
+typedef struct s_render_context
+{
+    int x_screen;           // X-coordinate on the screen
+    int line_offset;        // Y-coordinate offset for centering
+    int prev_wall;          // Previous wall type for continuity
+    int old_wall_height;    // Previous wall height for continuity checks
+} t_render_context;
+
+int			draw_rays(t_data *data, t_image *img);
+int			draw_3D_view(t_data *data, t_image *img);
+t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle);
+t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle);
 
 #endif
