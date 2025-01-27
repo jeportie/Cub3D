@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/22 11:45:51 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 11:51:29 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:42:11 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define LIME            0x00FF00
 # define BLUE            0x0000FF
 # define YELLOW          0xFFFF00
+# define ORANGE          0xFFA500
 # define CYAN            0x00FFFF
 # define MAGENTA         0xFF00FF
 # define SILVER          0xC0C0C0

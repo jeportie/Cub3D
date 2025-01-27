@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 01:04:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:12:13 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,45 @@
 #include "../../include/compute.h"
 #include "../../include/render.h"
 
-static void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, const float fov)
+void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
 {
-	ray->angle = normalize_angle(start_angle + i * (fov / (RAYS - 1)));
-	ray->vertical = cast_vertical_ray(data, ray->angle);
-	ray->horizontal = cast_horizontal_ray(data, ray->angle);
-	if (ray->vertical.dist < ray->horizontal.dist)
+	ray->angle = normalize_angle(start_angle + (i * (fov / (RAYS - 1))));
+	if (data->use_dda == true)
 	{
-		ray->chosen = ray->vertical;
-		ray->current_wall = WALL_VERTICAL;
-		ray->chosen.color = RED;
+		ray->chosen = cast_ray_dda(data, ray->angle);
+		if (ray->chosen.map_index == 0)
+		{
+			ray->current_wall = WALL_VERTICAL;
+			ray->chosen.color = RED;
+		}
+		else
+		{
+			ray->current_wall = WALL_HORIZONTAL;
+			ray->chosen.color = GOLD;
+		}
 	}
 	else
 	{
-		ray->chosen = ray->horizontal;
-		ray->current_wall = WALL_HORIZONTAL;
-		ray->chosen.color = GOLD;
+		ray->vertical = cast_vertical_ray(data, ray->angle);
+		ray->horizontal = cast_horizontal_ray(data, ray->angle);
+		if (ray->vertical.dist < ray->horizontal.dist)
+		{
+			ray->chosen = ray->vertical;
+			ray->current_wall = WALL_VERTICAL;
+			ray->chosen.color = RED;
+		}
+		else
+		{
+			ray->chosen = ray->horizontal;
+			ray->current_wall = WALL_HORIZONTAL;
+			ray->chosen.color = GOLD;
+		}
 	}
-	ray->corrected_distance = correct_fisheye(data->player.angle, ray->angle, ray->chosen.dist);
+	ray->corrected_distance = correct_fisheye(data->player.angle,
+			ray->angle, ray->chosen.dist);
 	ray->wall_height = calculate_wall_height(ray->corrected_distance, fov);
 	ray->line_offset = (THREE_D_HEIGHT / 2) - (ray->wall_height / 2);
-	ray->x_screen = THREE_D_X + (i * THREE_D_WIDTH) / RAYS;
+	ray->x_screen = THREE_D_X + ((i * THREE_D_WIDTH) / RAYS);
 }
 
 int	draw_player_view(t_data *data, t_image *img)
@@ -54,6 +72,8 @@ int	draw_player_view(t_data *data, t_image *img)
 	ft_bzero(problem_ray, sizeof(problem_ray));
 	ctx.prev_wall = WALL_NONE;
 	ctx.old_wall_height = 0;
+	ctx.prev_tile_x = -1;
+	ctx.prev_tile_y = -1;
 	draw_background(img);
 	while (i < RAYS)
 	{

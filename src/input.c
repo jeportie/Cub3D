@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:44:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 09:37:59 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 14:30:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ int	key_press(int keycode, t_data *data)
 		data->player.move_right = true;
 	else if (keycode == KEY_F1)
 		data->show_rays = !data->show_rays;
+	else if (keycode == KEY_F2)
+		data->use_dda = !data->use_dda;
 	return (0);
 }
 
