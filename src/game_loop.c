@@ -6,15 +6,13 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:28:32 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/26 23:44:41 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
-#include "../include/minimap.h"
 #include "../include/player.h"
 #include "../include/engine.h"
-#include "../include/raycast.h"
 #include "../include/render.h"
 #include "../include/error.h"
 
@@ -43,7 +41,7 @@ int	game_loop(t_data *data)
 		data->delta_accumulator -= time_step;
 	}
 	buffer_to_draw = (data->current_img + 1) % 2;
-	clear_image(&data->img[buffer_to_draw], 0x000000);
+	clear_image(&data->img[buffer_to_draw], BLACK);
 	draw_player_view(data, &data->img[buffer_to_draw]);
 	draw_map(&data->img[buffer_to_draw]);
 	draw_player(data, &data->img[buffer_to_draw]);

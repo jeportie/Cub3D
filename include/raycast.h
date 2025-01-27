@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 15:47:48 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/25 23:32:08 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,8 +114,6 @@ typedef struct s_render_context
     int old_wall_height;    // Previous wall height for continuity checks
 } t_render_context;
 
-int			draw_rays(t_data *data, t_image *img);
-int			draw_3D_view(t_data *data, t_image *img);
 t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle);
 t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle);
 

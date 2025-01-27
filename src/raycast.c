@@ -6,13 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:04:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:21:12 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:04:17 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 #include "../include/raycast.h"
-#include "../include/player.h"
 #include "../include/compute.h"
 
 int	intercept_mode(t_ray_cast_vars *ray, char c)

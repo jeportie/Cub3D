@@ -1,40 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_map.c                                         :+:      :+:    :+:   */
+/*   get_safe_cos_sin.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 17:12:13 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/26 23:14:55 by jeportie         ###   ########.fr       */
+/*   Created: 2025/01/25 23:17:15 by jeportie          #+#    #+#             */
+/*   Updated: 2025/01/25 23:17:31 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/colors.h"
-#include "../../include/render.h"
+#include "../../include/compute.h"
 
-int	draw_map(t_image *img)
+float	get_safe_cos(float angle)
 {
-	int		row;
-	int		col;
-	char	tile;
-	int		base_color;
+	float	cos_a;
 
-	row = 0;
-	while (row < MAP_HEIGHT)
+	cos_a = cosf(angle);
+	if (fabsf(cos_a) < EPSILON)
 	{
-		col = 0;
-		while (col < MAP_WIDTH)
-		{
-			tile = g_map[row * MAP_WIDTH + col];
-			if (tile == '1')
-				base_color = WHITE;
-			else
-				base_color = BLACK;
-			draw_tile(row, col, base_color, img);
-			col++;
-		}
-		row++;
+		if (cos_a > 0)
+			return (EPSILON);
+		else
+			return (-EPSILON);
 	}
-	return (0);
+	return (cos_a);
+}
+
+float	get_safe_sin(float angle)
+{
+	float	sin_a;
+
+	sin_a = sinf(angle);
+	if (fabsf(sin_a) < EPSILON)
+	{
+		if (sin_a > 0)
+			return (EPSILON);
+		else
+			return (-EPSILON);
+	}
+	return (sin_a);
 }

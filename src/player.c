@@ -6,11 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:26:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 10:50:09 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/25 23:27:33 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/player.h"
+#include "../include/compute.h"
 
 int	player_init(t_data *data)
 {
@@ -27,7 +28,7 @@ int	player_init(t_data *data)
 			{
 				data->player.x = col * TILE_SIZE + (TILE_SIZE / 2);
 				data->player.y = row * TILE_SIZE + (TILE_SIZE / 2);
-				data->player.angle = 0.0;
+				data->player.angle = -M_PI / 2;
 				data->player.dx = cos(data->player.angle);
 				data->player.dy = sin(data->player.angle);
 				return (0);
@@ -41,25 +42,19 @@ int	player_init(t_data *data)
 
 int	player_update(t_data *data, double delta_time)
 {
-	double	rotation_factor;
-	double	move_distance;
+	float	rotation_factor;
+	float	move_distance;
+	float	strafe_dx;
+	float	strafe_dy;
 
-	// 1) Rotation
 	rotation_factor = ROT_SPEED;
 	if (data->player.rot_left)
-		data->player.angle -= rotation_factor * delta_time;
+		data->player.angle -= rotation_factor * (float)delta_time;
 	if (data->player.rot_right)
-		data->player.angle += rotation_factor * delta_time;
-	// Keep angle in [0, 2π)
-	if (data->player.angle < 0)
-		data->player.angle += 2.0 * M_PI;
-	else if (data->player.angle >= 2.0 * M_PI)
-		data->player.angle -= 2.0 * M_PI;
-	// Recalculate dx, dy
-	data->player.dx = cos(data->player.angle);
-	data->player.dy = sin(data->player.angle);
-	// 2) Translation
-	move_distance = SPEED * delta_time;
+		data->player.angle += rotation_factor * (float)delta_time;
+	data->player.angle = normalize_angle(data->player.angle);
+	calculate_direction(data->player.angle, &data->player.dx, &data->player.dy);
+	move_distance = calculate_move_distance(SPEED, delta_time);
 	if (data->player.move_up)
 	{
 		data->player.x += data->player.dx * move_distance;
@@ -72,24 +67,17 @@ int	player_update(t_data *data, double delta_time)
 	}
 	if (data->player.move_left)
 	{
-	    // Strafe left
-		data->player.x += cos(data->player.angle - M_PI_2) * move_distance;
-		data->player.y += sin(data->player.angle - M_PI_2) * move_distance;
+		calculate_strafe_direction(data->player.angle, &strafe_dx, &strafe_dy);
+		data->player.x -= strafe_dx * move_distance;
+		data->player.y -= strafe_dy * move_distance;
 	}
 	if (data->player.move_right)
 	{
-	    // Strafe right
-		data->player.x += cos(data->player.angle + M_PI_2) * move_distance;
-		data->player.y += sin(data->player.angle + M_PI_2) * move_distance;
+		calculate_strafe_direction(data->player.angle, &strafe_dx, &strafe_dy);
+		data->player.x += strafe_dx * move_distance;
+		data->player.y += strafe_dy * move_distance;
 	}
-	// 3) Basic boundary check
-	if (data->player.x < 0)
-		data->player.x = 0;
-	if (data->player.y < 0)
-		data->player.y = 0;
-	if (data->player.x > WINDOW_WIDTH)
-		data->player.x = WINDOW_WIDTH;
-	if (data->player.y > WINDOW_HEIGHT)
-		data->player.y = WINDOW_HEIGHT;
+	data->player.x = clamp(data->player.x, 0.0f, (float)WINDOW_WIDTH);
+	data->player.y = clamp(data->player.y, 0.0f, (float)WINDOW_HEIGHT);
 	return (0);
 }

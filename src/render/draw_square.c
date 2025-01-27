@@ -6,11 +6,10 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:14:49 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:15:16 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/24 20:03:57 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/minimap.h"
 #include "../../include/engine.h"
 #include "../../include/colors.h"
 #include "../../include/render.h"

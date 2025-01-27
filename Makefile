@@ -15,10 +15,20 @@ NAME = cub3D
 ### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
+  src/compute/calculate_direction.c \
+  src/compute/calculate_step.c \
+  src/compute/clamp.c \
+  src/compute/normalize_angle.c \
+  src/compute/calculate_move_distance.c \
+  src/compute/calculate_distance.c \
+  src/compute/correct_fisheye.c \
+  src/compute/calculate_intercept.c \
+  src/compute/calculate_wall_height.c \
+  src/compute/calculate_tan_a.c \
+  src/compute/get_safe_cos_sin.c \
   src/game_loop.c \
-  src/minimap.c \
-  src/compute.c \
   src/player.c \
+  src/print_map.c \
   src/raycast.c \
   src/render/draw_wall_slice.c \
   src/render/draw_line.c \

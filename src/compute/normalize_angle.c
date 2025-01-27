@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_player.c                                      :+:      :+:    :+:   */
+/*   normalize_angle.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 17:17:16 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 20:03:49 by jeportie         ###   ########.fr       */
+/*   Created: 2025/01/25 23:17:35 by jeportie          #+#    #+#             */
+/*   Updated: 2025/01/26 23:05:42 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/render.h"
+#include "../../include/compute.h"
 
-int	draw_player(t_data *data, t_image *img)
+/* 
+ * @proto:  normalize_angle(float angle)
+ * @brief:  Normalizes an angle to the range [0, 2π).
+ *
+ * @param:  angle The angle in radians to normalize.
+ * @return: float The normalized angle.
+ */
+
+float	normalize_angle(float angle)
 {
-	int	center_x;
-	int	center_y;
-	int	x_start;
-	int	y_start;
+	float	two_pi;
 
-	center_x = (int)data->player.x;
-	center_y = (int)data->player.y;
-	x_start = center_x - (SQUARE_SIZE / 2);
-	y_start = center_y - (SQUARE_SIZE / 2);
-	draw_square(x_start, y_start, img);
-	draw_direction_line(data, center_x, center_y, img);
-	return (0);
+	two_pi = 2.0f * M_PI;
+	angle = fmodf(angle, two_pi);
+	if (angle < 0)
+		angle += two_pi;
+	return (angle);
 }
