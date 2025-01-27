@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:04:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:21:30 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 00:53:51 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 //3D
 int	draw_background(t_image *img);
 int	draw_player_view(t_data *data, t_image *img);
-int	draw_wall_slice(t_ray *ray, t_render_context *ctx, int *prev_wall, int *old_wall_height, t_image *img);
+int	draw_wall_slice(t_ray *ray, t_rndr_ctx *ctx, t_image *img);
 
 //minimap
 int	draw_tile(int row, int col, int base_color, t_image *img);

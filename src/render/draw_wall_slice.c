@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:06:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:07:56 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 01:16:37 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,31 +16,40 @@
 #include "../../include/colors.h"
 #include "../../include/render.h"
 
-int	draw_wall_slice(t_ray *ray, t_render_context *ctx, int *prev_wall, int *old_wall_height, t_image *img)
+int	draw_wall_slice(t_ray *ray, t_rndr_ctx *ctx, t_image *img)
 {
-	int	y;
 	int	is_incomplete;
+	int	y;
 
+	y = 0;
 	is_incomplete = 0;
-	for (y = 0; y < ray->wall_height; y++)
+	while (y < ray->wall_height)
 	{
 		if (y == 0 || y == ray->wall_height - 1)
-			put_pixel_to_image(img, ctx->x_screen, y + ctx->line_offset, BLACK);
-		else
 		{
-			if ((int)ray->current_wall != *prev_wall || abs(*old_wall_height - ray->wall_height) > 20)
+			put_pixel_to_image(img, ray->x_screen, y + ray->line_offset, BLACK);
+		}
+		else if ((int)ray->current_wall != ctx->prev_wall
+			|| abs(ctx->old_wall_height - ray->wall_height) > 20)
+		{
+			if (ctx->old_wall_height - ray->wall_height > 20)
 			{
-				if (*old_wall_height - ray->wall_height > 20)
-				{
-					is_incomplete = 1;
-					put_pixel_to_image(img, ctx->x_screen, y + ctx->line_offset, ray->chosen.color);
-				}
-				else
-					put_pixel_to_image(img, ctx->x_screen, y + ctx->line_offset, BLACK);
+				is_incomplete = 1;
+				put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
+					ray->chosen.color);
 			}
 			else
-				put_pixel_to_image(img, ctx->x_screen, y + ctx->line_offset, ray->chosen.color);
+				put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
+					BLACK);
 		}
+		else
+		{
+			put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
+				ray->chosen.color);
+		}
+		y++;
 	}
+	ctx->prev_wall = ray->current_wall;
+	ctx->old_wall_height = ray->wall_height;
 	return (is_incomplete);
 }
