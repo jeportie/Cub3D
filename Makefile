@@ -28,6 +28,7 @@ SRC = \
   src/compute/get_safe_cos_sin.c \
   src/game_loop.c \
   src/player.c \
+  src/dda_raycast.c \
   src/print_map.c \
   src/raycast.c \
   src/render/draw_wall_slice.c \

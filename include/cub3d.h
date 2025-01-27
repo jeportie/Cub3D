@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:30:22 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:29:05 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct s_data
 	struct timespec	last_time;
 	double			delta_accumulator;
 	bool			show_rays;
+	bool			use_dda;
 }				t_data;
 
 typedef struct s_line_data

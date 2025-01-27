@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 00:47:19 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 13:36:18 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ typedef struct s_rndr_ctx
 
 t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle);
 t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle);
+t_rayinfo   cast_ray_dda(t_data *data, float ray_angle);
 
 #endif
