@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 13:36:18 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 16:11:29 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,27 @@ typedef struct s_rndr_ctx
     int line_offset;        // Y-coordinate offset for centering
     int prev_wall;          // Previous wall type for continuity
     int old_wall_height;    // Previous wall height for continuity checks
+    int prev_tile_x;
+    int prev_tile_y; 
 } t_rndr_ctx;
+
+typedef struct s_dda
+{
+	float	px;
+	float	py;
+	float	dir_x;
+	float	dir_y;
+	int		map_x;
+	int		map_y;
+	int		step_x;
+	int		step_y;
+	float	delta_x;
+	float	delta_y;
+	float	side_x;
+	float	side_y;
+	int		side;
+	float	dist;
+}	t_dda;
 
 t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle);
 t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle);

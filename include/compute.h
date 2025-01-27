@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 09:23:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/26 23:27:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/27 15:42:31 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define COMPUTE_H
 
 # include "cub3d.h"
+# include "raycast.h"
 
 //raycaster
 float	normalize_angle(float angle);
@@ -25,6 +26,11 @@ float	calculate_intercept(float player_pos, int flag, char mode);
 float	calculate_tan_a(float sin_a, float cos_a);
 float	calculate_step_primary(int flag, float tile_size);
 float	calculate_step_secondary(float step_primary, float tan_a);
+
+//dda algo
+float	compute_first_boundary_x(t_dda *d);
+float	compute_first_boundary_y(t_dda *d);
+void	compute_initial_sides(t_dda *d, t_data *data);
 
 //player
 float	calculate_distance(float delta_x, float delta_y);

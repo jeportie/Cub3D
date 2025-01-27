@@ -25,6 +25,7 @@ SRC = \
   src/compute/calculate_intercept.c \
   src/compute/calculate_wall_height.c \
   src/compute/calculate_tan_a.c \
+  src/compute/compute_dda.c \
   src/compute/get_safe_cos_sin.c \
   src/game_loop.c \
   src/player.c \
