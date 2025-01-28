@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 16:11:29 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:12:52 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,6 @@ typedef struct s_dda
 t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle);
 t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle);
 t_rayinfo   cast_ray_dda(t_data *data, float ray_angle);
+t_rayinfo   cast_ray_dda_plane(t_data *data, double ray_dir_x, double ray_dir_y);
 
 #endif

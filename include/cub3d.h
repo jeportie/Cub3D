@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 14:28:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 09:50:38 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct s_player
 	double	angle;
 	double	dx;
 	double	dy;
+	double	plane_x;
+	double	plane_y;
 	bool	move_up;
 	bool	move_down;
 	bool	move_left;
@@ -59,6 +61,7 @@ typedef struct s_data
 	double			delta_accumulator;
 	bool			show_rays;
 	bool			use_dda;
+	bool			use_plane_mode;
 }				t_data;
 
 typedef struct s_line_data

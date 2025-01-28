@@ -675,6 +675,7 @@ calculate_direction	src/compute/calculate_direction.c	/^void	calculate_direction
 calculate_distance	src/compute/calculate_distance.c	/^float	calculate_distance(float delta_x, float delta_y)$/;"	f
 calculate_intercept	src/compute/calculate_intercept.c	/^float	calculate_intercept(float player_pos, int flag, char mode)$/;"	f
 calculate_move_distance	src/compute/calculate_move_distance.c	/^float	calculate_move_distance(float speed, double delta_time)$/;"	f
+calculate_plane_wall_height	src/render/draw_plane_mode.c	/^static int calculate_plane_wall_height(float distance)$/;"	f	file:
 calculate_step_primary	src/compute/calculate_step.c	/^float	calculate_step_primary(int flag, float tile_size)$/;"	f
 calculate_step_secondary	src/compute/calculate_step.c	/^float	calculate_step_secondary(float step_primary, float tan_a)$/;"	f
 calculate_strafe_direction	src/compute/calculate_direction.c	/^void	calculate_strafe_direction(float angle, float *dx, float *dy)$/;"	f
@@ -682,6 +683,7 @@ calculate_tan_a	src/compute/calculate_tan_a.c	/^float	calculate_tan_a(float sin_
 calculate_wall_height	src/compute/calculate_wall_height.c	/^int	calculate_wall_height(float distance, float fov)$/;"	f
 cast_horizontal_ray	src/raycast.c	/^t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle)$/;"	f
 cast_ray_dda	src/dda_raycast.c	/^t_rayinfo	cast_ray_dda(t_data *data, float angle)$/;"	f
+cast_ray_dda_plane	src/dda_plane_raycast.c	/^t_rayinfo cast_ray_dda_plane(t_data *data, double ray_dir_x, double ray_dir_y)$/;"	f
 cast_vertical_ray	src/raycast.c	/^t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle)$/;"	f
 chosen	include/raycast.h	/^    t_rayinfo chosen;         \/\/ The chosen ray (closest intersection)$/;"	m	struct:s_ray
 clamp	src/compute/clamp.c	/^float	clamp(float value, float min, float max)$/;"	f
@@ -1055,6 +1057,8 @@ old_wall_height	include/raycast.h	/^    int old_wall_height;    \/\/ Previous wa
 param	lib/minilibx/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list
 parse_args	lib/minilibx/configure	/^parse_args(){$/;"	f
 pix	lib/minilibx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img
+plane_x	include/cub3d.h	/^	double	plane_x;$/;"	m	struct:s_player
+plane_y	include/cub3d.h	/^	double	plane_y;$/;"	m	struct:s_player
 player	include/cub3d.h	/^	t_player		player;$/;"	m	struct:s_data
 player_init	src/player.c	/^int	player_init(t_data *data)$/;"	f
 player_update	src/player.c	/^int	player_update(t_data *data, double delta_time)$/;"	f
@@ -1073,10 +1077,12 @@ put_pixel_to_image	src/engine.c	/^int	put_pixel_to_image(t_image *img, int x, in
 px	include/raycast.h	/^	float	px;$/;"	m	struct:s_dda
 py	include/raycast.h	/^	float	py;$/;"	m	struct:s_dda
 qnxnto	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
+render_plane_mode	src/render/draw_plane_mode.c	/^void render_plane_mode(t_data *data, t_image *img)$/;"	f
 result	include/raycast.h	/^    t_rayinfo result;     \/\/ Final collision result$/;"	m	struct:s_ray_cast
 root	lib/minilibx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar
 rot_left	include/cub3d.h	/^	bool	rot_left;$/;"	m	struct:s_player
 rot_right	include/cub3d.h	/^	bool	rot_right;$/;"	m	struct:s_player
+rotate_player	src/player.c	/^int	rotate_player(t_data *data, double delta_time, int sign)$/;"	f
 run_dda_loop	src/dda_raycast.c	/^int	run_dda_loop(t_dda *d)$/;"	f
 rx	include/raycast.h	/^    float rx;       \/\/ Final x-coordinate of collision$/;"	m	struct:s_rayinfo
 ry	include/raycast.h	/^    float ry;       \/\/ Final y-coordinate of collision$/;"	m	struct:s_rayinfo
@@ -1158,6 +1164,7 @@ tile_y	include/raycast.h	/^    int tile_y;     \/\/ Tile index in the y-directio
 type	lib/libft/include/printf.h	/^	char		type;$/;"	m	struct:s_format_spec
 type	lib/minilibx/mlx_int.h	/^	int				type;$/;"	m	struct:s_img
 use_dda	include/cub3d.h	/^	bool			use_dda;$/;"	m	struct:s_data
+use_plane_mode	include/cub3d.h	/^	bool			use_plane_mode;$/;"	m	struct:s_data
 use_xshm	lib/minilibx/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar
 vertical	include/raycast.h	/^    t_rayinfo vertical;       \/\/ Information from vertical ray casting$/;"	m	struct:s_ray
 visual	lib/minilibx/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar
