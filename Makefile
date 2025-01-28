@@ -16,34 +16,37 @@ NAME = cub3D
 # List of source files:
 SRC = \
   src/compute/calculate_direction.c \
-  src/compute/calculate_step.c \
-  src/compute/clamp.c \
-  src/compute/normalize_angle.c \
-  src/compute/calculate_move_distance.c \
   src/compute/calculate_distance.c \
-  src/compute/correct_fisheye.c \
   src/compute/calculate_intercept.c \
-  src/compute/calculate_wall_height.c \
+  src/compute/calculate_move_distance.c \
+  src/compute/calculate_step.c \
   src/compute/calculate_tan_a.c \
+  src/compute/calculate_wall_height.c \
+  src/compute/clamp.c \
   src/compute/compute_dda.c \
+  src/compute/correct_fisheye.c \
   src/compute/get_safe_cos_sin.c \
-  src/game_loop.c \
-  src/player.c \
+  src/compute/normalize_angle.c \
   src/dda_raycast.c \
+  src/engine.c \
+  src/game_loop.c \
   src/print_map.c \
   src/raycast.c \
-  src/render/draw_wall_slice.c \
+  src/render/draw_background.c \
+  src/render/draw_direction_line.c \
   src/render/draw_line.c \
   src/render/draw_map.c \
-  src/render/draw_player_view.c \
-  src/render/draw_rays.c \
-  src/render/draw_direction_line.c \
-  src/render/draw_square.c \
   src/render/draw_player.c \
-  src/render/draw_background.c \
+  src/render/draw_square.c \
   src/render/draw_tile.c \
-  src/engine.c \
-  src/input.c 
+  src/render/draw_wall_slice.c \
+  src/render/draw_player_view.c \
+  src/render/draw_plane_mode.c \
+  src/render/draw_rays.c \
+  src/dda_plane_raycast.c \
+  src/modes/mode_init.c \
+  src/input.c \
+  src/player.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #

@@ -53,14 +53,17 @@ ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCom
 ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	726;"	d	file:
 ARCHITECTURE_ID	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	730;"	d	file:
 AZURE	include/colors.h	39;"	d
+BAR_WIDTH	make_interface/src/progress.c	17;"	d	file:
 BEIGE	include/colors.h	40;"	d
 BISQUE	include/colors.h	41;"	d
 BLACK	include/colors.h	17;"	d
 BLANCHEDALMOND	include/colors.h	42;"	d
 BLUE	Makefile	/^BLUE    = \\033[34m$/;"	m
 BLUE	include/colors.h	21;"	d
+BLUE	make_interface/config/Makefile	/^BLUE    = \\033[34m$/;"	m
 BLUEVIOLET	include/colors.h	43;"	d
 BOLD	Makefile	/^BOLD    = \\033[1m$/;"	m
+BOLD	make_interface/config/Makefile	/^BOLD    = \\033[1m$/;"	m
 BROWN	include/colors.h	44;"	d
 BUFFER_SIZE	lib/libft/include/libft.h	28;"	d
 BUFFER_SIZE	lib/libft/include/printf.h	27;"	d
@@ -76,11 +79,16 @@ CC	lib/minilibx/Makefile.mk	/^	CC = clang$/;"	m
 CC	lib/minilibx/Makefile.mk	/^CC	= gcc$/;"	m
 CC	lib/minilibx/test/Makefile.mk	/^	CC	= gcc$/;"	m
 CC	lib/minilibx/test/Makefile.mk	/^	CC = clang$/;"	m
+CC	make_interface/config/Makefile	/^CC = 		{{CC}}$/;"	m
+CC	make_interface/config/Makefile	/^default: CC = cc$/;"	m
+CC	make_interface/config/Makefile	/^san: CC = clang$/;"	m
+CC	make_interface/config/Makefile	/^val: CC = cc$/;"	m
 CFLAGS	Makefile	/^CFLAGS = 	-Wall -Wextra -Werror$/;"	m
 CFLAGS	lib/libft/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	lib/libgc/Makefile	/^CFLAGS = -Wall -Wextra -Werror$/;"	m
 CFLAGS	lib/minilibx/Makefile.mk	/^CFLAGS	= -O3 -I$(INC)$/;"	m
 CFLAGS	lib/minilibx/test/Makefile.mk	/^CFLAGS= -I$(INC) -O3 -I.. -g$/;"	m
+CFLAGS	make_interface/config/Makefile	/^CFLAGS = 	{{CFLAGS}}$/;"	m
 CHOCOLATE	include/colors.h	47;"	d
 CMAKE_BINARY_DIR	lib/libft/test_src/build/Makefile	/^CMAKE_BINARY_DIR = \/root\/projects\/minishell\/lib\/libft\/test_src\/build$/;"	m
 CMAKE_COMMAND	lib/libft/test_src/build/Makefile	/^CMAKE_COMMAND = \/usr\/bin\/cmake$/;"	m
@@ -301,7 +309,9 @@ DEEPPINK	include/colors.h	71;"	d
 DEEPSKYBLUE	include/colors.h	72;"	d
 DEFINE_H	include/define.h	14;"	d
 DEPFLAGS	Makefile	/^DEPFLAGS =  -MMD -MP$/;"	m
+DEPFLAGS	make_interface/config/Makefile	/^DEPFLAGS =  -MMD -MP$/;"	m
 DEPS	Makefile	/^DEPS = 		$(OBJ:.o=.d)$/;"	m
+DEPS	make_interface/config/Makefile	/^DEPS = 		$(OBJ:.o=.d)$/;"	m
 DIMGRAY	include/colors.h	73;"	d
 DIMGREY	include/colors.h	74;"	d
 DODGERBLUE	include/colors.h	75;"	d
@@ -333,8 +343,11 @@ GOLDENROD	include/colors.h	82;"	d
 GRAY	include/colors.h	27;"	d
 GREEN	Makefile	/^GREEN   = \\033[32m$/;"	m
 GREEN	include/colors.h	31;"	d
+GREEN	make_interface/config/Makefile	/^GREEN   = \\033[32m$/;"	m
+GREEN	make_interface/src/make_prompt.c	21;"	d	file:
 GREY	include/colors.h	28;"	d
 HELG	Makefile	/^HELG =      valgrind --tool=helgrind --history-level=full \\$/;"	m
+HELG	make_interface/config/Makefile	/^HELG =      valgrind --tool=helgrind --history-level=full \\$/;"	m
 HEX	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	745;"	d	file:
 HONEYDEW	include/colors.h	83;"	d
 HOTPINK	include/colors.h	84;"	d
@@ -347,6 +360,7 @@ INC	lib/minilibx/Makefile.mk	/^INC	=%%%%$/;"	m
 INC	lib/minilibx/test/Makefile.mk	/^INC=%%%%$/;"	m
 INCLIB	lib/minilibx/test/Makefile.mk	/^INCLIB=$(INC)\/..\/lib$/;"	m
 INCLUDES	Makefile	/^INCLUDES = -I.\/include -I.\/lib\/minilibx -I.\/lib\/libgc\/include -I.\/lib\/libft\/include$/;"	m
+INCLUDES	make_interface/config/Makefile	/^INCLUDES =  {{INCLUDES}} $/;"	m
 INDIANRED	include/colors.h	85;"	d
 INDIGO	include/colors.h	86;"	d
 INNER_OFFSET	include/define.h	41;"	d
@@ -429,6 +443,7 @@ LAVENDER	include/colors.h	89;"	d
 LAVENDERBLUSH	include/colors.h	90;"	d
 LAWNGREEN	include/colors.h	91;"	d
 LDFLAGS	Makefile	/^LDFLAGS = -L.\/lib\/minilibx -lmlx -L.\/lib\/libgc -lgc -L.\/lib\/libft -lft \\$/;"	m
+LDFLAGS	make_interface/config/Makefile	/^LDFLAGS =	{{LIBDIRS}}$/;"	m
 LEMONCHIFFON	include/colors.h	92;"	d
 LFLAGS	lib/minilibx/test/Makefile.mk	/^LFLAGS = -L.. -lmlx -L$(INCLIB) -lXext -lX11 -lm$/;"	m
 LIBFT_H	lib/libft/include/libft.h	14;"	d
@@ -457,6 +472,8 @@ MAP_HEIGHT	include/define.h	28;"	d
 MAP_SIZE	include/define.h	29;"	d
 MAP_WIDTH	include/define.h	27;"	d
 MAROON	include/colors.h	29;"	d
+MAX_FILES	make_interface/src/interactive_select.c	19;"	d	file:
+MAX_SLEEP_USEC	make_interface/src/progress.c	18;"	d	file:
 MAX_STEPS	include/define.h	42;"	d
 MEDIUMAQUAMARINE	include/colors.h	110;"	d
 MEDIUMBLUE	include/colors.h	111;"	d
@@ -471,6 +488,7 @@ MIDNIGHTBLUE	include/colors.h	119;"	d
 MINIMAP_SIZE	include/define.h	21;"	d
 MINTCREAM	include/colors.h	120;"	d
 MIN_DISTANCE	include/define.h	43;"	d
+MIN_SLEEP_USEC	make_interface/src/progress.c	19;"	d	file:
 MISTYROSE	include/colors.h	121;"	d
 MLX_H	lib/minilibx/mlx.h	32;"	d
 MLX_INT_H	lib/minilibx/mlx_int.h	19;"	d
@@ -479,22 +497,27 @@ MLX_TYPE_SHM	lib/minilibx/mlx_int.h	37;"	d
 MLX_TYPE_SHM_PIXMAP	lib/minilibx/mlx_int.h	36;"	d
 MLX_TYPE_XIMAGE	lib/minilibx/mlx_int.h	38;"	d
 MOCCASIN	include/colors.h	122;"	d
+MODES_H	include/modes.h	14;"	d
 NAME	Makefile	/^NAME = cub3D$/;"	m
 NAME	lib/libft/Makefile	/^NAME = libft.a$/;"	m
 NAME	lib/libgc/Makefile	/^NAME = libgc.a$/;"	m
 NAME	lib/minilibx/Makefile.mk	/^NAME		= libmlx.a$/;"	m
 NAME	lib/minilibx/test/Makefile.mk	/^NAME= mlx-test$/;"	m
+NAME	make_interface/config/Makefile	/^NAME = {{NAME}}$/;"	m
 NAME_UNAME	lib/minilibx/Makefile.mk	/^NAME_UNAME	= libmlx_$(UNAME).a$/;"	m
 NAVAJOWHITE	include/colors.h	123;"	d
 NAVY	include/colors.h	34;"	d
+NC	make_interface/src/make_prompt.c	23;"	d	file:
 NOERR	lib/libft/include/printf.h	/^	NOERR,$/;"	e	enum:e_error
 OBJ	Makefile	/^OBJ = 		$(SRC:$(SRC_DIR)\/%.c=$(OBJ_DIR)\/%.o)$/;"	m
 OBJ	lib/libft/Makefile	/^OBJ = $(SRC:.c=.o)$/;"	m
 OBJ	lib/libgc/Makefile	/^OBJ = $(SRC:.c=.o)$/;"	m
 OBJ	lib/minilibx/Makefile.mk	/^OBJ	= $(addprefix $(OBJ_DIR)\/,$(SRC:%.c=%.o))$/;"	m
 OBJ	lib/minilibx/test/Makefile.mk	/^OBJ = $(SRC:%.c=%.o)$/;"	m
+OBJ	make_interface/config/Makefile	/^OBJ = 		$(SRC:$(SRC_DIR)\/%.c=$(OBJ_DIR)\/%.o)$/;"	m
 OBJ_DIR	Makefile	/^OBJ_DIR = 	obj$/;"	m
 OBJ_DIR	lib/minilibx/Makefile.mk	/^OBJ_DIR = obj$/;"	m
+OBJ_DIR	make_interface/config/Makefile	/^OBJ_DIR = 	obj$/;"	m
 OLDLACE	include/colors.h	124;"	d
 OLIVE	include/colors.h	30;"	d
 OLIVEDRAB	include/colors.h	125;"	d
@@ -554,8 +577,11 @@ RAYS	include/define.h	37;"	d
 REBECCAPURPLE	include/colors.h	138;"	d
 RED	Makefile	/^RED     = \\033[31m$/;"	m
 RED	include/colors.h	19;"	d
+RED	make_interface/config/Makefile	/^RED     = \\033[31m$/;"	m
+RED	make_interface/src/make_prompt.c	22;"	d	file:
 RENDER_H	include/render.h	14;"	d
 RESET	Makefile	/^RESET   = \\033[0m$/;"	m
+RESET	make_interface/config/Makefile	/^RESET   = \\033[0m$/;"	m
 RETURN	lib/minilibx/mlx_xpm.c	17;"	d	file:
 RM	lib/libft/test_src/build/Makefile	/^RM = \/usr\/bin\/cmake -E rm -f$/;"	m
 ROSYBROWN	include/colors.h	139;"	d
@@ -565,7 +591,9 @@ SADDLEBROWN	include/colors.h	141;"	d
 SALMON	include/colors.h	142;"	d
 SANDYBROWN	include/colors.h	143;"	d
 SANITIZE	Makefile	/^SANITIZE = 	-g3 -fPIC -fsanitize=thread$/;"	m
+SANITIZE	make_interface/config/Makefile	/^SANITIZE = 	-g3 -fPIC -fsanitize=thread$/;"	m
 SCRIPT_URL	Makefile	/^SCRIPT_URL = https:\/\/github.com\/jeromeDev94\/make_interface.git$/;"	m
+SCRIPT_URL	make_interface/config/Makefile	/^SCRIPT_URL = https:\/\/github.com\/jeportie\/make_interface.git$/;"	m
 SEAGREEN	include/colors.h	144;"	d
 SEASHELL	include/colors.h	145;"	d
 SHELL	lib/libft/test_src/build/Makefile	/^SHELL = \/bin\/sh$/;"	m
@@ -610,7 +638,9 @@ SRC	lib/libft/Makefile	/^SRC = \\$/;"	m
 SRC	lib/libgc/Makefile	/^SRC = src\/gc_cleanup.c \\$/;"	m
 SRC	lib/minilibx/Makefile.mk	/^SRC	= mlx_init.c mlx_new_window.c mlx_pixel_put.c mlx_loop.c \\$/;"	m
 SRC	lib/minilibx/test/Makefile.mk	/^SRC = main.c$/;"	m
+SRC	make_interface/config/Makefile	/^SRC =$/;"	m
 SRC_DIR	Makefile	/^SRC_DIR = 	src$/;"	m
+SRC_DIR	make_interface/config/Makefile	/^SRC_DIR = 	src$/;"	m
 START_TEST	lib/libft/check_testunit_template.c	/^START_TEST(name_of_the_test_function)$/;"	f
 START_TEST	lib/libft/test_src/printf/test_ft_snprintf.c	/^START_TEST(test_empty_format)$/;"	f
 START_TEST	lib/libft/test_src/printf/test_ft_snprintf.c	/^START_TEST(test_exact_size)$/;"	f
@@ -638,9 +668,13 @@ TURQUOISE	include/colors.h	157;"	d
 UNAME	lib/minilibx/Makefile.mk	/^UNAME = $(shell uname)$/;"	m
 UNAME	lib/minilibx/test/Makefile.mk	/^UNAME := $(shell uname)$/;"	m
 VALG	Makefile	/^VALG =		valgrind -s --leak-check=full \\$/;"	m
+VALG	make_interface/config/Makefile	/^VALG =		valgrind --leak-check=full --show-leak-kinds=all \\$/;"	m
 VERBOSE	Makefile	/^VERBOSE ?= @$/;"	m
 VERBOSE	Makefile	/^classic: VERBOSE =$/;"	m
+VERBOSE	make_interface/config/Makefile	/^VERBOSE ?= @$/;"	m
+VERBOSE	make_interface/config/Makefile	/^classic: VERBOSE =$/;"	m
 VFLAGS	Makefile	/^VFLAGS = 	-g3 -fPIC $/;"	m
+VFLAGS	make_interface/config/Makefile	/^VFLAGS = 	-g3 -fPIC $/;"	m
 VIOLET	include/colors.h	158;"	d
 WALL_HORIZONTAL	include/raycast.h	/^	WALL_HORIZONTAL  \/\/ Wall hit by horizontal ray$/;"	e	enum:e_wall_type
 WALL_NONE	include/raycast.h	/^	WALL_NONE,       \/\/ Initial state$/;"	e	enum:e_wall_type
@@ -656,11 +690,13 @@ WINDOW_WIDTH	include/define.h	18;"	d
 X_ShmAttach	lib/minilibx/mlx_new_image.c	20;"	d	file:
 YELLOW	Makefile	/^YELLOW  = \\033[33m$/;"	m
 YELLOW	include/colors.h	22;"	d
+YELLOW	make_interface/config/Makefile	/^YELLOW  = \\033[33m$/;"	m
 YELLOWGREEN	include/colors.h	161;"	d
 __has_include	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	17;"	d	file:
 addr	include/cub3d.h	/^	char	*addr;$/;"	m	struct:s_image
 angle	include/cub3d.h	/^	double	angle;$/;"	m	struct:s_player
 angle	include/raycast.h	/^    float angle;              \/\/ Current ray angle$/;"	m	struct:s_ray
+angle_init_game	src/modes/mode_init.c	/^int	angle_init_game(t_data *data)$/;"	f
 at_exit	lib/minilibx/test/run_tests.sh	/^at_exit() {$/;"	f
 bpp	include/cub3d.h	/^	int		bpp;$/;"	m	struct:s_image
 bpp	lib/minilibx/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img
@@ -675,7 +711,7 @@ calculate_direction	src/compute/calculate_direction.c	/^void	calculate_direction
 calculate_distance	src/compute/calculate_distance.c	/^float	calculate_distance(float delta_x, float delta_y)$/;"	f
 calculate_intercept	src/compute/calculate_intercept.c	/^float	calculate_intercept(float player_pos, int flag, char mode)$/;"	f
 calculate_move_distance	src/compute/calculate_move_distance.c	/^float	calculate_move_distance(float speed, double delta_time)$/;"	f
-calculate_plane_wall_height	src/render/draw_plane_mode.c	/^static int calculate_plane_wall_height(float distance)$/;"	f	file:
+calculate_plane_wall_height	src/render/draw_plane_mode.c	/^static int calculate_plane_wall_height(float distance_in_pixels)$/;"	f	file:
 calculate_step_primary	src/compute/calculate_step.c	/^float	calculate_step_primary(int flag, float tile_size)$/;"	f
 calculate_step_secondary	src/compute/calculate_step.c	/^float	calculate_step_secondary(float step_primary, float tan_a)$/;"	f
 calculate_strafe_direction	src/compute/calculate_direction.c	/^void	calculate_strafe_direction(float angle, float *dx, float *dy)$/;"	f
@@ -703,6 +739,7 @@ const	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	
 correct_fisheye	src/compute/correct_fisheye.c	/^float	correct_fisheye(float player_angle, float ray_angle, float distance)$/;"	f
 corrected_distance	include/raycast.h	/^    float corrected_distance; \/\/ Distance corrected for fisheye$/;"	m	struct:s_ray
 cos_a	include/raycast.h	/^    float cos_a;          \/\/ Cosine of the ray angle$/;"	m	struct:s_ray_cast
+create_ycm_extra_conf	make_interface/config/build.sh	/^create_ycm_extra_conf() {$/;"	f
 cur_x	include/raycast.h	/^	float	cur_x;	\/\/ x coordinate while drawing the line$/;"	m	struct:s_line_vars
 cur_y	include/raycast.h	/^	float	cur_y;	\/\/ y coordinate while drawing the line$/;"	m	struct:s_line_vars
 current_img	include/cub3d.h	/^	int				current_img;$/;"	m	struct:s_data
@@ -720,13 +757,16 @@ depth	lib/minilibx/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar
 dir_x	include/raycast.h	/^	float	dir_x;$/;"	m	struct:s_dda
 dir_y	include/raycast.h	/^	float	dir_y;$/;"	m	struct:s_dda
 display	lib/minilibx/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar
+display_menu	make_interface/src/interactive_select.c	/^void	display_menu(WINDOW *menu_win, char *choices[], int n_choices, int hl)$/;"	f
 dist	include/raycast.h	/^	float	dist;$/;"	m	struct:s_dda
 dist	include/raycast.h	/^    float dist;     \/\/ Distance to the collision$/;"	m	struct:s_rayinfo
 do_flush	lib/minilibx/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar
+draw_angle_mode	src/render/draw_player_view.c	/^int	draw_angle_mode(t_data *data, t_image *img)$/;"	f
 draw_background	src/render/draw_background.c	/^int	draw_background(t_image *img)$/;"	f
 draw_direction_line	src/render/draw_direction_line.c	/^int	draw_direction_line(t_data *data, int center_x, int center_y, t_image *img)$/;"	f
 draw_line	src/render/draw_line.c	/^int	draw_line(t_line_data ldata, t_image *img)$/;"	f
 draw_map	src/render/draw_map.c	/^int	draw_map(t_image *img)$/;"	f
+draw_plane_mode	src/render/draw_plane_mode.c	/^int draw_plane_mode(t_data *data, t_image *img)$/;"	f
 draw_player	src/render/draw_player.c	/^int	draw_player(t_data *data, t_image *img)$/;"	f
 draw_player_view	src/render/draw_player_view.c	/^int	draw_player_view(t_data *data, t_image *img)$/;"	f
 draw_rays	src/render/draw_rays.c	/^int	draw_rays(t_data *data, t_image *img)$/;"	f
@@ -753,6 +793,7 @@ expose_win1	lib/minilibx/test/main.c	/^int	expose_win1(void *p)$/;"	f
 expose_win2	lib/minilibx/test/main.c	/^int	expose_win2(void *p)$/;"	f
 fd	lib/libgc/include/libgc.h	/^	int					fd;$/;"	m	struct:s_gc_node
 fill_rayinfo	src/dda_raycast.c	/^void	fill_rayinfo(t_dda *d, t_data *data, t_rayinfo *ray)$/;"	f
+find_and_init_player_pixel	src/modes/mode_init.c	/^int	find_and_init_player_pixel(t_data *data)$/;"	f
 flag	include/raycast.h	/^    int flag;             \/\/ Direction flag (up\/down or left\/right)$/;"	m	struct:s_ray_cast
 flag_hash	lib/libft/include/printf.h	/^	int			flag_hash;$/;"	m	struct:s_format_spec
 flag_minus	lib/libft/include/printf.h	/^	int			flag_minus;$/;"	m	struct:s_format_spec
@@ -776,14 +817,17 @@ ft_check_pid	lib/libft/src/utils/ft_check_pid.c	/^void	ft_check_pid(int pid)$/;"
 ft_concat_path	lib/libft/src/utils/ft_find_cmd_path.c	/^static char	*ft_concat_path(char **paths, const char *cmd)$/;"	f	file:
 ft_convert_spec	lib/libft/src/printf/ft_printf.c	/^static int	ft_convert_spec(t_format_spec spec, va_list args,$/;"	f	file:
 ft_count_words	lib/libft/src/string/ft_split.c	/^size_t	ft_count_words(char *str, char c)$/;"	f
+ft_count_words	make_interface/src/make_prompt.c	/^static size_t	ft_count_words(char *str, char c)$/;"	f	file:
 ft_dprintf	lib/libft/src/printf/ft_dprintf.c	/^int	ft_dprintf(int fd, const char *format, ...)$/;"	f
 ft_extract	lib/libft/src/string/ft_split.c	/^static char	*ft_extract(const char **s, char c, char **tab, size_t i)$/;"	f	file:
+ft_extract	make_interface/src/make_prompt.c	/^static char	*ft_extract(const char **s, char c, char **tab, size_t i)$/;"	f	file:
 ft_extract_line	lib/libft/src/get_next_line/get_next_line.c	/^static char	*ft_extract_line(char *buffer)$/;"	f	file:
 ft_fill_base	lib/libft/src/conversion/ft_ulltoa_base.c	/^static char	*ft_fill_base(unsigned long long nbr, int size, char *base,$/;"	f	file:
 ft_fill_base	lib/libft/src/conversion/ft_utoa_base.c	/^static char	*ft_fill_base(unsigned int nbr, int size, char *base, char *res)$/;"	f	file:
 ft_find_cmd_path	lib/libft/src/utils/ft_find_cmd_path.c	/^char	*ft_find_cmd_path(char **envp, const char *cmd)$/;"	f
 ft_find_end	lib/libft/src/printf/ft_parse_format.c	/^static char	*ft_find_end(const char *start, t_format_spec *spec)$/;"	f	file:
 ft_free_memory	lib/libft/src/string/ft_split.c	/^static void	ft_free_memory(char **tab, size_t i)$/;"	f	file:
+ft_free_memory	make_interface/src/make_prompt.c	/^static void	ft_free_memory(char **tab, size_t i)$/;"	f	file:
 ft_getenv	lib/libft/src/utils/ft_getenv.c	/^char	*ft_getenv(char **envp, const char *name)$/;"	f
 ft_handle_char	lib/libft/src/printf/ft_handle_char.c	/^void	ft_handle_char(t_format_spec spec, va_list args, t_buffer *buf_info)$/;"	f
 ft_handle_hash_flag	lib/libft/src/printf/ft_handle_hash_flag.c	/^void	ft_handle_hash_flag(t_format_spec spec, int content, t_buffer *buf_info)$/;"	f
@@ -837,6 +881,7 @@ ft_read_buffer	lib/libft/src/get_next_line/get_next_line.c	/^static char	*ft_rea
 ft_realloc	lib/libft/src/memory/ft_realloc.c	/^void	*ft_realloc(void *ptr, size_t old_size, size_t new_size)$/;"	f
 ft_snprintf	lib/libft/src/printf/ft_snprintf.c	/^int	ft_snprintf(char *str, size_t size, const char *format, ...)$/;"	f
 ft_split	lib/libft/src/string/ft_split.c	/^char	**ft_split(char const *s, char c)$/;"	f
+ft_split	make_interface/src/make_prompt.c	/^char	**ft_split(char const *s, char c)$/;"	f
 ft_strchr	lib/libft/src/string/ft_strchr.c	/^char	*ft_strchr(const char *s, int c)$/;"	f
 ft_strdup	lib/libft/src/string/ft_strdup.c	/^char	*ft_strdup(const char *s)$/;"	f
 ft_striteri	lib/libft/src/string/ft_striteri.c	/^void	ft_striteri(char *s, void (*f)(unsigned int, char*))$/;"	f
@@ -845,6 +890,7 @@ ft_strjoin_free	lib/libft/src/string/ft_strjoin.c	/^char	*ft_strjoin_free(char *
 ft_strjoin_gnl	lib/libft/src/get_next_line/get_next_line.c	/^static char	*ft_strjoin_gnl(char const *s1, char const *s2)$/;"	f	file:
 ft_strlcat	lib/libft/src/string/ft_strlcat.c	/^size_t	ft_strlcat(char *dst, const char *src, size_t size)$/;"	f
 ft_strlcpy	lib/libft/src/string/ft_strlcpy.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t size)$/;"	f
+ft_strlcpy	make_interface/src/make_prompt.c	/^size_t	ft_strlcpy(char *dst, const char *src, size_t size)$/;"	f
 ft_strlen	lib/libft/src/string/ft_strlen.c	/^size_t	ft_strlen(const char *s)$/;"	f
 ft_strmapi	lib/libft/src/string/ft_strmapi.c	/^char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))$/;"	f
 ft_strncmp	lib/libft/src/string/ft_strncmp.c	/^int	ft_strncmp(const char *s1, const char *s2, size_t n)$/;"	f
@@ -853,6 +899,7 @@ ft_strrchr	lib/libft/src/string/ft_strrchr.c	/^char	*ft_strrchr(const char *s, i
 ft_strtrim	lib/libft/src/string/ft_strtrim.c	/^char	*ft_strtrim(char const *s1, char const *set)$/;"	f
 ft_substr	lib/libft/src/string/ft_substr.c	/^char	*ft_substr(char const *s, unsigned int start, size_t len)$/;"	f
 ft_substr_len	lib/libft/src/string/ft_split.c	/^static size_t	ft_substr_len(char *str, char c)$/;"	f	file:
+ft_substr_len	make_interface/src/make_prompt.c	/^static size_t	ft_substr_len(char *str, char c)$/;"	f	file:
 ft_tolower	lib/libft/src/conversion/ft_tolower.c	/^int	ft_tolower(int c)$/;"	f
 ft_toupper	lib/libft/src/conversion/ft_toupper.c	/^int	ft_toupper(int c)$/;"	f
 ft_ulltoa_base	lib/libft/src/conversion/ft_ulltoa_base.c	/^char	*ft_ulltoa_base(unsigned long long nbr, char *base)$/;"	f
@@ -885,11 +932,13 @@ gcl	lib/libft/check_testunit_template.c	/^static t_gc *gcl;$/;"	v	file:
 gcl	lib/libft/test_src/printf/test_ft_snprintf.c	/^static t_gc *gcl;$/;"	v	file:
 gcl	test_src/check_testunit_template.c	/^static t_gc *gcl;$/;"	v	file:
 generate_src_list	lib/libft/update_makefile.sh	/^generate_src_list() {$/;"	f
+generate_src_list	make_interface/exec/update_makefile.sh	/^generate_src_list() {$/;"	f
 gere_mouse	lib/minilibx/test/new_win.c	/^int gere_mouse(int x,int y,int button,void*toto)$/;"	f
 get_next_line	lib/libft/src/get_next_line/get_next_line.c	/^char	*get_next_line(int fd)$/;"	f
 get_safe_cos	src/compute/get_safe_cos_sin.c	/^float	get_safe_cos(float angle)$/;"	f
 get_safe_sin	src/compute/get_safe_cos_sin.c	/^float	get_safe_sin(float angle)$/;"	f
 get_time_in_seconds	src/engine.c	/^double	get_time_in_seconds(struct timespec ts)$/;"	f
+get_uml_files	make_interface/src/interactive_select.c	/^void	get_uml_files(char *directory, char *file_list[], int *count)$/;"	f
 get_xlib_include_path	lib/minilibx/configure	/^get_xlib_include_path(){$/;"	f
 head	lib/libgc/include/libgc.h	/^	t_gc_node	*head;$/;"	m	struct:s_garbage_collector
 height	lib/minilibx/mlx_int.h	/^	int				height;$/;"	m	struct:s_img
@@ -958,6 +1007,9 @@ main	lib/minilibx/test/main.c	/^int	main()$/;"	f
 main	lib/minilibx/test/new_win.c	/^int main()$/;"	f
 main	lib/minilibx/test/run_tests.sh	/^main(){$/;"	f
 main	main.c	/^int	main(void)$/;"	f
+main	make_interface/src/interactive_select.c	/^int	main(void)$/;"	f
+main	make_interface/src/make_prompt.c	/^int	main(void)$/;"	f
+main	make_interface/src/progress.c	/^int	main(int argc, char **argv)$/;"	f
 main	test_src/check_testunit_template.c	/^int main(void)$/;"	f
 map_index	include/raycast.h	/^    int map_index;  \/\/ Index in the map array$/;"	m	struct:s_rayinfo
 map_x	include/raycast.h	/^	int		map_x;$/;"	m	struct:s_dda
@@ -1057,6 +1109,7 @@ old_wall_height	include/raycast.h	/^    int old_wall_height;    \/\/ Previous wa
 param	lib/minilibx/mlx_int.h	/^	void	*param;$/;"	m	struct:s_event_list
 parse_args	lib/minilibx/configure	/^parse_args(){$/;"	f
 pix	lib/minilibx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img
+plane_init_game	src/modes/mode_init.c	/^int	plane_init_game(t_data *data)$/;"	f
 plane_x	include/cub3d.h	/^	double	plane_x;$/;"	m	struct:s_player
 plane_y	include/cub3d.h	/^	double	plane_y;$/;"	m	struct:s_player
 player	include/cub3d.h	/^	t_player		player;$/;"	m	struct:s_data
@@ -1069,21 +1122,26 @@ prev_tile_x	include/raycast.h	/^    int prev_tile_x;$/;"	m	struct:s_rndr_ctx
 prev_tile_y	include/raycast.h	/^    int prev_tile_y; $/;"	m	struct:s_rndr_ctx
 prev_wall	include/raycast.h	/^    int prev_wall;          \/\/ Previous wall type for continuity$/;"	m	struct:s_rndr_ctx
 print_map	src/print_map.c	/^int	print_map(void)$/;"	f
+print_progress	make_interface/src/progress.c	/^void	print_progress(int step, int total)$/;"	f
 private_cmap	lib/minilibx/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar
 process_ray	src/render/draw_player_view.c	/^void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)$/;"	f
+progressive_sleep	make_interface/src/progress.c	/^void	progressive_sleep(int step, int total)$/;"	f
 pshm_format	lib/minilibx/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar
 ptr	lib/libgc/include/libgc.h	/^	void				*ptr;$/;"	m	struct:s_gc_node
 put_pixel_to_image	src/engine.c	/^int	put_pixel_to_image(t_image *img, int x, int y, int color)$/;"	f
 px	include/raycast.h	/^	float	px;$/;"	m	struct:s_dda
 py	include/raycast.h	/^	float	py;$/;"	m	struct:s_dda
 qnxnto	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
-render_plane_mode	src/render/draw_plane_mode.c	/^void render_plane_mode(t_data *data, t_image *img)$/;"	f
+re_init_game	src/modes/mode_init.c	/^int	re_init_game(t_data *data, bool plane_mode)$/;"	f
+remove_newline	make_interface/src/make_prompt.c	/^void	remove_newline(char *str)$/;"	f
 result	include/raycast.h	/^    t_rayinfo result;     \/\/ Final collision result$/;"	m	struct:s_ray_cast
 root	lib/minilibx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar
 rot_left	include/cub3d.h	/^	bool	rot_left;$/;"	m	struct:s_player
 rot_right	include/cub3d.h	/^	bool	rot_right;$/;"	m	struct:s_player
-rotate_player	src/player.c	/^int	rotate_player(t_data *data, double delta_time, int sign)$/;"	f
+rotate_player_angle	src/player.c	/^void	rotate_player_angle(t_data *data, float rot_speed)$/;"	f
+rotate_player_plane	src/player.c	/^int rotate_player_plane(t_data *data, float rot_speed)$/;"	f
 run_dda_loop	src/dda_raycast.c	/^int	run_dda_loop(t_dda *d)$/;"	f
+run_make_command	make_interface/src/make_prompt.c	/^void run_make_command(char *target, char *args)$/;"	f
 rx	include/raycast.h	/^    float rx;       \/\/ Final x-coordinate of collision$/;"	m	struct:s_rayinfo
 ry	include/raycast.h	/^    float ry;       \/\/ Final y-coordinate of collision$/;"	m	struct:s_rayinfo
 s_buffer	lib/libft/include/printf.h	/^typedef struct s_buffer$/;"	s
@@ -1163,6 +1221,7 @@ tile_x	include/raycast.h	/^    int tile_x;     \/\/ Tile index in the x-directio
 tile_y	include/raycast.h	/^    int tile_y;     \/\/ Tile index in the y-direction$/;"	m	struct:s_rayinfo
 type	lib/libft/include/printf.h	/^	char		type;$/;"	m	struct:s_format_spec
 type	lib/minilibx/mlx_int.h	/^	int				type;$/;"	m	struct:s_img
+update_makefile	make_interface/config/build.sh	/^update_makefile() {$/;"	f
 use_dda	include/cub3d.h	/^	bool			use_dda;$/;"	m	struct:s_data
 use_plane_mode	include/cub3d.h	/^	bool			use_plane_mode;$/;"	m	struct:s_data
 use_xshm	lib/minilibx/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar

@@ -6,12 +6,19 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:26:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/28 10:04:19 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 16:44:39 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/player.h"
 #include "../include/compute.h"
+
+/*
+ * player_init:
+ * Finds 'P' in the g_map, sets player position to center of that tile,
+ * faces left (-π/2). plane_x, plane_y are initialized to (0, 0.66) for
+ * a ~60-degree FOV in plane mode.
+ */
 
 int	player_init(t_data *data)
 {
@@ -42,9 +49,31 @@ int	player_init(t_data *data)
 	return (0);
 }
 
-int	rotate_player(t_data *data, double delta_time, int sign)
+void	rotate_player_angle(t_data *data, float rot_speed)
 {
+	data->player.angle += rot_speed;
+	data->player.angle = normalize_angle(data->player.angle);
+	calculate_direction(data->player.angle, &data->player.dx, &data->player.dy);
+}
+/*
+ * rotate_player: rotates (dx, dy) and (plane_x, plane_y) by +/-rot_speed
+ * if we are in plane mode. sign=1 => rotate left, sign=-1 => rotate right.
+ */
+int rotate_player_plane(t_data *data, float rot_speed)
+{
+    double old_dx;
+    double old_plane_x;
+	t_player	*p;
 
+	p = &data->player;
+    old_dx = p->dx;
+    p->dx = p->dx * cos(rot_speed) - p->dy * sin(rot_speed);
+    p->dy = old_dx * sin(rot_speed) + p->dy * cos(rot_speed);
+
+    old_plane_x = p->plane_x;
+    p->plane_x = p->plane_x * cos(rot_speed) - p->plane_y * sin(rot_speed);
+    p->plane_y = old_plane_x * sin(rot_speed) + p->plane_y * cos(rot_speed);
+	return (0);
 }
 
 int	player_update(t_data *data, double delta_time)
@@ -53,12 +82,20 @@ int	player_update(t_data *data, double delta_time)
 	float	strafe_dx;
 	float	strafe_dy;
 
-	if (data->player.rot_left)
-		data->player.angle -= ROT_SPEED * (float)delta_time;
-	if (data->player.rot_right)
-		data->player.angle += ROT_SPEED * (float)delta_time;
-	data->player.angle = normalize_angle(data->player.angle);
-	calculate_direction(data->player.angle, &data->player.dx, &data->player.dy);
+	if (data->player.rot_left == true)
+	{
+		if (data->use_plane_mode == true)
+			rotate_player_plane(data, -ROT_SPEED * delta_time);
+		else
+			rotate_player_angle(data, -ROT_SPEED * delta_time);
+	}
+	if (data->player.rot_right == true)
+	{
+		if (data->use_plane_mode == true)
+			rotate_player_plane(data, ROT_SPEED * delta_time);
+		else
+			rotate_player_angle(data, ROT_SPEED * delta_time);
+	}
 	move_distance = calculate_move_distance(SPEED, delta_time);
 	if (data->player.move_up)
 	{

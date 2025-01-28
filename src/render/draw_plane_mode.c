@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 10:12:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/28 10:14:04 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 14:19:00 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,24 +21,27 @@
  * You could also use THREE_D_WIDTH if you want 1:1 pixel columns.
  */
 
-static int calculate_plane_wall_height(float distance)
+static int calculate_plane_wall_height(float distance_in_pixels)
 {
-    float result;
+    float dist_in_tiles;
+    float lineHeight;
 
-    if (distance < 0.0001f)
-        distance = 0.0001f;
-    /* A typical Lode approach might do: lineHeight = (int)(THREE_D_HEIGHT / distance).
-     * But to keep consistent with your existing approach, you can do something like:
-     *   result = (TILE_SIZE / distance) * (THREE_D_WIDTH / 2) / tanf(FOV / 2).
-     * We'll do a simpler direct approach for demonstration.
-     */
-    result = (float)THREE_D_HEIGHT / distance;
-    if (result > THREE_D_HEIGHT)
-        result = THREE_D_HEIGHT;
-    return ((int)result);
+    // Convert to tile units
+    dist_in_tiles = distance_in_pixels / (float)TILE_SIZE;
+    if (dist_in_tiles < 0.0001f)
+        dist_in_tiles = 0.0001f;
+
+    // Lode's logic: lineHeight = screenHeight / distance_in_tiles
+    lineHeight = (float)THREE_D_HEIGHT / dist_in_tiles;
+
+    // clamp if you want
+    if (lineHeight > THREE_D_HEIGHT)
+        lineHeight = THREE_D_HEIGHT;
+
+    return ((int)lineHeight);
 }
 
-void render_plane_mode(t_data *data, t_image *img)
+int draw_plane_mode(t_data *data, t_image *img)
 {
     int     x;
     double  camera_x;
@@ -74,5 +77,5 @@ void render_plane_mode(t_data *data, t_image *img)
         }
         x++;
     }
+    return (0);
 }
-

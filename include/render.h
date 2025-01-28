@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:04:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 00:53:51 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 13:23:05 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,7 @@ int	draw_direction_line(t_data *data, int center_x, int center_y, t_image *img);
 int	draw_player(t_data *data, t_image *img);
 int	draw_line(t_line_data ldata, t_image *img);
 int	draw_rays(t_data *data, t_image *img);
+int	draw_plane_mode(t_data *data, t_image *img);
+int	draw_angle_mode(t_data *data, t_image *img);
 
 #endif

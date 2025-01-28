@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 16:12:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 13:23:56 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
 	ray->x_screen = THREE_D_X + ((i * THREE_D_WIDTH) / RAYS);
 }
 
-int	draw_player_view(t_data *data, t_image *img)
+int	draw_angle_mode(t_data *data, t_image *img)
 {
 	const float	fov = FOV_DEGREES * (M_PI / 180.0f);
 	float		start_angle = normalize_angle(data->player.angle - (fov / 2));
@@ -99,4 +99,20 @@ int	draw_player_view(t_data *data, t_image *img)
 		index++;
 	}
 	return (0);
+}
+
+int	draw_player_view(t_data *data, t_image *img)
+{
+	if (data->use_plane_mode == true)
+	{
+		// Lode's plane-based approach (no fisheye needed).
+		draw_plane_mode(data, img);
+		return (0);
+	}
+	else
+	{
+		// Your EXISTING angle-based approach, with fisheye correction, etc.
+		draw_angle_mode(data, img);
+		return (0);
+	}
 }
