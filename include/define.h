@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 18:06:58 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 08:58:05 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@
 # define MAP_SIZE		64
 # define TILE_SIZE		32
 
-# define SPEED			50.0  // Movement speed in pixels per second
-# define ROT_SPEED		0.8   // Radians per second 
+# define SPEED			80.0  // Movement speed in pixels per second
+# define ROT_SPEED		1.0   // Radians per second 
 
 # define SQUARE_SIZE	5 
 
