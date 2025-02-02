@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/28 08:58:05 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/01 17:28:53 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@
 # define MAP_SIZE		64
 # define TILE_SIZE		32
 
-# define SPEED			80.0  // Movement speed in pixels per second
-# define ROT_SPEED		1.0   // Radians per second 
+# define SPEED			100.0  // Movement speed in pixels per second
+# define ROT_SPEED		1.5   // Radians per second 
 
 # define SQUARE_SIZE	5 
 
 # define RAYS			1920
 # define EPSILON		0.0001f
 
-# define FOV_DEGREES	66.0f
+# define FOV_DEGREES	60.0f
 # define INNER_OFFSET	-0.0001f
 # define MAX_STEPS 		64
 # define MIN_DISTANCE 	10.0f // Adjust based on gameplay needs

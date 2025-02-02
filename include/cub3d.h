@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/28 09:50:38 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/30 12:50:25 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,23 @@ typedef struct s_player
 	bool	rot_left;
 	bool	rot_right;
 }			t_player;
+
+typedef struct s_plane_player
+{
+	double	x;
+	double	y;
+	double	angle;
+	double	dx;
+	double	dy;
+	double	plane_x;
+	double	plane_y;
+	bool	move_up;
+	bool	move_down;
+	bool	move_left;
+	bool	move_right;
+	bool	rot_left;
+	bool	rot_right;
+}			t_plane_player;
 
 typedef struct s_image
 {

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/28 13:23:56 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/31 12:53:20 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,13 +105,11 @@ int	draw_player_view(t_data *data, t_image *img)
 {
 	if (data->use_plane_mode == true)
 	{
-		// Lode's plane-based approach (no fisheye needed).
 		draw_plane_mode(data, img);
 		return (0);
 	}
 	else
 	{
-		// Your EXISTING angle-based approach, with fisheye correction, etc.
 		draw_angle_mode(data, img);
 		return (0);
 	}

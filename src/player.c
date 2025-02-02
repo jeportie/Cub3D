@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:26:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/28 16:44:39 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/30 16:18:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,26 +55,6 @@ void	rotate_player_angle(t_data *data, float rot_speed)
 	data->player.angle = normalize_angle(data->player.angle);
 	calculate_direction(data->player.angle, &data->player.dx, &data->player.dy);
 }
-/*
- * rotate_player: rotates (dx, dy) and (plane_x, plane_y) by +/-rot_speed
- * if we are in plane mode. sign=1 => rotate left, sign=-1 => rotate right.
- */
-int rotate_player_plane(t_data *data, float rot_speed)
-{
-    double old_dx;
-    double old_plane_x;
-	t_player	*p;
-
-	p = &data->player;
-    old_dx = p->dx;
-    p->dx = p->dx * cos(rot_speed) - p->dy * sin(rot_speed);
-    p->dy = old_dx * sin(rot_speed) + p->dy * cos(rot_speed);
-
-    old_plane_x = p->plane_x;
-    p->plane_x = p->plane_x * cos(rot_speed) - p->plane_y * sin(rot_speed);
-    p->plane_y = old_plane_x * sin(rot_speed) + p->plane_y * cos(rot_speed);
-	return (0);
-}
 
 int	player_update(t_data *data, double delta_time)
 {
@@ -83,19 +63,9 @@ int	player_update(t_data *data, double delta_time)
 	float	strafe_dy;
 
 	if (data->player.rot_left == true)
-	{
-		if (data->use_plane_mode == true)
-			rotate_player_plane(data, -ROT_SPEED * delta_time);
-		else
-			rotate_player_angle(data, -ROT_SPEED * delta_time);
-	}
+		rotate_player_angle(data, -ROT_SPEED * delta_time);
 	if (data->player.rot_right == true)
-	{
-		if (data->use_plane_mode == true)
-			rotate_player_plane(data, ROT_SPEED * delta_time);
-		else
-			rotate_player_angle(data, ROT_SPEED * delta_time);
-	}
+		rotate_player_angle(data, ROT_SPEED * delta_time);
 	move_distance = calculate_move_distance(SPEED, delta_time);
 	if (data->player.move_up)
 	{
@@ -121,5 +91,69 @@ int	player_update(t_data *data, double delta_time)
 	}
 	data->player.x = clamp(data->player.x, 0.0f, (float)WINDOW_WIDTH);
 	data->player.y = clamp(data->player.y, 0.0f, (float)WINDOW_HEIGHT);
+	return (0);
+}
+
+static double plane_move_speed = 4.0; // tiles per second
+static double plane_rot_speed  = 2.0; // radians per second
+
+int	player_plane_update(t_data *data, double delta_time)
+{
+	double moveSpeed;
+	double rotSpeed;
+	double old_dx;
+	double old_plane;
+
+	moveSpeed = plane_move_speed * delta_time;
+	rotSpeed  = plane_rot_speed  * delta_time;
+
+	if (data->player.move_up)
+	{
+		data->player.x += data->player.dx * moveSpeed;
+		data->player.y += data->player.dy * moveSpeed;
+	}
+	if (data->player.move_down)
+	{
+		data->player.x -= data->player.dx * moveSpeed;
+		data->player.y -= data->player.dy * moveSpeed;
+	}
+	if (data->player.move_left)
+	{
+		data->player.x -= data->player.plane_x * moveSpeed;
+		data->player.y -= data->player.plane_y * moveSpeed;
+	}
+	if (data->player.move_right)
+	{
+		data->player.x += data->player.plane_x * moveSpeed;
+		data->player.y += data->player.plane_y * moveSpeed;
+	}
+	if (data->player.rot_left)
+	{
+		old_dx = data->player.dx;
+		old_plane = data->player.plane_x;
+		data->player.dx = data->player.dx * cos(rotSpeed)
+			- data->player.dy * sin(rotSpeed);
+		data->player.dy = old_dx * sin(rotSpeed)
+			+ data->player.dy * cos(rotSpeed);
+		data->player.plane_x = data->player.plane_x * cos(rotSpeed)
+			- data->player.plane_y * sin(rotSpeed);
+		data->player.plane_y = old_plane * sin(rotSpeed)
+			+ data->player.plane_y * cos(rotSpeed);
+	}
+	if (data->player.rot_right)
+	{
+		old_dx = data->player.dx;
+		old_plane = data->player.plane_x;
+		data->player.dx = data->player.dx * cos(-rotSpeed)
+			- data->player.dy * sin(-rotSpeed);
+		data->player.dy = old_dx * sin(-rotSpeed)
+			+ data->player.dy * cos(-rotSpeed);
+		data->player.plane_x = data->player.plane_x * cos(-rotSpeed)
+			- data->player.plane_y * sin(-rotSpeed);
+		data->player.plane_y = old_plane * sin(-rotSpeed)
+			+ data->player.plane_y * cos(-rotSpeed);
+	}
+	// (Optional) If you want collisions, you can clamp x,y or check g_map[] here
+	// e.g. if (g_map[(int)player.y * MAP_WIDTH + (int)player.x] == '1') then revert
 	return (0);
 }

@@ -6,22 +6,13 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:04:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 00:28:10 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/31 09:45:45 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/cub3d.h"
 #include "../include/raycast.h"
 #include "../include/compute.h"
-
-int	intercept_mode(t_ray_cast *ray, char c)
-{
-	if (c == 'v')
-		ray->intercept_x = calculate_intercept(ray->player_x, ray->flag, 'v');
-	else if (c == 'h')
-		ray->intercept_x = calculate_intercept(ray->player_y, ray->flag, 'h');
-	return (0);
-}
 
 t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle)
 {
