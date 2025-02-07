@@ -6,28 +6,17 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 23:13:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/25 23:13:24 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:30:48 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/compute.h"
 
-float	calculate_intercept(float player_pos, int flag, char mode)
+float	calculate_intercept(float player_pos, int flag)
 {
 	if (!flag)
-	{
-		if (mode == 'v')
-			return (floorf(player_pos / TILE_SIZE)
-				* TILE_SIZE + TILE_SIZE - INNER_OFFSET);
-		else
-			return (floorf(player_pos / TILE_SIZE)
-				* TILE_SIZE + TILE_SIZE - INNER_OFFSET);
-	}
+		return (floorf(player_pos / TILE_SIZE) * TILE_SIZE + TILE_SIZE - INNER_OFFSET);
 	else
-	{
-		if (mode == 'v')
-			return (floorf(player_pos / TILE_SIZE) * TILE_SIZE + INNER_OFFSET);
-		else
-			return (floorf(player_pos / TILE_SIZE) * TILE_SIZE + INNER_OFFSET);
-	}
+		return (floorf(player_pos / TILE_SIZE) * TILE_SIZE + INNER_OFFSET);
 }
+

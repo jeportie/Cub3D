@@ -6,12 +6,19 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:26:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/25 23:27:33 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:07:08 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/player.h"
 #include "../include/compute.h"
+
+/*
+ * player_init:
+ * Finds 'P' in the g_map, sets player position to center of that tile,
+ * faces left (-π/2). plane_x, plane_y are initialized to (0, 0.66) for
+ * a ~60-degree FOV in plane mode.
+ */
 
 int	player_init(t_data *data)
 {
@@ -31,6 +38,8 @@ int	player_init(t_data *data)
 				data->player.angle = -M_PI / 2;
 				data->player.dx = cos(data->player.angle);
 				data->player.dy = sin(data->player.angle);
+				data->player.plane_x = 0.0;
+				data->player.plane_y = 0.66;
 				return (0);
 			}
 			col++;
@@ -40,20 +49,23 @@ int	player_init(t_data *data)
 	return (0);
 }
 
+void	rotate_player_angle(t_data *data, float rot_speed)
+{
+	data->player.angle += rot_speed;
+	data->player.angle = normalize_angle(data->player.angle);
+	calculate_direction(data->player.angle, &data->player.dx, &data->player.dy);
+}
+
 int	player_update(t_data *data, double delta_time)
 {
-	float	rotation_factor;
 	float	move_distance;
 	float	strafe_dx;
 	float	strafe_dy;
 
-	rotation_factor = ROT_SPEED;
-	if (data->player.rot_left)
-		data->player.angle -= rotation_factor * (float)delta_time;
-	if (data->player.rot_right)
-		data->player.angle += rotation_factor * (float)delta_time;
-	data->player.angle = normalize_angle(data->player.angle);
-	calculate_direction(data->player.angle, &data->player.dx, &data->player.dy);
+	if (data->player.rot_left == true)
+		rotate_player_angle(data, -ROT_SPEED * delta_time);
+	if (data->player.rot_right == true)
+		rotate_player_angle(data, ROT_SPEED * delta_time);
 	move_distance = calculate_move_distance(SPEED, delta_time);
 	if (data->player.move_up)
 	{

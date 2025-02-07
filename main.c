@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 17:20:28 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/07 11:17:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ char	g_map[MAP_SIZE + 1] = {
 	"10000001"
 	"10011001"
 	"10010001"
+	"1000P001"
 	"10000001"
-	"1P000001"
 	"11111111"
 };
 
@@ -32,6 +32,9 @@ int	main(void)
 	t_data	data;
 
 	ft_memset(&data, 0, sizeof(t_data));
+	data.toogle_map = true;
+	data.toogle_dda = true;
+	data.toogle_rays = true;
 	data.mlx = mlx_init();
 	if (!data.mlx)
 	{
@@ -46,6 +49,11 @@ int	main(void)
 	}
 	ft_printf("MLX initialized and window created.\n");
 	init_image(&data);
+	if (init_texture(&data))
+	{
+		ft_dprintf(2, "Error: Texture initialization failed.\n");
+		return (1);
+	}
 	player_init(&data);
 	print_map();
 	if (clock_gettime(CLOCK_MONOTONIC, &data.last_time) != 0)

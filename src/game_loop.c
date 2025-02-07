@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/26 23:44:41 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:04:56 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,13 @@ int	game_loop(t_data *data)
 	buffer_to_draw = (data->current_img + 1) % 2;
 	clear_image(&data->img[buffer_to_draw], BLACK);
 	draw_player_view(data, &data->img[buffer_to_draw]);
-	draw_map(&data->img[buffer_to_draw]);
-	draw_player(data, &data->img[buffer_to_draw]);
-	if (data->show_rays)
-		draw_rays(data, &data->img[buffer_to_draw]);
+	if (data->toogle_map)
+	{
+		draw_map(&data->img[buffer_to_draw]);
+		draw_player(data, &data->img[buffer_to_draw]);
+		if (data->toogle_rays)
+			draw_rays(data, &data->img[buffer_to_draw]);
+	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img[buffer_to_draw].img_ptr, 0, 0);
 	data->current_img = buffer_to_draw;
 	return (0);

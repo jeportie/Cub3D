@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_player.c                                      :+:      :+:    :+:   */
+/*   modes.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 17:17:16 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:15:31 by jeportie         ###   ########.fr       */
+/*   Created: 2025/01/28 15:40:43 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/05 21:02:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/render.h"
+#ifndef MODES_H
+# define MODES_H
 
-int	draw_player(t_data *data, t_image *img)
-{
-	int	center_x;
-	int	center_y;
-	int	x_start;
-	int	y_start;
+# include "cub3d.h"
 
-	center_x = (int)data->player.x;
-	center_y = (int)data->player.y;
-	x_start = center_x - (SQUARE_SIZE / 2);
-	y_start = center_y - (SQUARE_SIZE / 2);
-	draw_square(x_start, y_start, img);
-	draw_direction_line(data, center_x, center_y, img);
-	return (0);
-}
+int	re_init_game(t_data *data, bool plane_mode);
+int	angle_init_game(t_data *data);
+
+#endif /*MODES_H*/

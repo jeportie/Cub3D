@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 14:28:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:27:02 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
 
+
 typedef struct s_player
 {
 	double	x;
@@ -31,6 +32,8 @@ typedef struct s_player
 	double	angle;
 	double	dx;
 	double	dy;
+	double	plane_x;
+	double	plane_y;
 	bool	move_up;
 	bool	move_down;
 	bool	move_left;
@@ -53,12 +56,15 @@ typedef struct s_data
 	void			*mlx;
 	void			*win;
 	t_image			img[2];
+	t_image			texture;
 	int				current_img;
 	t_player		player;
 	struct timespec	last_time;
 	double			delta_accumulator;
-	bool			show_rays;
-	bool			use_dda;
+	bool			toogle_rays;
+	bool			toogle_texture_mode;
+	bool			toogle_map;
+	bool			toogle_dda;
 }				t_data;
 
 typedef struct s_line_data

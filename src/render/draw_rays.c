@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:20:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 15:22:27 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 21:17:06 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	draw_rays(t_data *data, t_image *img)
 	{
 		ray_angle = start_angle + i * (fov / (RAYS - 1));
 		ray_angle = normalize_angle(ray_angle);
-		if (data->use_dda == true)
+		if (data->toogle_dda == true)
 		{
 			chosen = cast_ray_dda(data, ray_angle);
 			if (chosen.map_index == 0)

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 16:12:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/07 13:32:01 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
 {
 	ray->angle = normalize_angle(start_angle + (i * (fov / (RAYS - 1))));
-	if (data->use_dda == true)
+	if (data->toogle_dda == true)
 	{
 		ray->chosen = cast_ray_dda(data, ray->angle);
 		if (ray->chosen.map_index == 0)
@@ -53,7 +53,7 @@ void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
 	}
 	ray->corrected_distance = correct_fisheye(data->player.angle,
 			ray->angle, ray->chosen.dist);
-	ray->wall_height = calculate_wall_height(ray->corrected_distance, fov);
+	calculate_wall_height(ray);
 	ray->line_offset = (THREE_D_HEIGHT / 2) - (ray->wall_height / 2);
 	ray->x_screen = THREE_D_X + ((i * THREE_D_WIDTH) / RAYS);
 }
@@ -78,7 +78,7 @@ int	draw_player_view(t_data *data, t_image *img)
 	while (i < RAYS)
 	{
 		process_ray(data, &ray, start_angle, i, fov);
-		if (draw_wall_slice(&ray, &ctx, img))
+		if (draw_wall_slice(data, &ray, &ctx, img))
 		{
 			problem_ray[index] = i - 1;
 			index++;

@@ -43,6 +43,7 @@ SRC = \
   src/render/draw_background.c \
   src/render/draw_tile.c \
   src/engine.c \
+  src/texture_transform.c \
   src/input.c 
 ### END AUTO GENERATED FILES ###
 
