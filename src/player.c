@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:26:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:07:08 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/07 14:55:23 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	rotate_player_angle(t_data *data, float rot_speed)
 {
 	data->player.angle += rot_speed;
 	data->player.angle = normalize_angle(data->player.angle);
-	calculate_direction(data->player.angle, &data->player.dx, &data->player.dy);
+	get_direction_vector(data->player.angle, &data->player.dx, &data->player.dy);
 }
 
 int	player_update(t_data *data, double delta_time)
@@ -79,13 +79,13 @@ int	player_update(t_data *data, double delta_time)
 	}
 	if (data->player.move_left)
 	{
-		calculate_strafe_direction(data->player.angle, &strafe_dx, &strafe_dy);
+		get_perpendicular_vector(data->player.angle, &strafe_dx, &strafe_dy);
 		data->player.x -= strafe_dx * move_distance;
 		data->player.y -= strafe_dy * move_distance;
 	}
 	if (data->player.move_right)
 	{
-		calculate_strafe_direction(data->player.angle, &strafe_dx, &strafe_dy);
+		get_perpendicular_vector(data->player.angle, &strafe_dx, &strafe_dy);
 		data->player.x += strafe_dx * move_distance;
 		data->player.y += strafe_dy * move_distance;
 	}

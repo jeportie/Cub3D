@@ -15,9 +15,8 @@ NAME = cub3D
 ### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
-  src/compute/calculate_direction.c \
+  src/compute/get_vectors.c \
   src/compute/calculate_step.c \
-  src/compute/clamp.c \
   src/compute/normalize_angle.c \
   src/compute/calculate_move_distance.c \
   src/compute/calculate_distance.c \
@@ -30,8 +29,9 @@ SRC = \
   src/game_loop.c \
   src/player.c \
   src/dda_raycast.c \
-  src/print_map.c \
   src/raycast.c \
+  src/utils/clamp.c \
+  src/utils/print_map.c \
   src/render/draw_wall_slice.c \
   src/render/draw_line.c \
   src/render/draw_map.c \
