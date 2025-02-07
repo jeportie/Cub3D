@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 11:17:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/07 16:23:38 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	main(void)
 	init_image(&data);
 	if (init_texture(&data))
 	{
-		ft_dprintf(2, "Error: Texture initialization failed.\n");
+		ft_dprintf(2, ERR_TEX_INIT);
 		return (1);
 	}
 	player_init(&data);

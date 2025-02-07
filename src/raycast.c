@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:04:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:32:23 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/07 15:02:32 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle)
 	ray.cos_a = get_safe_cos(ray_angle);
 	ray.sin_a = get_safe_sin(ray_angle);
 	ray.flag = (ray.cos_a < 0);
-	ray.tan_a = calculate_tan_a(ray.sin_a, ray.cos_a);
+	ray.tan_a = calculate_tan_a(ray_angle);
 	ray.intercept_x = calculate_intercept(ray.player_x, ray.flag);
 	ray.intercept_y = ray.player_y + (ray.intercept_x - ray.player_x) * ray.tan_a;
 	ray.step_x = calculate_step_primary(ray.flag, TILE_SIZE);
