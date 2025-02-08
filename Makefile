@@ -6,7 +6,7 @@
 #    By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/16 21:46:57 by jeportie          #+#    #+#              #
-#    Updated: 2025/01/16 22:13:00 by jeportie         ###   ########.fr        #
+#    Updated: 2025/02/07 18:48:08 by jeportie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ HELG =      valgrind --tool=helgrind --history-level=full \
 			--track-lockorders=yes --show-below-main=yes --free-is-write=yes
 
 LDFLAGS = -L./lib/minilibx -lmlx -L./lib/libgc -lgc -L./lib/libft -lft \
-		  -lXext -lX11 -ldl -pthread -lm
+		  -lXext -lX11 -ldl -pthread -lXpm -lm
 DEPFLAGS =  -MMD -MP
 INCLUDES = -I./include -I./lib/minilibx -I./lib/libgc/include -I./lib/libft/include
 

@@ -6,15 +6,17 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 16:23:38 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/08 11:36:31 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub3d.h"
+#include "include/define.h"
 #include "include/player.h"
 #include "include/input.h"
 #include "include/engine.h"
 #include "include/error.h"
+#include "lib/minilibx/mlx.h"
 
 char	g_map[MAP_SIZE + 1] = {
 	"11111001"
@@ -29,24 +31,16 @@ char	g_map[MAP_SIZE + 1] = {
 
 int	main(void)
 {
-	t_data	data;
+	t_data		data;
+	t_mlx_app	*app;
 
 	ft_memset(&data, 0, sizeof(t_data));
 	data.toogle_map = true;
 	data.toogle_dda = true;
 	data.toogle_rays = true;
-	data.mlx = mlx_init();
-	if (!data.mlx)
-	{
-		ft_dprintf(2, ERR_MLX_INIT);
-		return (1);
-	}
-	data.win = mlx_new_window(data.mlx, WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
-	if (!data.win)
-	{
-		ft_dprintf(2, ERR_MLX_WINDOW);
-		return (1);
-	}
+	app = mlx_game_create(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
+	data.mlx = app->mlx_ptr;
+	data.win = app->win_ptr;
 	ft_printf("MLX initialized and window created.\n");
 	init_image(&data);
 	if (init_texture(&data))

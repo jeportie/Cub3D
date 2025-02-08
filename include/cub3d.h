@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:27:02 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/07 19:11:09 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,24 @@
 
 # include <stdlib.h>
 # include <stdbool.h>
-# include <time.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <math.h>
+# include <time.h>
 # include "define.h"
 # include "colors.h"
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
+# include "player.h"
 
+typedef struct s_image
+{
+	void	*img_ptr;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}	t_image;
 
 typedef struct s_player
 {
@@ -41,15 +50,6 @@ typedef struct s_player
 	bool	rot_left;
 	bool	rot_right;
 }			t_player;
-
-typedef struct s_image
-{
-	void	*img_ptr;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-}	t_image;
 
 typedef struct s_data
 {
