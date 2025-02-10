@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:22:54 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 13:17:22 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/09 22:02:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,5 @@
 # define KEY_COMMA       44      /* ',' key */
 # define KEY_PERIOD      46      /* '.' key */
 # define KEY_SLASH       47      /* '/' key */
-
-int	key_press(int keycode, t_data *data);
-int	key_release(int keycode, t_data *data);
 
 #endif

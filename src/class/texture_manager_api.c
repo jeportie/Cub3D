@@ -1,19 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   texture_transform.c                                :+:      :+:    :+:   */
+/*   texture_manager_api.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yourname <youremail@example.com>            +#+  +:+       +#+        */
+/*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/06 00:00:00 by yourname          #+#    #+#             */
-/*   Updated: 2025/02/07 14:06:36 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/09 22:21:27 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/09 22:53:58 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "../include/render.h"
-#include "../include/define.h"
-#include "../include/engine.h"
+#include "texture_manager.h"
+
+const t_texure_manager_api	g_texure_manager_methods = {
+	.init = init_texure_manager,
+	.destroy = destroy_texure_manager
+};
+
+int	init_texture(t_data *data)
+{
+	int	width;
+	int	height;
+
+	data->texture.img_ptr
+		= mlx_xpm_file_to_image(data->mlx, TEXTURE, &width, &height);
+	if (!data->texture.img_ptr)
+	{
+		ft_dprintf(2, ERR_MLX_TEX, TEXTURE);
+		return (1);
+	}
+	if (width != TILE_SIZE || height != TILE_SIZE)
+	{
+		ft_printf(WARN_NOEQUAL, width, height, TILE_SIZE, TILE_SIZE);
+	}
+	data->texture.addr = mlx_get_data_addr(data->texture.img_ptr,
+			&data->texture.bpp, &data->texture.line_len, &data->texture.endian);
+	return (0);
+}
 
 int	get_texture_color(t_image *texture, int x, int y)
 {

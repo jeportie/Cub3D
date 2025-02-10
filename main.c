@@ -6,17 +6,15 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/08 11:36:31 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 14:34:03 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub3d.h"
 #include "include/define.h"
-#include "include/player.h"
-#include "include/input.h"
-#include "include/engine.h"
-#include "include/error.h"
-#include "lib/minilibx/mlx.h"
+#include "src/class/origin.h"
+#include "src/class/game.h"
+#include "src/class/settings.h"
 
 char	g_map[MAP_SIZE + 1] = {
 	"11111001"
@@ -31,34 +29,18 @@ char	g_map[MAP_SIZE + 1] = {
 
 int	main(void)
 {
-	t_data		data;
-	t_mlx_app	*app;
+	t_origin	*program;
+	t_game		*game;
+	t_settings	*settings;
 
-	ft_memset(&data, 0, sizeof(t_data));
-	data.toogle_map = true;
-	data.toogle_dda = true;
-	data.toogle_rays = true;
-	app = mlx_game_create(WINDOW_WIDTH, WINDOW_HEIGHT, GAME_TITLE);
-	data.mlx = app->mlx_ptr;
-	data.win = app->win_ptr;
-	ft_printf("MLX initialized and window created.\n");
-	init_image(&data);
-	if (init_texture(&data))
-	{
-		ft_dprintf(2, ERR_TEX_INIT);
-		return (1);
-	}
-	player_init(&data);
-	print_map();
-	if (clock_gettime(CLOCK_MONOTONIC, &data.last_time) != 0)
-	{
-		ft_dprintf(2, ERR_GETTIME);
-		return (1);
-	}
-	mlx_hook(data.win, 2, 1L << 0, key_press, &data);
-	mlx_hook(data.win, 3, 1L << 1, key_release, &data);
-	mlx_loop_hook(data.mlx, game_loop, &data);
-	ft_printf("Entering MLX event loop.\n");
-	mlx_loop(data.mlx);
+	program = create_program();
+	printf("[Main Debug] Program pointer = %p\n", (void *)program);
+	game = program->methods->create_game();
+	settings = program->methods->create_settings(game);
+//	settings->methods->init(game->settings);
+//	game->methods->init(game);
+//	game->methods->run(game);
+//	game->methods->destroy(game);
+	program->methods->destroy(program);
 	return (0);
 }

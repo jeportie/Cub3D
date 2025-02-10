@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   engine.c                                           :+:      :+:    :+:   */
+/*   graphic_engine_api.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 23:10:44 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 16:27:18 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/09 21:44:00 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/09 22:54:49 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/engine.h"
-#include "../include/error.h"
+#include "graphic_engine.h"
 
-double	get_time_in_seconds(struct timespec ts)
-{
-	return ((double)ts.tv_sec + (double)ts.tv_nsec / 1e9);
-}
+const t_graphic_engine_api	g_graphic_engine_methods = {
+	.init = init_graphic_engine,
+	.destroy = destroy_graphic_engine
+};
 
 int	put_pixel_to_image(t_image *img, int x, int y, int color)
 {
@@ -77,23 +76,8 @@ int	init_image(t_data *data)
 	return (0);
 }
 
-int	init_texture(t_data *data)
-{
-	int	width;
-	int	height;
 
-	data->texture.img_ptr
-		= mlx_xpm_file_to_image(data->mlx, TEXTURE, &width, &height);
-	if (!data->texture.img_ptr)
-	{
-		ft_dprintf(2, ERR_MLX_TEX, TEXTURE);
-		return (1);
-	}
-	if (width != TILE_SIZE || height != TILE_SIZE)
-	{
-		ft_printf(WARN_NOEQUAL, width, height, TILE_SIZE, TILE_SIZE);
-	}
-	data->texture.addr = mlx_get_data_addr(data->texture.img_ptr,
-			&data->texture.bpp, &data->texture.line_len, &data->texture.endian);
-	return (0);
-}
+
+t_graphic_engine	*create_graphic_engine(void);
+int					init_graphic_engine(t_graphic_engine *graphic_engine);
+int					destroy_graphic_engine(t_graphic_engine *graphic_engine);

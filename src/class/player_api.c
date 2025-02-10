@@ -1,17 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   player.c                                           :+:      :+:    :+:   */
+/*   player_api.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 22:26:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 14:55:23 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/09 15:23:02 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/09 22:12:07 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/player.h"
-#include "../include/compute.h"
+#include "player.h"
+#include "../../include/compute.h"
+
+const t_player_api	g_player_methods = {
+	.init = init_player,
+	.move = input_player,
+	.view = draw_player_view
+	.destroy = destroy_player
+};
 
 /*
  * player_init:
@@ -20,7 +27,7 @@
  * a ~60-degree FOV in plane mode.
  */
 
-int	player_init(t_data *data)
+int	init_player(t_player *player);
 {
 	int	row;
 	int	col;
@@ -33,13 +40,13 @@ int	player_init(t_data *data)
 		{
 			if (g_map[row * MAP_WIDTH + col] == 'P')
 			{
-				data->player.x = col * TILE_SIZE + (TILE_SIZE / 2);
-				data->player.y = row * TILE_SIZE + (TILE_SIZE / 2);
-				data->player.angle = -M_PI / 2;
-				data->player.dx = cos(data->player.angle);
-				data->player.dy = sin(data->player.angle);
-				data->player.plane_x = 0.0;
-				data->player.plane_y = 0.66;
+				player.x = col * TILE_SIZE + (TILE_SIZE / 2);
+				player.y = row * TILE_SIZE + (TILE_SIZE / 2);
+				player.angle = -M_PI / 2;
+				player.dx = cos(player.angle);
+				player.dy = sin(player.angle);
+				player.plane_x = 0.0;
+				player.plane_y = 0.66;
 				return (0);
 			}
 			col++;
@@ -93,3 +100,5 @@ int	player_update(t_data *data, double delta_time)
 	data->player.y = clamp(data->player.y, 0.0f, (float)WINDOW_HEIGHT);
 	return (0);
 }
+
+int	destroy_player(t_player *player);

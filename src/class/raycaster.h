@@ -1,19 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raycast.h                                          :+:      :+:    :+:   */
+/*   raycaster.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 13:33:04 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/09 22:55:23 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/09 23:13:31 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RAYCAST_H
-# define RAYCAST_H
+#ifndef RAYCASTER_H
+# define RAYCASTER_H
 
-# include "cub3d.h"
+# include "graphic_engine.h"
+
+typedef struct s_game_api	t_game_api;
+typedef struct s_game	t_game;
+
+typedef struct s_raycaster_api
+{
+	t_game_api	base;
+}				t_raycaster_api;
+
+extern const t_raycaster_api	g_raycaster_methods;
+
+typedef struct s_raycaster
+{
+	t_game			base;
+
+	const t_raycaster_api	*methods;
+}				t_raycaster;
 
 typedef struct s_line_vars
 {
@@ -101,6 +118,14 @@ typedef struct s_dda
 	int		side;
 	float	dist;
 }	t_dda;
+
+
+/* ~~~~~~~~~~~ CORE ENGINE METHODS ~~~~~~~~~~~~~*/
+t_raycaster	*create_raycaster(void);
+int			init_raycaster(t_raycaster *raycaster);
+int			run_raycaster(t_raycaster *raycaster);
+int			destroy_raycaster(t_raycaster *raycaster);
+
 
 t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle);
 t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle);
