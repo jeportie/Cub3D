@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:58:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/09 23:11:21 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:23:57 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define INPUT_MANAGER_H
 
 # include "game.h"
-
-typedef struct s_game_api	t_game_api;
-typedef struct s_game	t_game;
 
 typedef struct s_input_manager_api
 {

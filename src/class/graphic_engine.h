@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:39:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 14:10:16 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:23:50 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,6 @@
 # define GRAPHIC_ENGINE_H
 
 # include "game.h"
-# include "raycaster.h"
-
-typedef struct s_game_api			t_game_api;
-typedef struct s_game				t_game;
 
 typedef struct s_graphic_engine_api
 {
@@ -67,7 +63,6 @@ int					destroy_graphic_engine(t_graphic_engine *graphic_engine);
 //3D
 int					draw_background(t_image *img);
 int					draw_player_view(t_game *game, t_image *img);
-int					draw_wall_slice(t_game *game, t_ray *ray, t_rndr_ctx *ctx, t_image *img);
 //minimap
 int					draw_tile(int row, int col, int base_color, t_image *img);
 int					draw_map(t_image *img);
@@ -78,8 +73,8 @@ int					draw_line(t_line_data ldata, t_image *img);
 int					draw_rays(t_game *game, t_image *img);
 int					draw_angle_mode(t_game *game, t_image *img);
 
-int		init_image(t_game *game);
-int		put_pixel_to_image(t_image *img, int x, int y, int color);
-int		clear_image(t_image *img, int color);
+int					init_image(t_game *game);
+int					put_pixel_to_image(t_image *img, int x, int y, int color);
+int					clear_image(t_image *img, int color);
 
 #endif

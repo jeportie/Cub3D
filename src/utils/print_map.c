@@ -6,17 +6,18 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:31:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:31:26 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:53:49 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
+#include "../class/map.h"
 
 int	print_map(void)
 {
 	int	row;
 	int	col;
 
+	ft_printf("[Map Debug] print_map() called.\n");
 	ft_printf("Map layout (0=floor, 1=wall, P=player):\n");
 	row = 0;
 	while (row < MAP_HEIGHT)

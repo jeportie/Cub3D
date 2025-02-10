@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:14:48 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/09 18:12:32 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:48:49 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,21 @@ const t_settings_api	g_settings_methods = {
 	.init = init_settings,
 	.destroy = destroy_settings};
 
-t_settings	*create_settings(t_game *game)
+t_settings	*create_settings(void)
 {
 	t_settings	*settings;
 
-	settings = malloc(sizeof(t_settings));
+	settings = gc_malloc(sizeof(t_settings));
 	if (!settings)
 		return (NULL);
+	ft_printf("[Settings Debug] create_settings() called\n");
 	settings->methods = &g_settings_methods;
-
 	return (settings);
 }
 
 int	init_settings(t_settings *settings)
 {
+	ft_printf("[Settings Debug] init_settings() called\n");
 	settings->window_width = WINDOW_WIDTH;
 	settings->window_height = WINDOW_HEIGHT;
 	settings->toogle_map = true;
@@ -43,5 +44,8 @@ int	init_settings(t_settings *settings)
 
 int	destroy_settings(t_settings *settings)
 {
-	return (1);
+	if (!settings)
+		return (-1);
+	ft_printf("[Settings Debug] destroy_settings() called\n");
+	return (0);
 }

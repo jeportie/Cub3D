@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:26:06 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/09 23:12:51 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:27:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@
 
 # include "game.h"
 
-typedef struct s_game_api		t_game_api;
-typedef struct s_game			t_game;
-
 typedef struct s_player_api
 {
 	t_game_api	base;
-	int			(*init)(struct s_player *self);
-	int			(*parse)(struct s_player *self);
-	int			(*destroy)(struct s_player *self);
-	int			(*print)(void);
+	int			(*init)(t_player *self);
+	int			(*view)(t_game *game, t_image *img);
+	int			(*move)(t_player *player, double delta_time);
+	int			(*destroy)(t_player *self);
 }						t_player_api;
 
 extern const t_player_api		g_player_methods;
@@ -32,13 +29,12 @@ extern const t_player_api		g_player_methods;
 /* ~~~~~~~~~~~~~~~ Player Class ~~~~~~~~~~~~~~~ */
 typedef struct s_player
 {
+	t_game				base;
 	double				x;
 	double				y;
 	double				angle;
 	double				dx;
 	double				dy;
-	double				plane_x;
-	double				plane_y;
 	bool				move_up;
 	bool				move_down;
 	bool				move_left;
@@ -48,7 +44,9 @@ typedef struct s_player
 	const t_player_api	*methods;
 }			t_player;
 
-int	player_init(t_game *game);
-int	player_update(t_game *game, double delta_time);
+t_player	*create_player(void);
+int			init_player(t_player *player);
+int			player_update(t_player *player, double delta_time);
+int			destroy_player(t_player *player);
 
 #endif

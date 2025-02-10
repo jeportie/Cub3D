@@ -6,12 +6,13 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:12:13 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/26 23:14:55 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:32:21 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/colors.h"
-#include "../../include/render.h"
+#include "../class/graphic_engine.h"
+#include "../class/map.h"
 
 int	draw_map(t_image *img)
 {

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 14:34:03 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:47:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,23 @@ int	main(void)
 	program = create_program();
 	printf("[Main Debug] Program pointer = %p\n", (void *)program);
 	game = program->methods->create_game();
+	if (!game)
+	{
+		ft_dprintf(2, "[Main Error] Failed to create Game.\n");
+		return (1);
+	}
 	settings = program->methods->create_settings(game);
-//	settings->methods->init(game->settings);
-//	game->methods->init(game);
-//	game->methods->run(game);
-//	game->methods->destroy(game);
+	if (!settings)
+	{
+		ft_dprintf(2, "[Main Error] Failed to create Settings.\n");
+		return (1);
+	}
+	game->settings = settings;
+	settings->game = game;
+	settings->methods->init(settings);
+	game->methods->init(game);
+	game->methods->run(game);
+	game->methods->destroy(game);
 	program->methods->destroy(program);
 	return (0);
 }

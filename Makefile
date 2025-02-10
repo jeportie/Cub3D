@@ -26,10 +26,17 @@ SRC = \
   src/compute/calculate_tan_a.c \
   src/compute/compute_dda.c \
   src/compute/get_safe_cos_sin.c \
-  src/game_loop.c \
-  src/player.c \
-  src/dda_raycast.c \
-  src/raycast.c \
+  src/class/settings_api.c \
+  src/class/game_api.c \
+  src/class/player_api.c \
+  src/class/origin_api.c \
+  src/class/raycaster_api.c \
+  src/class/mlx_manager_api.c \
+  src/class/core_engine_api.c \
+  src/class/texture_manager_api.c \
+  src/class/graphic_engine_api.c \
+  src/class/input_manager_api.c \
+  src/class/map_api.c \
   src/utils/clamp.c \
   src/utils/print_map.c \
   src/render/draw_wall_slice.c \
@@ -41,10 +48,7 @@ SRC = \
   src/render/draw_square.c \
   src/render/draw_player.c \
   src/render/draw_background.c \
-  src/render/draw_tile.c \
-  src/engine.c \
-  src/texture_transform.c \
-  src/input.c 
+  src/render/draw_tile.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #

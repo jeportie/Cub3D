@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 14:08:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/10 21:29:21 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,25 @@
 # include "colors.h"
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
+# include "../lib/libgc/include/libgc.h"
 
 /* ~~~~~~~~~~~~~~~ Forward Declarations ~~~~~~~~~~~~~~~ */
-typedef struct	s_game	t_game;
-typedef struct	s_settings	t_settings;
-typedef struct	s_player	t_player;
-typedef struct s_mlx_manager	t_mlx_manager;
-
-/* ~~~~~~~~~~~~~~~ Public Prototypes ~~~~~~~~~~~~~~~ */
+typedef struct s_origin				t_origin;
+typedef struct s_origin_api			t_origin_api;
+typedef struct s_game				t_game;
+typedef struct s_game_api			t_game_api;
+typedef struct s_settings			t_settings;
+typedef struct s_settings_api		t_settings_api;
+typedef struct s_player				t_player;
+typedef struct s_player_api			t_player_api;
+typedef struct s_map				t_map;
+typedef struct s_map_api			t_map_api;
+typedef struct s_graphic_engine		t_graphic_engine;
+typedef struct s_graphic_engine_api	t_graphic_engine_api;
+typedef struct s_mlx_manager		t_mlx_manager;
+typedef struct s_image				t_image;
+typedef struct s_graphics			t_graphics;
+typedef struct s_ray				t_ray;	
 
 t_mlx_manager	*mlx_app_create(int width, int height, const char *title);
 int				game_loop(t_game *game);
