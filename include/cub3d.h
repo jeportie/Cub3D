@@ -6,13 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 21:29:21 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:25:03 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
+# include <stddef.h>
 # include <stdlib.h>
 # include <stdbool.h>
 # include <stdio.h>
@@ -21,6 +22,7 @@
 # include <time.h>
 # include "define.h"
 # include "colors.h"
+# include "error.h"
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
 # include "../lib/libgc/include/libgc.h"
@@ -30,6 +32,7 @@ typedef struct s_origin				t_origin;
 typedef struct s_origin_api			t_origin_api;
 typedef struct s_game				t_game;
 typedef struct s_game_api			t_game_api;
+typedef struct s_game_object		t_game_object;
 typedef struct s_settings			t_settings;
 typedef struct s_settings_api		t_settings_api;
 typedef struct s_player				t_player;

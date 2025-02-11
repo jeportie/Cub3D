@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:16:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 21:23:09 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:03:30 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define GAME_H
 
 # include "origin.h"
+# include "game_object.h"
+
+# define MAX_OBJECTS  32
 
 typedef struct s_game_api
 {
@@ -31,10 +34,11 @@ typedef struct s_game
 {
 	t_origin			base;
 	t_settings			*settings;
-	t_mlx_manager		*app;
-	t_graphics			*graphics;
 	t_player			*player;
 	t_map				*map;
+
+	t_game_object		*objects[MAX_OBJECTS];
+	int					object_count;
 
 	const t_game_api	*methods;
 }				t_game;

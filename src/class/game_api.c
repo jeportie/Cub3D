@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:20:15 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 21:37:44 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:40:22 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "player.h"
 #include "map.h"
 #include "texture_manager.h"
+#include "game_object.h"
 
 const t_game_api	g_game_methods = {
 	.init = init_game,
@@ -26,6 +27,19 @@ const t_game_api	g_game_methods = {
 	.new_player = create_player,
 	.new_map = create_map,
 	.destroy = destroy_game};
+
+int	game_add_object(t_game *game, t_game_object *obj)
+{
+	if (!obj)
+		return (1);
+	if (game->object_count >= MAX_OBJECTS)
+	{
+		ft_dprintf(2, "[Game] object array is full!\n");
+		return (1);
+	}
+	game->objects[game->object_count++] = obj;
+	return (0);
+}
 
 t_game	*create_game(void)
 {
@@ -36,19 +50,34 @@ t_game	*create_game(void)
 		return (NULL);
 	ft_printf("[Game Debug] create_game() called\n");
 	game->methods = &g_game_methods;
+
+	game->object_count = 0;
 	game->player = game->methods->new_player();
 	game->map = game->methods->new_map();
+
+	/* Add them to our objects array, so we can do unified update calls. */
+	/* (Cast them to (t_game_object*) because they embed that base struct) */
+	game_add_object(game, (t_game_object*)game->player);
+	game_add_object(game, (t_game_object*)game->map);
 	return (game);
 }
 
 int	init_game(t_game *self)
 {
+	int				i;
+	t_game_object	*object;
+
 	ft_printf("[Game Debug] init_game() called\n");
-	if (!self->map)
-		self->methods->new_map();
-	self->map->methods->init(self->map);
-	self->map->methods->print();
-	self->player->methods->init(self->player);
+	i = 0;
+	while (i < self->object_count)
+	{
+		object = self->objects[i];
+		if (object && object->methods && object->methods->init)
+			object->methods->init(object);
+		if (object && object->methods && object->methods->print)
+			object->methods->print();
+		i++;
+	}
 	self->app = mlx_app_create(self->settings->window_width,
 			self->settings->window_height, GAME_TITLE);
 	if (!self->app)
@@ -61,7 +90,6 @@ int	init_game(t_game *self)
 		ft_dprintf(2, ERR_TEX_INIT);
 		return (1);
 	}
-	print_map();
 	if (clock_gettime(CLOCK_MONOTONIC, &self->graphics->last_time) != 0)
 	{
 		ft_dprintf(2, ERR_GETTIME);
@@ -85,13 +113,21 @@ int	run_game(t_game *game)
 
 int	destroy_game(t_game *self)
 {
+	int				i;
+	t_game_object	*object;
+
 	if (!self)
 		return (-1);
 	ft_printf("[Game Debug] destroy_game() called\n");
-	if (self->player && self->player->methods->destroy)
-		self->player->methods->destroy(self->player);
-	if (self->map && self->map->methods->destroy)
-		self->map->methods->destroy(self->map);
+	i = 0;
+	while (i < self->object_count)
+	{
+		object = self->objects[i];
+		if (object && object->methods && object->methods->destroy)
+			object->methods->destroy(object);
+		i++;
+	}
+	self->object_count = 0;
 	if (self->app)
 	{
 		if (self->app->win_ptr)

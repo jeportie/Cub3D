@@ -6,21 +6,37 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:23:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 21:56:07 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/11 20:37:17 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
-#include "map.h"
-#include "graphic_engine.h"
-#include "player.h"
-#include "../../include/compute.h"
 
-const t_player_api	g_player_methods = {
-	.init = init_player,
-	.move = player_update,
-	.view = draw_player_view,
-	.destroy = destroy_player
+static int	player_methods_init(t_game_object *obj)
+{
+	return init_player((t_player*)obj);
+}
+
+static int	player_methods_update(t_game_object *obj, double dt)
+{
+	return player_update((t_player*)obj, dt);
+}
+
+static int	player_methods_render(t_game_object *obj, t_image *img)
+{
+	return player_render((t_player*)obj, img);
+}
+
+static int player_methods_destroy(t_game_object *obj)
+{
+	return destroy_player((t_player*)obj);
+}
+
+const t_methods	g_player_methods = {
+	.init = player_methods_init,
+	.update = player_methods_update,
+	.render = player_methods_render,
+	.destroy = player_methods_destroy
 };
 
 t_player	*create_player(void)
@@ -31,7 +47,9 @@ t_player	*create_player(void)
 	if (!player)
 		return (NULL);
 	ft_printf("[Player Debug] create_player() called\n");
-	player->methods = &g_player_methods;
+	player->object.methods = &g_player_methods;
+	player->object.active  = true;
+
 	player->move_up = false;
 	player->move_down = false;
 	player->move_left = false;
@@ -39,88 +57,4 @@ t_player	*create_player(void)
 	player->rot_left = false;
 	player->rot_right = false;
 	return (player);
-}
-
-int	init_player(t_player *player)
-{
-	int	row;
-	int	col;
-
-	if (!player)
-		return (1);
-	ft_printf("[Player Debug] init_player() called\n");
-	row = 0;
-	while (row < MAP_HEIGHT)
-	{
-		col = 0;
-		while (col < MAP_WIDTH)
-		{
-			if (g_map[row * MAP_WIDTH + col] == 'P')
-			{
-				player->x = col * TILE_SIZE + (TILE_SIZE / 2);
-				player->y = row * TILE_SIZE + (TILE_SIZE / 2);
-				player->angle = -M_PI / 2;
-				player->dx = cos(player->angle);
-				player->dy = sin(player->angle);
-				return (0);
-			}
-			col++;
-		}
-		row++;
-	}
-	return (0);
-}
-
-int	rotate_player_angle(t_player *player, float rot_speed)
-{
-	player->angle += rot_speed;
-	player->angle = normalize_angle(player->angle);
-	get_direction_vector(player->angle, &player->dx, &player->dy);
-	return (0);
-}
-
-int	player_update(t_player *player, double delta_time)
-{
-	float	move_distance;
-	float	strafe_dx;
-	float	strafe_dy;
-
-	if (player->rot_left == true)
-		rotate_player_angle(player, -ROT_SPEED * delta_time);
-	if (player->rot_right == true)
-		rotate_player_angle(player, ROT_SPEED * delta_time);
-	move_distance = calculate_move_distance(SPEED, delta_time);
-	if (player->move_up)
-	{
-		player->x += player->dx * move_distance;
-		player->y += player->dy * move_distance;
-	}
-	if (player->move_down)
-	{
-		player->x -= player->dx * move_distance;
-		player->y -= player->dy * move_distance;
-	}
-	if (player->move_left)
-	{
-		get_perpendicular_vector(player->angle, &strafe_dx, &strafe_dy);
-		player->x -= strafe_dx * move_distance;
-		player->y -= strafe_dy * move_distance;
-	}
-	if (player->move_right)
-	{
-		get_perpendicular_vector(player->angle, &strafe_dx, &strafe_dy);
-		player->x += strafe_dx * move_distance;
-		player->y += strafe_dy * move_distance;
-	}
-	player->x = clamp(player->x, 0.0f, (float)WINDOW_WIDTH);
-	player->y = clamp(player->y, 0.0f, (float)WINDOW_HEIGHT);
-	return (0);
-}
-
-int	destroy_player(t_player *player)
-{
-	if (!player)
-		return (-1);
-	ft_printf("[Player Debug] destroy_player() called\n");
-	return (0);
 }

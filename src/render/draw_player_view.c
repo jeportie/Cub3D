@@ -6,23 +6,23 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 13:32:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/11 17:07:38 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-#include "../../include/raycast.h"
+#include "../engine/raycaster.h"
 #include "../../include/engine.h"
 #include "../../include/colors.h"
 #include "../../include/compute.h"
 #include "../../include/render.h"
 
-void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
+void	process_ray(t_game *game, t_ray *ray, float start_angle, int i, float fov)
 {
 	ray->angle = normalize_angle(start_angle + (i * (fov / (RAYS - 1))));
-	if (data->toogle_dda == true)
+	if (game->toogle_dda == true)
 	{
-		ray->chosen = cast_ray_dda(data, ray->angle);
+		ray->chosen = cast_ray_dda(game, ray->angle);
 		if (ray->chosen.map_index == 0)
 		{
 			ray->current_wall = WALL_VERTICAL;
@@ -36,8 +36,8 @@ void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
 	}
 	else
 	{
-		ray->vertical = cast_vertical_ray(data, ray->angle);
-		ray->horizontal = cast_horizontal_ray(data, ray->angle);
+		ray->vertical = cast_vertical_ray(game, ray->angle);
+		ray->horizontal = cast_horizontal_ray(game, ray->angle);
 		if (ray->vertical.dist < ray->horizontal.dist)
 		{
 			ray->chosen = ray->vertical;
@@ -51,17 +51,17 @@ void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
 			ray->chosen.color = GOLD;
 		}
 	}
-	ray->corrected_distance = correct_fisheye(data->player.angle,
+	ray->corrected_distance = correct_fisheye(game->player.angle,
 			ray->angle, ray->chosen.dist);
 	calculate_wall_height(ray);
 	ray->line_offset = (THREE_D_HEIGHT / 2) - (ray->wall_height / 2);
 	ray->x_screen = THREE_D_X + ((i * THREE_D_WIDTH) / RAYS);
 }
 
-int	draw_player_view(t_data *data, t_image *img)
+int	draw_player_view(t_game *game, t_image *img)
 {
 	const float	fov = FOV_DEGREES * (M_PI / 180.0f);
-	float		start_angle = normalize_angle(data->player.angle - (fov / 2));
+	float		start_angle = normalize_angle(game->player.angle - (fov / 2));
 	t_ray		ray;
 	t_rndr_ctx	ctx = {0};
 	int			problem_ray[300];
@@ -77,8 +77,8 @@ int	draw_player_view(t_data *data, t_image *img)
 	draw_background(img);
 	while (i < RAYS)
 	{
-		process_ray(data, &ray, start_angle, i, fov);
-		if (draw_wall_slice(data, &ray, &ctx, img))
+		process_ray(game, &ray, start_angle, i, fov);
+		if (draw_wall_slice(game, &ray, &ctx, img))
 		{
 			problem_ray[index] = i - 1;
 			index++;
@@ -89,7 +89,7 @@ int	draw_player_view(t_data *data, t_image *img)
 	while (problem_ray[index])
 	{
 		i = problem_ray[index];
-		process_ray(data, &ray, start_angle, i, fov);
+		process_ray(game, &ray, start_angle, i, fov);
 		y = 0;
 		while (y < ray.wall_height)
 		{

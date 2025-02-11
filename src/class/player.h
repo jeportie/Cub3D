@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:26:06 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 21:27:24 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/11 18:29:41 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,12 @@
 # define PLAYER_H
 
 # include "game.h"
-
-typedef struct s_player_api
-{
-	t_game_api	base;
-	int			(*init)(t_player *self);
-	int			(*view)(t_game *game, t_image *img);
-	int			(*move)(t_player *player, double delta_time);
-	int			(*destroy)(t_player *self);
-}						t_player_api;
-
-extern const t_player_api		g_player_methods;
+# include "game_object.h"
 
 /* ~~~~~~~~~~~~~~~ Player Class ~~~~~~~~~~~~~~~ */
 typedef struct s_player
 {
-	t_game				base;
+	t_game_object		object;
 	double				x;
 	double				y;
 	double				angle;
@@ -41,12 +31,12 @@ typedef struct s_player
 	bool				move_right;
 	bool				rot_left;
 	bool				rot_right;
-	const t_player_api	*methods;
 }			t_player;
 
 t_player	*create_player(void);
 int			init_player(t_player *player);
 int			player_update(t_player *player, double delta_time);
+int			player_render(t_player *player, t_image *img);
 int			destroy_player(t_player *player);
 
 #endif
