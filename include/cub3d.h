@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 15:25:03 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:16:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ typedef struct s_image				t_image;
 typedef struct s_graphics			t_graphics;
 typedef struct s_ray				t_ray;	
 
-t_mlx_manager	*mlx_app_create(int width, int height, const char *title);
 int				game_loop(t_game *game);
 
 #endif

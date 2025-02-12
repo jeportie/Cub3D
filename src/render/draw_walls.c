@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_player_view.c                                 :+:      :+:    :+:   */
+/*   draw_walls.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 17:07:38 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/12 08:59:10 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/12 08:59:25 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	process_ray(t_game *game, t_ray *ray, float start_angle, int i, float fov)
 	ray->x_screen = THREE_D_X + ((i * THREE_D_WIDTH) / RAYS);
 }
 
-int	draw_player_view(t_game *game, t_image *img)
+int	draw_walls(t_game *game, t_image *img)
 {
 	const float	fov = FOV_DEGREES * (M_PI / 180.0f);
 	float		start_angle = normalize_angle(game->player.angle - (fov / 2));

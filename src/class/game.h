@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:16:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 18:03:30 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:03:28 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_game
 {
 	t_origin			base;
 	t_settings			*settings;
+	t_graphics			*graphic_engine;
 	t_player			*player;
 	t_map				*map;
 

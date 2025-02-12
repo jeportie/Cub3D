@@ -6,24 +6,19 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:15:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 18:15:11 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/12 09:14:57 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mlx_manager.h"
+#include "graphic_engine.h"
 #include "../../lib/minilibx/mlx.h"
 #include "../../lib/minilibx/mlx_int.h"
 
-const t_mlx_manager_api	g_mlx_manager_methods = {
-	.init = init_mlx_manager,
-	.destroy = destroy_mlx_manager
-};
-
-t_mlx	*mlx_app_create(int width, int height, const char *title)
+t_mlx_app	*mlx_app_create(int width, int height, const char *title)
 {
-	t_mlx	*app;
+	t_mlx_app	*app;
 
-	app = malloc(sizeof(t_mlx));
+	app = malloc(sizeof(t_mlx_app));
 	if (!app)
 	{
 		fprintf(stderr, ERR_MALLOC);
