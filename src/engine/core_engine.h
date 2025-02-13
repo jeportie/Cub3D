@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:29 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 21:06:11 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:30:04 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,13 @@
 
 # include "../class/game.h"
 
-int		core_engine_init(t_game *game, t_graphics *engine);
+typedef struct s_core
+{
+	struct timespec	last_time;
+	double			delta_accumulator;
+}				t_core;
+
+int		core_engine_init(t_game *game, t_core *time_state);
 int		game_loop(t_game *game);
 int		core_engine_run(t_game *game, t_graphics *engine);
 int		core_engine_shutdown(t_game *game);

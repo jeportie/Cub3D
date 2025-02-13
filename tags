@@ -579,7 +579,6 @@ ERR_MLX_IMAGE	include/error.h	19;"	d
 ERR_MLX_INIT	include/error.h	17;"	d
 ERR_MLX_TEX	include/error.h	22;"	d
 ERR_MLX_WINDOW	include/error.h	18;"	d
-ERR_NO_TRUECOLOR	include/error.h	27;"	d
 ERR_NO_TRUECOLOR	lib/lib/minilibx/include/define.h	32;"	d
 ERR_NO_TRUECOLOR	lib/minilibx/mlx_int.h	45;"	d
 ERR_NO_X_DISPLAY	include/error.h	25;"	d
@@ -587,9 +586,9 @@ ERR_NO_X_DISPLAY	lib/lib/minilibx/include/define.h	30;"	d
 ERR_TEX_INIT	include/error.h	21;"	d
 ERR_WINDOW_CREATION	include/error.h	26;"	d
 ERR_WINDOW_CREATION	lib/lib/minilibx/include/define.h	31;"	d
-ERR_XPM_ALLOC	include/error.h	31;"	d
+ERR_XPM_ALLOC	include/error.h	29;"	d
 ERR_XPM_ALLOC	lib/lib/minilibx/include/define.h	36;"	d
-ERR_XPM_PARSE	include/error.h	30;"	d
+ERR_XPM_PARSE	include/error.h	28;"	d
 ERR_XPM_PARSE	lib/lib/minilibx/include/define.h	35;"	d
 FIREBRICK	include/colors.h	76;"	d
 FLORALWHITE	include/colors.h	77;"	d
@@ -1036,7 +1035,6 @@ WALL_HORIZONTAL	src/engine/raycaster.h	/^	WALL_HORIZONTAL  \/\/ Wall hit by hori
 WALL_NONE	src/engine/raycaster.h	/^	WALL_NONE,       \/\/ Initial state$/;"	e	enum:e_wall_type
 WALL_VERTICAL	src/engine/raycaster.h	/^	WALL_VERTICAL,   \/\/ Wall hit by vertical ray$/;"	e	enum:e_wall_type
 WARN_NOEQUAL	include/error.h	23;"	d
-WARN_SHM_ATTACH	include/error.h	28;"	d
 WARN_SHM_ATTACH	lib/lib/minilibx/include/define.h	33;"	d
 WARN_SHM_ATTACH	lib/minilibx/mlx_int.h	46;"	d
 WHEAT	include/colors.h	159;"	d
@@ -1124,21 +1122,21 @@ compute_first_boundary_y	src/compute/compute_dda.c	/^float	compute_first_boundar
 compute_initial_sides	src/compute/compute_dda.c	/^void	compute_initial_sides(t_dda *d, t_data *data)$/;"	f
 const	lib/lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	10;"	d	file:
 const	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	10;"	d	file:
-core_engine_init	src/engine/core_engine.c	/^int core_engine_init(t_game *game, t_graphics *engine)$/;"	f
+core_engine_init	src/engine/core_engine.c	/^int core_engine_init(t_game *game, t_core *time_state)$/;"	f
 core_engine_run	src/engine/core_engine.c	/^int core_engine_run(t_game *game, t_graphics *engine)$/;"	f
 core_engine_shutdown	src/engine/core_engine.c	/^int core_engine_shutdown(t_game *game)$/;"	f
 correct_fisheye	src/compute/correct_fisheye.c	/^float	correct_fisheye(float player_angle, float ray_angle, float distance)$/;"	f
 corrected_distance	src/engine/raycaster.h	/^    float corrected_distance; \/\/ Distance corrected for fisheye$/;"	m	struct:s_ray
 cos_a	src/engine/raycaster.h	/^    float cos_a;          \/\/ Cosine of the ray angle$/;"	m	struct:s_ray_cast
 count	src/engine/callback_system.h	/^	int			count;$/;"	m	struct:s_callback
-create_game	src/class/game_api.c	/^t_game	*create_game(void)$/;"	f
+create_game	src/class/game.c	/^t_game	*create_game(void)$/;"	f
 create_game	src/class/origin.h	/^	t_game		*(*create_game)(void);$/;"	m	struct:s_origin_api
 create_input_manager	src/engine/callback_system.c	/^t_callback *create_input_manager(void)$/;"	f
 create_map	src/class/map_api.c	/^t_map	*create_map(void)$/;"	f
 create_player	src/class/player_api.c	/^t_player	*create_player(void)$/;"	f
 create_program	src/class/origin_api.c	/^t_origin	*create_program(void)$/;"	f
 create_settings	src/class/origin.h	/^	t_settings	*(*create_settings)(struct s_game *game);$/;"	m	struct:s_origin_api
-create_settings	src/class/settings_api.c	/^t_settings	*create_settings(void)$/;"	f
+create_settings	src/class/settings.c	/^t_settings	*create_settings(void)$/;"	f
 cur_x	src/engine/raycaster.h	/^	float	cur_x;	\/\/ x coordinate while drawing the line$/;"	m	struct:s_line_vars
 cur_y	src/engine/raycaster.h	/^	float	cur_y;	\/\/ y coordinate while drawing the line$/;"	m	struct:s_line_vars
 current_img	src/engine/graphic_engine.h	/^	int				current_img;$/;"	m	struct:s_graphics
@@ -1155,7 +1153,7 @@ data4	lib/lib/minilibx/test/main.c	/^char	*data4;$/;"	v
 data4	lib/minilibx/test/main.c	/^char	*data4;$/;"	v
 decrgb	lib/lib/minilibx/include/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar
 decrgb	lib/minilibx/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar
-delta_accumulator	src/engine/graphic_engine.h	/^	double			delta_accumulator;$/;"	m	struct:s_graphics
+delta_accumulator	src/engine/core_engine.h	/^	double			delta_accumulator;$/;"	m	struct:s_core
 delta_x	src/engine/raycaster.h	/^	float	delta_x;$/;"	m	struct:s_dda
 delta_y	src/engine/raycaster.h	/^	float	delta_y;$/;"	m	struct:s_dda
 depth	lib/lib/minilibx/include/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar
@@ -1165,11 +1163,11 @@ destroy	src/class/game_object.h	/^	int	(*destroy)(t_game_object *self);$/;"	m	st
 destroy	src/class/origin.h	/^	int			(*destroy)(t_origin *self);$/;"	m	struct:s_origin_api
 destroy	src/class/settings.h	/^	int				(*destroy)(struct s_settings *self);$/;"	m	struct:s_settings_api
 destroy	src/engine/texture_manager.h	/^	int				(*destroy)(struct s_texture_manager *self);$/;"	m	struct:s_texure_manager_api
-destroy_game	src/class/game_api.c	/^int	destroy_game(t_game *self)$/;"	f
+destroy_game	src/class/game.c	/^int	destroy_game(t_game *self)$/;"	f
 destroy_map	src/class/map.c	/^int	destroy_map(t_map *map)$/;"	f
 destroy_player	src/class/player.c	/^int	destroy_player(t_player *player)$/;"	f
 destroy_program	src/class/origin_api.c	/^int	destroy_program(t_origin *program)$/;"	f
-destroy_settings	src/class/settings_api.c	/^int	destroy_settings(t_settings *settings)$/;"	f
+destroy_settings	src/class/settings.c	/^int	destroy_settings(t_settings *settings)$/;"	f
 dir_x	src/engine/raycaster.h	/^	float	dir_x;$/;"	m	struct:s_dda
 dir_y	src/engine/raycaster.h	/^	float	dir_y;$/;"	m	struct:s_dda
 display	lib/lib/minilibx/include/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar
@@ -1432,8 +1430,8 @@ ft_utoa_base	lib/libft/src/conversion/ft_utoa_base.c	/^char	*ft_utoa_base(unsign
 ft_zero_minus_flags	lib/lib/libft/src/printf/ft_parse_flags.c	/^static void	ft_zero_minus_flags(const char *format, t_format_spec *spec,$/;"	f	file:
 ft_zero_minus_flags	lib/libft/src/printf/ft_parse_flags.c	/^static void	ft_zero_minus_flags(const char *format, t_format_spec *spec,$/;"	f	file:
 full_height	src/engine/texture_manager.h	/^	float	full_height;$/;"	m	struct:s_tex
-g_game_listener_api	src/class/game_api.c	/^const t_listener_api	g_game_listener_api = {$/;"	v
-g_game_methods	src/class/game_api.c	/^const t_game_api	g_game_methods = {$/;"	v
+g_game_listener_api	src/class/game.c	/^const t_listener_api	g_game_listener_api = {$/;"	v
+g_game_methods	src/class/game.c	/^const t_game_api	g_game_methods = {$/;"	v
 g_gc	lib/lib/libgc/src/gc_global.c	/^t_gc	g_gc = {0};$/;"	v
 g_gc	lib/libgc/src/gc_global.c	/^t_gc	g_gc = {0};$/;"	v
 g_map	main.c	/^char	g_map[MAP_SIZE + 1] = {$/;"	v
@@ -1442,12 +1440,12 @@ g_origin_methods	src/class/origin_api.c	/^const t_origin_api	g_origin_methods = 
 g_player_listener_api	src/class/player_api.c	/^const t_listener_api	g_player_listener_api = {$/;"	v
 g_player_methods	src/class/player_api.c	/^const t_methods	g_player_methods = {$/;"	v
 g_raycaster_methods	src/engine/raycaster.c	/^const t_raycaster_api	g_raycaster_methods = {$/;"	v
-g_settings_methods	src/class/settings_api.c	/^const t_settings_api	g_settings_methods = {$/;"	v
+g_settings_methods	src/class/settings.c	/^const t_settings_api	g_settings_methods = {$/;"	v
 g_texure_manager_methods	src/engine/texture_manager.c	/^const t_texure_manager_api	g_texure_manager_methods = {$/;"	v
 game	src/class/settings.h	/^	t_game					*game;$/;"	m	struct:s_settings
-game_add_object	src/class/game_api.c	/^int	game_add_object(t_game *game, t_game_object *obj)$/;"	f
+game_add_object	src/class/game.c	/^int	game_add_object(t_game *game, t_game_object *obj)$/;"	f
 game_loop	src/engine/core_engine.c	/^int	game_loop(t_game *game)$/;"	f
-game_on_key_press	src/class/game_api.c	/^static int	game_on_key_press(void *self, int keycode)$/;"	f	file:
+game_on_key_press	src/class/game.c	/^static int	game_on_key_press(void *self, int keycode)$/;"	f	file:
 gc	lib/lib/minilibx/include/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list
 gc	lib/lib/minilibx/include/mlx_int.h	/^	GC				gc;$/;"	m	struct:s_img
 gc	lib/minilibx/mlx_int.h	/^	GC					gc;$/;"	m	struct:s_win_list
@@ -1570,10 +1568,10 @@ init	src/class/game_object.h	/^	int	(*init)(t_game_object *self);$/;"	m	struct:s
 init	src/class/settings.h	/^	int				(*init)(struct s_settings *self);$/;"	m	struct:s_settings_api
 init	src/engine/texture_manager.h	/^	int				(*init)(struct s_texture_manager *self);$/;"	m	struct:s_texure_manager_api
 init_dda_struct	src/engine/raycaster.c	/^void	init_dda_struct(t_dda *d, t_data *data, float angle)$/;"	f
-init_game	src/class/game_api.c	/^int	init_game(t_game *self)$/;"	f
+init_game	src/class/game.c	/^int	init_game(t_game *self)$/;"	f
 init_map	src/class/map.c	/^int	init_map(t_map *map)$/;"	f
 init_player	src/class/player.c	/^int	init_player(t_player *player)$/;"	f
-init_settings	src/class/settings_api.c	/^int	init_settings(t_settings *settings)$/;"	f
+init_settings	src/class/settings.c	/^int	init_settings(t_settings *settings)$/;"	f
 init_texture	src/engine/texture_manager.c	/^int	init_texture(t_data *data)$/;"	f
 input_manager	src/class/game.h	/^	t_callback			*input_manager;$/;"	m	struct:s_game
 input_manager_init	src/engine/callback_system.c	/^int	input_manager_init(t_game *game, t_callback *input_manager)$/;"	f
@@ -1597,7 +1595,7 @@ key_win2	lib/minilibx/test/main.c	/^int	key_win2(int key,void *p)$/;"	f
 key_win3	lib/lib/minilibx/test/main.c	/^int	key_win3(int key,void *p)$/;"	f
 key_win3	lib/minilibx/test/main.c	/^int	key_win3(int key,void *p)$/;"	f
 keycode	lib/lib/minilibx/include/mlx_int.h	/^	int	keycode;$/;"	m	struct:s_mlx_key_data
-last_time	src/engine/graphic_engine.h	/^	struct timespec	last_time;$/;"	m	struct:s_graphics	typeref:struct:s_graphics::timespec
+last_time	src/engine/core_engine.h	/^	struct timespec	last_time;$/;"	m	struct:s_core	typeref:struct:s_core::timespec
 line_len	src/engine/graphic_engine.h	/^	int		line_len;$/;"	m	struct:s_image
 line_offset	src/engine/raycaster.h	/^    int line_offset;          \/\/ Y-coordinate offset to center the slice vertically$/;"	m	struct:s_ray
 line_offset	src/engine/raycaster.h	/^    int line_offset;        \/\/ Y-coordinate offset for centering$/;"	m	struct:s_rndr_ctx
@@ -1887,7 +1885,7 @@ rotate_player_angle	src/class/player.c	/^int	rotate_player_angle(t_player *playe
 run	src/class/game.h	/^	int				(*run)(t_game *self);$/;"	m	struct:s_game_api
 run	src/engine/texture_manager.h	/^	int				(*run)(struct s_texture_manager *self);$/;"	m	struct:s_texure_manager_api
 run_dda_loop	src/engine/raycaster.c	/^int	run_dda_loop(t_dda *d)$/;"	f
-run_game	src/class/game_api.c	/^int	run_game(t_game *game)$/;"	f
+run_game	src/class/game.c	/^int	run_game(t_game *game)$/;"	f
 rx	src/engine/raycaster.h	/^    float rx;       \/\/ Final x-coordinate of collision$/;"	m	struct:s_rayinfo
 ry	src/engine/raycaster.h	/^    float ry;       \/\/ Final y-coordinate of collision$/;"	m	struct:s_rayinfo
 s_buffer	lib/lib/libft/include/printf.h	/^typedef struct s_buffer$/;"	s
@@ -1895,6 +1893,7 @@ s_buffer	lib/libft/include/printf.h	/^typedef struct s_buffer$/;"	s
 s_callback	src/engine/callback_system.h	/^typedef struct s_callback$/;"	s
 s_col_name	lib/lib/minilibx/include/mlx_int.h	/^struct	s_col_name$/;"	s
 s_col_name	lib/minilibx/mlx_int.h	/^struct	s_col_name$/;"	s
+s_core	src/engine/core_engine.h	/^typedef struct s_core$/;"	s
 s_dda	src/engine/raycaster.h	/^typedef struct s_dda$/;"	s
 s_event_list	lib/lib/minilibx/include/mlx_int.h	/^typedef struct s_event_list$/;"	s
 s_event_list	lib/minilibx/mlx_int.h	/^typedef struct	s_event_list$/;"	s
@@ -1987,6 +1986,8 @@ t_buffer	lib/lib/libft/include/printf.h	/^}			t_buffer;$/;"	t	typeref:struct:s_b
 t_buffer	lib/libft/include/printf.h	/^}			t_buffer;$/;"	t	typeref:struct:s_buffer
 t_callback	include/cub3d.h	/^typedef struct s_callback			t_callback;$/;"	t	typeref:struct:s_callback
 t_callback	src/engine/callback_system.h	/^}				t_callback;$/;"	t	typeref:struct:s_callback
+t_core	include/cub3d.h	/^typedef struct s_core				t_core;$/;"	t	typeref:struct:s_core
+t_core	src/engine/core_engine.h	/^}				t_core;$/;"	t	typeref:struct:s_core
 t_dda	src/engine/raycaster.h	/^}	t_dda;$/;"	t	typeref:struct:s_dda
 t_error	lib/lib/libft/include/printf.h	/^}	t_error;$/;"	t	typeref:enum:e_error
 t_error	lib/libft/include/printf.h	/^}	t_error;$/;"	t	typeref:enum:e_error
@@ -2075,6 +2076,7 @@ texture	src/engine/graphic_engine.h	/^	t_image			texture;$/;"	m	struct:s_graphic
 texture_transform	src/engine/texture_manager.c	/^int	texture_transform(t_image *texture, t_ray *ray, t_image *img)$/;"	f
 tile_x	src/engine/raycaster.h	/^    int tile_x;     \/\/ Tile index in the x-direction$/;"	m	struct:s_rayinfo
 tile_y	src/engine/raycaster.h	/^    int tile_y;     \/\/ Tile index in the y-direction$/;"	m	struct:s_rayinfo
+time_state	src/class/game.h	/^	t_core				*time_state;$/;"	m	struct:s_game
 title	src/class/origin.h	/^	const char			*title;$/;"	m	struct:s_origin
 toogle_dda	src/class/settings.h	/^	bool					toogle_dda;$/;"	m	struct:s_settings
 toogle_map	src/class/settings.h	/^	bool					toogle_map;$/;"	m	struct:s_settings

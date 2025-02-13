@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:39:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 23:20:55 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:06:50 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ typedef struct s_graphics
 	int				current_img;
 	t_image			buffer[2];
 	t_image			texture;
-	struct timespec	last_time;
-	double			delta_accumulator;
 }				t_graphics;
 
 typedef struct s_line_data

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 09:23:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 18:59:31 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 09:58:11 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define COMPUTE_H
 
 # include "cub3d.h"
-# include "../src/class/raycaster.h"
+# include "../src/engine/raycaster.h"
 
 //raycaster
 float	normalize_angle(float angle);

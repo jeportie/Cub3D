@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:33:11 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 22:45:20 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:01:59 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@
 # define ERR_MALLOC "Mlx Error: malloc() failed\n"
 # define ERR_NO_X_DISPLAY "Mlx Error: Could not open X Display\n"
 # define ERR_WINDOW_CREATION "Mlx Error: Could not create new Window\n"
-# define ERR_NO_TRUECOLOR "Mlx Error: No TrueColor Visual available\n"
-# define WARN_SHM_ATTACH "Mlx Warning: server can't attach shrd memory\n"
 
 # define ERR_XPM_PARSE "Mlx Error: XPM parse failure\n"
 # define ERR_XPM_ALLOC "Mlx Error: XPM memory allocation failed\n"

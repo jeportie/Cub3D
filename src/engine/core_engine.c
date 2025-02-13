@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 23:30:40 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 10:30:56 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ double	get_time_in_seconds(struct timespec ts)
 	return ((double)ts.tv_sec + (double)ts.tv_nsec / 1e9);
 }
 
-int core_engine_init(t_game *game, t_graphics *engine)
+int core_engine_init(t_game *game, t_core *time_state)
 {
-    if (clock_gettime(CLOCK_MONOTONIC, &game->graphic_engine->last_time) != 0)
+    if (clock_gettime(CLOCK_MONOTONIC, &game->time_state->last_time) != 0)
     {
         ft_dprintf(2, ERR_GETTIME);
         return (1);
     }
-    game->graphic_engine->delta_accumulator = 0.0;
+    game->time_state->delta_accumulator = 0.0;
     return (0);
 }
 
