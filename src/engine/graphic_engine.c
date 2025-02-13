@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 09:40:04 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/12 23:23:38 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	clear_image(t_image *img, int color)
 	return (0);
 }
 
-int	graphic_engine_init(t_graphics *engine)
+int	graphic_engine_init(t_game *game, t_graphics *engine)
 {
 	int	i;
 
@@ -68,6 +68,25 @@ int	graphic_engine_init(t_graphics *engine)
 		i++;
 	}
 	engine->current_img = 0;
+	engine->app = mlx_app_create(game->settings->window_width,
+		game->settings->window_height, GAME_TITLE);
+	if (!engine->app)
+	{
+		ft_dprintf(2, "[Game Error] Failed to init MLX.\n");
+		return (1);
+	}
+	if (init_texture(engine))
+	{
+		ft_dprintf(2, ERR_TEX_INIT);
+		return (1);
+	}
+	if (clock_gettime(CLOCK_MONOTONIC, &self->graphics->last_time) != 0)
+	{
+		ft_dprintf(2, ERR_GETTIME);
+		return (1);
+	}
+	self->graphics->delta_accumulator = 0.0;
+	self->graphics->current_img = 0;
 	return (0);
 }
 

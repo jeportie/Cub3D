@@ -6,23 +6,23 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 12:20:15 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 18:40:22 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 00:04:04 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/error.h"
 #include "game.h"
+#include "game_object.h"
 #include "settings.h"
-#include "mlx_manager.h"
-#include "graphic_engine.h"
-#include "input_manager.h"
 #include "player.h"
 #include "map.h"
-#include "texture_manager.h"
-#include "game_object.h"
+#include "../engine/callback_system.h"
+#include "../engine/graphic_engine.h"
+#include "../engine/core_engine.h"
+#include "../../include/input.h"
 
 const t_game_api	g_game_methods = {
 	.init = init_game,
+	.new_input = create_input_manager,	
 	.run = run_game,
 	.new_player = create_player,
 	.new_map = create_map,
@@ -49,14 +49,13 @@ t_game	*create_game(void)
 	if (!game)
 		return (NULL);
 	ft_printf("[Game Debug] create_game() called\n");
-	game->methods = &g_game_methods;
 
-	game->object_count = 0;
+	game->methods = &g_game_methods;
+	game->input_manager = game->methods->new_input();
 	game->player = game->methods->new_player();
 	game->map = game->methods->new_map();
 
-	/* Add them to our objects array, so we can do unified update calls. */
-	/* (Cast them to (t_game_object*) because they embed that base struct) */
+	game->object_count = 0;
 	game_add_object(game, (t_game_object*)game->player);
 	game_add_object(game, (t_game_object*)game->map);
 	return (game);
@@ -78,36 +77,19 @@ int	init_game(t_game *self)
 			object->methods->print();
 		i++;
 	}
-	self->app = mlx_app_create(self->settings->window_width,
-			self->settings->window_height, GAME_TITLE);
-	if (!self->app)
-	{
-		ft_dprintf(2, "[Game Error] Failed to init MLX.\n");
-		return (1);
-	}
-	if (init_texture(self))
-	{
-		ft_dprintf(2, ERR_TEX_INIT);
-		return (1);
-	}
-	if (clock_gettime(CLOCK_MONOTONIC, &self->graphics->last_time) != 0)
-	{
-		ft_dprintf(2, ERR_GETTIME);
-		return (1);
-	}
-	self->graphics->delta_accumulator = 0.0;
-	self->graphics->current_img = 0;
+	input_manager_init(self, self->input_manager);
+	graphic_engine_init(self, self->graphic_engine);
 	return (0);
 }
 
 int	run_game(t_game *game)
 {
 	ft_printf("[Game Debug] run_game() called\n");
-	mlx_hook(game->app->win_ptr, 2, 1L << 0, key_press, &game);
-	mlx_hook(game->app->win_ptr, 3, 1L << 1, key_release, &game);
-	mlx_loop_hook(game->app->mlx_ptr, game_loop, &game);
+	mlx_hook(game->graphic_engine->app->win_ptr, 2, 1L << 0, key_press, &game);
+	mlx_hook(game->graphic_engine->app->win_ptr, 3, 1L << 1, key_release, &game);
+	mlx_loop_hook(game->graphic_engine->app->mlx_ptr, game_loop, &game);
 	ft_printf("[Game Debug] Entering MLX event loop.\n");
-	mlx_loop(game->app->mlx_ptr);
+	mlx_loop(game->graphic_engine->app->mlx_ptr);
 	return (0);
 }
 
@@ -128,11 +110,39 @@ int	destroy_game(t_game *self)
 		i++;
 	}
 	self->object_count = 0;
-	if (self->app)
+	if (self->graphic_engine->app)
 	{
-		if (self->app->win_ptr)
-			mlx_destroy_window(self->app->mlx_ptr, self->app->win_ptr);
-		self->app->win_ptr = NULL;
+		if (self->graphic_engine->app->win_ptr)
+			mlx_destroy_window(self->graphic_engine->app->mlx_ptr,
+				self->graphic_engine->app->win_ptr);
+		self->graphic_engine->app->win_ptr = NULL;
 	}
 	return (0);
 }
+
+static int	game_on_key_press(void *self, int keycode)
+{
+	t_game	*game;
+
+	game = (t_game *)self;
+	if (keycode == KEY_ESC)
+	{
+		ft_printf("ESC pressed. Exiting.\n");
+		mlx_destroy_window(game->graphic_engine->app->mlx_ptr,
+			game->graphic_engine->app->win_ptr);
+		exit(0);
+	}
+	else if (keycode == KEY_F1)
+		game->settings->toogle_rays = !game->settings->toogle_rays;
+	else if (keycode == KEY_F2)
+		game->settings->toogle_dda = !game->settings->toogle_dda;
+	else if (keycode == KEY_F3)
+		game->settings->toogle_texture = !game->settings->toogle_texture;
+	else if (keycode == KEY_F4)
+		game->settings->toogle_map = !game->settings->toogle_map;
+	return (0);
+}
+
+const t_listener_api	g_game_listener_api = {
+	.on_key_press = game_on_key_press,
+};

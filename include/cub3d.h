@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 09:16:24 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/12 23:47:47 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ typedef struct s_game_api			t_game_api;
 typedef struct s_game_object		t_game_object;
 typedef struct s_settings			t_settings;
 typedef struct s_settings_api		t_settings_api;
+typedef struct s_callback			t_callback;
+typedef struct s_listener			t_listener;
+typedef struct s_listener_api		t_listener_api;
 typedef struct s_player				t_player;
 typedef struct s_player_api			t_player_api;
 typedef struct s_map				t_map;
@@ -45,7 +48,5 @@ typedef struct s_mlx_manager		t_mlx_manager;
 typedef struct s_image				t_image;
 typedef struct s_graphics			t_graphics;
 typedef struct s_ray				t_ray;	
-
-int				game_loop(t_game *game);
 
 #endif

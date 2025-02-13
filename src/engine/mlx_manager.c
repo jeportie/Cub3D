@@ -6,13 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:15:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 09:14:57 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/12 21:50:05 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic_engine.h"
-#include "../../lib/minilibx/mlx.h"
-#include "../../lib/minilibx/mlx_int.h"
+#include "../../include/error.h"
 
 t_mlx_app	*mlx_app_create(int width, int height, const char *title)
 {

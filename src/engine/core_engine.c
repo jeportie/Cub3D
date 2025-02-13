@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time_engine.c                                      :+:      :+:    :+:   */
+/*   core_engine.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/11 22:39:40 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 22:39:57 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/12 20:03:03 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/12 23:30:40 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core_engine.h"
-#include "../class/player.h"
+#include "graphic_engine.h"
 #include "../class/game_object.h"
 #include "../../include/error.h"
 
@@ -20,14 +20,21 @@ double	get_time_in_seconds(struct timespec ts)
 	return ((double)ts.tv_sec + (double)ts.tv_nsec / 1e9);
 }
 
-int core_engine_init(t_game *game)
+int core_engine_init(t_game *game, t_graphics *engine)
 {
-    if (clock_gettime(CLOCK_MONOTONIC, &game->graphics->last_time) != 0)
+    if (clock_gettime(CLOCK_MONOTONIC, &game->graphic_engine->last_time) != 0)
     {
         ft_dprintf(2, ERR_GETTIME);
         return (1);
     }
-    game->graphics->delta_accumulator = 0.0;
+    game->graphic_engine->delta_accumulator = 0.0;
+    return (0);
+}
+
+int core_engine_run(t_game *game, t_graphics *engine)
+{
+    mlx_loop_hook(engine->app->mlx_ptr, &game_loop, game);
+    mlx_loop(engine->app->mlx_ptr);
     return (0);
 }
 
@@ -72,13 +79,6 @@ int	game_loop(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->img[buffer_to_draw].img_ptr, 0, 0);
 	game->current_img = buffer_to_draw;
 	return (0);
-}
-
-int core_engine_run(t_game *game)
-{
-    mlx_loop_hook(game->app->mlx_ptr, &game_loop, game);
-    mlx_loop(game->app->mlx_ptr);
-    return (0);
 }
 
 int core_engine_shutdown(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:39:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 09:40:27 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/12 23:20:55 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define GRAPHIC_ENGINE_H
 
 # include "../class/game.h"
+# include "../../lib/minilibx/mlx_int.h"
 
 typedef struct s_mlx_app
 {
@@ -50,7 +51,7 @@ typedef struct s_line_data
 }	t_line_data;
 
 t_mlx_app	*mlx_app_create(int width, int height, const char *title);
-int			graphic_engine_init(t_graphics *engine);
+int			graphic_engine_init(t_game *game, t_graphics *engine);
 int			graphic_engine_draw_frame(t_game *gmae, t_graphics *engine);
 int			graphic_engine_shutdown(t_graphics *engine);
 

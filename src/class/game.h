@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:16:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 09:03:28 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 00:00:18 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,25 @@ typedef struct s_game_api
 	t_origin_api	base;
 	int				(*init)(t_game *self);
 	int				(*run)(t_game *self);
+	t_callback		*(*new_input)(void);
 	t_player		*(*new_player)(void);
 	t_map			*(*new_map)(void);
 	int				(*destroy)(t_game *self);
 }				t_game_api;
 
 extern const t_game_api			g_game_methods;
+extern const t_listener_api		g_game_listener_api;
 
 typedef struct s_game
 {
 	t_origin			base;
 	t_settings			*settings;
+
 	t_graphics			*graphic_engine;
+	t_callback			*input_manager;
+	
+
+	//entities
 	t_player			*player;
 	t_map				*map;
 

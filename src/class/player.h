@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:26:06 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 18:29:41 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/12 23:44:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_player
 	bool				rot_left;
 	bool				rot_right;
 }			t_player;
+
+extern const t_listener_api	g_player_listener_api;
 
 t_player	*create_player(void);
 int			init_player(t_player *player);
