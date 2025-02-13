@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 09:23:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 09:58:11 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:07:28 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ float	calculate_step_secondary(float step_primary, float tan_a);
 //dda algo
 float	compute_first_boundary_x(t_dda *d);
 float	compute_first_boundary_y(t_dda *d);
-void	compute_initial_sides(t_dda *d, t_game *game);
+int		compute_initial_sides(t_dda *d);
 
 //player
 float	calculate_distance(float delta_x, float delta_y);
