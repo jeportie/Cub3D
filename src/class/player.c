@@ -6,12 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:33:57 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 18:31:09 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:47:27 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "settings.h"
 #include "player.h"
 #include "map.h"
+#include "../engine/core_engine.h"
 #include "../../include/compute.h"
 
 int	init_player(t_player *player)
@@ -53,7 +55,7 @@ int	rotate_player_angle(t_player *player, float rot_speed)
 	return (0);
 }
 
-int	player_update(t_player *player, double delta_time)
+int	update_player(t_player *player, double delta_time)
 {
 	float	move_distance;
 	float	strafe_dx;
@@ -88,6 +90,24 @@ int	player_update(t_player *player, double delta_time)
 	}
 	player->x = clamp(player->x, 0.0f, (float)WINDOW_WIDTH);
 	player->y = clamp(player->y, 0.0f, (float)WINDOW_HEIGHT);
+	return (0);
+}
+
+int	render_player(t_game *game)
+{
+	int				buffer_to_draw;
+	t_graphics		*engine;
+
+	engine = game->graphic_engine;
+	buffer_to_draw = (engine->current_img + 1) % 2;
+	draw_walls(game, &engine->buffer[buffer_to_draw]);
+	if (game->settings->toogle_map)
+	{
+		draw_map(game->map, &engine->buffer[buffer_to_draw]);
+		draw_player(game, &engine->buffer[buffer_to_draw]);
+		if (game->settings->toogle_rays)
+			draw_rays(game, &engine->buffer[buffer_to_draw]);
+	}
 	return (0);
 }
 

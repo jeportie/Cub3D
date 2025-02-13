@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 11:08:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:50:03 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ double	get_time_in_seconds(struct timespec ts)
 	return ((double)ts.tv_sec + (double)ts.tv_nsec / 1e9);
 }
 
-int core_engine_init(t_game *game, t_core *time_state)
+int core_engine_init(t_core *time_state)
 {
-    if (clock_gettime(CLOCK_MONOTONIC, &game->time_state->last_time) != 0)
+    if (clock_gettime(CLOCK_MONOTONIC, &time_state->last_time) != 0)
     {
         ft_dprintf(2, ERR_GETTIME);
         return (1);
     }
-    game->time_state->delta_accumulator = 0.0;
+    time_state->delta_accumulator = 0.0;
     return (0);
 }
 
@@ -79,7 +79,7 @@ int	game_loop(t_game *game, t_core *time_state, t_graphics *engine)
 	{
 		t_game_object *obj = game->objects[i];
 		if (obj && obj->active && obj->methods->render)
-			obj->methods->render(obj, &engine->buffer[buffer_to_draw]);
+			obj->methods->render(obj);
 	}
 	mlx_put_image_to_window(engine->app->mlx_ptr, engine->app->win_ptr,
 			engine->buffer[buffer_to_draw].img_ptr, 0, 0);
@@ -89,6 +89,6 @@ int	game_loop(t_game *game, t_core *time_state, t_graphics *engine)
 
 int core_engine_shutdown(t_game *game)
 {
+	(void)game;
     return (0);
 }
-/* 

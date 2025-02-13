@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:32:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 18:08:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:48:14 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,15 @@ int	init_map(t_map *map)
 	return (0);
 }
 
-int	render_map(t_map *map, t_image *img)
+int	render_map(t_game *game)
 {
+	int				buffer_to_draw;
+	t_graphics		*engine;
+
+	engine = game->graphic_engine;
+	buffer_to_draw = (engine->current_img + 1) % 2;
 	ft_printf("[Map Debug] map_render() called\n");
-	draw_map(map, img); /* your existing function that draws the tiles */
+	draw_map(game->map, &engine->buffer[buffer_to_draw]);
 	return 0;
 }
 

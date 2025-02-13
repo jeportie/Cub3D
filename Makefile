@@ -15,40 +15,41 @@ NAME = cub3D
 ### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
-  src/compute/get_vectors.c \
-  src/compute/calculate_step.c \
-  src/compute/normalize_angle.c \
-  src/compute/calculate_move_distance.c \
-  src/compute/calculate_distance.c \
-  src/compute/correct_fisheye.c \
-  src/compute/calculate_intercept.c \
-  src/compute/calculate_wall_height.c \
-  src/compute/calculate_tan_a.c \
-  src/compute/compute_dda.c \
-  src/compute/get_safe_cos_sin.c \
-  src/class/settings_api.c \
-  src/class/game_api.c \
-  src/class/player_api.c \
+  src/engine/graphic_engine.c \
+  src/engine/callback_system.c \
+  src/engine/raycaster.c \
+  src/engine/texture_manager.c \
+  src/engine/core_engine.c \
+  src/engine/mlx_manager.c \
+  src/class/settings.c \
   src/class/origin_api.c \
-  src/class/raycaster_api.c \
-  src/class/mlx_manager_api.c \
-  src/class/core_engine_api.c \
-  src/class/texture_manager_api.c \
-  src/class/graphic_engine_api.c \
-  src/class/input_manager_api.c \
+  src/class/game.c \
+  src/class/player_api.c \
   src/class/map_api.c \
-  src/utils/clamp.c \
-  src/utils/print_map.c \
+  src/class/map.c \
+  src/class/player.c \
+  src/compute/clamp.c \
+  src/compute/normalize_angle.c \
+  src/compute/correct_fisheye.c \
+  src/compute/compute_dda.c \
+  src/compute/calculate_step.c \
+  src/compute/calculate_tan_a.c \
+  src/compute/get_vectors.c \
+  src/compute/calculate_wall_height.c \
+  src/compute/calculate_intercept.c \
+  src/compute/calculate_distance.c \
+  src/compute/get_safe_cos_sin.c \
+  src/compute/calculate_move_distance.c \
+  src/render/draw_square.c \
   src/render/draw_wall_slice.c \
   src/render/draw_line.c \
-  src/render/draw_map.c \
-  src/render/draw_player_view.c \
-  src/render/draw_rays.c \
-  src/render/draw_direction_line.c \
-  src/render/draw_square.c \
   src/render/draw_player.c \
   src/render/draw_background.c \
-  src/render/draw_tile.c 
+  src/render/draw_map.c \
+  src/render/draw_walls.c \
+  src/render/draw_tile.c \
+  src/render/draw_rays.c \
+  src/render/draw_direction_line.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #

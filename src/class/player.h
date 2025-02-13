@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:26:06 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 23:44:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:44:47 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ extern const t_listener_api	g_player_listener_api;
 
 t_player	*create_player(void);
 int			init_player(t_player *player);
-int			player_update(t_player *player, double delta_time);
-int			player_render(t_player *player, t_image *img);
+int			update_player(t_player *player, double delta_time);
+int			render_player(t_game *game);
 int			destroy_player(t_player *player);
 
 #endif

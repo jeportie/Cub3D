@@ -6,12 +6,11 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:53:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 18:07:20 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 22:52:33 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
-#include "../engine/graphic_engine.h"
 
 static int	map_methods_init(t_game_object *obj)
 {
@@ -24,16 +23,14 @@ static int	map_methods_init(t_game_object *obj)
 static int	map_methods_update(t_game_object *obj, double dt)
 {
 	(void)dt;
+	(void)obj;
 	/* e.g. to use when the minimap will be dynamic*/
 	return (0);
 }
 
-static int	map_methods_render(t_game_object *obj, t_image *img)
+static int	map_methods_render(t_game_object *obj)
 {
-	t_map	*map;
-
-	map = (t_map *)obj;
-	return (render_map(map, img));
+	return (render_map((t_game *)obj));
 }
 
 static int	map_methods_destroy(t_game_object *obj)

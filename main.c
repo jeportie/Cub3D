@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 14:01:45 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 21:00:54 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	main(void)
 		ft_dprintf(2, "[Main Error] Failed to create Game.\n");
 		return (1);
 	}
-	settings = program->methods->create_settings(game);
+	settings = program->methods->create_settings();
 	if (!settings)
 	{
 		ft_dprintf(2, "[Main Error] Failed to create Settings.\n");

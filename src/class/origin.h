@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 13:50:39 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 21:25:51 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:55:50 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 typedef struct s_origin_api
 {
 	t_game		*(*create_game)(void);
-	t_settings	*(*create_settings)(struct s_game *game);
+	t_settings	*(*create_settings)(void);
 	int			(*destroy)(t_origin *self);
 }				t_origin_api;
 

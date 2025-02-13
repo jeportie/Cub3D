@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:53:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 12:56:10 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 20:59:05 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int	init_game(t_game *self)
 			object->methods->print();
 		i++;
 	}
-	core_engine_init(self, self->time_state);
+	core_engine_init(self->time_state);
 	input_manager_init(self, self->input_manager);
 	graphic_engine_init(self, self->graphic_engine);
 	return (0);
