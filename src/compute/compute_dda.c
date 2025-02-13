@@ -6,11 +6,11 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:45:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 15:46:25 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:06:20 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/raycast.h"
+#include "../engine/raycaster.h"
 
 float	compute_first_boundary_x(t_dda *d)
 {
@@ -40,9 +40,9 @@ float	compute_first_boundary_y(t_dda *d)
 	return (fabsf(dist_y / d->dir_y));
 }
 
-void	compute_initial_sides(t_dda *d, t_data *data)
+int	compute_initial_sides(t_dda *d)
 {
-	(void)data;
 	d->side_x = compute_first_boundary_x(d);
 	d->side_y = compute_first_boundary_y(d);
+	return (0);
 }

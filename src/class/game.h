@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:16:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 10:17:38 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 11:11:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct s_game_api
 	int				(*init)(t_game *self);
 	int				(*run)(t_game *self);
 	t_callback		*(*new_input)(void);
+	t_core			*(*new_core)(void);
+	t_graphics		*(*new_graphics)(void);
 	t_player		*(*new_player)(void);
 	t_map			*(*new_map)(void);
 	int				(*destroy)(t_game *self);

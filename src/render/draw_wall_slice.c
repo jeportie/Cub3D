@@ -6,15 +6,15 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:06:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 15:16:37 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:38:23 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
-#include "../../include/raycast.h"
-#include "../../include/engine.h"
+#include "../class/settings.h"
+#include "../engine/graphic_engine.h"
+#include "../engine/texture_manager.h"
+#include "../engine/raycaster.h"
 #include "../../include/colors.h"
-#include "../../include/render.h"
 
 int paint_wall(t_ray *ray, t_rndr_ctx *ctx, t_image *img, int is_same_tile)
 {
@@ -51,7 +51,7 @@ int paint_wall(t_ray *ray, t_rndr_ctx *ctx, t_image *img, int is_same_tile)
 	return (is_incomplete);
 }
 
-int	draw_wall_slice(t_data *data, t_ray *ray, t_rndr_ctx *ctx, t_image *img)
+int	draw_wall_slice(t_game *game, t_ray *ray, t_rndr_ctx *ctx, t_image *img)
 {
 	int	is_incomplete;
 	int	is_same_tile;
@@ -61,8 +61,8 @@ int	draw_wall_slice(t_data *data, t_ray *ray, t_rndr_ctx *ctx, t_image *img)
 	if (ray->chosen.tile_x == ctx->prev_tile_x
 		&& ray->chosen.tile_y == ctx->prev_tile_y)
 		is_same_tile = 1;
-	if (data->toogle_texture_mode)
-		texture_transform(&data->texture, ray, img);
+	if (game->settings->toogle_texture)
+		texture_transform(&game->graphic_engine->texture, ray, img);
 	else
 		is_incomplete = paint_wall(ray, ctx, img, is_same_tile);
 	ctx->prev_tile_x = ray->chosen.tile_x;

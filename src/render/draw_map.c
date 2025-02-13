@@ -6,15 +6,15 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:12:13 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 21:32:21 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:56:00 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/colors.h"
-#include "../class/graphic_engine.h"
+#include "../engine/graphic_engine.h"
 #include "../class/map.h"
 
-int	draw_map(t_image *img)
+int	draw_map(t_map *map, t_image *img)
 {
 	int		row;
 	int		col;
@@ -27,7 +27,7 @@ int	draw_map(t_image *img)
 		col = 0;
 		while (col < MAP_WIDTH)
 		{
-			tile = g_map[row * MAP_WIDTH + col];
+			tile = map->map[row * MAP_WIDTH + col];
 			if (tile == '1')
 				base_color = WHITE;
 			else

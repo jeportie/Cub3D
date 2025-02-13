@@ -6,13 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:33:57 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 20:36:20 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:31:09 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
 #include "map.h"
-#include "../engine/graphic_engine.h"
 #include "../../include/compute.h"
 
 int	init_player(t_player *player)

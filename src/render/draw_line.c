@@ -6,14 +6,13 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:18:43 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:19:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:26:13 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../engine/graphic_engine.h"
+#include "../engine/raycaster.h"
 #include "../../include/cub3d.h"
-#include "../../include/raycast.h"
-#include "../../include/engine.h"
-#include "../../include/render.h"
 
 int	draw_line(t_line_data ldata, t_image *img)
 {

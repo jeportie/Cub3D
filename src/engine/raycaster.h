@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 22:55:23 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 17:08:20 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:11:38 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,6 @@
 # define RAYCASTER_H
 
 # include "graphic_engine.h"
-
-typedef struct s_raycaster_api
-{
-	t_game_api	base;
-}				t_raycaster_api;
-
-extern const t_raycaster_api	g_raycaster_methods;
-
-typedef struct s_raycaster
-{
-	t_game			base;
-
-	const t_raycaster_api	*methods;
-}				t_raycaster;
 
 typedef struct s_line_vars
 {
@@ -118,11 +104,6 @@ typedef struct s_dda
 
 
 /* ~~~~~~~~~~~ CORE ENGINE METHODS ~~~~~~~~~~~~~*/
-t_raycaster	*create_raycaster(void);
-int			init_raycaster(t_raycaster *raycaster);
-int			run_raycaster(t_raycaster *raycaster);
-int			destroy_raycaster(t_raycaster *raycaster);
-
 t_rayinfo	cast_vertical_ray(t_game *game, float ray_angle);
 t_rayinfo	cast_horizontal_ray(t_game *game, float ray_angle);
 t_rayinfo   cast_ray_dda(t_game *game, float ray_angle);

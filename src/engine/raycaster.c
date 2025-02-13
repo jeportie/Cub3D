@@ -6,23 +6,20 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:15:21 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 18:15:23 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:19:02 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "raycaster.h"
+#include "../class/player.h"
+#include "../class/map.h"
 #include "../../include/compute.h"
 
-const t_raycaster_api	g_raycaster_methods = {
-	.init = init_raycaster,
-	.destroy = destroy_raycaster
-};
-
 // DDA RAYCAST
-void	init_dda_struct(t_dda *d, t_data *data, float angle)
+void	init_dda_struct(t_dda *d, t_player *player, float angle)
 {
-	d->px = data->player.x;
-	d->py = data->player.y;
+	d->px = player->x;
+	d->py = player->y;
 	d->dir_x = cosf(angle);
 	d->dir_y = sinf(angle);
 	d->map_x = (int)(d->px / TILE_SIZE);
@@ -45,7 +42,7 @@ void	init_dda_struct(t_dda *d, t_data *data, float angle)
 	d->dist = 0.0f;
 }
 
-int	run_dda_loop(t_dda *d)
+int	run_dda_loop(t_dda *d, t_map *map)
 {
 	int	out_of_bounds;
 
@@ -70,13 +67,13 @@ int	run_dda_loop(t_dda *d)
 			out_of_bounds = 1;
 			break ;
 		}
-		if (g_map[d->map_y * MAP_WIDTH + d->map_x] == '1')
+		if (map->map[d->map_y * MAP_WIDTH + d->map_x] == '1')
 			break ;
 	}
 	return (out_of_bounds);
 }
 
-void	fill_rayinfo(t_dda *d, t_data *data, t_rayinfo *ray)
+void	fill_rayinfo(t_dda *d, t_rayinfo *ray)
 {
 	float	dist;
 
@@ -90,30 +87,29 @@ void	fill_rayinfo(t_dda *d, t_data *data, t_rayinfo *ray)
 	ray->tile_x = d->map_x;
 	ray->tile_y = d->map_y;
 	ray->map_index = d->side;
-	(void)data;
 }
 
-t_rayinfo	cast_ray_dda(t_data *data, float angle)
+t_rayinfo	cast_ray_dda(t_game *game, float angle)
 {
 	t_rayinfo	ray;
 	t_dda		d;
 
 	ft_bzero(&ray, sizeof(t_rayinfo));
 	ft_bzero(&d, sizeof(t_dda));
-	init_dda_struct(&d, data, angle);
-	compute_initial_sides(&d, data);
-	run_dda_loop(&d);
-	fill_rayinfo(&d, data, &ray);
+	init_dda_struct(&d, game->player, angle);
+	compute_initial_sides(&d);
+	run_dda_loop(&d, game->map);
+	fill_rayinfo(&d, &ray);
 	return (ray);
 }
 
 //DUAL PASS
-t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle)
+t_rayinfo	cast_vertical_ray(t_game *game, float ray_angle)
 {
 	t_ray_cast	ray;
 
-	ray.player_x = data->player.x;
-	ray.player_y = data->player.y;
+	ray.player_x = game->player->x;
+	ray.player_y = game->player->y;
 	ray.cos_a = get_safe_cos(ray_angle);
 	ray.sin_a = get_safe_sin(ray_angle);
 	ray.flag = (ray.cos_a < 0);
@@ -128,7 +124,7 @@ t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle)
 		ray.result.tile_y = (int)(ray.intercept_y / TILE_SIZE);
 		if (ray.result.tile_x < 0 || ray.result.tile_x >= MAP_WIDTH
 			|| ray.result.tile_y < 0 || ray.result.tile_y >= MAP_HEIGHT
-			|| g_map[ray.result.tile_y * MAP_WIDTH + ray.result.tile_x] == '1')
+			|| game->map->map[ray.result.tile_y * MAP_WIDTH + ray.result.tile_x] == '1')
 			break ;
 		ray.intercept_x += ray.step_x;
 		ray.intercept_y += ray.step_y;
@@ -140,12 +136,12 @@ t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle)
 	return (ray.result);
 }
 
-t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle)
+t_rayinfo	cast_horizontal_ray(t_game *game, float ray_angle)
 {
 	t_ray_cast	ray;
 
-	ray.player_x = data->player.x;
-	ray.player_y = data->player.y;
+	ray.player_x = game->player->x;
+	ray.player_y = game->player->y;
 	ray.sin_a = get_safe_sin(ray_angle);
 	ray.cos_a = get_safe_cos(ray_angle);
 	ray.flag = (ray.sin_a < 0);
@@ -160,7 +156,7 @@ t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle)
 		ray.result.tile_y = (int)(ray.intercept_y / TILE_SIZE);
 		if (ray.result.tile_x < 0 || ray.result.tile_x >= MAP_WIDTH
 			|| ray.result.tile_y < 0 || ray.result.tile_y >= MAP_HEIGHT
-			|| g_map[ray.result.tile_y * MAP_WIDTH + ray.result.tile_x] == '1')
+			|| game->map->map[ray.result.tile_y * MAP_WIDTH + ray.result.tile_x] == '1')
 			break ;
 		ray.intercept_x += ray.step_x;
 		ray.intercept_y += ray.step_y;

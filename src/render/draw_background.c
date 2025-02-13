@@ -6,12 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:01:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:06:02 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:21:34 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-#include "../../include/engine.h"
+#include "../engine/graphic_engine.h"
 #include "../../include/colors.h"
 
 int	draw_background(t_image *img)

@@ -6,25 +6,21 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:15:29 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 18:15:32 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:23:20 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "texture_manager.h"
+#include "raycaster.h"
 
-const t_texure_manager_api	g_texure_manager_methods = {
-	.init = init_texure_manager,
-	.destroy = destroy_texure_manager
-};
-
-int	init_texture(t_data *data)
+int	init_texture(t_graphics *engine)
 {
 	int	width;
 	int	height;
 
-	data->texture.img_ptr
-		= mlx_xpm_file_to_image(data->mlx, TEXTURE, &width, &height);
-	if (!data->texture.img_ptr)
+	engine->texture.img_ptr
+		= mlx_xpm_file_to_image(engine->app->mlx_ptr, TEXTURE, &width, &height);
+	if (!engine->texture.img_ptr)
 	{
 		ft_dprintf(2, ERR_MLX_TEX, TEXTURE);
 		return (1);
@@ -33,8 +29,10 @@ int	init_texture(t_data *data)
 	{
 		ft_printf(WARN_NOEQUAL, width, height, TILE_SIZE, TILE_SIZE);
 	}
-	data->texture.addr = mlx_get_data_addr(data->texture.img_ptr,
-			&data->texture.bpp, &data->texture.line_len, &data->texture.endian);
+	engine->texture.addr = mlx_get_data_addr(engine->texture.img_ptr,
+			&engine->texture.bpp,
+			&engine->texture.line_len,
+			&engine->texture.endian);
 	return (0);
 }
 

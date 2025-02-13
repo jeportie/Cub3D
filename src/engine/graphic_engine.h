@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:39:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 10:06:50 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:55:29 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ typedef struct s_line_data
 }	t_line_data;
 
 t_mlx_app	*mlx_app_create(int width, int height, const char *title);
+t_graphics	*create_graphic_engine(void);
 int			graphic_engine_init(t_game *game, t_graphics *engine);
 int			graphic_engine_draw_frame(t_game *gmae, t_graphics *engine);
 int			graphic_engine_shutdown(t_graphics *engine);
@@ -60,7 +61,7 @@ int			draw_background(t_image *img);
 int			draw_walls(t_game *game, t_image *img);
 //minimap
 int			draw_tile(int row, int col, int base_color, t_image *img);
-int			draw_map(t_image *img);
+int			draw_map(t_map *map, t_image *img);
 int			draw_square(int x_start, int y_start, t_image *img);
 int			draw_direction_line(t_game *game, int center_x, int center_y, t_image *img);
 int			draw_player(t_game *game, t_image *img);

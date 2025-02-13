@@ -6,17 +6,18 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:20:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:17:06 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:49:25 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
-#include "../../include/raycast.h"
+#include "../engine/graphic_engine.h"
+#include "../engine/raycaster.h"
+#include "../class/settings.h"
+#include "../class/player.h"
 #include "../../include/colors.h"
 #include "../../include/compute.h"
-#include "../../include/render.h"
 
-int	draw_rays(t_data *data, t_image *img)
+int	draw_rays(t_game *game, t_image *img)
 {
 	int			i;
 	const float	fov = FOV_DEGREES * (M_PI / 180.0f);
@@ -27,15 +28,15 @@ int	draw_rays(t_data *data, t_image *img)
 	t_rayinfo	chosen;
 	t_line_data	ldata;
 
-	start_angle = data->player.angle - (fov / 2);
+	start_angle = game->player->angle - (fov / 2);
 	i = 0;
 	while (i < RAYS)
 	{
 		ray_angle = start_angle + i * (fov / (RAYS - 1));
 		ray_angle = normalize_angle(ray_angle);
-		if (data->toogle_dda == true)
+		if (game->settings->toogle_dda == true)
 		{
-			chosen = cast_ray_dda(data, ray_angle);
+			chosen = cast_ray_dda(game, ray_angle);
 			if (chosen.map_index == 0)
 			{
 				if (cosf(ray_angle) > 0.0f)
@@ -53,8 +54,8 @@ int	draw_rays(t_data *data, t_image *img)
 		}
 		else
 		{
-			vertical_ray = cast_vertical_ray(data, ray_angle);
-			horizontal_ray = cast_horizontal_ray(data, ray_angle);
+			vertical_ray = cast_vertical_ray(game, ray_angle);
+			horizontal_ray = cast_horizontal_ray(game, ray_angle);
 			if (vertical_ray.dist < horizontal_ray.dist)
 			{
 				ldata.color = GREEN;
@@ -66,8 +67,8 @@ int	draw_rays(t_data *data, t_image *img)
 				chosen = horizontal_ray;
 			}
 		}
-		ldata.x0 = (int)data->player.x;
-		ldata.y0 = (int)data->player.y;
+		ldata.x0 = (int)game->player->x;
+		ldata.y0 = (int)game->player->y;
 		ldata.x1 = (int)chosen.rx;
 		ldata.y1 = (int)chosen.ry;
 		draw_line(ldata, img);

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:53:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 09:53:14 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:56:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 const t_game_api	g_game_methods = {
 	.init = init_game,
+	.new_core = create_core_engine,
+	.new_graphics = create_graphic_engine,
 	.new_input = create_input_manager,	
 	.run = run_game,
 	.new_player = create_player,
@@ -51,13 +53,15 @@ t_game	*create_game(void)
 	ft_printf("[Game Debug] create_game() called\n");
 
 	game->methods = &g_game_methods;
+	game->time_state = game->methods->new_core();
+	game->graphic_engine = game->methods->new_graphics();
 	game->input_manager = game->methods->new_input();
 	game->player = game->methods->new_player();
 	game->map = game->methods->new_map();
 
 	game->object_count = 0;
-	game_add_object(game, (t_game_object*)game->player);
-	game_add_object(game, (t_game_object*)game->map);
+	game_add_object(game, (t_game_object *)game->player);
+	game_add_object(game, (t_game_object *)game->map);
 	return (game);
 }
 
@@ -77,6 +81,7 @@ int	init_game(t_game *self)
 			object->methods->print();
 		i++;
 	}
+	core_engine_init(self, self->time_state);
 	input_manager_init(self, self->input_manager);
 	graphic_engine_init(self, self->graphic_engine);
 	return (0);
@@ -122,14 +127,16 @@ int	destroy_game(t_game *self)
 
 static int	game_on_key_press(void *self, int keycode)
 {
-	t_game	*game;
+	t_game		*game;
+	t_origin	*base;
 
 	game = (t_game *)self;
+	base = (t_origin *)self;
 	if (keycode == KEY_ESC)
 	{
 		ft_printf("ESC pressed. Exiting.\n");
-		mlx_destroy_window(game->graphic_engine->app->mlx_ptr,
-			game->graphic_engine->app->win_ptr);
+		destroy_game(game);
+		destroy_program(base);
 		exit(0);
 	}
 	else if (keycode == KEY_F1)

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:23:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 23:43:41 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:03:27 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,4 +105,3 @@ const t_listener_api	g_player_listener_api = {
     .on_key_press   = player_on_key_press,
     .on_key_release = player_on_key_release
 };
-

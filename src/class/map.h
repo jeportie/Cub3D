@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:01:22 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/11 18:28:33 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 18:08:53 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 typedef struct s_map
 {
 	t_game_object	object;
+	char			map[MAP_SIZE + 1];
 	bool			loaded;
 
 }			t_map;
@@ -26,9 +27,10 @@ typedef struct s_map
 extern char	g_map[MAP_SIZE + 1];
 
 t_map	*create_map(void);
+
 int		init_map(t_map *map);
-int		parse_map(t_map *map);
+int		render_map(t_map *map, t_image *img);
+int		print_map(t_map *map);
 int		destroy_map(t_map *map);
-int		print_map(void);
 
 #endif

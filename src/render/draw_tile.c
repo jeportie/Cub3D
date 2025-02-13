@@ -6,13 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:10:47 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 17:48:51 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:32:02 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/engine.h"
+#include "../engine/graphic_engine.h"
 #include "../../include/colors.h"
-#include "../../include/render.h"
 
 int	draw_tile(int row, int col, int base_color, t_image *img)
 {

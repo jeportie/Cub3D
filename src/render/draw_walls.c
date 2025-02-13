@@ -6,21 +6,20 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 08:59:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/12 08:59:25 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/13 13:40:33 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/cub3d.h"
+#include "../class/settings.h"
+#include "../class/player.h"
 #include "../engine/raycaster.h"
-#include "../../include/engine.h"
 #include "../../include/colors.h"
 #include "../../include/compute.h"
-#include "../../include/render.h"
 
 void	process_ray(t_game *game, t_ray *ray, float start_angle, int i, float fov)
 {
 	ray->angle = normalize_angle(start_angle + (i * (fov / (RAYS - 1))));
-	if (game->toogle_dda == true)
+	if (game->settings->toogle_dda == true)
 	{
 		ray->chosen = cast_ray_dda(game, ray->angle);
 		if (ray->chosen.map_index == 0)
@@ -51,7 +50,7 @@ void	process_ray(t_game *game, t_ray *ray, float start_angle, int i, float fov)
 			ray->chosen.color = GOLD;
 		}
 	}
-	ray->corrected_distance = correct_fisheye(game->player.angle,
+	ray->corrected_distance = correct_fisheye(game->player->angle,
 			ray->angle, ray->chosen.dist);
 	calculate_wall_height(ray);
 	ray->line_offset = (THREE_D_HEIGHT / 2) - (ray->wall_height / 2);
@@ -61,7 +60,7 @@ void	process_ray(t_game *game, t_ray *ray, float start_angle, int i, float fov)
 int	draw_walls(t_game *game, t_image *img)
 {
 	const float	fov = FOV_DEGREES * (M_PI / 180.0f);
-	float		start_angle = normalize_angle(game->player.angle - (fov / 2));
+	float		start_angle = normalize_angle(game->player->angle - (fov / 2));
 	t_ray		ray;
 	t_rndr_ctx	ctx = {0};
 	int			problem_ray[300];
