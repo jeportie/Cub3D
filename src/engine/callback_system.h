@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:58:25 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 00:04:26 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:40:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@ typedef struct s_callback
 t_callback	*create_input_manager(void);
 int			input_manager_init(t_game *game, t_callback *input_manager);
 int			input_manager_shutdown(t_game *game);
-int			key_press(int keycode, t_game *game);
-int			key_release(int keycode, t_game *game);
+
+int			key_press(int keycode, void *param);
+int			key_release(int keycode, void *param);
 
 int			add_listener(t_callback *mgr, void *instance, const t_listener_api *methods);
 

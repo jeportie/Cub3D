@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 22:50:03 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:58:32 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_core *create_core_engine(void)
 {
 	t_core	*core_engine;
 
-	ft_printf("[Core Debug] create_core_engine() called\n");
+	ft_printf(DEB_CORE_CREATE);
 	core_engine = gc_malloc(sizeof(t_core));
 	if (!core_engine)
 		return (NULL);
@@ -39,15 +39,23 @@ int core_engine_init(t_core *time_state)
         return (1);
     }
     time_state->delta_accumulator = 0.0;
+	ft_printf(DEB_CORE_INIT);
     return (0);
 }
 
-int	game_loop(t_game *game, t_core *time_state, t_graphics *engine)
+int	game_loop(void *param)
 {
+	t_game			*game;
+	t_core			*time_state;
+	t_graphics		*engine;
 	struct timespec	current_time;
 	double			delta;
 	double			time_step;
 	int				buffer_to_draw;
+
+	game = (t_game *)param;
+	time_state = game->time_state;
+	engine = game->graphic_engine;
 
 	if (clock_gettime(CLOCK_MONOTONIC, &current_time) != 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:39:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 17:55:29 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 15:28:29 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 typedef struct s_mlx_app
 {
-	t_xvar					*mlx_ptr;
-	void					*win_ptr;
+	void	*mlx_ptr;
+	void	*win_ptr;
 }				t_mlx_app;
 
 typedef struct s_image

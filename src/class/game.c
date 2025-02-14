@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:53:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 10:45:39 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:26:14 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include "../engine/graphic_engine.h"
 #include "../engine/core_engine.h"
 #include "../../include/input.h"
+#include <error.h>
 
 const t_game_api	g_game_methods = {
 	.init = init_game,
@@ -36,7 +37,7 @@ int	game_add_object(t_game *game, t_game_object *obj)
 		return (1);
 	if (game->object_count >= MAX_OBJECTS)
 	{
-		ft_dprintf(2, "[Game] object array is full!\n");
+		ft_dprintf(2, ERR_GAME_FULL_ARRAY);
 		return (1);
 	}
 	game->objects[game->object_count++] = obj;
@@ -50,7 +51,7 @@ t_game	*create_game(void)
 	game = gc_malloc(sizeof(t_game));
 	if (!game)
 		return (NULL);
-	ft_printf("[Game Debug] create_game() called\n");
+	ft_printf(DEB_GAME_CREATE);
 
 	game->methods = &g_game_methods;
 	game->time_state = game->methods->new_core();
@@ -70,7 +71,7 @@ int	init_game(t_game *self)
 	int				i;
 	t_game_object	*object;
 
-	ft_printf("[Game Debug] init_game() called\n");
+	ft_printf(DEB_GAME_INIT);
 	i = 0;
 	while (i < self->object_count)
 	{
@@ -81,9 +82,8 @@ int	init_game(t_game *self)
 			object->methods->print(object);
 		i++;
 	}
-	ft_printf("[Game Debug] all init/prints: ok!\n");
+	ft_printf(DEB_GAME_OBJ_INIT);
 	core_engine_init(self->time_state);
-	ft_printf("[Game Debug] core engine: ok!\n");
 	input_manager_init(self, self->input_manager);
 	graphic_engine_init(self, self->graphic_engine);
 	return (0);
@@ -91,11 +91,11 @@ int	init_game(t_game *self)
 
 int	run_game(t_game *game)
 {
-	ft_printf("[Game Debug] run_game() called\n");
-	mlx_hook(game->graphic_engine->app->win_ptr, 2, 1L << 0, key_press, &game);
-	mlx_hook(game->graphic_engine->app->win_ptr, 3, 1L << 1, key_release, &game);
-	mlx_loop_hook(game->graphic_engine->app->mlx_ptr, game_loop, &game);
-	ft_printf("[Game Debug] Entering MLX event loop.\n");
+	ft_printf(DEB_GAME_RUN);
+	mlx_hook(game->graphic_engine->app->win_ptr, 2, 1L << 0, key_press, game);
+	mlx_hook(game->graphic_engine->app->win_ptr, 3, 1L << 1, key_release, game);
+	mlx_loop_hook(game->graphic_engine->app->mlx_ptr, game_loop, game);
+	ft_printf(DEB_GAME_RUN);
 	mlx_loop(game->graphic_engine->app->mlx_ptr);
 	return (0);
 }
@@ -107,7 +107,7 @@ int	destroy_game(t_game *self)
 
 	if (!self)
 		return (-1);
-	ft_printf("[Game Debug] destroy_game() called\n");
+	ft_printf(DEB_GAME_DESTROY);
 	i = 0;
 	while (i < self->object_count)
 	{
@@ -136,7 +136,7 @@ static int	game_on_key_press(void *self, int keycode)
 	base = (t_origin *)self;
 	if (keycode == KEY_ESC)
 	{
-		ft_printf("ESC pressed. Exiting.\n");
+		ft_printf(DEB_GAME_ESC);
 		destroy_game(game);
 		destroy_program(base);
 		exit(0);

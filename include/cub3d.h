@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 10:16:40 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:08:52 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "define.h"
 # include "colors.h"
 # include "error.h"
+# include "debug.h"
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
 # include "../lib/libgc/include/libgc.h"

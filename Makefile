@@ -22,12 +22,12 @@ SRC = \
   src/engine/core_engine.c \
   src/engine/mlx_manager.c \
   src/class/settings.c \
-  src/class/origin_api.c \
   src/class/game.c \
   src/class/player_api.c \
   src/class/map_api.c \
   src/class/map.c \
   src/class/player.c \
+  src/class/origin.c \
   src/compute/clamp.c \
   src/compute/normalize_angle.c \
   src/compute/correct_fisheye.c \

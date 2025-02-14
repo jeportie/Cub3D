@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 22:22:02 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 18:20:37 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,13 @@ int	graphic_engine_init(t_game *game, t_graphics *engine)
 	int	i;
 
 	i = 0;
+	engine->app = mlx_app_create(game->settings->window_width,
+			game->settings->window_height, GAME_TITLE);
+	if (!engine->app)
+	{
+		ft_dprintf(2, "graphic engine init failed.\n");
+		return (1);
+	}
 	while (i < 2)
 	{
 		engine->buffer[i].img_ptr
@@ -81,15 +88,12 @@ int	graphic_engine_init(t_game *game, t_graphics *engine)
 		i++;
 	}
 	engine->current_img = 0;
-	engine->app = mlx_app_create(game->settings->window_width,
-			game->settings->window_height, GAME_TITLE);
-	if (!engine->app)
-		return (1);
 	if (init_texture(engine))
 	{
 		ft_dprintf(2, ERR_TEX_INIT);
 		return (1);
 	}
+	ft_printf("[Graphic Debug]\tInit graphic engine: ok!\n");
 	return (0);
 }
 

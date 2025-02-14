@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:29 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 22:28:26 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 17:35:58 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct s_core
 
 t_core	*create_core_engine(void);
 int		core_engine_init(t_core *time_state);
-int		game_loop(t_game *game, t_core *time_state, t_graphics *engine);
+int		game_loop(void *params);
 int		core_engine_shutdown(t_game *game);
 
 double	get_time_in_seconds(struct timespec ts);
