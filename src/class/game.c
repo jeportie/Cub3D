@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:53:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 20:59:05 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:45:39 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,12 @@ int	init_game(t_game *self)
 		if (object && object->methods && object->methods->init)
 			object->methods->init(object);
 		if (object && object->methods && object->methods->print)
-			object->methods->print();
+			object->methods->print(object);
 		i++;
 	}
+	ft_printf("[Game Debug] all init/prints: ok!\n");
 	core_engine_init(self->time_state);
+	ft_printf("[Game Debug] core engine: ok!\n");
 	input_manager_init(self, self->input_manager);
 	graphic_engine_init(self, self->graphic_engine);
 	return (0);

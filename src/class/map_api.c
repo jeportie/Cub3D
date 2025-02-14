@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:53:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 22:52:33 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:41:17 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ static int	map_methods_init(t_game_object *obj)
 	map = (t_map *)obj;
 	return (init_map(map));
 }
+
+static int	map_methods_print(t_game_object *obj)
+{
+	t_map	*map;
+
+	map = (t_map *)obj;
+	return (print_map(map));
+}
+
 
 static int	map_methods_update(t_game_object *obj, double dt)
 {
@@ -40,6 +49,7 @@ static int	map_methods_destroy(t_game_object *obj)
 
 static const t_methods	g_map_methods = {
 	.init = map_methods_init,
+	.print = map_methods_print, 
 	.update = map_methods_update,
 	.render = map_methods_render,
 	.destroy = map_methods_destroy

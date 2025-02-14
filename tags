@@ -1429,7 +1429,7 @@ full_height	src/engine/texture_manager.h	/^	float	full_height;$/;"	m	struct:s_te
 g_game_listener_api	src/class/game.c	/^const t_listener_api	g_game_listener_api = {$/;"	v
 g_game_methods	src/class/game.c	/^const t_game_api	g_game_methods = {$/;"	v
 g_gc	lib/lib/libgc/src/gc_global.c	/^t_gc	g_gc = {0};$/;"	v
-g_gc	lib/libgc/src/gc_global.c	/^t_gc	g_gc = {0};$/;"	v
+g_gcl	lib/libgc/src/gc_global.c	/^t_gc	g_gcl = {0};$/;"	v
 g_map	src/class/map.c	/^char	g_map[MAP_SIZE + 1] = {$/;"	v
 g_map_methods	src/class/map_api.c	/^static const t_methods	g_map_methods = {$/;"	v	file:
 g_origin_methods	src/class/origin_api.c	/^const t_origin_api	g_origin_methods = {$/;"	v
@@ -1632,6 +1632,7 @@ map	src/class/map.h	/^	char			map[MAP_SIZE + 1];$/;"	m	struct:s_map
 map_index	src/engine/raycaster.h	/^    int map_index;  \/\/ Index in the map array$/;"	m	struct:s_rayinfo
 map_methods_destroy	src/class/map_api.c	/^static int	map_methods_destroy(t_game_object *obj)$/;"	f	file:
 map_methods_init	src/class/map_api.c	/^static int	map_methods_init(t_game_object *obj)$/;"	f	file:
+map_methods_print	src/class/map_api.c	/^static int	map_methods_print(t_game_object *obj)$/;"	f	file:
 map_methods_render	src/class/map_api.c	/^static int	map_methods_render(t_game_object *obj)$/;"	f	file:
 map_methods_update	src/class/map_api.c	/^static int	map_methods_update(t_game_object *obj, double dt)$/;"	f	file:
 map_x	src/engine/raycaster.h	/^	int		map_x;$/;"	m	struct:s_dda
@@ -1852,7 +1853,7 @@ precision	lib/libft/include/printf.h	/^	int			precision;$/;"	m	struct:s_format_s
 prev_tile_x	src/engine/raycaster.h	/^    int prev_tile_x;$/;"	m	struct:s_rndr_ctx
 prev_tile_y	src/engine/raycaster.h	/^    int prev_tile_y; $/;"	m	struct:s_rndr_ctx
 prev_wall	src/engine/raycaster.h	/^    int prev_wall;          \/\/ Previous wall type for continuity$/;"	m	struct:s_rndr_ctx
-print	src/class/game_object.h	/^	int	(*print)(void);	$/;"	m	struct:s_methods
+print	src/class/game_object.h	/^	int	(*print)(t_game_object *self);	$/;"	m	struct:s_methods
 print_map	src/class/map.c	/^int	print_map(t_map *map)$/;"	f
 private_cmap	lib/lib/minilibx/include/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar
 private_cmap	lib/minilibx/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar

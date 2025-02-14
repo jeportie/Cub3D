@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:32:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 22:48:14 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 10:45:59 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	print_map(t_map *map)
 	int	col;
 
 	ft_printf("[Map Debug] print_map() called.\n");
-	ft_printf("Map layout (0=floor, 1=wall, P=player):\n");
+	ft_printf("Map layout (0=floor, 1=wall, P=player):\n\n");
 	row = 0;
 	while (row < MAP_HEIGHT)
 	{
