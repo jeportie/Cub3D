@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 21:13:55 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 18:19:51 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:22:59 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	key_press(int keycode, void *param)
 	t_game		*game;
 
 	game = (t_game *)param;
-	ft_printf("[Callback Debug]\tKey Pressed = %d\n", keycode);
+	ft_printf(DEB_CALLB_PRESS, keycode);
 	i = 0;
 	while (i < game->input_manager->count)
 	{
@@ -40,7 +40,7 @@ int	key_release(int keycode, void *param)
 	t_game		*game;
 
 	game = (t_game *)param;
-	ft_printf("[Callbacck Debug]\tKey Released = %d\n", keycode);
+	ft_printf(DEB_CALLB_RELEASE, keycode);
 	i = 0;
 	while (i < game->input_manager->count)
 	{
@@ -67,15 +67,15 @@ int	input_manager_init(t_game *game, t_callback *input_manager)
 	input_manager->count = 0;
 	add_listener(input_manager, game, &g_game_listener_api);
 	add_listener(input_manager, game->player, &g_player_listener_api);
-	ft_printf("[Callback Debug]\tInit input: ok!\n");
+	ft_printf(DEB_CALLB_INIT);
 	return (0);
 }
 
-t_callback *create_input_manager(void)
+t_callback	*create_input_manager(void)
 {
 	t_callback	*input_manager;
 
-	ft_printf("[Callback Debug]\tFunction: create_input_manager() called\n");
+	ft_printf(DEB_CALLB_CREATE);
 	input_manager = gc_malloc(sizeof(t_callback));
 	if (!input_manager)
 		return (NULL);

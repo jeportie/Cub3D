@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:32:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 10:45:59 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:42:40 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	init_map(t_map *map)
 {
 	if (!map)
 		return (1);
-	ft_printf("[Map Debug] init_map() called\n");
+	ft_printf(DEB_MAP_INIT);
 	ft_strlcpy(map->map, g_map, MAP_SIZE + 1);
 	map->loaded = true;
 	/* If you were reading from a .ber or .cub file, do that here. */
@@ -42,7 +42,7 @@ int	render_map(t_game *game)
 
 	engine = game->graphic_engine;
 	buffer_to_draw = (engine->current_img + 1) % 2;
-	ft_printf("[Map Debug] map_render() called\n");
+	ft_printf(DEB_MAP_RENDER);
 	draw_map(game->map, &engine->buffer[buffer_to_draw]);
 	return 0;
 }
@@ -52,8 +52,7 @@ int	print_map(t_map *map)
 	int	row;
 	int	col;
 
-	ft_printf("[Map Debug] print_map() called.\n");
-	ft_printf("Map layout (0=floor, 1=wall, P=player):\n\n");
+	ft_printf(DEB_MAP_PRINT);
 	row = 0;
 	while (row < MAP_HEIGHT)
 	{
@@ -74,6 +73,6 @@ int	destroy_map(t_map *map)
 {
 	if (!map)
 		return (-1);
-	ft_printf("[Map Debug] destroy_map() called\n");
+	ft_printf(DEB_MAP_DESTROY);
 	return (0);
 }

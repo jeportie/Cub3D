@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 18:20:37 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:41:23 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_graphics	*create_graphic_engine(void)
 {
 	t_graphics	*engine;
 
-	ft_printf("[Graphic Debug] create_graphic_engine() called\n");
+	ft_printf(DEB_GRAPHIC_CREATE);
 	engine = gc_malloc(sizeof(t_graphics));
 	if (!engine)
 		return (NULL);
@@ -64,7 +64,7 @@ int	graphic_engine_init(t_game *game, t_graphics *engine)
 			game->settings->window_height, GAME_TITLE);
 	if (!engine->app)
 	{
-		ft_dprintf(2, "graphic engine init failed.\n");
+		ft_dprintf(2, ERR_GRAPHIC_INIT);
 		return (1);
 	}
 	while (i < 2)
@@ -93,7 +93,7 @@ int	graphic_engine_init(t_game *game, t_graphics *engine)
 		ft_dprintf(2, ERR_TEX_INIT);
 		return (1);
 	}
-	ft_printf("[Graphic Debug]\tInit graphic engine: ok!\n");
+	ft_printf(DEB_GRAPHIC_INIT);
 	return (0);
 }
 

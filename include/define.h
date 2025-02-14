@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 14:07:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:50:03 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,8 @@
 
 # define TEXTURE "assets/texture.xpm"
 # define BPP 4
+
+// LOGS
+# define PRG
 
 #endif

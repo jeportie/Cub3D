@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:33:11 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 18:29:11 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:28:41 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@
 # define ERR_GAME_FULL_ARRAY	"Error: Object array is full!\n"
 
 # define ERR_ORIGIN_INIT		"Error: Failed to allocate t_origin.\n"
+
+# define ERR_GRAPHIC_INIT	"Error: Function: graphic_engine_init() failed.\n"
 
 #endif

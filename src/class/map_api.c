@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:53:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 10:41:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:41:54 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ t_map	*create_map(void)
 	map = gc_malloc(sizeof(t_map));
 	if (!map)
 		return (NULL);
-	ft_printf("[Map Debug] create_map() called\n");
+	ft_printf(DEB_MAP_CREATE);
 	map->object.methods = &g_map_methods;
 	map->object.active = true;
 	map->loaded = false;

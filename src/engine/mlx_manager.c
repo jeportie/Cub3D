@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:15:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 15:24:57 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/14 22:34:06 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,22 @@ t_mlx_app	*mlx_app_create(int width, int height, const char *title)
 	app = gc_malloc(sizeof(t_mlx_app));
 	if (!app)
 	{
-		fprintf(stderr, ERR_MALLOC);
+		ft_dprintf(2, ERR_MALLOC);
 		return (NULL);
 	}
 	app->mlx_ptr = mlx_init();
 	if (!app->mlx_ptr)
 	{
-		fprintf(stderr, ERR_NO_X_DISPLAY);
+		ft_dprintf(2, ERR_NO_X_DISPLAY);
 		return (NULL);
 	}
 	app->win_ptr = mlx_new_window(app->mlx_ptr, width, height, (char *)title);
 	if (!app->win_ptr)
 	{
-		fprintf(stderr, ERR_WINDOW_CREATION);
+		ft_dprintf(2, ERR_WINDOW_CREATION);
 		mlx_destroy_display(app->mlx_ptr);
 		return (NULL);
 	}
-	ft_printf("MLX initialized and window created.\n");
+	ft_printf(DEB_MLX_APP_CREATE);
 	return (app);
 }
