@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:53:48 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 09:53:53 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/15 10:24:52 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ t_settings	*create_settings(void)
 	settings = gc_malloc(sizeof(t_settings));
 	if (!settings)
 		return (NULL);
-	ft_printf("[Settings Debug] create_settings() called\n");
+	ft_printf(DEB_SET_CREATE);
 	settings->methods = &g_settings_methods;
 	return (settings);
 }
 
 int	init_settings(t_settings *settings)
 {
-	ft_printf("[Settings Debug] init_settings() called\n");
+	ft_printf(DEB_SET_INIT);
 	settings->window_width = WINDOW_WIDTH;
 	settings->window_height = WINDOW_HEIGHT;
 	settings->toogle_map = true;
@@ -46,6 +46,6 @@ int	destroy_settings(t_settings *settings)
 {
 	if (!settings)
 		return (-1);
-	ft_printf("[Settings Debug] destroy_settings() called\n");
+	ft_printf(DEB_SET_DESTROY);
 	return (0);
 }
