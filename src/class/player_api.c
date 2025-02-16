@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:23:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 22:50:41 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 11:07:07 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_player	*create_player(void)
 	player = gc_malloc(sizeof(t_player));
 	if (!player)
 		return (NULL);
-	ft_printf("[Player Debug] create_player() called\n");
+	ft_printf(DEB_PLAYER_CREATE);
 	player->object.methods = &g_player_methods;
 	player->object.active  = true;
 

@@ -6,14 +6,13 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:33:57 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 22:47:27 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 11:06:17 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "settings.h"
 #include "player.h"
 #include "map.h"
-#include "../engine/core_engine.h"
 #include "../../include/compute.h"
 
 int	init_player(t_player *player)
@@ -23,7 +22,7 @@ int	init_player(t_player *player)
 
 	if (!player)
 		return (1);
-	ft_printf("[Player Debug] init_player() called\n");
+	ft_printf(DEB_PLAYER_INIT);
 	row = 0;
 	while (row < MAP_HEIGHT)
 	{
@@ -115,6 +114,6 @@ int	destroy_player(t_player *player)
 {
 	if (!player)
 		return (-1);
-	ft_printf("[Player Debug] destroy_player() called\n");
+	ft_printf(DEB_PLAYER_DESTROY);
 	return (0);
 }
