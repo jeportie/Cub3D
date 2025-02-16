@@ -266,6 +266,7 @@ COMPILER_VERSION_TWEAK	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CM
 COMPILER_VERSION_TWEAK	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	403;"	d	file:
 COMPILER_VERSION_TWEAK	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	51;"	d	file:
 COMPUTE_H	include/compute.h	14;"	d
+COORDINATES_H	include/coordinates.h	14;"	d
 CORAL	include/colors.h	48;"	d
 CORE_ENGINE_H	src/engine/core_engine.h	14;"	d
 CORNFLOWERBLUE	include/colors.h	49;"	d
@@ -716,7 +717,7 @@ __has_include	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompi
 active	src/class/game_object.h	/^	bool					active;$/;"	m	struct:s_game_object
 add_listener	src/engine/callback_system.c	/^int	add_listener(t_callback *mgr, void *instance, const t_listener_api *methods)$/;"	f
 addr	src/engine/graphic_engine.h	/^	char	*addr;$/;"	m	struct:s_image
-angle	src/class/player.h	/^	double				angle;$/;"	m	struct:s_player
+angle	include/coordinates.h	/^	double	angle;$/;"	m	struct:s_transform
 angle	src/engine/raycaster.h	/^    float angle;              \/\/ Current ray angle$/;"	m	struct:s_ray
 app	src/engine/graphic_engine.h	/^	t_mlx_app		*app;$/;"	m	struct:s_graphics
 at_exit	lib/minilibx/test/run_tests.sh	/^at_exit() {$/;"	f
@@ -816,9 +817,9 @@ draw_square	src/render/draw_square.c	/^int	draw_square(int x_start, int y_start,
 draw_tile	src/render/draw_tile.c	/^int	draw_tile(int row, int col, int base_color, t_image *img)$/;"	f
 draw_wall_slice	src/render/draw_wall_slice.c	/^int	draw_wall_slice(t_game *game, t_ray *ray, t_rndr_ctx *ctx, t_image *img)$/;"	f
 draw_walls	src/render/draw_walls.c	/^int	draw_walls(t_game *game, t_image *img)$/;"	f
-dx	src/class/player.h	/^	double				dx;$/;"	m	struct:s_player
+dx	include/coordinates.h	/^	double	dx;$/;"	m	struct:s_transform
 dx	src/engine/raycaster.h	/^	int		dx;		\/\/ difference in x between start and end$/;"	m	struct:s_line_vars
-dy	src/class/player.h	/^	double				dy;$/;"	m	struct:s_player
+dy	include/coordinates.h	/^	double	dy;$/;"	m	struct:s_transform
 dy	src/engine/raycaster.h	/^	int		dy;		\/\/ difference in y between start and end$/;"	m	struct:s_line_vars
 e_error	lib/libft/include/printf.h	/^typedef enum e_error$/;"	g
 e_wall_type	src/engine/raycaster.h	/^typedef enum e_wall_type$/;"	g
@@ -1025,7 +1026,7 @@ init	lib/libgc/src/gc_register.c	/^static t_gc_node	*init(t_gc_node *new_node, c
 init	src/class/game.h	/^	int				(*init)(t_game *self);$/;"	m	struct:s_game_api
 init	src/class/game_object.h	/^	int	(*init)(t_game_object *self);$/;"	m	struct:s_methods
 init	src/class/settings.h	/^	int				(*init)(struct s_settings *self);$/;"	m	struct:s_settings_api
-init_dda_struct	src/engine/raycaster.c	/^void	init_dda_struct(t_dda *d, t_player *player, float angle)$/;"	f
+init_dda_struct	src/engine/raycaster.c	/^void	init_dda_struct(t_dda *d, t_transform transform, float angle)$/;"	f
 init_game	src/class/game.c	/^int	init_game(t_game *self)$/;"	f
 init_map	src/class/map.c	/^int	init_map(t_map *map)$/;"	f
 init_player	src/class/player.c	/^int	init_player(t_player *player)$/;"	f
@@ -1221,7 +1222,7 @@ result	src/engine/raycaster.h	/^    t_rayinfo result;     \/\/ Final collision r
 root	lib/minilibx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar
 rot_left	src/class/player.h	/^	bool				rot_left;$/;"	m	struct:s_player
 rot_right	src/class/player.h	/^	bool				rot_right;$/;"	m	struct:s_player
-rotate_player_angle	src/class/player.c	/^int	rotate_player_angle(t_player *player, float rot_speed)$/;"	f
+rotate_object	src/class/player.c	/^int	rotate_object(t_transform *transform, float rot_speed)$/;"	f
 run	src/class/game.h	/^	int				(*run)(t_game *self);$/;"	m	struct:s_game_api
 run_dda_loop	src/engine/raycaster.c	/^int	run_dda_loop(t_dda *d, t_map *map)$/;"	f
 run_game	src/class/game.c	/^int	run_game(t_game *game)$/;"	f
@@ -1230,6 +1231,7 @@ ry	src/engine/raycaster.h	/^    float ry;       \/\/ Final y-coordinate of colli
 s_buffer	lib/libft/include/printf.h	/^typedef struct s_buffer$/;"	s
 s_callback	src/engine/callback_system.h	/^typedef struct s_callback$/;"	s
 s_col_name	lib/minilibx/mlx_int.h	/^struct	s_col_name$/;"	s
+s_coord	include/coordinates.h	/^typedef struct s_coord$/;"	s
 s_core	src/engine/core_engine.h	/^typedef struct s_core$/;"	s
 s_dda	src/engine/raycaster.h	/^typedef struct s_dda$/;"	s
 s_event_list	lib/minilibx/mlx_int.h	/^typedef struct	s_event_list$/;"	s
@@ -1259,6 +1261,7 @@ s_rndr_ctx	src/engine/raycaster.h	/^typedef struct s_rndr_ctx$/;"	s
 s_settings	src/class/settings.h	/^typedef struct s_settings$/;"	s
 s_settings_api	src/class/settings.h	/^typedef struct s_settings_api$/;"	s
 s_tex	src/engine/texture_manager.h	/^typedef struct s_tex$/;"	s
+s_transform	include/coordinates.h	/^typedef struct s_transform$/;"	s
 s_win_list	lib/minilibx/mlx_int.h	/^typedef struct	s_win_list$/;"	s
 s_xpm_col	lib/minilibx/mlx_int.h	/^typedef	struct	s_xpm_col$/;"	s
 s_xvar	lib/minilibx/mlx_int.h	/^typedef struct	s_xvar$/;"	s
@@ -1290,6 +1293,8 @@ strlcpy_is_not_posix	lib/minilibx/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(
 t_buffer	lib/libft/include/printf.h	/^}			t_buffer;$/;"	t	typeref:struct:s_buffer
 t_callback	include/cub3d.h	/^typedef struct s_callback			t_callback;$/;"	t	typeref:struct:s_callback
 t_callback	src/engine/callback_system.h	/^}				t_callback;$/;"	t	typeref:struct:s_callback
+t_coord	include/coordinates.h	/^}				t_coord;$/;"	t	typeref:struct:s_coord
+t_coord	include/cub3d.h	/^typedef struct s_coord				t_coord;$/;"	t	typeref:struct:s_coord
 t_core	include/cub3d.h	/^typedef struct s_core				t_core;$/;"	t	typeref:struct:s_core
 t_core	src/engine/core_engine.h	/^}				t_core;$/;"	t	typeref:struct:s_core
 t_dda	src/engine/raycaster.h	/^}	t_dda;$/;"	t	typeref:struct:s_dda
@@ -1340,6 +1345,8 @@ t_settings	src/class/settings.h	/^}			t_settings;$/;"	t	typeref:struct:s_setting
 t_settings_api	include/cub3d.h	/^typedef struct s_settings_api		t_settings_api;$/;"	t	typeref:struct:s_settings_api
 t_settings_api	src/class/settings.h	/^}				t_settings_api;$/;"	t	typeref:struct:s_settings_api
 t_tex	src/engine/texture_manager.h	/^}	t_tex;$/;"	t	typeref:struct:s_tex
+t_transform	include/coordinates.h	/^}				t_transform;$/;"	t	typeref:struct:s_transform
+t_transform	include/cub3d.h	/^typedef struct s_transform			t_transform;$/;"	t	typeref:struct:s_transform
 t_wall_type	src/engine/raycaster.h	/^}	t_wall_type;$/;"	t	typeref:enum:e_wall_type
 t_win_list	lib/minilibx/mlx_int.h	/^}				t_win_list;$/;"	t	typeref:struct:s_win_list
 t_xpm_col	lib/minilibx/mlx_int.h	/^}				t_xpm_col;$/;"	t	typeref:struct:s_xpm_col
@@ -1360,6 +1367,7 @@ toogle_dda	src/class/settings.h	/^	bool					toogle_dda;$/;"	m	struct:s_settings
 toogle_map	src/class/settings.h	/^	bool					toogle_map;$/;"	m	struct:s_settings
 toogle_rays	src/class/settings.h	/^	bool					toogle_rays;$/;"	m	struct:s_settings
 toogle_texture	src/class/settings.h	/^	bool					toogle_texture;$/;"	m	struct:s_settings
+transform	src/class/player.h	/^	t_transform			transform;$/;"	m	struct:s_player
 true_wall_height	src/engine/raycaster.h	/^    float true_wall_height;          \/\/ Height of the wall slice$/;"	m	struct:s_ray
 tx	src/engine/texture_manager.h	/^	int		tx;$/;"	m	struct:s_tex
 ty	src/engine/texture_manager.h	/^	float	ty;$/;"	m	struct:s_tex
@@ -1389,14 +1397,16 @@ window_height	src/class/settings.h	/^	int						window_height;$/;"	m	struct:s_set
 window_width	src/class/settings.h	/^	int						window_width;$/;"	m	struct:s_settings
 wm_delete_window	lib/minilibx/mlx_int.h	/^	Atom		wm_delete_window;$/;"	m	struct:s_xvar
 wm_protocols	lib/minilibx/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar
-x	src/class/player.h	/^	double				x;$/;"	m	struct:s_player
+x	include/coordinates.h	/^	double	x;$/;"	m	struct:s_coord
+x	include/coordinates.h	/^	double	x;$/;"	m	struct:s_transform
 x0	src/engine/graphic_engine.h	/^	int	x0;$/;"	m	struct:s_line_data
 x1	src/engine/graphic_engine.h	/^	int	x1;$/;"	m	struct:s_line_data
 x_screen	src/engine/raycaster.h	/^    int x_screen;             \/\/ X-coordinate on the screen$/;"	m	struct:s_ray
 x_screen	src/engine/raycaster.h	/^    int x_screen;           \/\/ X-coordinate on the screen$/;"	m	struct:s_rndr_ctx
 xpm1_x	lib/minilibx/test/main.c	/^int	xpm1_x;$/;"	v
 xpm1_y	lib/minilibx/test/main.c	/^int	xpm1_y;$/;"	v
-y	src/class/player.h	/^	double				y;$/;"	m	struct:s_player
+y	include/coordinates.h	/^	double	y;$/;"	m	struct:s_coord
+y	include/coordinates.h	/^	double	y;$/;"	m	struct:s_transform
 y	src/engine/texture_manager.h	/^	int		y;$/;"	m	struct:s_tex
 y0	src/engine/graphic_engine.h	/^	int	y0;$/;"	m	struct:s_line_data
 y1	src/engine/graphic_engine.h	/^	int	y1;$/;"	m	struct:s_line_data

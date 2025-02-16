@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 08:59:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 13:40:33 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:34:49 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	process_ray(t_game *game, t_ray *ray, float start_angle, int i, float fov)
 			ray->chosen.color = GOLD;
 		}
 	}
-	ray->corrected_distance = correct_fisheye(game->player->angle,
+	ray->corrected_distance = correct_fisheye(game->player->transform.angle,
 			ray->angle, ray->chosen.dist);
 	calculate_wall_height(ray);
 	ray->line_offset = (THREE_D_HEIGHT / 2) - (ray->wall_height / 2);
@@ -60,7 +60,7 @@ void	process_ray(t_game *game, t_ray *ray, float start_angle, int i, float fov)
 int	draw_walls(t_game *game, t_image *img)
 {
 	const float	fov = FOV_DEGREES * (M_PI / 180.0f);
-	float		start_angle = normalize_angle(game->player->angle - (fov / 2));
+	float		start_angle = normalize_angle(game->player->transform.angle - (fov / 2));
 	t_ray		ray;
 	t_rndr_ctx	ctx = {0};
 	int			problem_ray[300];

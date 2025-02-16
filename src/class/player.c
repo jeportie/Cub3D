@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:33:57 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 14:07:53 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:54:34 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@ int	init_player(t_player *player)
 		{
 			if (g_map[row * MAP_WIDTH + col] == 'P')
 			{
-				player->x = col * TILE_SIZE + (TILE_SIZE / 2);
-				player->y = row * TILE_SIZE + (TILE_SIZE / 2);
-				player->angle = -M_PI / 2;
-				player->dx = cos(player->angle);
-				player->dy = sin(player->angle);
+				player->transform.x = col * TILE_SIZE + (TILE_SIZE / 2);
+				player->transform.y = row * TILE_SIZE + (TILE_SIZE / 2);
+				player->transform.angle = -M_PI / 2;
+				player->transform.dx = cos(player->transform.angle);
+				player->transform.dy = sin(player->transform.angle);
 				return (0);
 			}
 			col++;
@@ -46,49 +46,52 @@ int	init_player(t_player *player)
 }
 
 //put this into a more generic function player-entity
-int	rotate_player_angle(t_player *player, float rot_speed)
+int	rotate_object(t_transform *transform, float rot_speed)
 {
-	player->angle += rot_speed;
-	player->angle = normalize_angle(player->angle);
-	get_direction_vector(player->angle, &player->dx, &player->dy);
+	transform->angle += rot_speed;
+	transform->angle = normalize_angle(transform->angle);
+	get_direction_vector(transform->angle, &transform->dx, &transform->dy);
 	return (0);
 }
 
 int	update_player(t_player *player, double delta_time)
 {
-	float	move_distance;
-	float	strafe_dx;
-	float	strafe_dy;
+	t_transform	transform;
+	float		move_distance;
+	float		strafe_dx;
+	float		strafe_dy;
 
+	transform = player->transform;
 	if (player->rot_left == true)
-		rotate_player_angle(player, -ROT_SPEED * delta_time);
+		rotate_object(&transform, -ROT_SPEED * delta_time);
 	if (player->rot_right == true)
-		rotate_player_angle(player, ROT_SPEED * delta_time);
+		rotate_object(&transform, ROT_SPEED * delta_time);
 	move_distance = calculate_move_distance(SPEED, delta_time);
 	if (player->move_up)
 	{
-		player->x += player->dx * move_distance;
-		player->y += player->dy * move_distance;
+		transform.x += transform.dx * move_distance;
+		transform.y += transform.dy * move_distance;
 	}
 	if (player->move_down)
 	{
-		player->x -= player->dx * move_distance;
-		player->y -= player->dy * move_distance;
+		transform.x -= transform.dx * move_distance;
+		transform.y -= transform.dy * move_distance;
 	}
 	if (player->move_left)
 	{
-		get_perpendicular_vector(player->angle, &strafe_dx, &strafe_dy);
-		player->x -= strafe_dx * move_distance;
-		player->y -= strafe_dy * move_distance;
+		get_perpendicular_vector(transform.angle, &strafe_dx, &strafe_dy);
+		transform.x -= strafe_dx * move_distance;
+		transform.y -= strafe_dy * move_distance;
 	}
 	if (player->move_right)
 	{
-		get_perpendicular_vector(player->angle, &strafe_dx, &strafe_dy);
-		player->x += strafe_dx * move_distance;
-		player->y += strafe_dy * move_distance;
+		get_perpendicular_vector(transform.angle, &strafe_dx, &strafe_dy);
+		transform.x += strafe_dx * move_distance;
+		transform.y += strafe_dy * move_distance;
 	}
-	player->x = clamp(player->x, 0.0f, (float)WINDOW_WIDTH);
-	player->y = clamp(player->y, 0.0f, (float)WINDOW_HEIGHT);
+	transform.x = clamp(transform.x, 0.0f, (float)WINDOW_WIDTH);
+	transform.y = clamp(transform.y, 0.0f, (float)WINDOW_HEIGHT);
+	player->transform = transform;
 	return (0);
 }
 

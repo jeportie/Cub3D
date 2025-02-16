@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:26:06 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 14:07:36 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:48:15 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,7 @@
 typedef struct s_player
 {
 	t_game_object		object;
-	double				x;
-	double				y;
-	double				angle;
-	double				dx;
-	double				dy;
+	t_transform			transform;
 	bool				move_up;
 	bool				move_down;
 	bool				move_left;

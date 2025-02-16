@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 18:08:52 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 15:49:02 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include "colors.h"
 # include "error.h"
 # include "debug.h"
+# include "coordinates.h"
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
 # include "../lib/libgc/include/libgc.h"
@@ -50,5 +51,8 @@ typedef struct s_mlx_manager		t_mlx_manager;
 typedef struct s_image				t_image;
 typedef struct s_graphics			t_graphics;
 typedef struct s_ray				t_ray;	
+
+typedef struct s_coord				t_coord;
+typedef struct s_transform			t_transform;
 
 #endif

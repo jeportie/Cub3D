@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:20:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 13:49:25 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:36:28 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	draw_rays(t_game *game, t_image *img)
 	t_rayinfo	chosen;
 	t_line_data	ldata;
 
-	start_angle = game->player->angle - (fov / 2);
+	start_angle = game->player->transform.angle - (fov / 2);
 	i = 0;
 	while (i < RAYS)
 	{
@@ -67,8 +67,8 @@ int	draw_rays(t_game *game, t_image *img)
 				chosen = horizontal_ray;
 			}
 		}
-		ldata.x0 = (int)game->player->x;
-		ldata.y0 = (int)game->player->y;
+		ldata.x0 = (int)game->player->transform.x;
+		ldata.y0 = (int)game->player->transform.y;
 		ldata.x1 = (int)chosen.rx;
 		ldata.y1 = (int)chosen.ry;
 		draw_line(ldata, img);

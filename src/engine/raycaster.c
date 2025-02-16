@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:15:21 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 18:19:02 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 20:33:29 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@
 #include "../../include/compute.h"
 
 // DDA RAYCAST
-void	init_dda_struct(t_dda *d, t_player *player, float angle)
+void	init_dda_struct(t_dda *d, t_transform transform, float angle)
 {
-	d->px = player->x;
-	d->py = player->y;
+	d->px = transform.x;
+	d->py = transform.y;
 	d->dir_x = cosf(angle);
 	d->dir_y = sinf(angle);
 	d->map_x = (int)(d->px / TILE_SIZE);
@@ -96,7 +96,7 @@ t_rayinfo	cast_ray_dda(t_game *game, float angle)
 
 	ft_bzero(&ray, sizeof(t_rayinfo));
 	ft_bzero(&d, sizeof(t_dda));
-	init_dda_struct(&d, game->player, angle);
+	init_dda_struct(&d, game->player->transform, angle);
 	compute_initial_sides(&d);
 	run_dda_loop(&d, game->map);
 	fill_rayinfo(&d, &ray);
@@ -107,9 +107,11 @@ t_rayinfo	cast_ray_dda(t_game *game, float angle)
 t_rayinfo	cast_vertical_ray(t_game *game, float ray_angle)
 {
 	t_ray_cast	ray;
+	t_transform	transform;
 
-	ray.player_x = game->player->x;
-	ray.player_y = game->player->y;
+	transform = game->player->transform;
+	ray.player_x = transform.x;
+	ray.player_y = transform.y;
 	ray.cos_a = get_safe_cos(ray_angle);
 	ray.sin_a = get_safe_sin(ray_angle);
 	ray.flag = (ray.cos_a < 0);
@@ -139,9 +141,11 @@ t_rayinfo	cast_vertical_ray(t_game *game, float ray_angle)
 t_rayinfo	cast_horizontal_ray(t_game *game, float ray_angle)
 {
 	t_ray_cast	ray;
+	t_transform	transform;
 
-	ray.player_x = game->player->x;
-	ray.player_y = game->player->y;
+	transform = game->player->transform;
+	ray.player_x = transform.x;
+	ray.player_y = transform.y;
 	ray.sin_a = get_safe_sin(ray_angle);
 	ray.cos_a = get_safe_cos(ray_angle);
 	ray.flag = (ray.sin_a < 0);
