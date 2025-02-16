@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 14:56:56 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 13:24:43 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:04:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 /*    A simple base class for all game objects (Player, Map, etc.)            */
@@ -22,7 +22,7 @@ typedef struct s_methods
 	int	(*init)(t_game_object *self);
 	int	(*print)(t_game_object *self);	
 	int	(*update)(t_game_object *self, double dt);
-	int	(*render)(t_game_object *self, t_game *game);
+	int	(*render)(t_game_object *self, t_game *game, int buffer_to_draw);
 	int	(*destroy)(t_game_object *self);
 }				t_methods;
 

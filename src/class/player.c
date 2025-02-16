@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:33:57 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 13:35:33 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:07:53 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,9 +92,8 @@ int	update_player(t_player *player, double delta_time)
 	return (0);
 }
 
-int	render_player(t_player *player, t_game *game)
+int	render_player(t_player *player, t_game *game, int buffer_to_draw)
 {
-	int				buffer_to_draw;
 	t_graphics		*engine;
 
 	engine = game->graphic_engine;

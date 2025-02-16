@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:53:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 18:26:14 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:15:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ t_game	*create_game(void)
 	game->map = game->methods->new_map();
 
 	game->object_count = 0;
-	game_add_object(game, (t_game_object *)game->player);
 	game_add_object(game, (t_game_object *)game->map);
+	game_add_object(game, (t_game_object *)game->player);
 	return (game);
 }
 
@@ -91,12 +91,16 @@ int	init_game(t_game *self)
 
 int	run_game(t_game *game)
 {
+	void	*mlx;
+	void	*win;
+
+	mlx = game->graphic_engine->app->mlx_ptr;
+	win = game->graphic_engine->app->win_ptr;
 	ft_printf(DEB_GAME_RUN);
-	mlx_hook(game->graphic_engine->app->win_ptr, 2, 1L << 0, key_press, game);
-	mlx_hook(game->graphic_engine->app->win_ptr, 3, 1L << 1, key_release, game);
-	mlx_loop_hook(game->graphic_engine->app->mlx_ptr, game_loop, game);
-	ft_printf(DEB_GAME_RUN);
-	mlx_loop(game->graphic_engine->app->mlx_ptr);
+	mlx_hook(win, 2, 1L << 0, key_press, game);
+	mlx_hook(win, 3, 1L << 1, key_release, game);
+	mlx_loop_hook(mlx, game_loop, game);
+	mlx_loop(mlx);
 	return (0);
 }
 

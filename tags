@@ -1075,7 +1075,7 @@ map_index	src/engine/raycaster.h	/^    int map_index;  \/\/ Index in the map arr
 map_methods_destroy	src/class/map_api.c	/^static int	map_methods_destroy(t_game_object *obj)$/;"	f	file:
 map_methods_init	src/class/map_api.c	/^static int	map_methods_init(t_game_object *obj)$/;"	f	file:
 map_methods_print	src/class/map_api.c	/^static int	map_methods_print(t_game_object *obj)$/;"	f	file:
-map_methods_render	src/class/map_api.c	/^static int	map_methods_render(t_game_object *obj, t_game *game)$/;"	f	file:
+map_methods_render	src/class/map_api.c	/^static int	map_methods_render(t_game_object *obj, t_game *game, int buffer_to_draw)$/;"	f	file:
 map_methods_update	src/class/map_api.c	/^static int	map_methods_update(t_game_object *obj, double dt)$/;"	f	file:
 map_x	src/engine/raycaster.h	/^	int		map_x;$/;"	m	struct:s_dda
 map_y	src/engine/raycaster.h	/^	int		map_y;$/;"	m	struct:s_dda
@@ -1194,7 +1194,7 @@ pix	lib/minilibx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img
 player	src/class/game.h	/^	t_player			*player;$/;"	m	struct:s_game
 player_methods_destroy	src/class/player_api.c	/^static int player_methods_destroy(t_game_object *obj)$/;"	f	file:
 player_methods_init	src/class/player_api.c	/^static int	player_methods_init(t_game_object *obj)$/;"	f	file:
-player_methods_render	src/class/player_api.c	/^static int	player_methods_render(t_game_object *obj, t_game *game)$/;"	f	file:
+player_methods_render	src/class/player_api.c	/^static int	player_methods_render(t_game_object *obj, t_game *game, int buffer_to_draw)$/;"	f	file:
 player_methods_update	src/class/player_api.c	/^static int	player_methods_update(t_game_object *obj, double dt)$/;"	f	file:
 player_on_key_press	src/class/player_api.c	/^static int	player_on_key_press(void *self, int keycode)$/;"	f	file:
 player_on_key_release	src/class/player_api.c	/^static int player_on_key_release(void *self, int keycode)$/;"	f	file:
@@ -1214,9 +1214,9 @@ put_pixel_to_image	src/engine/graphic_engine.c	/^int	put_pixel_to_image(t_image 
 px	src/engine/raycaster.h	/^	float	px;$/;"	m	struct:s_dda
 py	src/engine/raycaster.h	/^	float	py;$/;"	m	struct:s_dda
 qnxnto	lib/libft/test_src/build/CMakeFiles/3.28.3/CompilerIdC/CMakeCCompilerId.c	/^char const* qnxnto = "INFO" ":" "qnxnto[]";$/;"	v
-render	src/class/game_object.h	/^	int	(*render)(t_game_object *self, t_game *game);$/;"	m	struct:s_methods
-render_map	src/class/map.c	/^int	render_map(t_map *map, t_game *game)$/;"	f
-render_player	src/class/player.c	/^int	render_player(t_player *player, t_game *game)$/;"	f
+render	src/class/game_object.h	/^	int	(*render)(t_game_object *self, t_game *game, int buffer_to_draw);$/;"	m	struct:s_methods
+render_map	src/class/map.c	/^int	render_map(t_map *map, t_game *game, int buffer_to_draw)$/;"	f
+render_player	src/class/player.c	/^int	render_player(t_player *player, t_game *game, int buffer_to_draw)$/;"	f
 result	src/engine/raycaster.h	/^    t_rayinfo result;     \/\/ Final collision result$/;"	m	struct:s_ray_cast
 root	lib/minilibx/mlx_int.h	/^	Window		root;$/;"	m	struct:s_xvar
 rot_left	src/class/player.h	/^	bool				rot_left;$/;"	m	struct:s_player

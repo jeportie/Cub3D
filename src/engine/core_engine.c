@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 13:38:23 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:29:47 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,6 @@ int	game_loop(void *param)
 	struct timespec	current_time;
 	double			delta;
 	double			time_step;
-	int				buffer_to_draw;
 
 	game = (t_game *)param;
 	time_state = game->time_state;
@@ -80,19 +79,7 @@ int	game_loop(void *param)
 		}
 		time_state->delta_accumulator -= time_step;
 	}
-	buffer_to_draw = (engine->current_img + 1) % 2;
-	clear_image(&engine->buffer[buffer_to_draw], BLACK);
-
-	for (int i = 0; i < game->object_count; i++)
-	{
-		t_game_object *obj = game->objects[i];
-		if (obj && obj->active && obj->methods->render)
-			obj->methods->render(obj, game);
-	}
-	mlx_put_image_to_window(engine->app->mlx_ptr, engine->app->win_ptr,
-			engine->buffer[buffer_to_draw].img_ptr, 0, 0);
-	engine->current_img = buffer_to_draw;
-	return (0);
+	return (graphic_engine_draw_frame(game, engine));
 }
 
 int core_engine_shutdown(t_game *game)

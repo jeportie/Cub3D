@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 13:38:06 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 14:28:39 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,25 +99,25 @@ int	graphic_engine_init(t_game *game, t_graphics *engine)
 
 int	graphic_engine_draw_frame(t_game *game, t_graphics *engine)
 {
-	int				buffer_index;
+	int				buffer_to_draw;
 	int				i;
 	t_image			*img;
 	t_game_object	*object;
 
-	buffer_index = (engine->current_img + 1) % 2;
-	img = &engine->buffer[buffer_index];
+	buffer_to_draw = (engine->current_img + 1) % 2;
+	img = &engine->buffer[buffer_to_draw];
 	clear_image(img, BLACK);
 	i = 0;
 	while (i < game->object_count)
 	{
 		object = game->objects[i];
 		if (object && object->active && object->methods->render)
-			object->methods->render(object, game);
+			object->methods->render(object, game, buffer_to_draw);
 		i++;
 	}
 	mlx_put_image_to_window(engine->app->mlx_ptr, engine->app->win_ptr,
 		img->img_ptr, 0, 0);
-	engine->current_img = buffer_index;
+	engine->current_img = buffer_to_draw;
 	return (0);
 }
 
