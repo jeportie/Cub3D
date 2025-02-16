@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:53:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 22:41:54 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:24:23 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static int	map_methods_update(t_game_object *obj, double dt)
 	return (0);
 }
 
-static int	map_methods_render(t_game_object *obj)
+static int	map_methods_render(t_game_object *obj, t_game *game)
 {
-	return (render_map((t_game *)obj));
+	return (render_map((t_map *)obj, game));
 }
 
 static int	map_methods_destroy(t_game_object *obj)

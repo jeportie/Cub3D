@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:39:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 15:28:29 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:35:04 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int			draw_walls(t_game *game, t_image *img);
 int			draw_tile(int row, int col, int base_color, t_image *img);
 int			draw_map(t_map *map, t_image *img);
 int			draw_square(int x_start, int y_start, t_image *img);
-int			draw_direction_line(t_game *game, int center_x, int center_y, t_image *img);
-int			draw_player(t_game *game, t_image *img);
+int			draw_direction_line(t_player *player, int center_x, int center_y, t_image *img);
+int			draw_player(t_player *player, t_image *img);
 int			draw_line(t_line_data ldata, t_image *img);
 int			draw_rays(t_game *game, t_image *img);
 int			draw_angle_mode(t_game *game, t_image *img);

@@ -6,25 +6,25 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:17:16 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 13:27:59 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:34:27 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../engine/graphic_engine.h"
 #include "../class/player.h"
 
-int	draw_player(t_game *game, t_image *img)
+int	draw_player(t_player *player, t_image *img)
 {
 	int	center_x;
 	int	center_y;
 	int	x_start;
 	int	y_start;
 
-	center_x = (int)game->player->x;
-	center_y = (int)game->player->y;
+	center_x = (int)player->x;
+	center_y = (int)player->y;
 	x_start = center_x - (SQUARE_SIZE / 2);
 	y_start = center_y - (SQUARE_SIZE / 2);
 	draw_square(x_start, y_start, img);
-	draw_direction_line(game, center_x, center_y, img);
+	draw_direction_line(player, center_x, center_y, img);
 	return (0);
 }

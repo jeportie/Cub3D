@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 22:41:23 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:38:06 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ int	graphic_engine_draw_frame(t_game *game, t_graphics *engine)
 	{
 		object = game->objects[i];
 		if (object && object->active && object->methods->render)
-			object->methods->render(object);
+			object->methods->render(object, game);
 		i++;
 	}
 	mlx_put_image_to_window(engine->app->mlx_ptr, engine->app->win_ptr,

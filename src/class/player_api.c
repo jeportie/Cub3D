@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 15:23:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 11:07:07 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:26:47 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ static int	player_methods_update(t_game_object *obj, double dt)
 	return update_player((t_player*)obj, dt);
 }
 
-static int	player_methods_render(t_game_object *obj)
+static int	player_methods_render(t_game_object *obj, t_game *game)
 {
-	return render_player((t_game *)obj);
+	return render_player((t_player *)obj, game);
 }
 
 static int player_methods_destroy(t_game_object *obj)

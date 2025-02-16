@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:33:57 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 11:06:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:35:33 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ int	update_player(t_player *player, double delta_time)
 	return (0);
 }
 
-int	render_player(t_game *game)
+int	render_player(t_player *player, t_game *game)
 {
 	int				buffer_to_draw;
 	t_graphics		*engine;
@@ -102,8 +102,7 @@ int	render_player(t_game *game)
 	draw_walls(game, &engine->buffer[buffer_to_draw]);
 	if (game->settings->toogle_map)
 	{
-		draw_map(game->map, &engine->buffer[buffer_to_draw]);
-		draw_player(game, &engine->buffer[buffer_to_draw]);
+		draw_player(player, &engine->buffer[buffer_to_draw]);
 		if (game->settings->toogle_rays)
 			draw_rays(game, &engine->buffer[buffer_to_draw]);
 	}

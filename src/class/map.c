@@ -6,11 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:32:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 22:42:40 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:31:23 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map.h"
+#include "settings.h"
 #include "../engine/graphic_engine.h"
 
 char	g_map[MAP_SIZE + 1] = {
@@ -35,7 +36,7 @@ int	init_map(t_map *map)
 	return (0);
 }
 
-int	render_map(t_game *game)
+int	render_map(t_map *map, t_game *game)
 {
 	int				buffer_to_draw;
 	t_graphics		*engine;
@@ -43,7 +44,8 @@ int	render_map(t_game *game)
 	engine = game->graphic_engine;
 	buffer_to_draw = (engine->current_img + 1) % 2;
 	ft_printf(DEB_MAP_RENDER);
-	draw_map(game->map, &engine->buffer[buffer_to_draw]);
+	if (game->settings->toogle_map)
+		draw_map(map, &engine->buffer[buffer_to_draw]);
 	return 0;
 }
 

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 19:58:32 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/16 13:38:23 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	game_loop(void *param)
 	{
 		t_game_object *obj = game->objects[i];
 		if (obj && obj->active && obj->methods->render)
-			obj->methods->render(obj);
+			obj->methods->render(obj, game);
 	}
 	mlx_put_image_to_window(engine->app->mlx_ptr, engine->app->win_ptr,
 			engine->buffer[buffer_to_draw].img_ptr, 0, 0);
