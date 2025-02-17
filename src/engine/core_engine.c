@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 14:29:47 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:55:30 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int core_engine_init(t_core *time_state)
         return (1);
     }
     time_state->delta_accumulator = 0.0;
+	time_state->delta = 0;
 	ft_printf(DEB_CORE_INIT);
     return (0);
 }
@@ -67,7 +68,7 @@ int	game_loop(void *param)
 	if (delta > 0.1)
 		delta = 0.1;
 	time_state->delta_accumulator += delta;
-	printf("delta = %.6f, accumulator = %.6f\n", delta, time_state->delta_accumulator);
+//	printf("delta = %.6f, accumulator = %.6f\n", delta, time_state->delta_accumulator);
 	time_step = 1.0 / 120.0;
 	while (time_state->delta_accumulator >= time_step)
 	{
@@ -79,6 +80,7 @@ int	game_loop(void *param)
 		}
 		time_state->delta_accumulator -= time_step;
 	}
+	time_state->delta = delta;
 	return (graphic_engine_draw_frame(game, engine));
 }
 

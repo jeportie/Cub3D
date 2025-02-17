@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 08:59:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 20:34:49 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:05:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	draw_walls(t_game *game, t_image *img)
 	ctx.old_wall_height = 0;
 	ctx.prev_tile_x = -1;
 	ctx.prev_tile_y = -1;
-	draw_background(img);
+	draw_background(game, img);
 	while (i < RAYS)
 	{
 		process_ray(game, &ray, start_angle, i, fov);

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:32:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 14:06:31 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:59:57 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	render_map(t_map *map, t_game *game, int buffer_to_draw)
 
 	engine = game->graphic_engine;
 	buffer_to_draw = (engine->current_img + 1) % 2;
-	ft_printf(DEB_MAP_RENDER);
+//	ft_printf(DEB_MAP_RENDER);
 	if (game->settings->toogle_map)
 		draw_map(map, &engine->buffer[buffer_to_draw]);
 	return 0;

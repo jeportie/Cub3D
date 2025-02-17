@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:29 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/14 17:35:58 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:54:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef struct s_core
 {
 	struct timespec	last_time;
 	double			delta_accumulator;
+	double			delta;
 }				t_core;
 
 t_core	*create_core_engine(void);

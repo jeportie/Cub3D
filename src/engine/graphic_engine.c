@@ -6,11 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 14:28:39 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:58:39 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "graphic_engine.h"
+#include "core_engine.h"
 #include "texture_manager.h"
 #include "../class/settings.h"
 
@@ -93,6 +94,12 @@ int	graphic_engine_init(t_game *game, t_graphics *engine)
 		ft_dprintf(2, ERR_TEX_INIT);
 		return (1);
 	}
+	if (init_skybox(engine, SKYBOX))
+	{
+		ft_dprintf(2, "Failed to load skybox.xpm\n");
+		return (1);
+	}
+
 	ft_printf(DEB_GRAPHIC_INIT);
 	return (0);
 }
@@ -103,6 +110,7 @@ int	graphic_engine_draw_frame(t_game *game, t_graphics *engine)
 	int				i;
 	t_image			*img;
 	t_game_object	*object;
+	char			debug_str[128];
 
 	buffer_to_draw = (engine->current_img + 1) % 2;
 	img = &engine->buffer[buffer_to_draw];
@@ -117,6 +125,15 @@ int	graphic_engine_draw_frame(t_game *game, t_graphics *engine)
 	}
 	mlx_put_image_to_window(engine->app->mlx_ptr, engine->app->win_ptr,
 		img->img_ptr, 0, 0);
+	snprintf(debug_str, sizeof(debug_str),
+		"delta = %.6f, accumulator = %.6f",
+		game->time_state->delta,
+		game->time_state->delta_accumulator);
+	mlx_string_put(engine->app->mlx_ptr,
+		engine->app->win_ptr,
+		20, 400,
+		0xFFFFFF,
+		debug_str);
 	engine->current_img = buffer_to_draw;
 	return (0);
 }

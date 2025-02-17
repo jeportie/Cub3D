@@ -6,15 +6,15 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:15:53 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 20:37:06 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 09:35:28 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../engine/graphic_engine.h"
-#include "../class/player.h"
 #include "../../include/colors.h"
 
-int	draw_direction_line(t_player *player, int center_x, int center_y, t_image *img)
+int	draw_direction_line(t_transform transform, int center_x,
+		int center_y, t_image *img)
 {
 	int	line_length;
 	int	i;
@@ -25,8 +25,8 @@ int	draw_direction_line(t_player *player, int center_x, int center_y, t_image *i
 	i = 0;
 	while (i < line_length)
 	{
-		lx = center_x + (int)(player->transform.dx * i);
-		ly = center_y + (int)(player->transform.dy * i);
+		lx = center_x + (int)(transform.dx * i);
+		ly = center_y + (int)(transform.dy * i);
 		put_pixel_to_image(img, lx, ly, PURPLE);
 		i++;
 	}

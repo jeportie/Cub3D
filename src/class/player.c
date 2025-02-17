@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:33:57 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 20:54:34 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 13:09:20 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #include "player.h"
 #include "map.h"
 #include "../../include/compute.h"
+#include "../engine/graphic_engine.h"
+#include "../engine/texture_manager.h"
 
 int	init_player(t_player *player)
 {

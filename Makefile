@@ -15,41 +15,42 @@ NAME = cub3D
 ### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
-  src/engine/graphic_engine.c \
+  src/compute/calculate_distance.c \
+  src/compute/calculate_move_distance.c \
+  src/compute/calculate_step.c \
+  src/compute/clamp.c \
+  src/compute/correct_fisheye.c \
+  src/compute/get_safe_cos_sin.c \
+  src/compute/normalize_angle.c \
+  src/compute/calculate_intercept.c \
+  src/compute/calculate_tan_a.c \
+  src/compute/calculate_wall_height.c \
+  src/compute/get_vectors.c \
+  src/compute/compute_dda.c \
+  src/render/draw_line.c \
+  src/render/draw_map.c \
+  src/render/draw_rays.c \
+  src/render/draw_square.c \
+  src/render/draw_tile.c \
+  src/render/draw_wall_slice.c \
+  src/render/draw_player.c \
+  src/render/draw_direction_line.c \
+  src/render/draw_skybox.c \
+  src/render/draw_walls.c \
+  src/render/draw_background.c \
+  src/class/game.c \
+  src/class/map.c \
+  src/class/map_api.c \
+  src/class/origin.c \
+  src/class/player_api.c \
+  src/class/settings.c \
+  src/class/player.c \
   src/engine/callback_system.c \
-  src/engine/raycaster.c \
-  src/engine/texture_manager.c \
   src/engine/core_engine.c \
   src/engine/mlx_manager.c \
-  src/class/settings.c \
-  src/class/game.c \
-  src/class/player_api.c \
-  src/class/map_api.c \
-  src/class/map.c \
-  src/class/player.c \
-  src/class/origin.c \
-  src/compute/clamp.c \
-  src/compute/normalize_angle.c \
-  src/compute/correct_fisheye.c \
-  src/compute/compute_dda.c \
-  src/compute/calculate_step.c \
-  src/compute/calculate_tan_a.c \
-  src/compute/get_vectors.c \
-  src/compute/calculate_wall_height.c \
-  src/compute/calculate_intercept.c \
-  src/compute/calculate_distance.c \
-  src/compute/get_safe_cos_sin.c \
-  src/compute/calculate_move_distance.c \
-  src/render/draw_square.c \
-  src/render/draw_wall_slice.c \
-  src/render/draw_line.c \
-  src/render/draw_player.c \
-  src/render/draw_background.c \
-  src/render/draw_map.c \
-  src/render/draw_walls.c \
-  src/render/draw_tile.c \
-  src/render/draw_rays.c \
-  src/render/draw_direction_line.c 
+  src/engine/raycaster.c \
+  src/engine/texture_manager.c \
+  src/engine/graphic_engine.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #

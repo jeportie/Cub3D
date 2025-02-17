@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:15:29 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 18:23:20 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 12:43:21 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,25 @@ int	init_texture(t_graphics *engine)
 			&engine->texture.bpp,
 			&engine->texture.line_len,
 			&engine->texture.endian);
+	return (0);
+}
+
+int	init_skybox(t_graphics *engine, const char *filepath)
+{
+	int	width;
+	int	height;
+
+	engine->skybox.img_ptr = mlx_xpm_file_to_image(engine->app->mlx_ptr,
+			(char *)filepath, &width, &height);
+	if (!engine->skybox.img_ptr)
+	{
+		ft_dprintf(2, "Failed to load skybox: %s\n", filepath);
+		return (1);
+	}
+	engine->skybox.addr = mlx_get_data_addr(engine->skybox.img_ptr,
+			&engine->skybox.bpp,
+			&engine->skybox.line_len,
+			&engine->skybox.endian);
 	return (0);
 }
 
