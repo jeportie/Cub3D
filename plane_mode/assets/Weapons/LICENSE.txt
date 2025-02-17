@@ -1,0 +1,20 @@
+LICENSE
+
+These assets are provided under the Creative Commons Attribution 4.0 International (CC BY 4.0) license. 
+
+You are free to:
+- **Use** the assets in your projects, whether they are personal, non-commercial, or commercial.
+- **Modify** the assets to suit your needs.
+- **Share** the assets with others, as long as this license and attribution are included.
+
+Under the following terms:
+- **Attribution**: You must give appropriate credit to the creator. You can do this by including the following text in your project's credits or documentation:
+
+"Weapon sprites created by Ivan Angel Medina - Available for free at Itch.io"
+
+
+
+- **No additional restrictions**: You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+For more details about this license, visit:  
+https://creativecommons.org/licenses/by/4.0/
