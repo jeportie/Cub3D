@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:16:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 11:11:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:43:01 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,13 @@
 # include "game_object.h"
 
 # define MAX_OBJECTS  32
+
+typedef struct s_debug_log
+{
+	char	lines[MAX_DEBUG_LINES][MAX_LINE_LENGTH];
+	int		write_index;
+	int		total_lines;
+}				t_debug_log;
 
 typedef struct s_game_api
 {
@@ -38,12 +45,12 @@ typedef struct s_game
 {
 	t_origin			base;
 	t_settings			*settings;
+	t_debug_log			debug_log;
 
 	t_core				*time_state;
 	t_graphics			*graphic_engine;
 	t_callback			*input_manager;
-	
-	//entities
+
 	t_player			*player;
 	t_map				*map;
 
@@ -58,5 +65,9 @@ t_game		*create_game(void);
 int			init_game(t_game *game);
 int			run_game(t_game *game);
 int			destroy_game(t_game *game);
+
+int			debug_log_add(t_debug_log *log, const char *fmt, ...);
+int			init_debug_log(t_game *game);
+int			draw_debug_log(void *mlx_ptr, void *win_ptr, t_debug_log *log);
 
 #endif

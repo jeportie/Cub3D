@@ -6,13 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 20:03:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 13:55:30 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 20:08:37 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "core_engine.h"
 #include "graphic_engine.h"
 #include "../class/game_object.h"
+#include "../class/game.h"
 #include "../../include/error.h"
 
 t_core *create_core_engine(void)
@@ -68,6 +69,8 @@ int	game_loop(void *param)
 	if (delta > 0.1)
 		delta = 0.1;
 	time_state->delta_accumulator += delta;
+	debug_log_add(&game->debug_log, "delta=%.6f, acc=%.6f",
+		delta, time_state->delta_accumulator);
 //	printf("delta = %.6f, accumulator = %.6f\n", delta, time_state->delta_accumulator);
 	time_step = 1.0 / 120.0;
 	while (time_state->delta_accumulator >= time_step)
@@ -81,6 +84,16 @@ int	game_loop(void *param)
 		time_state->delta_accumulator -= time_step;
 	}
 	time_state->delta = delta;
+	time_state->fps_time_acc += delta;
+	time_state->fps_frame_count += 1;
+	if (time_state->fps_frame_count >= 60)
+	{
+		double avg_time_for_60 = time_state->fps_time_acc;
+		double fps = 60.0 / avg_time_for_60;
+		time_state->last_fps = fps;
+		time_state->fps_time_acc = 0.0;
+		time_state->fps_frame_count = 0;
+	}
 	return (graphic_engine_draw_frame(game, engine));
 }
 

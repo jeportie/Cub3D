@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 13:42:14 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/17 17:50:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@
 # define INNER_OFFSET	-0.0001f
 # define MAX_STEPS 		64
 # define MIN_DISTANCE 	10.0f
+
+# define MAX_DEBUG_LINES 1
+# define MAX_LINE_LENGTH 128
 
 # define BPP 4
 
