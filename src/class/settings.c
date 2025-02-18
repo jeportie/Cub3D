@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:53:48 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/15 10:24:52 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:19:40 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,11 @@ int	init_settings(t_settings *settings)
 	ft_printf(DEB_SET_INIT);
 	settings->window_width = WINDOW_WIDTH;
 	settings->window_height = WINDOW_HEIGHT;
-	settings->toogle_map = true;
+	settings->toogle_map = false;
+	settings->toogle_minimap = true;
 	settings->toogle_dda = true;
 	settings->toogle_rays = true;
-	settings->toogle_texture = false;
+	settings->toogle_texture = true;
 	return (0);
 }
 

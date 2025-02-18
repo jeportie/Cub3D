@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 17:26:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 17:43:39 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:03:53 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	init_debug_log(t_game *game)
 int	draw_debug_log(void *mlx_ptr, void *win_ptr, t_debug_log *log)
 {
     int base_x = 20;
-    int base_y = 400;
+    int base_y = 600;
     int line_spacing = 20;
 
     int max_lines_to_show = MAX_DEBUG_LINES;

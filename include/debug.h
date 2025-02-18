@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 18:07:23 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 17:25:45 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 16:55:41 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,11 @@
 # define DEB_MAP_PRINT		"[Map Object]\t\tFunction: print_map() called!\n" \
 							"[Map layout]\t\t(0=floor, 1=wall, P=player):\n\n"
 # define DEB_MAP_DESTROY	"[Map Object]\t\tFunction: destroy_map() called!\n"
+
+# define DEB_MINIMAP_CREATE	"[Minimap Object]\tFunction: create_minimap() called!\n"
+# define DEB_MINIMAP_INIT	"[Minimap Object]\tFunction: init_minimap() called!\n"
+# define DEB_MINIMAP_RENDER	"[Minimap Object]\tFunction: render_minimap() called!\n"
+# define DEB_MINIMAP_DSTROY	"[Minimap Object]\tFunction: destroy_minimap() called!\n"
 
 # define DEB_PLAYER_CREATE	"[Player Object]\t\tFunction: create_player() called!\n"
 # define DEB_PLAYER_INIT	"[Player Object]\t\tFunction: init_player() called!\n"

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 15:49:02 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:10:45 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ typedef struct s_player				t_player;
 typedef struct s_player_api			t_player_api;
 typedef struct s_map				t_map;
 typedef struct s_map_api			t_map_api;
+typedef struct s_minimap			t_minimap;
+typedef struct s_minimap_api		t_minimap_api;
 typedef struct s_graphic_engine		t_graphic_engine;
 typedef struct s_graphic_engine_api	t_graphic_engine_api;
 typedef struct s_mlx_manager		t_mlx_manager;

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:16:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 17:43:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 15:13:30 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_game_api
 	t_graphics		*(*new_graphics)(void);
 	t_player		*(*new_player)(void);
 	t_map			*(*new_map)(void);
+	t_minimap		*(*new_minimap)(void);
 	int				(*destroy)(t_game *self);
 }				t_game_api;
 
@@ -53,6 +54,7 @@ typedef struct s_game
 
 	t_player			*player;
 	t_map				*map;
+	t_minimap			*minimap;
 
 	t_game_object		*objects[MAX_OBJECTS];
 	int					object_count;

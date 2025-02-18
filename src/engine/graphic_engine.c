@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 20:13:00 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:08:23 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,9 @@ int	graphic_engine_draw_frame(t_game *game, t_graphics *engine)
 	char fps_str[64];
 	snprintf(fps_str, sizeof(fps_str), "FPS: %.2f", game->time_state->last_fps);
 	mlx_string_put(engine->app->mlx_ptr, engine->app->win_ptr,
-			20, 420, 0xFFFFFF, fps_str);
+			20, 620, 0xFFFFFF, fps_str);
+	mlx_string_put(engine->app->mlx_ptr, engine->app->win_ptr,
+			20, 640, 0xFFFFFF, "[DDA-ANGLE RAYCASTER]");
 	engine->current_img = buffer_to_draw;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 17:50:35 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 19:19:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,21 +15,24 @@
 
 # define GAME_TITLE		"cub3d"
 
-# define WINDOW_WIDTH	1200
-# define WINDOW_HEIGHT	720
+# define WINDOW_WIDTH	1500
+# define WINDOW_HEIGHT	900
 
 # define MINIMAP_SIZE   (MAP_WIDTH * MAP_SIZE)
 
-# define THREE_D_X      300
+# define THREE_D_X      600
 # define THREE_D_WIDTH  900
 # define THREE_D_HEIGHT 540
 
-# define MAP_WIDTH		8
-# define MAP_HEIGHT		8
-# define MAP_SIZE		64
-# define TILE_SIZE		32
+# define MAP_WIDTH		16//8
+# define MAP_HEIGHT		16//8
+# define MAP_SIZE		1024//64
 
-# define SPEED			200.0
+#define MINIMAP_SCALE   12
+
+# define TILE_SIZE		64
+
+# define SPEED			300.0
 # define ROT_SPEED		3.0 
 
 # define SQUARE_SIZE	5 

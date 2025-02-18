@@ -27,11 +27,13 @@ SRC = \
   src/compute/calculate_tan_a.c \
   src/compute/compute_dda.c \
   src/compute/get_safe_cos_sin.c \
+  src/class/minimap.c \
   src/class/settings.c \
   src/class/player_api.c \
   src/class/game.c \
   src/class/origin.c \
   src/class/player.c \
+  src/class/minimap_api.c \
   src/class/map.c \
   src/class/map_api.c \
   src/engine/raycaster.c \
@@ -46,6 +48,7 @@ SRC = \
   src/render/draw_map.c \
   src/render/draw_rays.c \
   src/render/draw_direction_line.c \
+  src/render/draw_minimap_tile.c \
   src/render/draw_square.c \
   src/render/draw_player.c \
   src/render/draw_skybox.c \

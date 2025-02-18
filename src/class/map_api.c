@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 14:53:00 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 14:07:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 13:28:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static int	map_methods_update(t_game_object *obj, double dt)
 {
 	(void)dt;
 	(void)obj;
-	/* e.g. to use when the minimap will be dynamic*/
 	return (0);
 }
 

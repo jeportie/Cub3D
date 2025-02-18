@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:03:30 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/10 21:42:50 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 14:36:18 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_settings
 	bool					toogle_rays;
 	bool					toogle_texture;
 	bool					toogle_map;
+	bool					toogle_minimap;
 	bool					toogle_dda;
 
 	const t_settings_api	*methods;

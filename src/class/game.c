@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 09:53:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 14:15:24 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 17:30:43 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "settings.h"
 #include "player.h"
 #include "map.h"
+#include "minimap.h"
 #include "../engine/callback_system.h"
 #include "../engine/graphic_engine.h"
 #include "../engine/core_engine.h"
@@ -29,6 +30,7 @@ const t_game_api	g_game_methods = {
 	.run = run_game,
 	.new_player = create_player,
 	.new_map = create_map,
+	.new_minimap = create_minimap,
 	.destroy = destroy_game};
 
 int	game_add_object(t_game *game, t_game_object *obj)
@@ -59,10 +61,12 @@ t_game	*create_game(void)
 	game->input_manager = game->methods->new_input();
 	game->player = game->methods->new_player();
 	game->map = game->methods->new_map();
+	game->minimap = game->methods->new_minimap();
 
 	game->object_count = 0;
 	game_add_object(game, (t_game_object *)game->map);
 	game_add_object(game, (t_game_object *)game->player);
+	game_add_object(game, (t_game_object *)game->minimap);
 	return (game);
 }
 

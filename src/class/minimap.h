@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   minimap.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/09 15:01:22 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/18 19:16:21 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/18 13:17:44 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/18 14:33:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#ifndef MINIMAP_H
+# define MINIMAP_H
 
-# include "game.h"
 # include "game_object.h"
+# include "game.h"
 
-typedef struct s_map
+typedef struct s_minimap
 {
 	t_game_object	object;
-	char			map[MAP_SIZE + 1];
-	bool			loaded;
+	float			scale;
+	int				width;
+	int				height;
+	int				offset_x;
+	int				offset_y;
+	float			smooth_x;
+	float			smooth_y;
+}				t_minimap;
 
-}			t_map;
-
-extern char	g_map[MAP_SIZE + 1];
-
-t_map	*create_map(void);
-
-int		init_map(t_map *map);
-int		render_map(t_map *map, t_game *game, int buffer_to_draw);
-int		print_map(t_map *map);
-int		destroy_map(t_map *map);
+t_minimap	*create_minimap(void);
+int			init_minimap(t_minimap *minimap);
+int			render_minimap(t_minimap *minimap, t_game *game, int buffer_to_draw);
+int			destroy_minimap(t_minimap *minimap);
 
 #endif
