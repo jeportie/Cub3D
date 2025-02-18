@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 20:33:57 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/18 09:52:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:12:51 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,8 +91,8 @@ int	update_player(t_player *player, double delta_time)
 		transform.x += strafe_dx * move_distance;
 		transform.y += strafe_dy * move_distance;
 	}
-	transform.x = clamp(transform.x, 0.0f, (float)WINDOW_WIDTH);
-	transform.y = clamp(transform.y, 0.0f, (float)WINDOW_HEIGHT);
+//	transform.x = clamp(transform.x, 0.0f, (float)WINDOW_WIDTH);
+//	transform.y = clamp(transform.y, 0.0f, (float)WINDOW_HEIGHT);
 	player->transform = transform;
 	return (0);
 }

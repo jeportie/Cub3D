@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/18 19:19:24 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/18 20:15:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 # define MAP_HEIGHT		16//8
 # define MAP_SIZE		1024//64
 
-#define MINIMAP_SCALE   12
+#define MINIMAP_SCALE   24
 
 # define TILE_SIZE		64
 
