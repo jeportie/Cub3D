@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_player.c                                      :+:      :+:    :+:   */
+/*   draw_filled_cercle.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 17:17:16 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/19 18:59:59 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/19 18:34:05 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/19 18:36:42 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../engine/graphic_engine.h"
-#include "../class/player.h"
 
-int	draw_player(t_player *player, t_image *img)
+int	draw_filled_circle(t_coord center, int radius, int color, t_image *img)
 {
-	t_coord	center;
-	t_coord	start;
+	int	x;
+	int	y;
 
-	center.x = (int)player->transform.x;
-	center.y = (int)player->transform.y;
-	start.x = center.x - (SQUARE_SIZE / 2);
-	start.y = center.y - (SQUARE_SIZE / 2);
-	draw_square(start, img);
-	draw_direction_line(player->transform, center, img);
+	y = -radius;
+	while (y <= radius)
+	{
+		x = -radius;
+		while (x <= radius)
+		{
+			if (x * x + y * y <= radius * radius)
+			{
+				put_pixel_to_image(img, center.x + x, center.y + y, color);
+			}
+			x++;
+		}
+		y++;
+	}
 	return (0);
 }

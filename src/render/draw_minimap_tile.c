@@ -6,29 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 15:42:54 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/18 15:43:48 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:07:18 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-							
-						
 #include "../engine/graphic_engine.h"
 #include "../../include/colors.h"
 
-/**
- * draw_minimap_tile() - Draws a solid-colored square of `size × size` at
- *                       (x_start, y_start) in the image buffer.
- *
- * @param img:       The image buffer to draw into.
- * @param x_start:   Top-left X coordinate of where to draw the tile.
- * @param y_start:   Top-left Y coordinate of where to draw the tile.
- * @param size:      The size (width and height) of the tile in pixels.
- * @param base_color:The color to fill the tile with (e.g., WHITE or BLACK).
- *
- * If you want a border, you can do so by checking if (px == 0 || px == size-1 || ...).
- */
-
-int	draw_minimap_tile(t_image *img, int x_start, int y_start, int size, int base_color)
+int	draw_minimap_tile(t_image *img, t_coord start, int size, int base_color)
 {
 	int	row;
 	int	col;
@@ -42,8 +27,8 @@ int	draw_minimap_tile(t_image *img, int x_start, int y_start, int size, int base
 		col = 0;
 		while (col < size)
 		{
-			draw_x = x_start + col;
-			draw_y = y_start + row;
+			draw_x = start.x + col;
+			draw_y = start.y + row;
 			if (row == 0 || row == size - 1
 				|| col == 0 || col == size - 1)
 				color = GREY;

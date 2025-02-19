@@ -49,6 +49,7 @@ SRC = \
   src/render/draw_rays.c \
   src/render/draw_direction_line.c \
   src/render/draw_minimap_tile.c \
+  src/render/draw_filled_cercle.c \
   src/render/draw_square.c \
   src/render/draw_player.c \
   src/render/draw_skybox.c \

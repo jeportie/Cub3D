@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:14:49 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 13:31:44 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:57:20 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../../include/colors.h"
 #include "../../include/colors.h"
 
-int	draw_square(int x_start, int y_start, t_image *img)
+int	draw_square(t_coord start, t_image *img)
 {
 	int	row;
 	int	col;
@@ -27,8 +27,8 @@ int	draw_square(int x_start, int y_start, t_image *img)
 		col = 0;
 		while (col < SQUARE_SIZE)
 		{
-			draw_col = x_start + col;
-			draw_row = y_start + row;
+			draw_col = start.x + col;
+			draw_row = start.y + row;
 			put_pixel_to_image(img, draw_col, draw_row, RED);
 			col++;
 		}

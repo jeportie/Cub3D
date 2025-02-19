@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:20:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 20:36:28 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/19 18:47:38 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ int	draw_rays(t_game *game, t_image *img)
 	t_rayinfo	vertical_ray;
 	t_rayinfo	horizontal_ray;
 	t_rayinfo	chosen;
-	t_line_data	ldata;
+	int			color;
+	t_coord		start;
+	t_coord		end;
 
 	start_angle = game->player->transform.angle - (fov / 2);
 	i = 0;
@@ -40,16 +42,16 @@ int	draw_rays(t_game *game, t_image *img)
 			if (chosen.map_index == 0)
 			{
 				if (cosf(ray_angle) > 0.0f)
-					ldata.color = ORANGE;
+					color = ORANGE;
 				else
-					ldata.color = YELLOW;
+					color = YELLOW;
 			}
 			else
 			{
 				if (sinf(ray_angle) > 0.0f)
-					ldata.color = LIGHTGREEN;
+					color = LIGHTGREEN;
 				else
-					ldata.color = DARKGREEN;
+					color = DARKGREEN;
 			}
 		}
 		else
@@ -58,20 +60,20 @@ int	draw_rays(t_game *game, t_image *img)
 			horizontal_ray = cast_horizontal_ray(game, ray_angle);
 			if (vertical_ray.dist < horizontal_ray.dist)
 			{
-				ldata.color = GREEN;
+				color = GREEN;
 				chosen = vertical_ray;
 			}
 			else
 			{
-				ldata.color = LIGHTGREEN;
+				color = LIGHTGREEN;
 				chosen = horizontal_ray;
 			}
 		}
-		ldata.x0 = (int)game->player->transform.x;
-		ldata.y0 = (int)game->player->transform.y;
-		ldata.x1 = (int)chosen.rx;
-		ldata.y1 = (int)chosen.ry;
-		draw_line(ldata, img);
+		start.x = (int)game->player->transform.x;
+		start.y = (int)game->player->transform.y;
+		end.x = (int)chosen.rx;
+		end.y = (int)chosen.ry;
+		draw_line(start, end, color, img);
 		i++;
 	}
 	return (0);

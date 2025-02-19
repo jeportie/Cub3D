@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:17:39 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/18 19:09:49 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/19 19:20:45 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,46 +29,33 @@ int	init_minimap(t_minimap *minimap)
 	return (0);
 }
 
-void draw_filled_circle(t_image *img, int center_x, int center_y, int radius, int color)
+int	draw_minimap_partial_tile(t_image *img, int x_start, int y_start, int size,
+		int base_color, int center_x, int center_y, int radius)
 {
-    int x, y;
-    for (y = -radius; y <= radius; y++)
-    {
-        for (x = -radius; x <= radius; x++)
-        {
-            if (x * x + y * y <= radius * radius)
-            {
-                put_pixel_to_image(img, center_x + x, center_y + y, color);
-            }
-        }
-    }
-}
+	int	row;
+	int	col;
 
-int draw_minimap_partial_tile(t_image *img, int x_start, int y_start, int size,
-                                int base_color, int center_x, int center_y, int radius)
-{
-    int row, col;
-    for (row = 0; row < size; row++)
-    {
-        for (col = 0; col < size; col++)
-        {
-            int global_x = x_start + col;
-            int global_y = y_start + row;
-            int dx = global_x - center_x;
-            int dy = global_y - center_y;
-            // Only draw if the pixel is inside the circle
-            if (dx * dx + dy * dy <= radius * radius)
-            {
-                int pixel_color;
-                if (row == 0 || row == size - 1 || col == 0 || col == size - 1)
-                    pixel_color = GREY;
-                else
-                    pixel_color = base_color;
-                put_pixel_to_image(img, global_x, global_y, pixel_color);
-            }
-        }
-    }
-    return 0;
+	for (row = 0; row < size; row++)
+	{
+		for (col = 0; col < size; col++)
+		{
+			int global_x = x_start + col;
+			int global_y = y_start + row;
+			int dx = global_x - center_x;
+			int dy = global_y - center_y;
+			// Only draw if the pixel is inside the circle
+			if (dx * dx + dy * dy <= radius * radius)
+			{
+			    int pixel_color;
+			    if (row == 0 || row == size - 1 || col == 0 || col == size - 1)
+			        pixel_color = GREY;
+			    else
+			        pixel_color = base_color;
+			    put_pixel_to_image(img, global_x, global_y, pixel_color);
+			}
+		}
+	}
+	return 0;
 }
 
 int	render_minimap(t_minimap *minimap, t_game *game, int buffer_to_draw)
@@ -89,6 +76,8 @@ int	render_minimap(t_minimap *minimap, t_game *game, int buffer_to_draw)
 	float		frac_x;
 	float		frac_y;
 	float		radius;
+	t_coord		center;
+	t_coord		real_center;
 
 	radius = 75.0f;
 	if (!game->settings->toogle_minimap)
@@ -107,7 +96,9 @@ int	render_minimap(t_minimap *minimap, t_game *game, int buffer_to_draw)
 	center_y = minimap->offset_y + (minimap->height / 2.0f);
 	range_x = 8;
 	range_y = 6;
-	draw_filled_circle(img, center_x, center_y, radius, BLACK);
+	center.x = center_x;
+	center.y = center_y;
+	draw_filled_circle(center, radius, BLACK, img);
 	dy = -range_y;
 	while (dy <= range_y)
 	{
@@ -147,23 +138,27 @@ int	render_minimap(t_minimap *minimap, t_game *game, int buffer_to_draw)
 			float d_tr = (tr_x - center_x) * (tr_x - center_x) + (tr_y - center_y) * (tr_y - center_y);
 			float d_bl = (bl_x - center_x) * (bl_x - center_x) + (bl_y - center_y) * (bl_y - center_y);
 			float d_br = (br_x - center_x) * (br_x - center_x) + (br_y - center_y) * (br_y - center_y);
+			t_coord	screen;
         
+			screen.x = screen_x;
+			screen.y = screen_y;
 			if (!(d_tl <= rad_sq && d_tr <= rad_sq && d_bl <= rad_sq && d_br <= rad_sq))
 			{
 				draw_minimap_partial_tile(img, (int)screen_x, (int)screen_y,
 						(int)minimap->scale, color, (int)center_x, (int)center_y, radius);
 			}
 			else
-				draw_minimap_tile(img, (int)screen_x, (int)screen_y, (int)minimap->scale, color);
+				draw_minimap_tile(img, screen, (int)minimap->scale, color);
 			dx++;
 		}
 		dy++;
 	}
 	dot_size = 4;
-	draw_minimap_tile(img, (int)(center_x - dot_size / 2), (int)(center_y - dot_size / 2),
-		dot_size, RED);
-	draw_direction_line(game->player->transform, center_x, center_y, img);
-	return 0;
+	real_center.x = center_x - dot_size / 2;
+	real_center.y = center_y - dot_size / 2;
+	draw_minimap_tile(img, real_center, dot_size, RED);
+	draw_direction_line(game->player->transform, center, img);
+	return (0);
 }
 
 int	destroy_minimap(t_minimap *minimap)
