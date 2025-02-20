@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:41:28 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/16 20:41:27 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 14:38:26 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,31 @@ typedef struct s_transform
 	double	dx;
 	double	dy;
 }				t_transform;
+
+typedef struct s_partial_tile
+{
+	t_coord	dist;
+	t_coord	global;
+	t_coord	start;
+	t_coord	center;
+}				t_partial_tile;
+
+typedef struct s_minimap_coords
+{
+	t_coord	player;
+	t_coord	center;
+	t_coord	range;
+	t_coord	index;
+	t_coord	tile_center;
+	t_coord	frac;
+	t_coord	real_center;
+	t_coord	tile;
+	t_coord	screen;
+	t_coord	top_left;
+	t_coord	top_right;
+	t_coord	botom_left;
+	t_coord	botom_right;
+	float	radius;
+}			t_minimap_coords;
 
 #endif
