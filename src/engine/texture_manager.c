@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:15:29 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/18 12:21:59 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:16:14 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	get_texture_color(t_image *texture, int x, int y)
 int	texture_transform(t_image *texture, t_ray *ray, t_image *img)
 {
 	t_tex	tr;
+	t_coord	pixel;
 
 	tr.full_height = ray->true_wall_height;
 	tr.ty_step = (float)TILE_SIZE / tr.full_height;
@@ -92,7 +93,9 @@ int	texture_transform(t_image *texture, t_ray *ray, t_image *img)
 		if (tr.tex_y >= TILE_SIZE)
 			tr.tex_y = TILE_SIZE - 1;
 		tr.color = get_texture_color(texture, tr.tx, tr.tex_y);
-		put_pixel_to_image(img, ray->x_screen, tr.y + ray->line_offset, tr.color);
+		pixel.x = ray->x_screen;
+		pixel.y = tr.y + ray->line_offset;
+		put_pixel_to_image(pixel, tr.color, img);
 		tr.ty += tr.ty_step;
 		tr.y++;
 	}

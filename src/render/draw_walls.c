@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 08:59:10 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 13:05:10 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:51:52 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	draw_walls(t_game *game, t_image *img)
 	int			y;
 	int			i = 0;
 	int			index = 0;
+	t_coord		pos;
 
 	ft_bzero(problem_ray, sizeof(problem_ray));
 	ctx.prev_wall = WALL_NONE;
@@ -92,7 +93,9 @@ int	draw_walls(t_game *game, t_image *img)
 		y = 0;
 		while (y < ray.wall_height)
 		{
-			put_pixel_to_image(img, ray.x_screen, y + ray.line_offset, BLACK);
+			pos.x = ray.x_screen;
+			pos.y = y + ray.line_offset;
+			put_pixel_to_image(pos, BLACK, img);
 			y++;
 		}
 		index++;

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:01:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 13:09:43 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:21:09 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,20 @@
 
 int	draw_background(t_game *game, t_image *img)
 {
-	int	x;
-	int	y;
+	t_coord	pos;
 
 	(void)game;
 	draw_skybox(game, img);
-	x = THREE_D_X;
-	while (x < WINDOW_WIDTH)
+	pos.x = THREE_D_X;
+	while (pos.x < WINDOW_WIDTH)
 	{
-		y = THREE_D_HEIGHT / 2;
-		while (y < THREE_D_HEIGHT)
+		pos.y = THREE_D_HEIGHT / 2;
+		while (pos.y < THREE_D_HEIGHT)
 		{
-			put_pixel_to_image(img, x, y, DARKKHAKI);
-			y++;
+			put_pixel_to_image(pos, DARKKHAKI, img);
+			pos.y++;
 		}
-		x++;
+		pos.x++;
 	}
 	return (0);
 }

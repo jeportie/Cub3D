@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 09:15:18 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/19 19:06:49 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 09:58:55 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	draw_rays(t_game *game, t_image *img);
 
 // HUD
 int	draw_minimap_tile(t_image *img, t_coord start, int size, int base_color);
+int	draw_partial_tile(t_coord s_c[2], int base_color, int radius, t_image *img);
 
 //GEOMETRY TOOLS
 int	draw_line(t_coord start, t_coord stop, int color, t_image *img);

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 12:46:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 13:45:47 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:39:21 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,12 @@ int	draw_skybox(t_game *game, t_image *img)
 {
 	t_graphics	*g;
 	t_player	*p;
+	t_coord		pos;
 	int			sky_w;
 	int			sky_h;
 	double		angle_deg;
 	int			x_offset;
 	int			half_screen;
-	int			x;
-	int			y;
 	int			tx;
 	int			ty;
 	int			color;
@@ -38,19 +37,19 @@ int	draw_skybox(t_game *game, t_image *img)
 		angle_deg += 360.0;
 	x_offset = (int)((angle_deg / 360.0) * sky_w);
 	half_screen = THREE_D_HEIGHT / 2;
-	y = 0;
-	while (y < half_screen)
+	pos.y = 0;
+	while (pos.y < half_screen)
 	{
-		ty = (int)(((float)y / half_screen ) * (sky_h / 2));
-		x = THREE_D_X;
-		while (x < THREE_D_WIDTH + THREE_D_X)
+		ty = (int)((pos.y / half_screen ) * (sky_h / 2));
+		pos.x = THREE_D_X;
+		while (pos.x < THREE_D_WIDTH + THREE_D_X)
 		{
-			tx = (x_offset + x) % sky_w;
+			tx = (x_offset + (int)pos.x) % sky_w;
 			color = get_texture_color(&g->skybox, tx, ty);
-			put_pixel_to_image(img, x, y, color);
-			x++;
+			put_pixel_to_image(pos, color, img);
+			pos.x++;
 		}
-		y++;
+		pos.y++;
 	}
 	return (0);
 }

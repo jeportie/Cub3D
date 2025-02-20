@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:39:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 12:10:20 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:14:28 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int			graphic_engine_init(t_game *game, t_graphics *engine);
 int			graphic_engine_draw_frame(t_game *gmae, t_graphics *engine);
 int			graphic_engine_shutdown(t_graphics *engine);
 
-int			put_pixel_to_image(t_image *img, int x, int y, int color);
+int			put_pixel_to_image(t_coord coord, int color, t_image *img);
 int			clear_image(t_image *img, int color);
 
 #endif

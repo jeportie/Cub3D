@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:17:39 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/19 19:20:45 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:17:59 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,31 +29,41 @@ int	init_minimap(t_minimap *minimap)
 	return (0);
 }
 
-int	draw_minimap_partial_tile(t_image *img, int x_start, int y_start, int size,
-		int base_color, int center_x, int center_y, int radius)
+int	draw_partial_tile(t_coord s_c[2], int base_color, int radius, t_image *img)
 {
-	int	row;
-	int	col;
+	int		row;
+	int		col;
+	int		pixel_color;
+	int		size;
+	t_coord	dist;
+	t_coord	global;
+	t_coord	start;
+	t_coord	center;
 
-	for (row = 0; row < size; row++)
+	start = s_c[0];
+	center = s_c[1];
+	size = MINIMAP_SCALE;
+	row = 0;
+	while (row < size)
 	{
-		for (col = 0; col < size; col++)
+		col = 0;
+		while (col < size)
 		{
-			int global_x = x_start + col;
-			int global_y = y_start + row;
-			int dx = global_x - center_x;
-			int dy = global_y - center_y;
-			// Only draw if the pixel is inside the circle
-			if (dx * dx + dy * dy <= radius * radius)
+			global.x = start.x + col;
+			global.y = start.y + row;
+			dist.x = global.x - center.x;
+			dist.y = global.y - center.y;
+			if (dist.x * dist.x + dist.y * dist.y <= radius * radius)
 			{
-			    int pixel_color;
-			    if (row == 0 || row == size - 1 || col == 0 || col == size - 1)
-			        pixel_color = GREY;
-			    else
-			        pixel_color = base_color;
-			    put_pixel_to_image(img, global_x, global_y, pixel_color);
+				if (row == 0 || row == size - 1 || col == 0 || col == size - 1)
+					pixel_color = GREY;
+				else
+					pixel_color = base_color;
+				put_pixel_to_image(global, pixel_color, img);
 			}
+			col++;
 		}
+		row++;
 	}
 	return 0;
 }
@@ -109,8 +119,8 @@ int	render_minimap(t_minimap *minimap, t_game *game, int buffer_to_draw)
 			int		tile_y;
 			char	tile;
 			int		color;
-			float	screen_x;
-			float	screen_y;
+			t_coord	screen;
+			t_coord	start_center[2];
 
 			tile_x = (int)tile_center_x + dx;
 			tile_y = (int)tile_center_y + dy;
@@ -122,31 +132,27 @@ int	render_minimap(t_minimap *minimap, t_game *game, int buffer_to_draw)
 			}
 			tile = game->map->map[tile_y * MAP_WIDTH + tile_x];
 			color = (tile == '1') ? WHITE : BLACK;
-			screen_x = center_x + ((dx - frac_x) * minimap->scale);
-			screen_y = center_y + ((dy - frac_y) * minimap->scale);
+			screen.x = center_x + ((dx - frac_x) * minimap->scale);
+			screen.y = center_y + ((dy - frac_y) * minimap->scale);
 
-			float tl_x = screen_x;
-			float tl_y = screen_y;
-			float tr_x = screen_x + minimap->scale;
-			float tr_y = screen_y;
-			float bl_x = screen_x;
-			float bl_y = screen_y + minimap->scale;
-			float br_x = screen_x + minimap->scale;
-			float br_y = screen_y + minimap->scale; 
+			float tl_x = screen.x;
+			float tl_y = screen.y;
+			float tr_x = screen.x + minimap->scale;
+			float tr_y = screen.y;
+			float bl_x = screen.x;
+			float bl_y = screen.y + minimap->scale;
+			float br_x = screen.x + minimap->scale;
+			float br_y = screen.y + minimap->scale; 
 			float rad_sq = radius * radius;
 			float d_tl = (tl_x - center_x) * (tl_x - center_x) + (tl_y - center_y) * (tl_y - center_y);
 			float d_tr = (tr_x - center_x) * (tr_x - center_x) + (tr_y - center_y) * (tr_y - center_y);
 			float d_bl = (bl_x - center_x) * (bl_x - center_x) + (bl_y - center_y) * (bl_y - center_y);
 			float d_br = (br_x - center_x) * (br_x - center_x) + (br_y - center_y) * (br_y - center_y);
-			t_coord	screen;
         
-			screen.x = screen_x;
-			screen.y = screen_y;
+			start_center[0] = screen;
+			start_center[1] = center;
 			if (!(d_tl <= rad_sq && d_tr <= rad_sq && d_bl <= rad_sq && d_br <= rad_sq))
-			{
-				draw_minimap_partial_tile(img, (int)screen_x, (int)screen_y,
-						(int)minimap->scale, color, (int)center_x, (int)center_y, radius);
-			}
+				draw_partial_tile(start_center, color, radius, img);
 			else
 				draw_minimap_tile(img, screen, (int)minimap->scale, color);
 			dx++;

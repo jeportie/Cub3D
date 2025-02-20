@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 22:21:26 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/17 13:00:15 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:16:50 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ typedef struct s_tex
 }	t_tex;
 
 /* ~~~~~~~~~~~ CORE ENGINE METHODS ~~~~~~~~~~~~~*/
-int					texture_transform(t_image *texture, t_ray *ray,
-						t_image *img);
-int					init_texture(t_graphics *engine);
-int					init_skybox(t_graphics *engine, const char *filepath);
-int					get_texture_color(t_image *texture, int x, int y);
+int	texture_transform(t_image *texture, t_ray *ray,
+		t_image *img);
+int	init_texture(t_graphics *engine);
+int	init_skybox(t_graphics *engine, const char *filepath);
+int	get_texture_color(t_image *texture, int x, int y);
 
 #endif

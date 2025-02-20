@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/19 18:34:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/19 18:36:42 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:27:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,24 @@
 
 int	draw_filled_circle(t_coord center, int radius, int color, t_image *img)
 {
-	int	x;
-	int	y;
+	t_coord	index;
+	t_coord	pos;
 
-	y = -radius;
-	while (y <= radius)
+	index.y = -radius;
+	while (index.y <= radius)
 	{
-		x = -radius;
-		while (x <= radius)
+		index.x = -radius;
+		while (index.x <= radius)
 		{
-			if (x * x + y * y <= radius * radius)
+			if (index.x * index.x + index.y * index.y <= radius * radius)
 			{
-				put_pixel_to_image(img, center.x + x, center.y + y, color);
+				pos.x = center.x + index.x;
+				pos.y = center.y + index.y;
+				put_pixel_to_image(pos, color, img);
 			}
-			x++;
+			index.x++;
 		}
-		y++;
+		index.y++;
 	}
 	return (0);
 }

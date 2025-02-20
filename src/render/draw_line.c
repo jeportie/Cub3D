@@ -6,41 +6,42 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:18:43 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/19 18:42:43 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:36:15 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../engine/graphic_engine.h"
-#include "../engine/raycaster.h"
-#include "../../include/cub3d.h"
 
 int	draw_line(t_coord start, t_coord end, int color, t_image *img)
 {
-	t_line_vars	line;
+	t_coord	dist;
+	t_coord	inc;
+	t_coord	cur;
+	int		steps;
+	int		i;
 
-	line.dx = end.x - start.x;
-	line.dy = end.y - start.y;
-	if (abs(line.dx) > abs(line.dy))
-		line.steps = abs(line.dx);
+	dist.x = end.x - start.x;
+	dist.y = end.y - start.y;
+	if (abs((int)dist.x) > abs((int)dist.y))
+		steps = abs((int)dist.x);
 	else
-		line.steps = abs(line.dy);
-	if (line.steps == 0)
+		steps = abs((int)dist.y);
+	if (steps == 0)
 	{
-		put_pixel_to_image(img, start.x, start.y, color);
+		put_pixel_to_image(start, color, img);
 		return (0);
 	}
-	line.inc_x = (float)line.dx / (float)line.steps;
-	line.inc_y = (float)line.dy / (float)line.steps;
-	line.cur_x = start.x;
-	line.cur_y = start.y;
-	line.i = 0;
-	while (line.i <= line.steps)
+	inc.x = dist.x / (float)steps;
+	inc.y = dist.y / (float)steps;
+	cur.x = start.x;
+	cur.y = start.y;
+	i = 0;
+	while (i <= steps)
 	{
-		put_pixel_to_image(img, (int)line.cur_x,
-			(int)line.cur_y, color);
-		line.cur_x += line.inc_x;
-		line.cur_y += line.inc_y;
-		line.i++;
+		put_pixel_to_image(cur, color, img);
+		cur.x += inc.x;
+		cur.y += inc.y;
+		i++;
 	}
 	return (0);
 }

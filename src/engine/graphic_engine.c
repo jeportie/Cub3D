@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/18 13:08:23 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:19:32 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,32 +27,32 @@ t_graphics	*create_graphic_engine(void)
 	return (engine);
 }
 
-int	put_pixel_to_image(t_image *img, int x, int y, int color)
+int	put_pixel_to_image(t_coord coord, int color, t_image *img)
 {
 	char	*dst;
 
-	if (x < 0 || x >= WINDOW_WIDTH || y < 0 || y >= WINDOW_HEIGHT)
+	if (coord.x < 0 || coord.x >= WINDOW_WIDTH
+		|| coord.y < 0 || coord.y >= WINDOW_HEIGHT)
 		return (-1);
-	dst = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	dst = img->addr + ((int)coord.y * img->line_len + (int)coord.x * (img->bpp / 8));
 	*(unsigned int *)dst = color;
 	return (0);
 }
 
 int	clear_image(t_image *img, int color)
 {
-	int	y;
-	int	x;
+	t_coord	pos;
 
-	y = 0;
-	while (y < WINDOW_HEIGHT)
+	pos.y = 0;
+	while (pos.y < WINDOW_HEIGHT)
 	{
-		x = 0;
-		while (x < WINDOW_WIDTH)
+		pos.x = 0;
+		while (pos.x < WINDOW_WIDTH)
 		{
-			put_pixel_to_image(img, x, y, color);
-			x++;
+			put_pixel_to_image(pos, color, img);
+			pos.x++;
 		}
-		y++;
+		pos.y++;
 	}
 	return (0);
 }

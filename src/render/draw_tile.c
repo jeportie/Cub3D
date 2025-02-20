@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:10:47 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/18 09:52:39 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:42:54 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,28 +15,26 @@
 
 int	draw_tile(int row, int col, int base_color, t_image *img)
 {
-	int	py;
-	int	px;
-	int	x;
-	int	y;
-	int	color;
+	t_coord	index;
+	t_coord	pos;
+	int		color;
 
-	py = 0;
-	while (py < TILE_SIZE)
+	index.y = 0;
+	while (index.y < TILE_SIZE)
 	{
-		px = 0;
-		while (px < TILE_SIZE)
+		index.x = 0;
+		while (index.x < TILE_SIZE)
 		{
-			x = col * TILE_SIZE + px;
-			y = row * TILE_SIZE + py;
+			pos.x = col * TILE_SIZE + index.x;
+			pos.y = row * TILE_SIZE + index.y;
 			color = base_color;
-			if (py == 0 || py == TILE_SIZE - 1
-				|| px == 0 || px == TILE_SIZE - 1)
+			if (index.y == 0 || index.y == TILE_SIZE - 1
+				|| index.x == 0 || index.x == TILE_SIZE - 1)
 				color = GREY;
-			put_pixel_to_image(img, x, y, color);
-			px++;
+			put_pixel_to_image(pos, color, img);
+			index.x++;
 		}
-		py++;
+		index.y++;
 	}
 	return (0);
 }

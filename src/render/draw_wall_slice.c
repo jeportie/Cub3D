@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:06:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/13 13:38:23 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/20 10:48:57 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,36 +16,32 @@
 #include "../engine/raycaster.h"
 #include "../../include/colors.h"
 
-int paint_wall(t_ray *ray, t_rndr_ctx *ctx, t_image *img, int is_same_tile)
+int	paint_wall(t_ray *ray, t_rndr_ctx *ctx, t_image *img, int is_same_tile)
 {
-	int	y;
-	int	is_incomplete;
+	int		y;
+	int		is_incomplete;
+	t_coord	pos;
 
 	y = 0;
 	is_incomplete = 0;
 	while (y < ray->wall_height)
 	{
+		pos.x = ray->x_screen;
+		pos.y = y + ray->line_offset;
 		if (y == 0 || y == ray->wall_height - 1)
-		{
-			put_pixel_to_image(img, ray->x_screen, y + ray->line_offset, BLACK);
-		}
+			put_pixel_to_image(pos, BLACK, img);
 		else if ((int)ray->current_wall != ctx->prev_wall || !is_same_tile)
 		{
 			if (ctx->old_wall_height > ray->wall_height)
 			{
 				is_incomplete = 1;
-				put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
-					ray->chosen.color);
+				put_pixel_to_image(pos, ray->chosen.color, img);
 			}
 			else
-				put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
-					BLACK);
+				put_pixel_to_image(pos, BLACK, img);
 		}
 		else
-		{
-			put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
-				ray->chosen.color);
-		}
+			put_pixel_to_image(pos, ray->chosen.color, img);
 		y++;
 	}
 	return (is_incomplete);
