@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 22:21:26 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/20 10:16:50 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 11:01:44 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 # define TEXTURE "assets/texture.xpm"
 # define SKYBOX "assets/skybox.xpm"
+# define WEAPON "assets/Weapons/Glock.xpm"
 
 typedef struct s_tex
 {

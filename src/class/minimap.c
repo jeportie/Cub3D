@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/18 13:17:39 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/20 14:41:53 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 10:31:26 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,41 @@ int	init_minimap(t_minimap *minimap)
 	return (0);
 }
 
-int	render_minimap_loop(t_minimap_coords pos, t_game *game, t_minimap *minimap, t_image *img)
+int	loop_helper(t_minimap *minimap, t_minimap_coords *pos,
+		t_coord start_center[2])
+{
+	pos->screen.x = pos->center.x
+		+ ((pos->index.x - pos->frac.x) * minimap->scale);
+	pos->screen.y = pos->center.y
+		+ ((pos->index.y - pos->frac.y) * minimap->scale);
+	pos->tl.x = pos->screen.x;
+	pos->tl.y = pos->screen.y;
+	pos->tr.x = pos->screen.x + minimap->scale;
+	pos->tr.y = pos->screen.y;
+	pos->bl.x = pos->screen.x;
+	pos->bl.y = pos->screen.y + minimap->scale;
+	pos->br.x = pos->screen.x + minimap->scale;
+	pos->br.y = pos->screen.y + minimap->scale;
+	pos->dist_tl = (pos->tl.x - pos->center.x) * (pos->tl.x - pos->center.x)
+		+ (pos->tl.y - pos->center.y) * (pos->tl.y - pos->center.y);
+	pos->dist_tr = (pos->tr.x - pos->center.x) * (pos->tr.x - pos->center.x)
+		+ (pos->tr.y - pos->center.y) * (pos->tr.y - pos->center.y);
+	pos->dist_bl = (pos->bl.x - pos->center.x) * (pos->bl.x - pos->center.x)
+		+ (pos->bl.y - pos->center.y) * (pos->bl.y - pos->center.y);
+	pos->dist_br = (pos->br.x - pos->center.x) * (pos->br.x - pos->center.x)
+		+ (pos->br.x - pos->center.y) * (pos->br.y - pos->center.y);
+	start_center[0] = pos->screen;
+	start_center[1] = pos->center;
+	return (0);
+}
+
+int	render_minimap_loop(t_minimap_coords pos, t_game *game,
+		t_minimap *minimap, t_image *img)
 {
 	char	tiles;
 	int		color;
 	t_coord	start_center[2];
 	float	radius_square;
-	float	dist_top_left;
-	float	dist_top_right;
-	float	dist_botom_left;
-	float	dist_botom_right;
 
 	pos.index.y = -pos.range.y;
 	while (pos.index.y <= pos.range.y)
@@ -54,31 +79,17 @@ int	render_minimap_loop(t_minimap_coords pos, t_game *game, t_minimap *minimap, 
 				pos.index.x++;
 				continue ;
 			}
-			tiles = game->map->map[(int)pos.tile.y * MAP_WIDTH + (int)pos.tile.x];
-			color = (tiles == '1') ? WHITE : BLACK;
-			pos.screen.x = pos.center.x + ((pos.index.x - pos.frac.x) * minimap->scale);
-			pos.screen.y = pos.center.y + ((pos.index.y - pos.frac.y) * minimap->scale);
-			pos.top_left.x = pos.screen.x;
-			pos.top_left.y = pos.screen.y;
-			pos.top_right.x = pos.screen.x + minimap->scale;
-			pos.top_right.y = pos.screen.y;
-			pos.botom_left.x = pos.screen.x;
-			pos.botom_left.y = pos.screen.y + minimap->scale;
-			pos.botom_right.x = pos.screen.x + minimap->scale;
-			pos.botom_right.y = pos.screen.y + minimap->scale; 
+			tiles = game->map->map[(int)pos.tile.y
+				* MAP_WIDTH + (int)pos.tile.x];
+			if (tiles == '1')
+				color = WHITE;
+			else
+				color = BLACK;
+			loop_helper(minimap, &pos, start_center);
 			radius_square = pos.radius * pos.radius;
-			dist_top_left = (pos.top_left.x - pos.center.x) * (pos.top_left.x - pos.center.x)
-				+ (pos.top_left.y - pos.center.y) * (pos.top_left.y - pos.center.y);
-			dist_top_right = (pos.top_right.x - pos.center.x) * (pos.top_right.x - pos.center.x)
-				+ (pos.top_right.y - pos.center.y) * (pos.top_right.y - pos.center.y);
-			dist_botom_left = (pos.botom_left.x - pos.center.x) * (pos.botom_left.x - pos.center.x)
-				+ (pos.botom_left.y - pos.center.y) * (pos.botom_left.y - pos.center.y);
-			dist_botom_right = (pos.botom_right.x - pos.center.x) * (pos.botom_right.x  - pos.center.x)
-				+ (pos.botom_right.x - pos.center.y) * (pos.botom_right.y - pos.center.y);
-			start_center[0] = pos.screen;
-			start_center[1] = pos.center;
-			if (!(dist_top_left <= radius_square && dist_top_right <= radius_square
-					&& dist_botom_left <= radius_square && dist_botom_right <= radius_square))
+			if (!(pos.dist_tl <= radius_square && pos.dist_tr <= radius_square
+					&& pos.dist_bl <= radius_square
+					&& pos.dist_br <= radius_square))
 				draw_partial_tile(start_center, color, pos.radius, img);
 			else
 				draw_minimap_tile(img, pos.screen, (int)minimap->scale, color);
@@ -86,6 +97,19 @@ int	render_minimap_loop(t_minimap_coords pos, t_game *game, t_minimap *minimap, 
 		}
 		pos.index.y++;
 	}
+	return (0);
+}
+
+int	init_pos_helper(t_minimap *minimap, t_minimap_coords *pos)
+{
+	pos->tile_center.x = floorf(minimap->smooth_x / TILE_SIZE);
+	pos->tile_center.y = floorf(minimap->smooth_y / TILE_SIZE);
+	pos->frac.x = (minimap->smooth_x / TILE_SIZE) - pos->tile_center.x;
+	pos->frac.y = (minimap->smooth_y / TILE_SIZE) - pos->tile_center.y;
+	pos->center.x = minimap->offset_x + (minimap->width / 2.0f);
+	pos->center.y = minimap->offset_y + (minimap->height / 2.0f);
+	pos->range.x = 8;
+	pos->range.y = 6;
 	return (0);
 }
 
@@ -105,14 +129,7 @@ int	render_minimap(t_minimap *minimap, t_game *game, int buffer_to_draw)
 	pos.player.y = game->player->transform.y;
 	minimap->smooth_x -= (minimap->smooth_x - pos.player.x) * 0.2f;
 	minimap->smooth_y -= (minimap->smooth_y - pos.player.y) * 0.2f;
-	pos.tile_center.x = floorf(minimap->smooth_x / TILE_SIZE);
-	pos.tile_center.y = floorf(minimap->smooth_y / TILE_SIZE);
-	pos.frac.x = (minimap->smooth_x / TILE_SIZE) - pos.tile_center.x;
-	pos.frac.y = (minimap->smooth_y / TILE_SIZE) - pos.tile_center.y;
-	pos.center.x = minimap->offset_x + (minimap->width / 2.0f);
-	pos.center.y = minimap->offset_y + (minimap->height / 2.0f);
-	pos.range.x = 8;
-	pos.range.y = 6;
+	init_pos_helper(minimap, &pos);
 	draw_filled_circle(pos.center, pos.radius, BLACK, img);
 	render_minimap_loop(pos, game, minimap, img);
 	dot_size = 4;

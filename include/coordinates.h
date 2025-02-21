@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 15:41:28 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/20 14:38:26 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 10:24:55 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,15 @@ typedef struct s_minimap_coords
 	t_coord	real_center;
 	t_coord	tile;
 	t_coord	screen;
-	t_coord	top_left;
-	t_coord	top_right;
-	t_coord	botom_left;
-	t_coord	botom_right;
+	t_coord	tl; //top_left
+	t_coord	tr; //top_right
+	t_coord	bl; //botom_left
+	t_coord	br; //botom_right
 	float	radius;
+	float	dist_tl;
+	float	dist_tr;
+	float	dist_bl;
+	float	dist_br;
 }			t_minimap_coords;
 
 #endif

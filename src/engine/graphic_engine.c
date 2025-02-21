@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/11 18:14:07 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/20 10:19:32 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 10:59:49 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,11 @@ int	graphic_engine_init(t_game *game, t_graphics *engine)
 		return (1);
 	}
 	if (init_skybox(engine, SKYBOX))
+	{
+		ft_dprintf(2, "Failed to load skybox.xpm\n");
+		return (1);
+	}
+	if (init_weapon(engine, WEAPON))
 	{
 		ft_dprintf(2, "Failed to load skybox.xpm\n");
 		return (1);

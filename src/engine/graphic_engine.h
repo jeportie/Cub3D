@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 21:39:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/20 10:14:28 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 10:57:22 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_graphics
 	t_image			buffer[2];
 	t_image			texture;
 	t_image			skybox;
+	t_image			weapon;
 }				t_graphics;
 
 t_mlx_app	*mlx_app_create(int width, int height, const char *title);
