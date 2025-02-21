@@ -6,35 +6,40 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 16:23:38 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:02:07 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/cub3d.h"
+#include "include/define.h"
 #include "include/player.h"
 #include "include/input.h"
 #include "include/engine.h"
 #include "include/error.h"
+#include "include/functions.h"
 
-char	g_map[MAP_SIZE + 1] = {
-	"11111001"
-	"10000001"
-	"10000001"
-	"10011001"
-	"10010001"
-	"1000P001"
-	"10000001"
-	"11111111"
-};
-
-int	main(void)
+int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	if (argc != 2 || correct_extension(argv[1]))
+	{
+		printf("\033[31mError\n : %s\nUse the prog as followed :  "
+			"./cub3d map.cub || .cub extension !\033[0m\n", strerror(errno));
+		return (1);
+	}
 	ft_memset(&data, 0, sizeof(t_data));
 	data.toogle_map = true;
 	data.toogle_dda = true;
 	data.toogle_rays = true;
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+	data.parse.config.map_filename = argv[1];
+	data.parse.config.map_file_fd = ft_open_file(data.parse.config.map_filename);
+	if (data.parse.config.map_file_fd == -1)
+		exit(1);
+	ft_initialize(&data);
+	parse(&data);
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
 	data.mlx = mlx_init();
 	if (!data.mlx)
 	{
@@ -55,7 +60,6 @@ int	main(void)
 		return (1);
 	}
 	player_init(&data);
-	print_map();
 	if (clock_gettime(CLOCK_MONOTONIC, &data.last_time) != 0)
 	{
 		ft_dprintf(2, ERR_GETTIME);
@@ -66,5 +70,8 @@ int	main(void)
 	mlx_loop_hook(data.mlx, game_loop, &data);
 	ft_printf("Entering MLX event loop.\n");
 	mlx_loop(data.mlx);
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
+	ft_clean_data_and_exit(&data);
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~``
 	return (0);
 }

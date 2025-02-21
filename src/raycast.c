@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 21:04:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 15:02:32 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:19:13 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle)
 	{
 		ray.result.tile_x = (int)(ray.intercept_x / TILE_SIZE);
 		ray.result.tile_y = (int)(ray.intercept_y / TILE_SIZE);
-		if (ray.result.tile_x < 0 || ray.result.tile_x >= MAP_WIDTH
-			|| ray.result.tile_y < 0 || ray.result.tile_y >= MAP_HEIGHT
-			|| g_map[ray.result.tile_y * MAP_WIDTH + ray.result.tile_x] == '1')
+		if (ray.result.tile_x < 0 || ray.result.tile_x >= data->parse.map.width
+			|| ray.result.tile_y < 0 || ray.result.tile_y >= data->parse.map.height
+			|| data->map[ray.result.tile_y * data->parse.map.width + ray.result.tile_x] == '1')
 			break ;
 		ray.intercept_x += ray.step_x;
 		ray.intercept_y += ray.step_y;
@@ -64,9 +64,9 @@ t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle)
 	{
 		ray.result.tile_x = (int)(ray.intercept_x / TILE_SIZE);
 		ray.result.tile_y = (int)(ray.intercept_y / TILE_SIZE);
-		if (ray.result.tile_x < 0 || ray.result.tile_x >= MAP_WIDTH
-			|| ray.result.tile_y < 0 || ray.result.tile_y >= MAP_HEIGHT
-			|| g_map[ray.result.tile_y * MAP_WIDTH + ray.result.tile_x] == '1')
+		if (ray.result.tile_x < 0 || ray.result.tile_x >= data->parse.map.width
+			|| ray.result.tile_y < 0 || ray.result.tile_y >= data->parse.map.height
+			|| data->map[ray.result.tile_y * data->parse.map.width + ray.result.tile_x] == '1')
 			break ;
 		ray.intercept_x += ray.step_x;
 		ray.intercept_y += ray.step_y;

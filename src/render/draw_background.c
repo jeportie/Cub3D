@@ -6,15 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:01:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 17:06:02 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:48:24 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 #include "../../include/engine.h"
-#include "../../include/colors.h"
 
-int	draw_background(t_image *img)
+int	draw_background(t_data *data, t_image *img)
 {
 	int	x;
 	int	y;
@@ -25,7 +24,7 @@ int	draw_background(t_image *img)
 		y = 0;
 		while (y < THREE_D_HEIGHT / 2)
 		{
-			put_pixel_to_image(img, x, y, SKYBLUE);
+			put_pixel_to_image(img, x, y, data->parse.config.ceiling_color);
 			y++;
 		}
 		x++;
@@ -36,7 +35,7 @@ int	draw_background(t_image *img)
 		y = THREE_D_HEIGHT / 2;
 		while (y < THREE_D_HEIGHT)
 		{
-			put_pixel_to_image(img, x, y, DARKKHAKI);
+			put_pixel_to_image(img, x, y, data->parse.config.floor_color);
 			y++;
 		}
 		x++;

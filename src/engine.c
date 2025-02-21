@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 23:10:44 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/21 13:06:36 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 16:51:00 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,35 +79,36 @@ int	init_image(t_data *data)
 
 int	init_texture(t_data *data)
 {
-	int	width;
-	int	height;
+	int		width;
+	int		height;
 
 	data->texture_n.img_ptr
-		= mlx_xpm_file_to_image(data->mlx, TEXTURE_N, &width, &height);
+		= mlx_xpm_file_to_image(data->mlx,
+		data->parse.config.textures[0], &width, &height);
 	if (!data->texture_n.img_ptr)
 	{
-		ft_dprintf(2, ERR_MLX_TEX, TEXTURE_N);
+		ft_dprintf(2, ERR_MLX_TEX, data->parse.config.textures[0]);
 		return (1);
 	}
 	data->texture_s.img_ptr
-		= mlx_xpm_file_to_image(data->mlx, TEXTURE_S, &width, &height);
+		= mlx_xpm_file_to_image(data->mlx, data->parse.config.textures[1], &width, &height);
 	if (!data->texture_s.img_ptr)
 	{
-		ft_dprintf(2, ERR_MLX_TEX, TEXTURE_S);
+		ft_dprintf(2, ERR_MLX_TEX, data->parse.config.textures[1]);
 		return (1);
 	}
 	data->texture_e.img_ptr
-		= mlx_xpm_file_to_image(data->mlx, TEXTURE_E, &width, &height);
+		= mlx_xpm_file_to_image(data->mlx, data->parse.config.textures[2], &width, &height);
 	if (!data->texture_e.img_ptr)
 	{
-		ft_dprintf(2, ERR_MLX_TEX, TEXTURE_E);
+		ft_dprintf(2, ERR_MLX_TEX, data->parse.config.textures[2]);
 		return (1);
 	}
 	data->texture_o.img_ptr
-		= mlx_xpm_file_to_image(data->mlx, TEXTURE_O, &width, &height);
+		= mlx_xpm_file_to_image(data->mlx, data->parse.config.textures[3], &width, &height);
 	if (!data->texture_o.img_ptr)
 	{
-		ft_dprintf(2, ERR_MLX_TEX, TEXTURE_O);
+		ft_dprintf(2, ERR_MLX_TEX, data->parse.config.textures[3]);
 		return (1);
 	}
 

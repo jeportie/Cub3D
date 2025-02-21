@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:30:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 15:53:55 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:20:05 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_dda_struct(t_dda *d, t_data *data, float angle)
 	d->dist = 0.0f;
 }
 
-int	run_dda_loop(t_dda *d)
+int	run_dda_loop(t_data *data, t_dda *d)
 {
 	int	out_of_bounds;
 
@@ -59,13 +59,13 @@ int	run_dda_loop(t_dda *d)
 			d->map_y += d->step_y;
 			d->side = 1;
 		}
-		if (d->map_x < 0 || d->map_x >= MAP_WIDTH
-			|| d->map_y < 0 || d->map_y >= MAP_HEIGHT)
+		if (d->map_x < 0 || d->map_x >= data->parse.map.width
+			|| d->map_y < 0 || d->map_y >= data->parse.map.height)
 		{
 			out_of_bounds = 1;
 			break ;
 		}
-		if (g_map[d->map_y * MAP_WIDTH + d->map_x] == '1')
+		if (data->map[d->map_y * data->parse.map.width + d->map_x] == '1')
 			break ;
 	}
 	return (out_of_bounds);
@@ -97,7 +97,7 @@ t_rayinfo	cast_ray_dda(t_data *data, float angle)
 	ft_bzero(&d, sizeof(t_dda));
 	init_dda_struct(&d, data, angle);
 	compute_initial_sides(&d, data);
-	run_dda_loop(&d);
+	run_dda_loop(data, &d);
 	fill_rayinfo(&d, data, &ray);
 	return (ray);
 }

@@ -6,14 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:12:13 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/26 23:14:55 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:20:22 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/colors.h"
 #include "../../include/render.h"
 
-int	draw_map(t_image *img)
+int	draw_map(t_data *data, t_image *img)
 {
 	int		row;
 	int		col;
@@ -21,12 +21,12 @@ int	draw_map(t_image *img)
 	int		base_color;
 
 	row = 0;
-	while (row < MAP_HEIGHT)
+	while (row < data->parse.map.height)
 	{
 		col = 0;
-		while (col < MAP_WIDTH)
+		while (col < data->parse.map.width)
 		{
-			tile = g_map[row * MAP_WIDTH + col];
+			tile = data->map[row * data->parse.map.width + col];
 			if (tile == '1')
 				base_color = WHITE;
 			else

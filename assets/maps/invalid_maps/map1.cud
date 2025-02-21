@@ -1,0 +1,21 @@
+NO ./Textures/Bricks/BIGBRICKS.png
+SO ./Textures/Wood/WOODB.png
+WE ./Textures/Industrial/CROSSCUBE.png
+EA ./Textures/Industrial/CROSSCUBE.png
+
+F 20,20,-20
+C 200,200,200
+
+11111
+10001
+10S01
+10001
+10001
+10001
+11001
+10001
+10001
+10001
+10001
+10001
+11111

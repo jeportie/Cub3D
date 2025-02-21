@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 13:32:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:56:45 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	draw_player_view(t_data *data, t_image *img)
 	ctx.old_wall_height = 0;
 	ctx.prev_tile_x = -1;
 	ctx.prev_tile_y = -1;
-	draw_background(img);
+	draw_background(data, img);
 	while (i < RAYS)
 	{
 		process_ray(data, &ray, start_angle, i, fov);
