@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:33:11 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 16:26:55 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/21 09:44:03 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,5 @@
 # define ERR_MLX_WINDOW "Error: mlx_new_window() failed.\n"
 # define ERR_MLX_IMAGE "Error: mlx_new_image() failed.\n"
 # define ERR_MLX_DATA "Error: mlx_get_data_addr() failed.\n"
-# define ERR_TEX_INIT "Error: Texture initialization failed.\n"
-# define ERR_MLX_TEX "Error: could not load texture from %s\n"
-# define WARN_NOEQUAL "Warning: texture size (%d x %d) is not equal to TILE_SIZE (%d x %d)\n"
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 13:33:04 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 10:12:52 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ typedef struct s_ray
     t_rayinfo chosen;         // The chosen ray (closest intersection)
     float corrected_distance; // Distance corrected for fisheye
     int wall_height;          // Height of the wall slice
-    float true_wall_height;          // Height of the wall slice
     t_wall_type current_wall; // Type of wall hit (vertical/horizontal)
     int line_offset;          // Y-coordinate offset to center the slice vertically
     int x_screen;             // X-coordinate on the screen
@@ -105,5 +104,6 @@ typedef struct s_dda
 t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle);
 t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle);
 t_rayinfo   cast_ray_dda(t_data *data, float ray_angle);
+t_rayinfo   cast_ray_dda_plane(t_data *data, double ray_dir_x, double ray_dir_y);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 16:23:38 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:35:07 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,6 @@ int	main(void)
 	t_data	data;
 
 	ft_memset(&data, 0, sizeof(t_data));
-	data.toogle_map = true;
-	data.toogle_dda = true;
-	data.toogle_rays = true;
 	data.mlx = mlx_init();
 	if (!data.mlx)
 	{
@@ -51,7 +48,7 @@ int	main(void)
 	init_image(&data);
 	if (init_texture(&data))
 	{
-		ft_dprintf(2, ERR_TEX_INIT);
+		ft_dprintf(2, "Error: Texture initialization failed.\n");
 		return (1);
 	}
 	player_init(&data);

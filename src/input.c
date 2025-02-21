@@ -6,11 +6,12 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:44:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:06:28 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:03:06 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/input.h"
+#include "../include/modes.h"
 
 int	key_press(int keycode, t_data *data)
 {
@@ -34,12 +35,17 @@ int	key_press(int keycode, t_data *data)
 	else if (keycode == KEY_D)
 		data->player.move_right = true;
 	else if (keycode == KEY_F1)
-		data->toogle_rays = !data->toogle_rays;
+		data->show_rays = !data->show_rays;
 	else if (keycode == KEY_F2)
-		data->toogle_dda = !data->toogle_dda;
+		data->use_dda = !data->use_dda;
 	else if (keycode == KEY_F3)
-		data->toogle_texture_mode = !data->toogle_texture_mode;
+	{
+		data->use_plane_mode = !data->use_plane_mode;
+		re_init_game(data, data->use_plane_mode);
+	}
 	else if (keycode == KEY_F4)
+		data->toogle_texture_mode = !data->toogle_texture_mode;
+	else if (keycode == KEY_F5)
 		data->toogle_map = !data->toogle_map;
 	return (0);
 }

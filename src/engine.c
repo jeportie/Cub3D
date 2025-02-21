@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 23:10:44 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 16:27:18 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 19:54:32 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,13 @@ int	init_texture(t_data *data)
 		= mlx_xpm_file_to_image(data->mlx, TEXTURE, &width, &height);
 	if (!data->texture.img_ptr)
 	{
-		ft_dprintf(2, ERR_MLX_TEX, TEXTURE);
+		ft_dprintf(2, "Error: could not load texture from %s\n", TEXTURE);
 		return (1);
 	}
 	if (width != TILE_SIZE || height != TILE_SIZE)
 	{
-		ft_printf(WARN_NOEQUAL, width, height, TILE_SIZE, TILE_SIZE);
+		ft_printf("Warning: texture size (%d x %d) is not equal "
+			"to TILE_SIZE (%d x %d)\n", width, height, TILE_SIZE, TILE_SIZE);
 	}
 	data->texture.addr = mlx_get_data_addr(data->texture.img_ptr,
 			&data->texture.bpp, &data->texture.line_len, &data->texture.endian);

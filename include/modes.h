@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 15:40:43 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:02:10 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/28 15:43:34 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 
 int	re_init_game(t_data *data, bool plane_mode);
 int	angle_init_game(t_data *data);
+int	plane_init_game(t_data *data);
 
 #endif /*MODES_H*/

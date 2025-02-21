@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 09:23:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 14:59:24 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 20:05:54 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@
 //raycaster
 float	normalize_angle(float angle);
 float	correct_fisheye(float player_angle, float ray_angle, float distance);
-int		calculate_wall_height(t_ray *ray);
-float	compute_wall_height(float distance);
+int		calculate_wall_height(float distance, float fov);;
+int		calculate_plane_wall_height(float distance);
 float	get_safe_cos(float angle);
 float	get_safe_sin(float angle);
-float	calculate_intercept(float player_pos, int flag);
-float	calculate_tan_a(float angle);
+float	calculate_intercept(float player_pos, int flag, char mode);
+float	calculate_tan_a(float sin_a, float cos_a);
 float	calculate_step_primary(int flag, float tile_size);
 float	calculate_step_secondary(float step_primary, float tan_a);
 
@@ -35,8 +35,8 @@ void	compute_initial_sides(t_dda *d, t_data *data);
 
 //player
 float	calculate_distance(float delta_x, float delta_y);
-void	get_direction_vector(float angle, double *dx, double *dy);
-void	get_perpendicular_vector(float angle, float *dx, float *dy);
+void	calculate_direction(float angle, double *dx, double *dy);
+void	calculate_strafe_direction(float angle, float *dx, float *dy);
 float	calculate_move_distance(float speed, double delta_time);
 float	clamp(float value, float min, float max);
 

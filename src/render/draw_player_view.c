@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 13:32:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 17:29:57 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
 {
 	ray->angle = normalize_angle(start_angle + (i * (fov / (RAYS - 1))));
-	if (data->toogle_dda == true)
+	if (data->use_dda == true)
 	{
 		ray->chosen = cast_ray_dda(data, ray->angle);
 		if (ray->chosen.map_index == 0)
@@ -53,12 +53,12 @@ void	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)
 	}
 	ray->corrected_distance = correct_fisheye(data->player.angle,
 			ray->angle, ray->chosen.dist);
-	calculate_wall_height(ray);
+	ray->wall_height = calculate_wall_height(ray->corrected_distance, fov);
 	ray->line_offset = (THREE_D_HEIGHT / 2) - (ray->wall_height / 2);
 	ray->x_screen = THREE_D_X + ((i * THREE_D_WIDTH) / RAYS);
 }
 
-int	draw_player_view(t_data *data, t_image *img)
+int	draw_angle_mode(t_data *data, t_image *img)
 {
 	const float	fov = FOV_DEGREES * (M_PI / 180.0f);
 	float		start_angle = normalize_angle(data->player.angle - (fov / 2));
@@ -99,4 +99,18 @@ int	draw_player_view(t_data *data, t_image *img)
 		index++;
 	}
 	return (0);
+}
+
+int	draw_player_view(t_data *data, t_image *img)
+{
+	if (data->use_plane_mode == true)
+	{
+		draw_plane_mode(data, img);
+		return (0);
+	}
+	else
+	{
+		draw_angle_mode(data, img);
+		return (0);
+	}
 }

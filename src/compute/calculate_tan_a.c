@@ -6,13 +6,13 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 23:14:50 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 14:59:50 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/01/25 23:15:15 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/compute.h"
 
-float	calculate_tan_a(float angle)
+float	calculate_tan_a(float sin_a, float cos_a)
 {
-	return (get_safe_sin(angle) / get_safe_cos(angle));
+	return (sin_a / cos_a);
 }

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:04:56 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/05 18:05:15 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,10 @@ int	game_loop(t_data *data)
 	time_step = 1.0 / 120.0;
 	while (data->delta_accumulator >= time_step)
 	{
-		player_update(data, time_step);
+		if (data->use_plane_mode)
+			player_plane_update(data, time_step);
+		else
+			player_update(data, time_step);
 		data->delta_accumulator -= time_step;
 	}
 	buffer_to_draw = (data->current_img + 1) % 2;
@@ -46,9 +49,18 @@ int	game_loop(t_data *data)
 	if (data->toogle_map)
 	{
 		draw_map(&data->img[buffer_to_draw]);
-		draw_player(data, &data->img[buffer_to_draw]);
-		if (data->toogle_rays)
-			draw_rays(data, &data->img[buffer_to_draw]);
+		if (!data->use_plane_mode)
+		{
+			draw_player(data, &data->img[buffer_to_draw]);
+			if (data->show_rays)
+				draw_rays(data, &data->img[buffer_to_draw]);
+		}
+		else
+		{
+			draw_player_plane(data, &data->img[buffer_to_draw]);
+			if (data->show_rays)
+				draw_plane_rays(data, &data->img[buffer_to_draw]);
+		}
 	}
 	mlx_put_image_to_window(data->mlx, data->win, data->img[buffer_to_draw].img_ptr, 0, 0);
 	data->current_img = buffer_to_draw;
