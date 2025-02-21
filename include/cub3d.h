@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:27:02 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 13:05:34 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,10 @@ typedef struct s_data
 	void			*mlx;
 	void			*win;
 	t_image			img[2];
-	t_image			texture;
+	t_image			texture_n;
+	t_image			texture_s;
+	t_image			texture_e;
+	t_image			texture_o;
 	int				current_img;
 	t_player		player;
 	struct timespec	last_time;

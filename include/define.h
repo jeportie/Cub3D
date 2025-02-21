@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 14:07:13 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 13:01:55 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@
 # define MAP_WIDTH		8
 # define MAP_HEIGHT		8
 # define MAP_SIZE		64
-# define TILE_SIZE		32
+# define TILE_SIZE		64
 
-# define SPEED			100.0
-# define ROT_SPEED		1.5 
+# define SPEED			300.0
+# define ROT_SPEED		3.0 
 
 # define SQUARE_SIZE	5 
 
@@ -42,7 +42,10 @@
 # define MAX_STEPS 		64
 # define MIN_DISTANCE 	10.0f
 
-# define TEXTURE "assets/texture.xpm"
+# define TEXTURE_N "assets/texture.xpm"
+# define TEXTURE_S "assets/texture2.xpm"
+# define TEXTURE_E "assets/texture3.xpm"
+# define TEXTURE_O "assets/texture4.xpm"
 # define BPP 4
 
 #endif

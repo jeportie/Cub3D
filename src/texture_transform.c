@@ -6,7 +6,7 @@
 /*   By: yourname <youremail@example.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 00:00:00 by yourname          #+#    #+#             */
-/*   Updated: 2025/02/07 14:06:36 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 12:13:08 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	texture_transform(t_image *texture, t_ray *ray, t_image *img)
 	t_tex	tr;
 
 	tr.full_height = ray->true_wall_height;
-	tr.ty_step = 32.0f / tr.full_height;
+	tr.ty_step = TILE_SIZE / tr.full_height;
 	tr.ty_off = 0.0f;
 	tr.clamped_height = ray->wall_height;
 	if (tr.full_height > THREE_D_HEIGHT)

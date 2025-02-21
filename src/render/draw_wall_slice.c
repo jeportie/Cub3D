@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:06:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 15:16:37 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 13:08:01 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,22 @@ int	draw_wall_slice(t_data *data, t_ray *ray, t_rndr_ctx *ctx, t_image *img)
 		&& ray->chosen.tile_y == ctx->prev_tile_y)
 		is_same_tile = 1;
 	if (data->toogle_texture_mode)
-		texture_transform(&data->texture, ray, img);
+	{
+		if (ray->current_wall == WALL_HORIZONTAL)
+		{
+			if (sinf(ray->angle) < 0.0f)
+				texture_transform(&data->texture_n, ray, img);
+			else
+				texture_transform(&data->texture_s, ray, img);
+		}
+		else
+		{
+			if (cosf(ray->angle) > 0.0f)
+				texture_transform(&data->texture_e, ray, img);
+			else
+				texture_transform(&data->texture_o, ray, img);
+		}
+	}
 	else
 		is_incomplete = paint_wall(ray, ctx, img, is_same_tile);
 	ctx->prev_tile_x = ray->chosen.tile_x;
