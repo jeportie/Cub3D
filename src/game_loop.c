@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/21 17:07:03 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 18:01:18 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	game_loop(t_data *data)
 	buffer_to_draw = (data->current_img + 1) % 2;
 	clear_image(&data->img[buffer_to_draw], BLACK);
 	draw_player_view(data, &data->img[buffer_to_draw]);
-	if (data->toogle_map)
+	if (!data->toogle_map)
 	{
 		draw_map(data, &data->img[buffer_to_draw]);
 		draw_player(data, &data->img[buffer_to_draw]);

@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/21 17:22:31 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/21 17:59:52 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # define WINDOW_WIDTH	1420
 # define WINDOW_HEIGHT	750
 
-# define THREE_D_X      620
-# define THREE_D_WIDTH  900
-# define THREE_D_HEIGHT 500
+# define THREE_D_X      0
+# define THREE_D_WIDTH  1420
+# define THREE_D_HEIGHT 750
 
 # define TILE_SIZE		64
 
@@ -29,7 +29,7 @@
 
 # define SQUARE_SIZE	5 
 
-# define RAYS			900
+# define RAYS			1420
 # define EPSILON		0.0001f
 
 # define FOV_DEGREES	60.0f

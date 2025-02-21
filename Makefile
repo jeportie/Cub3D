@@ -20,12 +20,12 @@ SRC = \
   src/compute/calculate_step.c \
   src/compute/correct_fisheye.c \
   src/compute/get_safe_cos_sin.c \
-  src/compute/normalize_angle.c \
   src/compute/calculate_intercept.c \
   src/compute/calculate_tan_a.c \
   src/compute/get_vectors.c \
   src/compute/calculate_wall_height.c \
   src/compute/compute_dda.c \
+  src/compute/normalize_angle.c \
   src/render/draw_direction_line.c \
   src/render/draw_line.c \
   src/render/draw_player.c \
@@ -38,7 +38,6 @@ SRC = \
   src/render/draw_map.c \
   src/input.c \
   src/utils/clamp.c \
-  src/utils/print_map.c \
   src/utils/ft_strjoin_array.c \
   src/texture_transform.c \
   src/parse/check_for_color_doublon.c \
@@ -57,10 +56,10 @@ SRC = \
   src/parse/parse_map.c \
   src/parse/parsing_utils.c \
   src/engine.c \
+  src/raycast.c \
   src/dda_raycast.c \
-  src/game_loop.c \
   src/player.c \
-  src/raycast.c 
+  src/game_loop.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #
