@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:35:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 12:10:08 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:24:34 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,20 @@ int	init_tr(t_tex *tr, t_ray *ray)
 	tr->clamped_height = ray->wall_height;
 	if (tr->full_height > THREE_D_HEIGHT)
 		tr->ty_off = (tr->full_height - THREE_D_HEIGHT) / 2.0f;
-	tr->tex.x = 0;
-	if (ray->current_wall == WALL_VERTICAL)
-		tr->tex.x = ((int)ray->chosen.collision.y) % TILE_SIZE;
-	else
-		tr->tex.x = ((int)ray->chosen.collision.x) % TILE_SIZE;
+	{
+		int	raw_coord;
+
+		if (ray->current_wall == WALL_VERTICAL)
+			raw_coord = (int)ray->chosen.collision.y;
+		else
+			raw_coord = (int)ray->chosen.collision.x;
+		raw_coord = raw_coord % TILE_SIZE;
+		if (raw_coord < 0)
+			raw_coord += TILE_SIZE;
+		if (raw_coord >= TILE_SIZE)
+			raw_coord = TILE_SIZE - 1;
+		tr->tex.x = raw_coord;
+	}
 	tr->ty = tr->ty_off * tr->ty_step;
 	tr->y = 0;
 	return (0);
