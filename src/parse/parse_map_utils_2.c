@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:17:09 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 13:01:53 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:42:34 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	ft_store(t_data *data)
 	}
 	ft_go_to_map(data);
 	ft_fill_layout(data);
-	print_map(data);
 	return (0);
 }
 
@@ -71,9 +70,9 @@ int	check_allowed_character(t_data *data)
 				j++;
 			else
 			{
-				printf("\033[31mError\nCharacter : |%c| Pos[%d][%d] \
-					Unauthorized\nAuthorized characters are\
-					 : '1' '0' 'N' 'S' 'E' 'W'\n\033[0m",
+				printf("\033[31mError\nCharacter : |%c| Pos[%d][%d] "
+					"Unauthorized\nAuthorized characters are"
+					": '1' '0' 'N' 'S' 'E' 'W'\n\033[0m",
 					data->parse.map.layout[i][j], i, j);
 				ft_clean_data_and_exit(data);
 			}

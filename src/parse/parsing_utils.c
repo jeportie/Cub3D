@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:08:00 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 15:12:24 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:31:36 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,7 @@ void	ft_print_tab(char **rgb_tab)
 	{
 		j = 0;
 		while (rgb_tab[i][j])
-		{
-			printf("rgb[%d][%d] = %c\n", i, j, rgb_tab[i][j]);
 			j++;
-		}
-		printf("___________\n");
 		i++;
 	}
 }
@@ -89,15 +85,10 @@ int	ft_is_number(char *str)
 		return (1);
 	while (str[i])
 	{
-		printf("str[%d] = %c\n", i, str[i]);
 		if (ft_isdigit(str[i]))
 			i++;
 		else
-		{
 			return (0);
-			printf("-----------\n");
-		}
 	}
-	printf("-----------\n");
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:26:31 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:58:12 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:44:57 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int	check_ceiling_color(t_data *data, int color[3])
 				strerror(errno));
 			ft_clean_data_and_exit(data);
 		}
-		printf("\033[32mRGB ceiling color OK \n%d\n\033[0m\n", color[i]);
 		i++;
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:09:17 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 12:35:45 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:43:40 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,9 @@ int	get_map_index(t_data *data)
 {
 	char	*line;
 
-	printf("Map index = %d\n", data->parse.map.begin_map_index);
 	while (1)
 	{
 		line = get_next_line(data->parse.config.map_file_fd);
-		printf("LINE = %s\n", line);
 		if (line == NULL)
 		{
 			printf("\033[31mUseError : NO_MAP or ERROR DURING OPENING\n\033[0m\n");
@@ -110,7 +108,7 @@ int	ft_calculate_map_height(t_data *data)
 	}
 	if (line != NULL)
 		free(line);
-	data->parse.map.height = \
-	data->parse.map.end_map_index - data->parse.map.begin_map_index;
+	data->parse.map.height
+		= data->parse.map.end_map_index - data->parse.map.begin_map_index;
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:54:36 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 15:11:55 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:41:24 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ int	ft_store_metadata(t_data *data)
 {
 	char	*line;
 
-	data->parse.config.map_file_fd = ft_open_file;
-	(data->parse.config.map_filename);
+	data->parse.config.map_file_fd
+		= ft_open_file(data->parse.config.map_filename);
 	while (1)
 	{
 		line = get_next_line(data->parse.config.map_file_fd);
@@ -98,10 +98,8 @@ int	check_texture(t_data *data)
 			printf("\033[31mError\n:Issue with one of the "
 				"texture.\nTexture File name: |%s|\n%s\033[0m\n",
 				data->parse.config.textures[i], strerror(errno));
-			ft_clean_data_and_exit(data);
+			// ft_clean_data_and_exit(data);
 		}
-		printf("\033[32m Texture file OK \n|%s|\n\033[0m\n",
-			data->parse.config.textures[i]);
 		i++;
 	}
 	return (0);

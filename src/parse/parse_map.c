@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:30:16 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:47:53 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:42:42 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,22 @@
 
 int	parse_map(t_data *data)
 {
-	data->parse.config.map_file_fd = \
-	ft_open_file(data->parse.config.map_filename);
+	data->parse.config.map_file_fd 
+		= ft_open_file(data->parse.config.map_filename);
 	skip_metadata(data);
 	get_map_index(data);
 	ft_end_file(data);
-	data->parse.config.map_file_fd = \
-	ft_open_file(data->parse.config.map_filename);
+	data->parse.config.map_file_fd
+		= ft_open_file(data->parse.config.map_filename);
 	ft_go_to_map(data);
 	ft_store_map(data);
 	replace_spaces(data);
-	print_map(data);
 	check_allowed_character(data);
 	check_player(data);
-	print_map(data);
 	check_boundaries(data);
 	floodfill_algo(data, data->parse.map.player_i, data->parse.map.player_j);
-	print_map(data);
 	check_algo_floodfill(data);
 	restore_map(data);
-	print_map(data);
 	data->map = ft_strjoin_array(data->parse.map.layout, data->parse.map.height
 			- 1);
 	return (0);
@@ -53,7 +49,6 @@ int	hole_in_the_map(t_data *data, int i, int j)
 
 	if (!is_walkable(data->parse.map.layout[i][j]))
 		return (0);
-	printf("LINE = |%s|\n", data->parse.map.layout[i]);
 	if (i == 0 || i == data->parse.map.height - 1 || j == 0
 		|| j == (int)ft_strlen(data->parse.map.layout[i]) - 1)
 		return (1);
@@ -72,7 +67,6 @@ int	floodfill_algo(t_data *data, int i, int j)
 		return (0);
 	if (j < 0 || j >= (int)ft_strlen(data->parse.map.layout[i]))
 		return (0);
-	printf("Accessing : P[%d][%d] = %c \n", i, j, data->parse.map.layout[i][j]);
 	if (!data->parse.map.layout[i][j])
 		return (0);
 	if (data->parse.map.layout[i][j] == '1'
