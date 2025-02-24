@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:07:03 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 15:06:25 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:49:31 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ int		ft_check_ceilling_doublon(char *line, t_data *data);
 int		ft_check_for_doublon(t_data *data);
 int		check_config_data(t_data *data);
 int		missing_texture(t_data *data);
+int	    missing_color(t_data *data);
+
 
 /*PARSING MAP*/
 

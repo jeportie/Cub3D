@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:54:36 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 16:33:30 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:29:34 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int	ft_check_for_doublon(t_data *data)
 		ft_check_south_doublon(line, data);
 		ft_check_west_doublon(line, data);
 		ft_check_east_doublon(line, data);
-		ft_check_floor_doublon(line, data);
 		ft_check_ceilling_doublon(line, data);
+		ft_check_floor_doublon(line, data);
 		free(line);
 	}
 	return (0);

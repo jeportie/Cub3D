@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:26:31 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:56:04 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:09:05 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	rgb_to_hex(int rgb[3])
 	return (color);
 }
 
-int	check_ceiling_color(t_data *data, int color[3])
+int	check_ceiling_color(t_data *data, int color[3], char **rgb_tab, char *line)
 {
 	int	i;
 
@@ -30,8 +30,9 @@ int	check_ceiling_color(t_data *data, int color[3])
 		if (color[i] < 0 || color[i] > 255)
 		{
 			printf("\033[31mError\n:Issue with the RGB ceiling color."
-				"\n%s\033[0m\n",
-				strerror(errno));
+				"\033[0m\n");
+			free_char_tab(rgb_tab);
+			free(line);
 			ft_clean_data_and_exit(data);
 		}
 		i++;
@@ -60,7 +61,7 @@ int	format_ceilling_color(char *line, t_data *data)
 		color[i] = ft_atoi(rgb_tab[i]);
 		i++;
 	}
-	check_ceiling_color(data, color);
+	check_ceiling_color(data, color, rgb_tab, line);
 	data->parse.config.ceiling_color = rgb_to_hex(color);
 	data->parse.config.metadata_count++;
 	free(line);
@@ -68,7 +69,7 @@ int	format_ceilling_color(char *line, t_data *data)
 	return (0);
 }
 
-int	check_floor_color(t_data *data, int color[3])
+int	check_floor_color(t_data *data, int color[3], char **rgb_tab, char *line)
 {
 	int	i;
 
@@ -77,8 +78,10 @@ int	check_floor_color(t_data *data, int color[3])
 	{
 		if (color[i] < 0 || color[i] > 255)
 		{
-			printf("\033[31mError\n:Issue with the RGB floor color :"
-				"%d\n\033[0m\n", color[i]);
+			printf("\033[31mError\n:Issue with the RGB floor color."
+				"\033[0m\n");
+			free_char_tab(rgb_tab);
+			free(line);
 			ft_clean_data_and_exit(data);
 		}
 		printf("\033[32mRGB floor color OK \n%d\n\033[0m\n", color[i]);
@@ -108,7 +111,7 @@ int	format_floor_color(char *line, t_data *data)
 		color[i] = ft_atoi(rgb_tab[i]);
 		i++;
 	}
-	check_ceiling_color(data, color);
+	check_ceiling_color(data, color, rgb_tab, line);
 	data->parse.config.floor_color = rgb_to_hex(color);
 	data->parse.config.metadata_count++;
 	free(line);
