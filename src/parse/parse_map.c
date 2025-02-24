@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:30:16 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:53:29 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:16:32 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	parse_map(t_data *data)
 	ft_store_map(data);
 	replace_spaces(data);
 	check_allowed_character(data);
-	check_player(data);
 	check_boundaries(data);
+	check_player(data);
 	floodfill_algo(data, data->parse.map.player_i, data->parse.map.player_j);
 	check_algo_floodfill(data);
 	restore_map(data);

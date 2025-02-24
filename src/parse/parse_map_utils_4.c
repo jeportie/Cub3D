@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:24:09 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 15:10:31 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 18:18:02 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	restore_map(t_data *data)
 
 int	check_boundaries(t_data *data)
 {
-	check_every_neighbore(data);
 	check_first_last_row(data);
 	check_first_last_column(data);
+	check_every_neighbore(data);
 	return (0);
 }
 
