@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 12:13:04 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:00:59 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ int	init_and_parse(t_data *data, int argc, char **argv)
 {
 	if (argc != 2 || correct_extension(argv[1]))
 	{
-		printf("\033[31mError\n : %s\nUse the prog as followed :  "
-			"./cub3d map.cub || .cub extension !\033[0m\n", strerror(errno));
+		printf("\033[31mError\nUse the prog as followed :  "
+			"./cub3d map.cub || .cub extension !\033[0m\n");
 		return (0);
 	}
 	ft_memset(data, 0, sizeof(t_data));

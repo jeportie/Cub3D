@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_start.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
+/*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:50:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/21 16:47:06 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:11:00 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,8 @@ int	ft_open_file(char *file_name)
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("\033[31mError\n :%s The file doesn't exist or\
-can not be open\033[0m\n",
-				strerror(errno));
+		printf("\033[31mError\n :%s The file doesn't exist or"
+			"can not be open\033[0m\n", strerror(errno));
 		return (-1);
 	}
 	else
@@ -63,6 +62,7 @@ int	ft_initialize(t_data *data)
 int	ft_end_file(t_data *data)
 {
 	char	*line;
+
 	while (1)
 	{
 		line = get_next_line(data->parse.config.map_file_fd);

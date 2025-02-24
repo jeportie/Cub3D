@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:26:31 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/21 16:47:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:56:04 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ int	check_ceiling_color(t_data *data, int color[3])
 	{
 		if (color[i] < 0 || color[i] > 255)
 		{
-			printf("\033[31mError\n:Issue with the RGB ceiling color.\n%s\033[0m\n",
+			printf("\033[31mError\n:Issue with the RGB ceiling color."
+				"\n%s\033[0m\n",
 				strerror(errno));
 			ft_clean_data_and_exit(data);
 		}
-		printf("\033[32mRGB ceiling color OK \n%d\n\033[0m\n", color[i]);
 		i++;
 	}
 	return (0);
@@ -47,9 +47,7 @@ int	format_ceilling_color(char *line, t_data *data)
 
 	i = 0;
 	rgb_tab = ft_split(line, 44);
-	ft_print_tab(rgb_tab);
 	ft_trim_tab(rgb_tab);
-	ft_print_tab(rgb_tab);
 	while (rgb_tab[i])
 		i++;
 	if (i != 3)
@@ -79,8 +77,8 @@ int	check_floor_color(t_data *data, int color[3])
 	{
 		if (color[i] < 0 || color[i] > 255)
 		{
-			printf("\033[31mError\n:Issue with the RGB floor color :%d\n\033[0m\n",
-				color[i]);
+			printf("\033[31mError\n:Issue with the RGB floor color :"
+				"%d\n\033[0m\n", color[i]);
 			ft_clean_data_and_exit(data);
 		}
 		printf("\033[32mRGB floor color OK \n%d\n\033[0m\n", color[i]);
@@ -97,9 +95,7 @@ int	format_floor_color(char *line, t_data *data)
 
 	i = 0;
 	rgb_tab = ft_split(line, 44);
-	ft_print_tab(rgb_tab);
 	ft_trim_tab(rgb_tab);
-	ft_print_tab(rgb_tab);
 	while (rgb_tab[i])
 		i++;
 	if (i != 3)

@@ -27,4 +27,3 @@ for i in "${!submodules[@]}"; do
   echo "Adding submodule: $module from $url"
   git submodule add "$url" "$module"
 done
-

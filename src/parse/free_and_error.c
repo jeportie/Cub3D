@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:11:17 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/21 16:45:57 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:52:58 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ int	ft_free_exit(char *line, char **rgb_tab, t_data *data, int i)
 	free(line);
 	free_char_tab(rgb_tab);
 	if (i == 1)
-		printf("\033[31mError\n!RGB! Each color must be made of exactly 3 \
-numbers serpareted by a coma\n\033[0m");
+		printf("\033[31mError\n!RGB! Each color must be made of exactly 3"
+			"numbers serpareted by a coma\n\033[0m");
 	else
-		printf("\033[31mError\nDIGIT ONLY : Each color must be made of exactly 3 \
-numbers serpareted by a coma\n\033[0m");
+		printf("\033[31mError\nDIGIT ONLY : Each color must be made of exactly "
+			"3 numbers serpareted by a coma\n\033[0m");
 	return (ft_clean_data_and_exit(data));
 }
 
@@ -58,6 +58,7 @@ int	ft_clean_layout(t_data *data)
 	data->parse.map.layout = NULL;
 	return (0);
 }
+
 int	ft_clean_data_and_exit(t_data *data)
 {
 	int		i;

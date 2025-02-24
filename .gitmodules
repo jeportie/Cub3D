@@ -1,3 +1,12 @@
+[submodule "lib/lib/libft"]
+	path = lib/lib/libft
+	url = https://github.com/jeportie/libft.git
+[submodule "lib/lib/libgc"]
+	path = lib/lib/libgc
+	url = https://github.com/jeportie/libgc.git
+[submodule "lib/lib/minilibx"]
+	path = lib/lib/minilibx
+	url = https://github.com/jeportie/minilibx.git
 [submodule "lib/libft"]
 	path = lib/libft
 	url = https://github.com/jeportie/libft.git

@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:24:09 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/21 16:46:50 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:10:31 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@ int	restore_map(t_data *data)
 		j = 0;
 		i++;
 	}
-	data->parse.map.layout[data->parse.map.player_i][data->parse.map.player_j] = data->parse.map.player_dir;
+	data->parse.map.layout[data->parse.map.player_i][data->parse.map.player_j]
+		= data->parse.map.player_dir;
 	return (0);
 }
 
@@ -42,11 +43,8 @@ int	check_boundaries(t_data *data)
 	return (0);
 }
 
-
-
 int	check_every_neighbore(t_data *data)
 {
-
 	int	i;
 	int	j;
 
@@ -56,9 +54,10 @@ int	check_every_neighbore(t_data *data)
 	{
 		while (j < (int)ft_strlen(data->parse.map.layout[i]))
 		{
-			if (hole_in_the_map(data, i ,j))
+			if (hole_in_the_map(data, i, j))
 			{
-				printf ("\033[31mError\n  Map has an acces to a hole at Point[%d][%d]\n\033[0m", i, j);
+				printf("\033[31mError\n  Map has an acces "
+					"to a hole at Point[%d][%d]\n\033[0m", i, j);
 				ft_clean_data_and_exit(data);
 			}
 			j++;
@@ -66,10 +65,8 @@ int	check_every_neighbore(t_data *data)
 		j = 0;
 		i++;
 	}
-	printf ("Map isn't jagged\n");
 	return (0);
 }
-
 
 int	ft_fill_layout(t_data *data)
 {
@@ -90,7 +87,6 @@ int	ft_fill_layout(t_data *data)
 			return (0);
 		}
 		data->parse.map.layout[i] = ft_strdup(line);
-		// printf("LINE = [%d] = |%s|\n", i, data->parse.parse.map.layout[i]);
 		free(line);
 		i++;
 	}
