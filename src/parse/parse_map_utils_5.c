@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:54:13 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:54:20 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:36:39 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,8 +50,8 @@ int	missing_texture(t_data *data)
 		else
 		{
 			printf("\033[31mError\n:Missing texture.\nTexture File name : |%s|"
-				"\n%s\033[0m\n",
-				data->parse.config.textures[i], strerror(errno));
+				"\nTextures will be set to default\033[0m\n",
+				data->parse.config.textures[i]);
 			ft_clean_data_and_exit(data);
 		}
 	}

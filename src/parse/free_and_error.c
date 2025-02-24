@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:11:17 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:52:58 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 16:42:10 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,14 @@ int	ft_clean_data_and_exit(t_data *data)
 		if (data->parse.config.textures_files_fd[i] != -1)
 			close(data->parse.config.textures_files_fd[i]);
 		if (data->parse.config.textures[i])
+			free(data->parse.config.textures[i]);
+		i++;
+	}
+	while (i < 3)
+	{
+		if (data->parse.config.ceiling_color != -1)
+			close(data->parse.config.textures_files_fd[i]);
+		if (data->parse.config.floor_color != -1)
 			free(data->parse.config.textures[i]);
 		i++;
 	}
