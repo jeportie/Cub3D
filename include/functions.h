@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/28 12:07:03 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/21 17:41:46 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:03:00 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int		ft_end_file(t_data *data);
 /*PARSING METADATE UTILS*/
 
 int		ft_is_number(char *str);
-int		ft_set_texture(t_data *data, char *line);
 void	ft_print_tab(char **rgb_tab);
 int		parse_map(t_data *data);
 int		ft_store_metadata(t_data *data);
@@ -68,7 +67,7 @@ int		skip_metadata(t_data *data);
 int		get_map_index(t_data *data);
 int		*ft_go_to_map(t_data *data);
 /*manipulate map's data*/
-int		ft_calculate_map_height_and_width(t_data *data);
+int		ft_calculate_map_height(t_data *data);
 int		ft_store(t_data *data);
 int		replace_spaces(t_data *data);
 char	*ft_trim_line(char *line);
@@ -77,13 +76,14 @@ int		set_player_position(int i, int j, t_data *data);
 int		restore_map(t_data *data);
 int		ft_fill_layout(t_data *data);
 int		is_walkable(char c);
-/*check map reauirements*/
+/*check map requirements*/
 int		check_allowed_character(t_data *data);
 int		check_first_last_row(t_data *data);
 int		check_first_last_column(t_data *data);
 int		ft_check_flag(int flag, t_data *data);
 int		check_player(t_data *data);
 int		check_boundaries(t_data *data);
+int	    print_err_message_boundaries(t_data *data, int i, int j, int type);
 int		check_every_neighbore(t_data *data);
 int		hole_in_the_map(t_data *data, int i, int j);
 /*floodfill algorithm*/

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-git submodule deinit -f lib/libft lib/libgc -f lib/minilibx
-git rm -f lib/libft lib/libgc lib/minilibx
-rm -rf .git/modules/lib/libft .git/modules/lib/libgc .git/modules/lib/minilibx
+git submodule deinit -f libft libgc -f minilibx
+git rm -f libft libgc minilibx
+rm -rf ../.git/modules/libft ../.git/modules/libgc ../.git/modules/minilibx
 
-git submodule add https://github.com/jeportie/libft.git lib/libft
-git submodule add https://github.com/jeportie/libgc.git lib/libgc
-git submodule add https://github.com/jeportie/minilibx.git lib/minilibx
+git submodule add https://github.com/jeportie/libft.git libft
+git submodule add https://github.com/jeportie/libgc.git libgc
+git submodule add https://github.com/42Paris/minilibx-linux.git minilibx

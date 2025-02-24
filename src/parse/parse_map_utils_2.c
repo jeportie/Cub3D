@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:17:09 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/21 16:46:31 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 13:01:53 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,14 @@ int	replace_spaces(t_data *data)
 	return (0);
 }
 
+int	is_allowed(char c)
+{
+	if (c == 'N' || c == 'W' || c == 'S' || c == 'E' || c == '1' || c == '0')
+		return (1);
+	else
+		return (0);
+}
+
 int	check_allowed_character(t_data *data)
 {
 	int	i;
@@ -59,15 +67,13 @@ int	check_allowed_character(t_data *data)
 		j = 0;
 		while (j < (int)ft_strlen(data->parse.map.layout[i]))
 		{
-			if (data->parse.map.layout[i][j] == 'N' || data->parse.map.layout[i][j] == 'S'
-				|| data->parse.map.layout[i][j] == 'W'
-				|| data->parse.map.layout[i][j] == 'E'
-				|| data->parse.map.layout[i][j] == '1'
-				|| data->parse.map.layout[i][j] == '0')
+			if (is_allowed(data->parse.map.layout[i][j]))
 				j++;
 			else
 			{
-				printf("\033[31mError\nCharacter : |%c| Pos[%d][%d]Unauthorized\nAuthorized characters are : '1' '0' 'N' 'S' 'E' 'W'\n\033[0m",
+				printf("\033[31mError\nCharacter : |%c| Pos[%d][%d] \
+					Unauthorized\nAuthorized characters are\
+					 : '1' '0' 'N' 'S' 'E' 'W'\n\033[0m",
 					data->parse.map.layout[i][j], i, j);
 				ft_clean_data_and_exit(data);
 			}
@@ -76,20 +82,6 @@ int	check_allowed_character(t_data *data)
 	}
 	return (0);
 }
-
-char	*ft_trim_line(char *line)
-{
-	char	*trimmed;
-
-	if (!line)
-		return (NULL);
-	trimmed = ft_strtrim(line, "\t\n\r");
-	if (!trimmed)
-		return (line);
-	free(line);
-	return (trimmed);
-}
-
 
 int	ft_initialize_layout(t_data *data)
 {

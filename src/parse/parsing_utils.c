@@ -6,11 +6,40 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:08:00 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/21 14:59:03 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:59:47 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/functions.h"
+
+int	correct_extension(char *file_name)
+{
+	if (ft_strlen(file_name) < 5)
+		return(1);
+	if (file_name[ft_strlen(file_name) - 1] != 'b')
+		return (1);
+	if (file_name[ft_strlen(file_name) - 2] != 'u')
+		return (1);
+	if (file_name[ft_strlen(file_name) - 3] != 'c')
+		return (1);
+	if (file_name[ft_strlen(file_name) - 4] != '.')
+		return (1);
+	return (0);
+}
+
+int	print_map(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	printf("_____________________________________\n__________________MAP_________________\n");
+	while (i < data->parse.map.height)
+	{
+		printf("line [%d] = |%s|\n", i, data->parse.map.layout[i]);
+		i++;
+	}
+	return (0);
+}
 
 int	ft_trim_tab(char **rgb_tab)
 {
