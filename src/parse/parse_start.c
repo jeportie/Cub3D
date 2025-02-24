@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:50:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 14:48:23 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:11:00 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	ft_initialize(t_data *data)
 int	ft_end_file(t_data *data)
 {
 	char	*line;
-	
+
 	while (1)
 	{
 		line = get_next_line(data->parse.config.map_file_fd);

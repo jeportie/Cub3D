@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:24:09 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:46:08 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:10:31 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	restore_map(t_data *data)
 		j = 0;
 		i++;
 	}
-	data->parse.map.layout[data->parse.map.player_i][data->parse.map.player_j] \
-	= data->parse.map.player_dir;
+	data->parse.map.layout[data->parse.map.player_i][data->parse.map.player_j]
+		= data->parse.map.player_dir;
 	return (0);
 }
 

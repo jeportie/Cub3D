@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 17:26:31 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/21 16:47:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:58:12 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,7 @@ int	format_ceilling_color(char *line, t_data *data)
 
 	i = 0;
 	rgb_tab = ft_split(line, 44);
-	ft_print_tab(rgb_tab);
 	ft_trim_tab(rgb_tab);
-	ft_print_tab(rgb_tab);
 	while (rgb_tab[i])
 		i++;
 	if (i != 3)
@@ -97,9 +95,7 @@ int	format_floor_color(char *line, t_data *data)
 
 	i = 0;
 	rgb_tab = ft_split(line, 44);
-	ft_print_tab(rgb_tab);
 	ft_trim_tab(rgb_tab);
-	ft_print_tab(rgb_tab);
 	while (rgb_tab[i])
 		i++;
 	if (i != 3)

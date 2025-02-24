@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:54:13 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:47:08 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:13:25 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,30 @@ int	print_err_message_boundaries(t_data *data, int i, int j, int type)
 			"(Last column : Point[%d][%d])\n\033[0m",
 			i, j);
 	ft_clean_data_and_exit(data);
+	return (0);
+}
+
+int	check_config_data(t_data *data)
+{
+	check_texture(data);
+	return (0);
+}
+
+int	missing_texture(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	while (i < 4)
+	{
+		if (data->parse.config.textures[i])
+			i++;
+		else
+		{
+			printf("\033[31mError\n:Missing texture.\nTexture File name : |%s|"
+				"\n%s\033[0m\n", data->parse.config.textures[i], strerror(errno));
+			ft_clean_data_and_exit(data);
+		}
+	}
 	return (0);
 }
