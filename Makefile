@@ -56,14 +56,8 @@ SRC = \
   src/parse/set_texture.c \
   src/render/draw_wall_slice.c \
   src/render/draw_line.c \
-  src/render/draw_map.c \
   src/render/draw_player_view.c \
-  src/render/draw_rays.c \
-  src/render/draw_direction_line.c \
-  src/render/draw_square.c \
-  src/render/draw_player.c \
   src/render/draw_background.c \
-  src/render/draw_tile.c \
   src/texture_transform.c \
   src/input.c 
 ### END AUTO GENERATED FILES ###

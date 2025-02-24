@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 18:31:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 07:11:14 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:13:38 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	player_move_lr(t_data *data, float move_distance)
 {
 	t_coord	strafe_dir;
 
-	if (data->player.move_left || data->player.move_right)
+	if (data->player.move_left)
 	{
 		strafe_dir = get_perpendicular_vector(data->player.pose.angle);
 		data->player.pose.x -= strafe_dir.x * move_distance;
