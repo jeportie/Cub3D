@@ -6,18 +6,18 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:30:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/21 17:20:05 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:56:37 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "../include/raycast.h"
-#include "../include/compute.h"
+#include "../../include/cub3d.h"
+#include "../../include/raycast.h"
+#include "../../include/compute.h"
 
 void	init_dda_struct(t_dda *d, t_data *data, float angle)
 {
-	d->px = data->player.x;
-	d->py = data->player.y;
+	d->px = data->player.pose.x;
+	d->py = data->player.pose.y;
 	d->dir_x = cosf(angle);
 	d->dir_y = sinf(angle);
 	d->map_x = (int)(d->px / TILE_SIZE);
@@ -42,9 +42,6 @@ void	init_dda_struct(t_dda *d, t_data *data, float angle)
 
 int	run_dda_loop(t_data *data, t_dda *d)
 {
-	int	out_of_bounds;
-
-	out_of_bounds = 0;
 	while (1)
 	{
 		if (d->side_x < d->side_y)
@@ -62,16 +59,15 @@ int	run_dda_loop(t_data *data, t_dda *d)
 		if (d->map_x < 0 || d->map_x >= data->parse.map.width
 			|| d->map_y < 0 || d->map_y >= data->parse.map.height)
 		{
-			out_of_bounds = 1;
 			break ;
 		}
 		if (data->map[d->map_y * data->parse.map.width + d->map_x] == '1')
 			break ;
 	}
-	return (out_of_bounds);
+	return (0);
 }
 
-void	fill_rayinfo(t_dda *d, t_data *data, t_rayinfo *ray)
+void	fill_rayinfo(t_dda *d, t_rayinfo *ray)
 {
 	float	dist;
 
@@ -85,7 +81,6 @@ void	fill_rayinfo(t_dda *d, t_data *data, t_rayinfo *ray)
 	ray->tile_x = d->map_x;
 	ray->tile_y = d->map_y;
 	ray->map_index = d->side;
-	(void)data;
 }
 
 t_rayinfo	cast_ray_dda(t_data *data, float angle)
@@ -98,6 +93,6 @@ t_rayinfo	cast_ray_dda(t_data *data, float angle)
 	init_dda_struct(&d, data, angle);
 	compute_initial_sides(&d, data);
 	run_dda_loop(data, &d);
-	fill_rayinfo(&d, data, &ray);
+	fill_rayinfo(&d, &ray);
 	return (ray);
 }

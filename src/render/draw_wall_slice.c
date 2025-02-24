@@ -6,83 +6,51 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:06:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/21 13:08:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/23 21:37:41 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
 #include "../../include/raycast.h"
 #include "../../include/engine.h"
-#include "../../include/colors.h"
 #include "../../include/render.h"
 
-int paint_wall(t_ray *ray, t_rndr_ctx *ctx, t_image *img, int is_same_tile)
+int	paint_wall(t_ray *ray, t_image *img)
 {
-	int	y;
-	int	is_incomplete;
+	int		y;
+	t_coord	pos;
 
 	y = 0;
-	is_incomplete = 0;
+	pos.x = ray->x_screen;
 	while (y < ray->wall_height)
 	{
-		if (y == 0 || y == ray->wall_height - 1)
-		{
-			put_pixel_to_image(img, ray->x_screen, y + ray->line_offset, BLACK);
-		}
-		else if ((int)ray->current_wall != ctx->prev_wall || !is_same_tile)
-		{
-			if (ctx->old_wall_height > ray->wall_height)
-			{
-				is_incomplete = 1;
-				put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
-					ray->chosen.color);
-			}
-			else
-				put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
-					BLACK);
-		}
-		else
-		{
-			put_pixel_to_image(img, ray->x_screen, y + ray->line_offset,
-				ray->chosen.color);
-		}
+		pos.y = ray->line_offset;
+		put_pixel_to_image(pos, ray->chosen.color, img);
 		y++;
 	}
-	return (is_incomplete);
+	return (0);
 }
 
-int	draw_wall_slice(t_data *data, t_ray *ray, t_rndr_ctx *ctx, t_image *img)
+int	draw_wall_slice(t_data *data, t_ray *ray, t_image *img)
 {
-	int	is_incomplete;
-	int	is_same_tile;
-
-	is_incomplete = 0;
-	is_same_tile = 0;
-	if (ray->chosen.tile_x == ctx->prev_tile_x
-		&& ray->chosen.tile_y == ctx->prev_tile_y)
-		is_same_tile = 1;
 	if (data->toogle_texture_mode)
 	{
 		if (ray->current_wall == WALL_HORIZONTAL)
 		{
 			if (sinf(ray->angle) < 0.0f)
-				texture_transform(&data->texture_n, ray, img);
+				texture_transform(&data->walls[0], ray, img);
 			else
-				texture_transform(&data->texture_s, ray, img);
+				texture_transform(&data->walls[1], ray, img);
 		}
 		else
 		{
 			if (cosf(ray->angle) > 0.0f)
-				texture_transform(&data->texture_e, ray, img);
+				texture_transform(&data->walls[2], ray, img);
 			else
-				texture_transform(&data->texture_o, ray, img);
+				texture_transform(&data->walls[3], ray, img);
 		}
 	}
 	else
-		is_incomplete = paint_wall(ray, ctx, img, is_same_tile);
-	ctx->prev_tile_x = ray->chosen.tile_x;
-	ctx->prev_tile_y = ray->chosen.tile_y;
-	ctx->prev_wall = ray->current_wall;
-	ctx->old_wall_height = ray->wall_height;
-	return (is_incomplete);
+		paint_wall(ray, img);
+	return (0);
 }

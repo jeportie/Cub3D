@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   engine.h                                           :+:      :+:    :+:   */
+/*   get_time_in_seconds.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 23:10:04 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 21:33:13 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/23 17:08:11 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/23 17:08:55 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENGINE_H
-# define ENGINE_H
+#include "../../include/engine.h"
 
-# include "cub3d.h"
-
-double	get_time_in_seconds(struct timespec ts);
-int		init_image(t_data *data);
-int		init_texture(t_data *data);
-
-int		put_pixel_to_image(t_coord pos, int colot, t_image *img);
-int		clear_image(t_image *img, int color);
-
-#endif
+double	get_time_in_seconds(struct timespec ts)
+{
+	return ((double)ts.tv_sec + (double)ts.tv_nsec / 1e9);
+}

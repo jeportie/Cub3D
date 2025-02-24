@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 09:23:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 14:59:24 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:21:03 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,10 @@ float	compute_first_boundary_y(t_dda *d);
 void	compute_initial_sides(t_dda *d, t_data *data);
 
 //player
-float	calculate_distance(float delta_x, float delta_y);
-void	get_direction_vector(float angle, double *dx, double *dy);
-void	get_perpendicular_vector(float angle, float *dx, float *dy);
+//float	calculate_distance(float delta_x, float delta_y);
+float	calculate_distance(t_coord start, t_coord end);
+t_coord	get_direction_vector(float angle);
+t_coord	get_perpendicular_vector(float angle);
 float	calculate_move_distance(float speed, double delta_time);
 float	clamp(float value, float min, float max);
 

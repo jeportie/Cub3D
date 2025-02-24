@@ -15,51 +15,57 @@ NAME = cub3D
 ### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
-  src/compute/calculate_distance.c \
-  src/compute/calculate_move_distance.c \
-  src/compute/calculate_step.c \
-  src/compute/correct_fisheye.c \
-  src/compute/get_safe_cos_sin.c \
-  src/compute/calculate_intercept.c \
-  src/compute/calculate_tan_a.c \
   src/compute/get_vectors.c \
-  src/compute/calculate_wall_height.c \
-  src/compute/compute_dda.c \
+  src/compute/calculate_step.c \
   src/compute/normalize_angle.c \
-  src/render/draw_direction_line.c \
-  src/render/draw_line.c \
-  src/render/draw_player.c \
-  src/render/draw_square.c \
-  src/render/draw_tile.c \
-  src/render/draw_rays.c \
-  src/render/draw_wall_slice.c \
-  src/render/draw_player_view.c \
-  src/render/draw_background.c \
-  src/render/draw_map.c \
-  src/input.c \
+  src/compute/calculate_move_distance.c \
+  src/compute/calculate_distance.c \
+  src/compute/correct_fisheye.c \
+  src/compute/calculate_intercept.c \
+  src/compute/calculate_wall_height.c \
+  src/compute/calculate_tan_a.c \
+  src/compute/compute_dda.c \
+  src/compute/get_safe_cos_sin.c \
+  src/raycaster/dda_raycast.c \
+  src/raycaster/process_rays.c \
+  src/game_loop.c \
+  src/player/rotate_player_angle.c \
+  src/player/player_init.c \
+  src/player/player_update.c \
   src/utils/clamp.c \
+  src/utils/init_image.c \
+  src/utils/clear_image.c \
+  src/utils/get_time_in_seconds.c \
+  src/utils/put_pixel_to_image.c \
+  src/utils/init_texture.c \
   src/utils/ft_strjoin_array.c \
-  src/texture_transform.c \
-  src/parse/check_for_color_doublon.c \
-  src/parse/check_for_texture_doublon.c \
-  src/parse/free_and_error.c \
+  src/parse/parsing_utils.c \
   src/parse/main_utils.c \
-  src/parse/parse_map_utils_1.c \
+  src/parse/free_and_error.c \
   src/parse/parse_map_utils_2.c \
-  src/parse/parse_map_utils_3.c \
+  src/parse/parsing_metadata.c \
   src/parse/parse_map_utils_4.c \
   src/parse/parse_start.c \
-  src/parse/parsing_colors.c \
-  src/parse/parsing_metadata.c \
-  src/parse/set_texture.c \
+  src/parse/parse_map_utils_1.c \
+  src/parse/check_for_color_doublon.c \
   src/parse/store_data.c \
+  src/parse/parsing_colors.c \
+  src/parse/check_for_texture_doublon.c \
+  src/parse/parse_map_utils_3.c \
   src/parse/parse_map.c \
-  src/parse/parsing_utils.c \
-  src/engine.c \
-  src/raycast.c \
-  src/dda_raycast.c \
-  src/player.c \
-  src/game_loop.c 
+  src/parse/set_texture.c \
+  src/render/draw_wall_slice.c \
+  src/render/draw_line.c \
+  src/render/draw_map.c \
+  src/render/draw_player_view.c \
+  src/render/draw_rays.c \
+  src/render/draw_direction_line.c \
+  src/render/draw_square.c \
+  src/render/draw_player.c \
+  src/render/draw_background.c \
+  src/render/draw_tile.c \
+  src/texture_transform.c \
+  src/input.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #

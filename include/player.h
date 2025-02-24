@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:23:30 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:02:16 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/23 18:32:40 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,6 @@
 
 int	player_init(t_data *data);
 int	player_update(t_data *data, double delta_time);
+int	rotate_player_angle(t_data *data, float rot_speed);
 
 #endif

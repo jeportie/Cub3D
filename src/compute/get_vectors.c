@@ -6,20 +6,26 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/25 23:11:50 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 14:52:55 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:06:19 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/compute.h"
 
-void	get_direction_vector(float angle, double *dx, double *dy)
+t_coord	get_direction_vector(float angle)
 {
-	*dx = cosf(angle);
-	*dy = sinf(angle);
+	t_coord	dir;
+
+	dir.x = cosf(angle);
+	dir.y = sinf(angle);
+	return (dir);
 }
 
-void	get_perpendicular_vector(float angle, float *dx, float *dy)
+t_coord	get_perpendicular_vector(float angle)
 {
-	*dx = cosf(angle + (M_PI / 2));
-	*dy = sinf(angle + (M_PI / 2));
+	t_coord	dir;
+
+	dir.x = cosf(angle + (M_PI / 2));
+	dir.y = sinf(angle + (M_PI / 2));
+	return (dir);
 }

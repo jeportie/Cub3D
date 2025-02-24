@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   engine.h                                           :+:      :+:    :+:   */
+/*   put_pixel_to_image.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 23:10:04 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 21:33:13 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/23 17:09:07 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/23 21:34:38 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENGINE_H
-# define ENGINE_H
+#include "../../include/engine.h"
 
-# include "cub3d.h"
+int	put_pixel_to_image(t_coord pos, int color, t_image *img)
+{
+	char	*dst;
 
-double	get_time_in_seconds(struct timespec ts);
-int		init_image(t_data *data);
-int		init_texture(t_data *data);
-
-int		put_pixel_to_image(t_coord pos, int colot, t_image *img);
-int		clear_image(t_image *img, int color);
-
-#endif
+	if (pos.x < 0 || pos.x >= WINDOW_WIDTH
+		|| pos.y < 0 || pos.y >= WINDOW_HEIGHT)
+		return (-1);
+	dst = img->addr + ((int)pos.y * img->line_len
+			+ (int)pos.x * (img->bpp / 8));
+	*(unsigned int *)dst = color;
+	return (0);
+}

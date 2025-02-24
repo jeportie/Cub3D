@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:17:16 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:15:31 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:47:50 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 int	draw_player(t_data *data, t_image *img)
 {
-	int	center_x;
-	int	center_y;
-	int	x_start;
-	int	y_start;
+	t_coord	center;
+	t_coord	start;
+	t_coord	dir;
 
-	center_x = (int)data->player.x;
-	center_y = (int)data->player.y;
-	x_start = center_x - (SQUARE_SIZE / 2);
-	y_start = center_y - (SQUARE_SIZE / 2);
-	draw_square(x_start, y_start, img);
-	draw_direction_line(data, center_x, center_y, img);
+	center.x = (int)data->player.pose.x;
+	center.y = (int)data->player.pose.y;
+	start.x = center.x - ((float)SQUARE_SIZE / 2);
+	start.y = center.y - ((float)SQUARE_SIZE / 2);
+	draw_filled_square(start, SQUARE_SIZE, RED, img);
+	dir.x = data->player.pose.dx;
+	dir.y = data->player.pose.dy;
+	draw_direction_line(dir, center, PURPLE, img);
 	return (0);
 }

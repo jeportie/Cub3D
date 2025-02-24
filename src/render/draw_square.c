@@ -6,30 +6,27 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:14:49 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/24 20:03:57 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:57:58 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/engine.h"
-#include "../../include/colors.h"
-#include "../../include/render.h"
 
-int	draw_square(int x_start, int y_start, t_image *img)
+int	draw_filled_square(t_coord start, float size, int color, t_image *img)
 {
-	int	row;
-	int	col;
-	int	draw_col;
-	int	draw_row;
+	int		row;
+	int		col;
+	t_coord	draw;
 
 	row = 0;
-	while (row < SQUARE_SIZE)
+	while (row < size)
 	{
 		col = 0;
-		while (col < SQUARE_SIZE)
+		while (col < size)
 		{
-			draw_col = x_start + col;
-			draw_row = y_start + row;
-			put_pixel_to_image(img, draw_col, draw_row, RED);
+			draw.x = start.x + col;
+			draw.y = start.y + row;
+			put_pixel_to_image(draw, color, img);
 			col++;
 		}
 		row++;

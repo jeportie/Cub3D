@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:20:31 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/05 21:17:06 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:48:39 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,58 +19,41 @@
 int	draw_rays(t_data *data, t_image *img)
 {
 	int			i;
-	const float	fov = FOV_DEGREES * (M_PI / 180.0f);
+	float		fov;
 	float		start_angle;
 	float		ray_angle;
-	t_rayinfo	vertical_ray;
-	t_rayinfo	horizontal_ray;
 	t_rayinfo	chosen;
-	t_line_data	ldata;
+	t_coord		start;
+	t_coord		end;
+	int			color;
 
-	start_angle = data->player.angle - (fov / 2);
+	fov = FOV_DEGREES * (M_PI / 180.0f);
+	start_angle = data->player.pose.angle - (fov / 2);
 	i = 0;
 	while (i < RAYS)
 	{
 		ray_angle = start_angle + i * (fov / (RAYS - 1));
 		ray_angle = normalize_angle(ray_angle);
-		if (data->toogle_dda == true)
+		chosen = cast_ray_dda(data, ray_angle);
+		if (chosen.map_index == 0)
 		{
-			chosen = cast_ray_dda(data, ray_angle);
-			if (chosen.map_index == 0)
-			{
-				if (cosf(ray_angle) > 0.0f)
-					ldata.color = ORANGE;
-				else
-					ldata.color = YELLOW;
-			}
+			if (cosf(ray_angle) > 0.0f)
+				color = ORANGE;
 			else
-			{
-				if (sinf(ray_angle) > 0.0f)
-					ldata.color = LIGHTGREEN;
-				else
-					ldata.color = DARKGREEN;
-			}
+				color = YELLOW;
 		}
 		else
 		{
-			vertical_ray = cast_vertical_ray(data, ray_angle);
-			horizontal_ray = cast_horizontal_ray(data, ray_angle);
-			if (vertical_ray.dist < horizontal_ray.dist)
-			{
-				ldata.color = GREEN;
-				chosen = vertical_ray;
-			}
+			if (sinf(ray_angle) > 0.0f)
+				color = LIGHTGREEN;
 			else
-			{
-				ldata.color = LIGHTGREEN;
-				chosen = horizontal_ray;
-			}
+				color = DARKGREEN;
 		}
-		ldata.x0 = (int)data->player.x;
-		ldata.y0 = (int)data->player.y;
-		ldata.x1 = (int)chosen.rx;
-		ldata.y1 = (int)chosen.ry;
-		draw_line(ldata, img);
+		start.x = (int)data->player.pose.x;
+		start.y = (int)data->player.pose.y;
+		end.x = (int)chosen.rx;
+		end.y = (int)chosen.ry;
+		draw_line(start, end, color, img);
 		i++;
 	}
 	return (0);

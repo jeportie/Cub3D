@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   engine.h                                           :+:      :+:    :+:   */
+/*   rotate_player_angle.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 23:10:04 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 21:33:13 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/23 18:31:39 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/24 07:56:02 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENGINE_H
-# define ENGINE_H
+#include "../../include/compute.h"
 
-# include "cub3d.h"
+int	rotate_player_angle(t_data *data, float rot_speed)
+{
+	t_coord	dir;
 
-double	get_time_in_seconds(struct timespec ts);
-int		init_image(t_data *data);
-int		init_texture(t_data *data);
-
-int		put_pixel_to_image(t_coord pos, int colot, t_image *img);
-int		clear_image(t_image *img, int color);
-
-#endif
+	data->player.pose.angle += rot_speed;
+	data->player.pose.angle = normalize_angle(data->player.pose.angle);
+	dir = get_direction_vector(data->player.pose.angle);
+	data->player.pose.dx = dir.x;
+	data->player.pose.dy = dir.y;
+	return (0);
+}

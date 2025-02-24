@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/21 17:02:43 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/23 21:42:00 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,36 @@
 # include "../lib/minilibx/mlx.h"
 # include "../lib/libft/include/libft.h"
 
+typedef struct s_coord
+{
+	float	x;
+	float	y;
+}				t_coord;
+
+typedef struct s_scale
+{
+	float	x;
+	float	y;
+}				t_scale;
+
+typedef struct s_transform
+{
+	float	x;
+	float	y;
+	float	dx;
+	float	dy;
+	float	angle;
+}				t_transform;
 
 typedef struct s_player
 {
-	double	x;
-	double	y;
-	double	angle;
-	double	dx;
-	double	dy;
-	double	plane_x;
-	double	plane_y;
-	bool	move_up;
-	bool	move_down;
-	bool	move_left;
-	bool	move_right;
-	bool	rot_left;
-	bool	rot_right;
+	t_transform	pose;	
+	bool		move_up;
+	bool		move_down;
+	bool		move_left;
+	bool		move_right;
+	bool		rot_left;
+	bool		rot_right;
 }			t_player;
 
 typedef struct s_image
@@ -91,28 +105,13 @@ typedef struct s_data
 	void			*mlx;
 	void			*win;
 	t_image			img[2];
-	t_image			texture_n;
-	t_image			texture_s;
-	t_image			texture_e;
-	t_image			texture_o;
+	t_image			walls[4];
 	int				current_img;
 	t_player		player;
 	struct timespec	last_time;
-	double			delta_accumulator;
-	bool			toogle_rays;
+	float			delta_accumulator;
 	bool			toogle_texture_mode;
-	bool			toogle_map;
-	bool			toogle_dda;
 }				t_data;
-
-typedef struct s_line_data
-{
-	int	x0;
-	int	y0;
-	int	x1;
-	int	y1;
-	int	color;
-}	t_line_data;
 
 int	game_loop(t_data *data);
 

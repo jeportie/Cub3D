@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/07 13:33:04 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:39:33 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,10 @@
 
 typedef struct s_line_vars
 {
-	int		dx;		// difference in x between start and end
-	int		dy;		// difference in y between start and end
+    t_coord dir;
+    t_coord inc;
+    t_coord cur;
 	int		steps;	// how many steps to iterate
-	float	inc_x;	// x increment per step
-	float	inc_y;	// y increment per step
-	float	cur_x;	// x coordinate while drawing the line
-	float	cur_y;	// y coordinate while drawing the line
 	int		i;
 }	t_line_vars;
 
@@ -102,8 +99,7 @@ typedef struct s_dda
 	float	dist;
 }	t_dda;
 
-t_rayinfo	cast_vertical_ray(t_data *data, float ray_angle);
-t_rayinfo	cast_horizontal_ray(t_data *data, float ray_angle);
 t_rayinfo   cast_ray_dda(t_data *data, float ray_angle);
+int	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov);
 
 #endif

@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   engine.h                                           :+:      :+:    :+:   */
+/*   clear_image.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/20 23:10:04 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 21:33:13 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/23 17:10:57 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/24 07:29:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ENGINE_H
-# define ENGINE_H
+#include "../../include/engine.h"
 
-# include "cub3d.h"
+int	clear_image(t_image *img, int color)
+{
+	t_coord	pos;
 
-double	get_time_in_seconds(struct timespec ts);
-int		init_image(t_data *data);
-int		init_texture(t_data *data);
-
-int		put_pixel_to_image(t_coord pos, int colot, t_image *img);
-int		clear_image(t_image *img, int color);
-
-#endif
+	pos.y = 0;
+	while (pos.y < WINDOW_HEIGHT)
+	{
+		pos.x = 0;
+		while (pos.x < WINDOW_WIDTH)
+		{
+			put_pixel_to_image(pos, color, img);
+			pos.x++;
+		}
+		pos.y++;
+	}
+	return (0);
+}

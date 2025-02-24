@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_direction_line.c                              :+:      :+:    :+:   */
+/*   init_texture.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 17:15:53 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 07:32:34 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/23 17:12:14 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/23 17:25:51 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/engine.h"
-#include "../../include/render.h"
+#include "../../include/error.h"
 
-int	draw_direction_line(t_coord pos, t_coord dir, int color, t_image *img)
+int	init_texture(t_data *data)
 {
-	int		line_length;
+	int		width;
+	int		height;
 	int		i;
-	t_coord	l;
 
-	line_length = 15;
 	i = 0;
-	while (i < line_length)
+	while (i < 4)
 	{
-		l.x = pos.x + (int)(dir.x * i);
-		l.y = pos.y + (int)(dir.y * i);
-		put_pixel_to_image(l, color, img);
+		data->walls[i].img_ptr = mlx_xpm_file_to_image(data->mlx,
+				data->parse.config.textures[i], &width, &height);
+		if (!data->walls[i].img_ptr)
+		{
+			ft_dprintf(2, ERR_MLX_TEX, data->parse.config.textures[i]);
+			return (1);
+		}
+		data->walls[i].addr = mlx_get_data_addr(data->walls[i].img_ptr,
+				&data->walls[i].bpp, &data->walls[i].line_len,
+				&data->walls[i].endian);
 		i++;
 	}
 	return (0);
