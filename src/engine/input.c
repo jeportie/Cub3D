@@ -6,11 +6,20 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:44:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 18:16:08 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:12:00 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/input.h"
+#include "../../include/input.h"
+#include "../../include/functions.h"
+
+int	close_window(t_data *data)
+{
+	ft_printf("Window close (X button) pressed. Exiting.\n");
+	mlx_destroy_window(data->mlx, data->win);
+	ft_clean_data_and_exit(data);
+	exit(0);
+}
 
 int	key_press(int keycode, t_data *data)
 {

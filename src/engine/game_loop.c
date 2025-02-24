@@ -6,14 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 10:02:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 10:18:40 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:09:47 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "../include/player.h"
-#include "../include/engine.h"
-#include "../include/render.h"
+#include "../../include/cub3d.h"
+#include "../../include/player.h"
+#include "../../include/engine.h"
+#include "../../include/render.h"
 
 int	game_loop(t_data *data)
 {

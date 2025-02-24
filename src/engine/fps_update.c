@@ -6,13 +6,13 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:18:15 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 10:18:34 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:09:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "../include/engine.h"
-#include "../include/error.h"
+#include "../../include/cub3d.h"
+#include "../../include/engine.h"
+#include "../../include/error.h"
 
 int	fps_update(t_data *data, double *delta, double *time_step)
 {

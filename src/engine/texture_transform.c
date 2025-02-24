@@ -6,14 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:35:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 08:47:10 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:10:08 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/cub3d.h"
-#include "../include/render.h"
-#include "../include/define.h"
-#include "../include/engine.h"
+#include "../../include/cub3d.h"
+#include "../../include/render.h"
+#include "../../include/define.h"
+#include "../../include/engine.h"
 
 int	get_texture_color(t_image *texture, t_coord pos)
 {
