@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:54:36 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:54:58 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:29:34 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int	ft_check_for_doublon(t_data *data)
 		ft_check_south_doublon(line, data);
 		ft_check_west_doublon(line, data);
 		ft_check_east_doublon(line, data);
-		ft_check_floor_doublon(line, data);
 		ft_check_ceilling_doublon(line, data);
+		ft_check_floor_doublon(line, data);
 		free(line);
 	}
 	return (0);
@@ -96,7 +96,8 @@ int	check_texture(t_data *data)
 		if (fd == -1)
 		{
 			printf("\033[31mError\n:Issue with one of the "
-				"texture.\nTexture File name: |%s|\n%s\033[0m\n",
+				"texture.\nTexture File name: |%s|\n%s\nTextures"
+				" will be set to default\033[0m\n",
 				data->parse.config.textures[i], strerror(errno));
 		}
 		i++;

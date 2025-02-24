@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:54:13 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:54:20 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:51:40 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int	print_err_message_boundaries(t_data *data, int i, int j, int type)
 int	check_config_data(t_data *data)
 {
 	check_texture(data);
+	missing_color(data);
 	return (0);
 }
 
@@ -50,10 +51,26 @@ int	missing_texture(t_data *data)
 		else
 		{
 			printf("\033[31mError\n:Missing texture.\nTexture File name : |%s|"
-				"\n%s\033[0m\n",
-				data->parse.config.textures[i], strerror(errno));
-			ft_clean_data_and_exit(data);
+				"\nTextures will be set to default\033[0m\n",
+				data->parse.config.textures[i]);
 		}
+	}
+	return (0);
+}
+
+
+int	missing_color(t_data *data)
+{
+
+	if (data->parse.config.ceiling_color == -1)
+	{
+		printf("\033[31mError\n:Missing ceilling color\n\033[0m");
+		ft_clean_data_and_exit(data);
+	}
+	if (data->parse.config.floor_color == -1)
+	{
+		printf("\033[31mError\n:Missing Floor color\n\033[0m");
+		ft_clean_data_and_exit(data);
 	}
 	return (0);
 }

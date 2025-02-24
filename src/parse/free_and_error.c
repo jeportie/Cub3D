@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 14:11:17 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:52:58 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:01:52 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,19 +25,19 @@ int	ft_free_exit(char *line, char **rgb_tab, t_data *data, int i)
 	return (ft_clean_data_and_exit(data));
 }
 
-int	free_char_tab(char **texture_file)
+int	free_char_tab(char **tab)
 {
 	int	i;
 
 	i = 0;
-	if (!texture_file)
+	if (!tab)
 		return (0);
-	while (texture_file[i])
+	while (tab[i])
 	{
-		free(texture_file[i]);
+		free(tab[i]);
 		i++;
 	}
-	free(texture_file);
+	free(tab);
 	return (1);
 }
 

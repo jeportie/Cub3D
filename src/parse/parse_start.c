@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:50:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 15:11:00 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 17:51:28 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	ft_initialize(t_data *data)
 	data->parse.config.metadata_count = 0;
 	data->parse.map.height = 0;
 	data->parse.map.width = 0;
+	data->parse.config.ceiling_color = -1;
+	data->parse.config.floor_color = -1;
 	while (i < 4)
 	{
 		data->parse.config.textures[i] = NULL;
