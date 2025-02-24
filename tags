@@ -15,7 +15,7 @@ BLUE	Makefile	/^BLUE    = \\033[34m$/;"	m
 BLUE	include/colors.h	21;"	d
 BLUEVIOLET	include/colors.h	43;"	d
 BOLD	Makefile	/^BOLD    = \\033[1m$/;"	m
-BPP	include/define.h	40;"	d
+BPP	include/define.h	41;"	d
 BROWN	include/colors.h	44;"	d
 BUFFER_SIZE	lib/libft/include/libft.h	28;"	d
 BUFFER_SIZE	lib/libft/include/printf.h	27;"	d
@@ -74,7 +74,7 @@ DIMGREY	include/colors.h	74;"	d
 DODGERBLUE	include/colors.h	75;"	d
 ENGINE_H	include/engine.h	14;"	d
 ENV_DISPLAY	lib/minilibx/mlx_int.h	43;"	d
-EPSILON	include/define.h	33;"	d
+EPSILON	include/define.h	34;"	d
 ERNOFORMAT	lib/libft/include/printf.h	/^	ERNOFORMAT,$/;"	e	enum:e_error
 ERNOMEM	lib/libft/include/printf.h	/^	ERNOMEM,$/;"	e	enum:e_error
 ERNOWRITE	lib/libft/include/printf.h	/^	ERNOWRITE,$/;"	e	enum:e_error
@@ -92,7 +92,8 @@ ERR_TEX_INIT	include/error.h	21;"	d
 FIREBRICK	include/colors.h	76;"	d
 FLORALWHITE	include/colors.h	77;"	d
 FORESTGREEN	include/colors.h	78;"	d
-FOV_DEGREES	include/define.h	35;"	d
+FOV_DEGREES	include/define.h	36;"	d
+FRAME_RATE	include/define.h	27;"	d
 FUNCTIONS_H	include/functions.h	14;"	d
 GAINSBORO	include/colors.h	79;"	d
 GAME_TITLE	include/define.h	16;"	d
@@ -116,7 +117,7 @@ INCLIB	lib/minilibx/test/Makefile.mk	/^INCLIB=$(INC)\/..\/lib$/;"	m
 INCLUDES	Makefile	/^INCLUDES = -I.\/include -I.\/lib\/minilibx -I.\/lib\/libgc\/include -I.\/lib\/libft\/include$/;"	m
 INDIANRED	include/colors.h	85;"	d
 INDIGO	include/colors.h	86;"	d
-INNER_OFFSET	include/define.h	36;"	d
+INNER_OFFSET	include/define.h	37;"	d
 INPUT_H	include/input.h	14;"	d
 IVORY	include/colors.h	87;"	d
 KEY_0	include/input.h	47;"	d
@@ -221,7 +222,7 @@ LINEN	include/colors.h	109;"	d
 LOCALHOST	lib/minilibx/mlx_int.h	44;"	d
 MAGENTA	include/colors.h	25;"	d
 MAROON	include/colors.h	29;"	d
-MAX_STEPS	include/define.h	37;"	d
+MAX_STEPS	include/define.h	38;"	d
 MEDIUMAQUAMARINE	include/colors.h	110;"	d
 MEDIUMBLUE	include/colors.h	111;"	d
 MEDIUMORCHID	include/colors.h	112;"	d
@@ -233,7 +234,7 @@ MEDIUMTURQUOISE	include/colors.h	117;"	d
 MEDIUMVIOLETRED	include/colors.h	118;"	d
 MIDNIGHTBLUE	include/colors.h	119;"	d
 MINTCREAM	include/colors.h	120;"	d
-MIN_DISTANCE	include/define.h	38;"	d
+MIN_DISTANCE	include/define.h	39;"	d
 MISTYROSE	include/colors.h	121;"	d
 MLX_H	lib/minilibx/mlx.h	32;"	d
 MLX_INT_H	lib/minilibx/mlx_int.h	19;"	d
@@ -278,7 +279,7 @@ POWDERBLUE	include/colors.h	137;"	d
 PRINTF_H	lib/libft/include/printf.h	14;"	d
 PURPLE	include/colors.h	32;"	d
 RAYCAST_H	include/raycast.h	14;"	d
-RAYS	include/define.h	32;"	d
+RAYS	include/define.h	33;"	d
 REBECCAPURPLE	include/colors.h	138;"	d
 RED	Makefile	/^RED     = \\033[31m$/;"	m
 RED	include/colors.h	19;"	d
@@ -286,7 +287,7 @@ RENDER_H	include/render.h	14;"	d
 RESET	Makefile	/^RESET   = \\033[0m$/;"	m
 RETURN	lib/minilibx/mlx_xpm.c	17;"	d	file:
 ROSYBROWN	include/colors.h	139;"	d
-ROT_SPEED	include/define.h	28;"	d
+ROT_SPEED	include/define.h	29;"	d
 ROYALBLUE	include/colors.h	140;"	d
 SADDLEBROWN	include/colors.h	141;"	d
 SALMON	include/colors.h	142;"	d
@@ -302,9 +303,9 @@ SLATEBLUE	include/colors.h	148;"	d
 SLATEGRAY	include/colors.h	149;"	d
 SLATEGREY	include/colors.h	150;"	d
 SNOW	include/colors.h	151;"	d
-SPEED	include/define.h	27;"	d
+SPEED	include/define.h	28;"	d
 SPRINGGREEN	include/colors.h	152;"	d
-SQUARE_SIZE	include/define.h	30;"	d
+SQUARE_SIZE	include/define.h	31;"	d
 SRC	Makefile	/^SRC = \\$/;"	m
 SRC	lib/libft/Makefile	/^SRC = \\$/;"	m
 SRC	lib/libgc/Makefile	/^SRC = src\/gc_cleanup.c \\$/;"	m
@@ -339,10 +340,9 @@ VERBOSE	Makefile	/^VERBOSE ?= @$/;"	m
 VERBOSE	Makefile	/^classic: VERBOSE =$/;"	m
 VFLAGS	Makefile	/^VFLAGS = 	-g3 -fPIC $/;"	m
 VIOLET	include/colors.h	158;"	d
-WALL_HORIZONTAL	include/raycast.h	/^	WALL_HORIZONTAL  \/\/ Wall hit by horizontal ray$/;"	e	enum:e_wall_type
-WALL_NONE	include/raycast.h	/^	WALL_NONE,       \/\/ Initial state$/;"	e	enum:e_wall_type
-WALL_VERTICAL	include/raycast.h	/^	WALL_VERTICAL,   \/\/ Wall hit by vertical ray$/;"	e	enum:e_wall_type
-WARN_NOEQUAL	include/error.h	23;"	d
+WALL_HORIZONTAL	include/raycast.h	/^	WALL_HORIZONTAL$/;"	e	enum:e_wall_type
+WALL_NONE	include/raycast.h	/^	WALL_NONE,$/;"	e	enum:e_wall_type
+WALL_VERTICAL	include/raycast.h	/^	WALL_VERTICAL,$/;"	e	enum:e_wall_type
 WARN_SHM_ATTACH	lib/minilibx/mlx_int.h	46;"	d
 WHEAT	include/colors.h	159;"	d
 WHITE	include/colors.h	18;"	d
@@ -357,9 +357,9 @@ YELLOW	include/colors.h	22;"	d
 YELLOWGREEN	include/colors.h	161;"	d
 addr	include/cub3d.h	/^	char	*addr;$/;"	m	struct:s_image
 angle	include/cub3d.h	/^	float	angle;$/;"	m	struct:s_transform
-angle	include/raycast.h	/^    float angle;              \/\/ Current ray angle$/;"	m	struct:s_ray
+angle	include/raycast.h	/^	float		angle;$/;"	m	struct:s_ray
 at_exit	lib/minilibx/test/run_tests.sh	/^at_exit() {$/;"	f
-begin_map_index	include/cub3d.h	/^	int		begin_map_index; \/\/ Index of the beginning of the map;$/;"	m	struct:s_map
+begin_map_index	include/cub3d.h	/^	int		begin_map_index;$/;"	m	struct:s_map
 bpp	include/cub3d.h	/^	int		bpp;$/;"	m	struct:s_image
 bpp	lib/minilibx/mlx_int.h	/^	int				bpp;$/;"	m	struct:s_img
 bpp1	lib/minilibx/test/main.c	/^int	bpp1;$/;"	v
@@ -376,8 +376,8 @@ calculate_step_primary	src/compute/calculate_step.c	/^float	calculate_step_prima
 calculate_step_secondary	src/compute/calculate_step.c	/^float	calculate_step_secondary(float step_primary, float tan_a)$/;"	f
 calculate_tan_a	src/compute/calculate_tan_a.c	/^float	calculate_tan_a(float angle)$/;"	f
 calculate_wall_height	src/compute/calculate_wall_height.c	/^int	calculate_wall_height(t_ray *ray)$/;"	f
-cast_ray_dda	src/raycaster/dda_raycast.c	/^t_rayinfo	cast_ray_dda(t_data *data, float angle)$/;"	f
-ceiling_color	include/cub3d.h	/^	int ceiling_color; \/* RGB *\/$/;"	m	struct:s_config
+cast_ray_dda	src/raycaster/dda_raycast.c	/^t_rayinfo	cast_ray_dda(t_data *data, double angle)$/;"	f
+ceiling_color	include/cub3d.h	/^	int		ceiling_color;$/;"	m	struct:s_config
 check_algo_floodfill	src/parse/parse_map.c	/^int	check_algo_floodfill(t_data *data)$/;"	f
 check_allowed_character	src/parse/parse_map_utils_2.c	/^int	check_allowed_character(t_data *data)$/;"	f
 check_boundaries	src/parse/parse_map_utils_4.c	/^int	check_boundaries(t_data *data)$/;"	f
@@ -389,16 +389,15 @@ check_first_last_row	src/parse/parse_map_utils_3.c	/^int	check_first_last_row(t_
 check_floor_color	src/parse/parsing_colors.c	/^int	check_floor_color(t_data *data, int color[3])$/;"	f
 check_player	src/parse/parse_map_utils_3.c	/^int	check_player(t_data *data)$/;"	f
 check_texture	src/parse/parsing_metadata.c	/^int	check_texture(t_data *data)$/;"	f
-chosen	include/raycast.h	/^    t_rayinfo chosen;         \/\/ The chosen ray (closest intersection)$/;"	m	struct:s_ray
+chosen	include/raycast.h	/^	t_rayinfo	chosen;$/;"	m	struct:s_ray
 clamp	src/utils/clamp.c	/^float	clamp(float value, float min, float max)$/;"	f
 clamped_height	include/render.h	/^	int		clamped_height;$/;"	m	struct:s_tex
 clean	lib/minilibx/configure	/^clean(){$/;"	f
 clear_image	src/utils/clear_image.c	/^int	clear_image(t_image *img, int color)$/;"	f
-clock_update	src/game_loop.c	/^int	clock_update(t_data *data, double *delta, double *time_step)$/;"	f
 cmap	lib/minilibx/mlx_int.h	/^	Colormap	cmap;$/;"	m	struct:s_xvar
 col	lib/minilibx/mlx_int.h	/^	int		col;$/;"	m	struct:s_xpm_col
-collision	include/raycast.h	/^    t_coord collision;$/;"	m	struct:s_rayinfo
-color	include/raycast.h	/^    int color;      \/\/ Color of the wall hit$/;"	m	struct:s_rayinfo
+collision	include/raycast.h	/^	t_coord	collision;$/;"	m	struct:s_rayinfo
+color	include/raycast.h	/^	int		color;$/;"	m	struct:s_rayinfo
 color	include/render.h	/^	int		color;$/;"	m	struct:s_tex
 color	lib/minilibx/mlx_int.h	/^	int		color;$/;"	m	struct:s_col_name
 color_map_1	lib/minilibx/test/main.c	/^int	color_map_1(void *win,int w,int h)$/;"	f
@@ -409,24 +408,24 @@ compute_initial_sides	src/compute/compute_dda.c	/^void	compute_initial_sides(t_d
 config	include/cub3d.h	/^	t_config	config;$/;"	m	struct:s_parse
 correct_extension	src/parse/main_utils.c	/^int	correct_extension(char *file_name)$/;"	f
 correct_fisheye	src/compute/correct_fisheye.c	/^float	correct_fisheye(float player_angle, float ray_angle, float distance)$/;"	f
-corrected_distance	include/raycast.h	/^    float corrected_distance; \/\/ Distance corrected for fisheye$/;"	m	struct:s_ray
-cur	include/raycast.h	/^    t_coord cur;$/;"	m	struct:s_line_vars
+corrected_distance	include/raycast.h	/^	float		corrected_distance;$/;"	m	struct:s_ray
+cur	include/raycast.h	/^	t_coord	cur;$/;"	m	struct:s_line_vars
 current_img	include/cub3d.h	/^	int				current_img;$/;"	m	struct:s_data
-current_wall	include/raycast.h	/^    t_wall_type current_wall; \/\/ Type of wall hit (vertical\/horizontal)$/;"	m	struct:s_ray
+current_wall	include/raycast.h	/^	t_wall_type	current_wall;$/;"	m	struct:s_ray
 data	lib/minilibx/mlx_int.h	/^	char			*data;$/;"	m	struct:s_img
 data1	lib/minilibx/test/main.c	/^char	*data1;$/;"	v
 data2	lib/minilibx/test/main.c	/^char	*data2;$/;"	v
 data3	lib/minilibx/test/main.c	/^char	*data3;$/;"	v
 data4	lib/minilibx/test/main.c	/^char	*data4;$/;"	v
 decrgb	lib/minilibx/mlx_int.h	/^	int			decrgb[6];$/;"	m	struct:s_xvar
-delta	include/raycast.h	/^    t_coord delta;$/;"	m	struct:s_dda
+delta	include/raycast.h	/^	t_coord	delta;$/;"	m	struct:s_dda
 delta_accumulator	include/cub3d.h	/^	float			delta_accumulator;$/;"	m	struct:s_data
 depth	lib/minilibx/mlx_int.h	/^	int			depth;$/;"	m	struct:s_xvar
-dir	include/raycast.h	/^    t_coord dir;$/;"	m	struct:s_dda
-dir	include/raycast.h	/^    t_coord dir;$/;"	m	struct:s_line_vars
+dir	include/raycast.h	/^	t_coord	dir;$/;"	m	struct:s_dda
+dir	include/raycast.h	/^	t_coord	dir;$/;"	m	struct:s_line_vars
 display	lib/minilibx/mlx_int.h	/^	Display		*display;$/;"	m	struct:s_xvar
 dist	include/raycast.h	/^	float	dist;$/;"	m	struct:s_dda
-dist	include/raycast.h	/^    float dist;     \/\/ Distance to the collision$/;"	m	struct:s_rayinfo
+dist	include/raycast.h	/^	float	dist;$/;"	m	struct:s_rayinfo
 do_flush	lib/minilibx/mlx_int.h	/^	int			do_flush;$/;"	m	struct:s_xvar
 draw_background	src/render/draw_background.c	/^int	draw_background(t_data *data, t_image *img)$/;"	f
 draw_filled_rectangle	src/render/draw_background.c	/^int	draw_filled_rectangle(t_coord pos, t_scale size, int color, t_image *img)$/;"	f
@@ -438,7 +437,7 @@ dy	include/cub3d.h	/^	float	dy;$/;"	m	struct:s_transform
 e_error	lib/libft/include/printf.h	/^typedef enum e_error$/;"	g
 e_wall_type	include/raycast.h	/^typedef enum e_wall_type$/;"	g
 end_loop	lib/minilibx/mlx_int.h	/^	int 		end_loop;$/;"	m	struct:s_xvar
-end_map_index	include/cub3d.h	/^	int		end_map_index; \/\/ Index of the end of the map;$/;"	m	struct:s_map
+end_map_index	include/cub3d.h	/^	int		end_map_index;$/;"	m	struct:s_map
 endian	include/cub3d.h	/^	int		endian;$/;"	m	struct:s_image
 endian1	lib/minilibx/test/main.c	/^int	endian1;$/;"	v
 endian2	lib/minilibx/test/main.c	/^int	endian2;$/;"	v
@@ -451,18 +450,19 @@ expose_param	lib/minilibx/mlx_int.h	/^	void				*expose_param;$/;"	m	struct:s_win
 expose_win1	lib/minilibx/test/main.c	/^int	expose_win1(void *p)$/;"	f
 expose_win2	lib/minilibx/test/main.c	/^int	expose_win2(void *p)$/;"	f
 fd	lib/libgc/include/libgc.h	/^	int					fd;$/;"	m	struct:s_gc_node
-fill_rayinfo	src/raycaster/dda_raycast.c	/^void	fill_rayinfo(t_dda *d, t_rayinfo *ray)$/;"	f
+fill_rayinfo	src/raycaster/dda_raycast.c	/^int	fill_rayinfo(t_dda *d, t_rayinfo *ray)$/;"	f
 flag_hash	lib/libft/include/printf.h	/^	int			flag_hash;$/;"	m	struct:s_format_spec
 flag_minus	lib/libft/include/printf.h	/^	int			flag_minus;$/;"	m	struct:s_format_spec
 flag_plus	lib/libft/include/printf.h	/^	int			flag_plus;$/;"	m	struct:s_format_spec
 flag_space	lib/libft/include/printf.h	/^	int			flag_space;$/;"	m	struct:s_format_spec
 flag_zero	lib/libft/include/printf.h	/^	int			flag_zero;$/;"	m	struct:s_format_spec
-flags	include/cub3d.h	/^	int	flags[6];$/;"	m	struct:s_config
+flags	include/cub3d.h	/^	int		flags[6];$/;"	m	struct:s_config
 floodfill_algo	src/parse/parse_map.c	/^int	floodfill_algo(t_data *data, int i, int j)$/;"	f
-floor_color	include/cub3d.h	/^	int floor_color;   \/* RGB *\/$/;"	m	struct:s_config
+floor_color	include/cub3d.h	/^	int		floor_color;$/;"	m	struct:s_config
 format	lib/minilibx/mlx_int.h	/^	int				format;$/;"	m	struct:s_img
 format_ceilling_color	src/parse/parsing_colors.c	/^int	format_ceilling_color(char *line, t_data *data)$/;"	f
 format_floor_color	src/parse/parsing_colors.c	/^int	format_floor_color(char *line, t_data *data)$/;"	f
+fps_update	src/fps_update.c	/^int	fps_update(t_data *data, double *delta, double *time_step)$/;"	f
 free_char_tab	src/parse/free_and_error.c	/^int	free_char_tab(char **texture_file)$/;"	f
 ft_apply_precision	lib/libft/src/printf/ft_apply_precision.c	/^void	ft_apply_precision(t_format_spec spec, char **formatted_content)$/;"	f
 ft_apply_width	lib/libft/src/printf/ft_apply_width.c	/^void	ft_apply_width(t_format_spec spec, t_buffer *buf_info, int content_len)$/;"	f
@@ -630,7 +630,7 @@ get_texture_color	src/texture_transform.c	/^int	get_texture_color(t_image *textu
 get_time_in_seconds	src/utils/get_time_in_seconds.c	/^double	get_time_in_seconds(struct timespec ts)$/;"	f
 get_xlib_include_path	lib/minilibx/configure	/^get_xlib_include_path(){$/;"	f
 head	lib/libgc/include/libgc.h	/^	t_gc_node	*head;$/;"	m	struct:s_garbage_collector
-height	include/cub3d.h	/^	int		height;      \/\/ MAp height$/;"	m	struct:s_map
+height	include/cub3d.h	/^	int		height;$/;"	m	struct:s_map
 height	lib/minilibx/mlx_int.h	/^	int				height;$/;"	m	struct:s_img
 helper	lib/libgc/src/gc_realloc.c	/^static void	*helper(t_gc_node *current, void *ptr, size_t size, t_gc *gcl)$/;"	f	file:
 hole_in_the_map	src/parse/parse_map.c	/^int hole_in_the_map(t_data *data, int i, int j)$/;"	f
@@ -644,16 +644,16 @@ im4	lib/minilibx/test/main.c	/^void	*im4;$/;"	v
 image	lib/minilibx/mlx_int.h	/^	XImage			*image;$/;"	m	struct:s_img
 img	include/cub3d.h	/^	t_image			img[2];$/;"	m	struct:s_data
 img_ptr	include/cub3d.h	/^	void	*img_ptr;$/;"	m	struct:s_image
-inc	include/raycast.h	/^    t_coord inc;$/;"	m	struct:s_line_vars
+inc	include/raycast.h	/^	t_coord	inc;$/;"	m	struct:s_line_vars
 index	lib/libft/include/printf.h	/^	int		index;$/;"	m	struct:s_buffer
 init	lib/libgc/src/gc_nest_register.c	/^static t_gc_node	*init(t_gc_node *new_node, void *ptr, t_gc *gcl)$/;"	f	file:
 init	lib/libgc/src/gc_register.c	/^static t_gc_node	*init(t_gc_node *new_node, const char *filename, t_gc *gcl)$/;"	f	file:
 init_and_parse	main.c	/^int	init_and_parse(t_data *data, int argc, char **argv)$/;"	f
-init_dda_struct	src/raycaster/dda_raycast.c	/^void	init_dda_struct(t_dda *d, t_data *data, float angle)$/;"	f
+init_dda_struct	src/raycaster/dda_raycast.c	/^int	init_dda_struct(t_dda *d, t_data *data, float angle)$/;"	f
 init_image	src/utils/init_image.c	/^int	init_image(t_data *data)$/;"	f
 init_mlx	main.c	/^int	init_mlx(t_data *data)$/;"	f
-init_texture	src/utils/init_texture.c	/^int	init_texture(t_data *data)$/;"	f
 init_tr	src/texture_transform.c	/^int	init_tr(t_tex *tr, t_ray *ray)$/;"	f
+init_wall_texture	src/utils/init_texture.c	/^int	init_wall_texture(t_data *data)$/;"	f
 is_array	lib/libgc/include/libgc.h	/^	bool				is_array;$/;"	m	struct:s_gc_node
 is_locked	lib/libgc/include/libgc.h	/^	bool				is_locked;$/;"	m	struct:s_gc_node
 is_marked	lib/libgc/include/libgc.h	/^	bool				is_marked;$/;"	m	struct:s_gc_node
@@ -666,9 +666,9 @@ key_win1	lib/minilibx/test/main.c	/^int	key_win1(int key,void *p)$/;"	f
 key_win2	lib/minilibx/test/main.c	/^int	key_win2(int key,void *p)$/;"	f
 key_win3	lib/minilibx/test/main.c	/^int	key_win3(int key,void *p)$/;"	f
 last_time	include/cub3d.h	/^	struct timespec	last_time;$/;"	m	struct:s_data	typeref:struct:s_data::timespec
-layout	include/cub3d.h	/^	char	**layout;   \/\/ 2D array for the map$/;"	m	struct:s_map
+layout	include/cub3d.h	/^	char	**layout;$/;"	m	struct:s_map
 line_len	include/cub3d.h	/^	int		line_len;$/;"	m	struct:s_image
-line_offset	include/raycast.h	/^    int line_offset;          \/\/ Y-coordinate offset to center the slice vertically$/;"	m	struct:s_ray
+line_offset	include/raycast.h	/^	int			line_offset;$/;"	m	struct:s_ray
 local_endian	lib/minilibx/test/main.c	/^int	local_endian;$/;"	v
 log_error	lib/minilibx/configure	/^log_error(){$/;"	f
 log_error	lib/minilibx/test/run_tests.sh	/^log_error(){$/;"	f
@@ -686,13 +686,13 @@ main	lib/minilibx/test/run_tests.sh	/^main(){$/;"	f
 main	main.c	/^int	main(int argc, char **argv)$/;"	f
 map	include/cub3d.h	/^	char			*map;$/;"	m	struct:s_data
 map	include/cub3d.h	/^	t_map		map;$/;"	m	struct:s_parse
-map	include/raycast.h	/^    t_coord map;$/;"	m	struct:s_dda
-map_file_fd	include/cub3d.h	/^	int	map_file_fd;$/;"	m	struct:s_config
-map_filename	include/cub3d.h	/^	char *map_filename;$/;"	m	struct:s_config
-map_index	include/raycast.h	/^    int map_index;  \/\/ Index in the map array$/;"	m	struct:s_rayinfo
+map	include/raycast.h	/^	t_coord	map;$/;"	m	struct:s_dda
+map_file_fd	include/cub3d.h	/^	int		map_file_fd;$/;"	m	struct:s_config
+map_filename	include/cub3d.h	/^	char	*map_filename;$/;"	m	struct:s_config
+map_index	include/raycast.h	/^	int		map_index;$/;"	m	struct:s_rayinfo
 mask	lib/minilibx/mlx_int.h	/^	int		mask;$/;"	m	struct:s_event_list
 max_size	lib/libft/include/printf.h	/^	size_t	max_size;$/;"	m	struct:s_buffer
-metadata_count	include/cub3d.h	/^	int	metadata_count;$/;"	m	struct:s_config
+metadata_count	include/cub3d.h	/^	int		metadata_count;$/;"	m	struct:s_config
 missing_texture	src/parse/parsing_metadata.c	/^int	missing_texture(t_data *data)$/;"	f
 mlx	include/cub3d.h	/^	void			*mlx;$/;"	m	struct:s_data
 mlx	lib/minilibx/test/main.c	/^void	*mlx;$/;"	v
@@ -790,21 +790,23 @@ parse_args	lib/minilibx/configure	/^parse_args(){$/;"	f
 parse_map	src/parse/parse_map.c	/^int	parse_map(t_data *data)$/;"	f
 pix	lib/minilibx/mlx_int.h	/^	Pixmap			pix;$/;"	m	struct:s_img
 player	include/cub3d.h	/^	t_player		player;$/;"	m	struct:s_data
-player_dir	include/cub3d.h	/^	char	player_dir; \/\/ player starting orientation$/;"	m	struct:s_map
-player_i	include/cub3d.h	/^	int		player_i;    \/\/ player coordinate$/;"	m	struct:s_map
+player_dir	include/cub3d.h	/^	char	player_dir;$/;"	m	struct:s_map
+player_i	include/cub3d.h	/^	int		player_i;$/;"	m	struct:s_map
 player_init	src/player/player_init.c	/^int	player_init(t_data *data)$/;"	f
-player_j	include/cub3d.h	/^	int		player_j;    \/\/ player coordinate$/;"	m	struct:s_map
+player_j	include/cub3d.h	/^	int		player_j;$/;"	m	struct:s_map
 player_move_lr	src/player/player_update.c	/^static int	player_move_lr(t_data *data, float move_distance)$/;"	f	file:
 player_move_ud	src/player/player_update.c	/^static int	player_move_ud(t_data *data, float move_distance)$/;"	f	file:
 player_pos	src/player/player_init.c	/^int	player_pos(t_data *data, int row, int col)$/;"	f
 player_rotate	src/player/player_update.c	/^static int	player_rotate(t_data *data, double delta_time)$/;"	f	file:
 player_update	src/player/player_update.c	/^int	player_update(t_data *data, double delta_time)$/;"	f
-pos	include/raycast.h	/^    t_coord pos;$/;"	m	struct:s_dda
+pos	include/raycast.h	/^	t_coord	pos;$/;"	m	struct:s_dda
 pose	include/cub3d.h	/^	t_transform	pose;	$/;"	m	struct:s_player
 precision	lib/libft/include/printf.h	/^	int			precision;$/;"	m	struct:s_format_spec
 print_map	src/parse/main_utils.c	/^int	print_map(t_data *data)$/;"	f
 private_cmap	lib/minilibx/mlx_int.h	/^	int			private_cmap;$/;"	m	struct:s_xvar
-process_ray	src/raycaster/process_rays.c	/^int	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov)$/;"	f
+process_horizontal	src/raycaster/process_rays.c	/^int	process_horizontal(t_ray *ray)$/;"	f
+process_ray	src/raycaster/process_rays.c	/^int	process_ray(t_data *data, t_ray *ray, float start_angle, int i)$/;"	f
+process_vertical	src/raycaster/process_rays.c	/^int	process_vertical(t_ray *ray)$/;"	f
 pshm_format	lib/minilibx/mlx_int.h	/^	int			pshm_format;$/;"	m	struct:s_xvar
 ptr	lib/libgc/include/libgc.h	/^	void				*ptr;$/;"	m	struct:s_gc_node
 put_pixel_to_image	src/utils/put_pixel_to_image.c	/^int	put_pixel_to_image(t_coord pos, int color, t_image *img)$/;"	f
@@ -830,7 +832,7 @@ s_image	include/cub3d.h	/^typedef struct s_image$/;"	s
 s_img	lib/minilibx/mlx_int.h	/^typedef struct	s_img$/;"	s
 s_line_vars	include/raycast.h	/^typedef struct s_line_vars$/;"	s
 s_map	include/cub3d.h	/^typedef struct s_map$/;"	s
-s_parse	include/cub3d.h	/^typedef struct	s_parse$/;"	s
+s_parse	include/cub3d.h	/^typedef struct s_parse$/;"	s
 s_player	include/cub3d.h	/^typedef struct s_player$/;"	s
 s_ray	include/raycast.h	/^typedef struct s_ray$/;"	s
 s_rayinfo	include/raycast.h	/^typedef struct s_rayinfo$/;"	s
@@ -848,7 +850,7 @@ setup	lib/libft/test_src/printf/test_ft_snprintf.c	/^void setup(void)$/;"	f
 shm	lib/minilibx/mlx_int.h	/^	XShmSegmentInfo	shm;$/;"	m	struct:s_img
 shm_att_pb	lib/minilibx/mlx_new_image.c	/^int	shm_att_pb(Display *d,XErrorEvent *ev)$/;"	f
 show_help	lib/minilibx/configure	/^show_help(){$/;"	f
-side	include/raycast.h	/^    t_coord side;$/;"	m	struct:s_dda
+side	include/raycast.h	/^	t_coord	side;$/;"	m	struct:s_dda
 sides	include/raycast.h	/^	int		sides;$/;"	m	struct:s_dda
 sigint_handler	lib/minilibx/test/run_tests.sh	/^sigint_handler(){$/;"	f
 size	lib/libgc/include/libgc.h	/^	size_t				size;$/;"	m	struct:s_gc_node
@@ -858,8 +860,8 @@ sl1	lib/minilibx/test/main.c	/^int	sl1;$/;"	v
 sl2	lib/minilibx/test/main.c	/^int	sl2;$/;"	v
 sl3	lib/minilibx/test/main.c	/^int	sl3;$/;"	v
 sl4	lib/minilibx/test/main.c	/^int	sl4;$/;"	v
-step	include/raycast.h	/^    t_coord step;$/;"	m	struct:s_dda
-steps	include/raycast.h	/^	int		steps;	\/\/ how many steps to iterate$/;"	m	struct:s_line_vars
+step	include/raycast.h	/^	t_coord	step;$/;"	m	struct:s_dda
+steps	include/raycast.h	/^	int		steps;$/;"	m	struct:s_line_vars
 strlcpy_is_not_posix	lib/minilibx/mlx_xpm.c	/^unsigned int	strlcpy_is_not_posix(char *dest, char *src, unsigned int size)$/;"	f
 t_buffer	lib/libft/include/printf.h	/^}			t_buffer;$/;"	t	typeref:struct:s_buffer
 t_config	include/cub3d.h	/^}				t_config;$/;"	t	typeref:struct:s_config
@@ -877,8 +879,8 @@ t_line_vars	include/raycast.h	/^}	t_line_vars;$/;"	t	typeref:struct:s_line_vars
 t_map	include/cub3d.h	/^}				t_map;$/;"	t	typeref:struct:s_map
 t_parse	include/cub3d.h	/^}				t_parse;$/;"	t	typeref:struct:s_parse
 t_player	include/cub3d.h	/^}			t_player;$/;"	t	typeref:struct:s_player
-t_ray	include/raycast.h	/^} t_ray;$/;"	t	typeref:struct:s_ray
-t_rayinfo	include/raycast.h	/^} t_rayinfo;$/;"	t	typeref:struct:s_rayinfo
+t_ray	include/raycast.h	/^}			t_ray;$/;"	t	typeref:struct:s_ray
+t_rayinfo	include/raycast.h	/^}			t_rayinfo;$/;"	t	typeref:struct:s_rayinfo
 t_scale	include/cub3d.h	/^}				t_scale;$/;"	t	typeref:struct:s_scale
 t_tex	include/render.h	/^}	t_tex;$/;"	t	typeref:struct:s_tex
 t_transform	include/cub3d.h	/^}				t_transform;$/;"	t	typeref:struct:s_transform
@@ -893,11 +895,11 @@ test_default_main	lib/minilibx/test/run_tests.sh	/^test_default_main(){$/;"	f
 test_parsing_metadata	src/parse/parse_start.c	/^int	test_parsing_metadata(t_data *data)$/;"	f
 tex	include/render.h	/^	t_coord	tex;$/;"	m	struct:s_tex
 texture_transform	src/texture_transform.c	/^int	texture_transform(t_image *texture, t_ray *ray, t_image *img)$/;"	f
-textures	include/cub3d.h	/^	char *textures[4]; \/* NO, SO, WE, EA*\/$/;"	m	struct:s_config
-textures_files_fd	include/cub3d.h	/^	int	textures_files_fd[4]; \/* NO, SO, WE, EA*\/$/;"	m	struct:s_config
-tile	include/raycast.h	/^    t_coord tile;$/;"	m	struct:s_rayinfo
+textures	include/cub3d.h	/^	char	*textures[4];$/;"	m	struct:s_config
+textures_files_fd	include/cub3d.h	/^	int		textures_files_fd[4];$/;"	m	struct:s_config
+tile	include/raycast.h	/^	t_coord	tile;$/;"	m	struct:s_rayinfo
 toogle_texture_mode	include/cub3d.h	/^	bool			toogle_texture_mode;$/;"	m	struct:s_data
-true_wall_height	include/raycast.h	/^    float true_wall_height;          \/\/ Height of the wall slice$/;"	m	struct:s_ray
+true_wall_height	include/raycast.h	/^	float		true_wall_height;$/;"	m	struct:s_ray
 ty	include/render.h	/^	float	ty;$/;"	m	struct:s_tex
 ty_off	include/render.h	/^	float	ty_off;$/;"	m	struct:s_tex
 ty_step	include/render.h	/^	float	ty_step;$/;"	m	struct:s_tex
@@ -905,9 +907,9 @@ type	lib/libft/include/printf.h	/^	char		type;$/;"	m	struct:s_format_spec
 type	lib/minilibx/mlx_int.h	/^	int				type;$/;"	m	struct:s_img
 use_xshm	lib/minilibx/mlx_int.h	/^	int			use_xshm;$/;"	m	struct:s_xvar
 visual	lib/minilibx/mlx_int.h	/^	Visual		*visual;$/;"	m	struct:s_xvar
-wall_height	include/raycast.h	/^    int wall_height;          \/\/ Height of the wall slice$/;"	m	struct:s_ray
+wall_height	include/raycast.h	/^	int			wall_height;$/;"	m	struct:s_ray
 walls	include/cub3d.h	/^	t_image			walls[4];$/;"	m	struct:s_data
-width	include/cub3d.h	/^	int		width;       \/\/ Map width$/;"	m	struct:s_map
+width	include/cub3d.h	/^	int		width;$/;"	m	struct:s_map
 width	lib/libft/include/printf.h	/^	int			width;$/;"	m	struct:s_format_spec
 width	lib/minilibx/mlx_int.h	/^	int				width;$/;"	m	struct:s_img
 win	include/cub3d.h	/^	void			*win;$/;"	m	struct:s_data
@@ -924,7 +926,7 @@ wm_protocols	lib/minilibx/mlx_int.h	/^	Atom		wm_protocols;$/;"	m	struct:s_xvar
 x	include/cub3d.h	/^	float	x;$/;"	m	struct:s_coord
 x	include/cub3d.h	/^	float	x;$/;"	m	struct:s_scale
 x	include/cub3d.h	/^	float	x;$/;"	m	struct:s_transform
-x_screen	include/raycast.h	/^    int x_screen;             \/\/ X-coordinate on the screen$/;"	m	struct:s_ray
+x_screen	include/raycast.h	/^	int			x_screen;$/;"	m	struct:s_ray
 xpm1_x	lib/minilibx/test/main.c	/^int	xpm1_x;$/;"	v
 xpm1_y	lib/minilibx/test/main.c	/^int	xpm1_y;$/;"	v
 y	include/cub3d.h	/^	float	y;$/;"	m	struct:s_coord

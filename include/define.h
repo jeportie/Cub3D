@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 21:36:09 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/21 17:59:52 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:15:42 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@
 
 # define TILE_SIZE		64
 
-# define SPEED			300.0
-# define ROT_SPEED		3.0 
+# define FRAME_RATE		120.0f
+# define SPEED			300.0f
+# define ROT_SPEED		3.0f 
 
 # define SQUARE_SIZE	5 
 

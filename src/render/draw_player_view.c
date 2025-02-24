@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 21:18:17 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:45:09 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	draw_player_view(t_data *data, t_image *img)
 	draw_background(data, img);
 	while (i < RAYS)
 	{
-		process_ray(data, &ray, start_angle, i, fov);
+		process_ray(data, &ray, start_angle, i);
 		draw_wall_slice(data, &ray, img);
 		i++;
 	}

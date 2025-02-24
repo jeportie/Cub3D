@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 18:17:53 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 10:25:30 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	init_mlx(t_data *data)
 	ft_printf("MLX initialized and window created.\n");
 	init_image(data);
 	data->toogle_texture_mode = true;
-	if (init_texture(data))
+	if (init_wall_texture(data))
 	{
 		ft_dprintf(2, ERR_TEX_INIT);
 		data->toogle_texture_mode = false;
