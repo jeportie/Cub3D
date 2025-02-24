@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 20:29:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 18:17:53 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:13:04 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	init_mlx(t_data *data)
 	ft_printf("MLX initialized and window created.\n");
 	init_image(data);
 	data->toogle_texture_mode = true;
-	if (init_texture(data))
+	if (init_wall_texture(data))
 	{
 		ft_dprintf(2, ERR_TEX_INIT);
 		data->toogle_texture_mode = false;
@@ -79,6 +79,7 @@ int	main(int argc, char **argv)
 	}
 	mlx_hook(data.win, 2, 1L << 0, key_press, &data);
 	mlx_hook(data.win, 3, 1L << 1, key_release, &data);
+	mlx_hook(data.win, 17, 0L, close_window, &data);
 	mlx_loop_hook(data.mlx, game_loop, &data);
 	ft_printf("Entering MLX event loop.\n");
 	mlx_loop(data.mlx);

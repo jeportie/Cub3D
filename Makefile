@@ -15,51 +15,50 @@ NAME = cub3D
 ### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
-  src/compute/get_vectors.c \
-  src/compute/calculate_step.c \
-  src/compute/normalize_angle.c \
   src/compute/calculate_move_distance.c \
-  src/compute/calculate_distance.c \
+  src/compute/calculate_step.c \
   src/compute/correct_fisheye.c \
-  src/compute/calculate_intercept.c \
-  src/compute/calculate_wall_height.c \
-  src/compute/calculate_tan_a.c \
-  src/compute/compute_dda.c \
   src/compute/get_safe_cos_sin.c \
-  src/raycaster/dda_raycast.c \
-  src/raycaster/process_rays.c \
-  src/game_loop.c \
-  src/player/rotate_player_angle.c \
-  src/player/player_init.c \
-  src/player/player_update.c \
-  src/utils/clamp.c \
-  src/utils/init_image.c \
-  src/utils/clear_image.c \
-  src/utils/get_time_in_seconds.c \
-  src/utils/put_pixel_to_image.c \
-  src/utils/init_texture.c \
-  src/utils/ft_strjoin_array.c \
-  src/parse/parsing_utils.c \
-  src/parse/main_utils.c \
+  src/compute/calculate_tan_a.c \
+  src/compute/calculate_wall_height.c \
+  src/compute/normalize_angle.c \
+  src/compute/compute_dda.c \
+  src/compute/get_vectors.c \
+  src/compute/calculate_intercept.c \
+  src/render/draw_line.c \
+  src/render/draw_wall_slice.c \
+  src/render/draw_background.c \
+  src/render/draw_player_view.c \
+  src/parse/check_for_color_doublon.c \
+  src/parse/check_for_texture_doublon.c \
   src/parse/free_and_error.c \
+  src/parse/main_utils.c \
+  src/parse/parse_map_utils_1.c \
   src/parse/parse_map_utils_2.c \
-  src/parse/parsing_metadata.c \
+  src/parse/parse_map_utils_3.c \
   src/parse/parse_map_utils_4.c \
   src/parse/parse_start.c \
-  src/parse/parse_map_utils_1.c \
-  src/parse/check_for_color_doublon.c \
-  src/parse/store_data.c \
   src/parse/parsing_colors.c \
-  src/parse/check_for_texture_doublon.c \
-  src/parse/parse_map_utils_3.c \
-  src/parse/parse_map.c \
+  src/parse/parsing_metadata.c \
   src/parse/set_texture.c \
-  src/render/draw_wall_slice.c \
-  src/render/draw_line.c \
-  src/render/draw_player_view.c \
-  src/render/draw_background.c \
-  src/texture_transform.c \
-  src/input.c 
+  src/parse/store_data.c \
+  src/parse/parse_map.c \
+  src/parse/parsing_utils.c \
+  src/player/player_init.c \
+  src/player/player_update.c \
+  src/player/rotate_player_angle.c \
+  src/raycaster/dda_raycast.c \
+  src/raycaster/process_rays.c \
+  src/engine/clear_image.c \
+  src/engine/get_time_in_seconds.c \
+  src/engine/put_pixel_to_image.c \
+  src/engine/ft_strjoin_array.c \
+  src/engine/init_image.c \
+  src/engine/init_texture.c \
+  src/engine/fps_update.c \
+  src/engine/game_loop.c \
+  src/engine/input.c \
+  src/engine/texture_transform.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #

@@ -6,14 +6,14 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 17:12:14 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 17:25:51 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:15:49 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/engine.h"
+#include "../../include/cub3d.h"
 #include "../../include/error.h"
 
-int	init_texture(t_data *data)
+int	init_wall_texture(t_data *data)
 {
 	int		width;
 	int		height;

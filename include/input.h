@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:22:54 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/22 13:17:22 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:13:25 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,6 @@
 
 int	key_press(int keycode, t_data *data);
 int	key_release(int keycode, t_data *data);
+int	close_window(t_data *data);
 
 #endif

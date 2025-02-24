@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 09:52:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 21:42:00 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:47:20 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,29 +70,29 @@ typedef struct s_image
 
 typedef struct s_config
 {
-	char *map_filename;
-	char *textures[4]; /* NO, SO, WE, EA*/
-	int	textures_files_fd[4]; /* NO, SO, WE, EA*/
-	int	map_file_fd;
-	int floor_color;   /* RGB */
-	int ceiling_color; /* RGB */
-	int	metadata_count;
-	int	flags[6];
+	char	*map_filename;
+	char	*textures[4];
+	int		textures_files_fd[4];
+	int		map_file_fd;
+	int		floor_color;
+	int		ceiling_color;
+	int		metadata_count;
+	int		flags[6];
 }				t_config;
 
 typedef struct s_map
 {
-	char	**layout;   // 2D array for the map
-	int		begin_map_index; // Index of the beginning of the map;
-	int		end_map_index; // Index of the end of the map;
-	int		width;       // Map width
-	int		height;      // MAp height
-	int		player_i;    // player coordinate
-	int		player_j;    // player coordinate
-	char	player_dir; // player starting orientation
+	char	**layout;
+	int		begin_map_index;
+	int		end_map_index;
+	int		width;
+	int		height;
+	int		player_i;
+	int		player_j;
+	char	player_dir;
 }				t_map;
 
-typedef struct	s_parse
+typedef struct s_parse
 {
 	t_config	config;
 	t_map		map;
