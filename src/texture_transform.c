@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:35:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 07:27:40 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:47:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ int	init_tr(t_tex *tr, t_ray *ray)
 		tr->ty_off = (tr->full_height - THREE_D_HEIGHT) / 2.0f;
 	tr->tex.x = 0;
 	if (ray->current_wall == WALL_VERTICAL)
-		tr->tex.x = ((int)ray->chosen.ry) % TILE_SIZE;
+		tr->tex.x = ((int)ray->chosen.collision.y) % TILE_SIZE;
 	else
-		tr->tex.x = ((int)ray->chosen.rx) % TILE_SIZE;
+		tr->tex.x = ((int)ray->chosen.collision.x) % TILE_SIZE;
 	tr->ty = tr->ty_off * tr->ty_step;
 	tr->y = 0;
 	return (0);

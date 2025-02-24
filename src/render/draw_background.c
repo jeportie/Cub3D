@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:01:35 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 08:03:37 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:28:48 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,19 @@
 
 int	draw_filled_rectangle(t_coord pos, t_scale size, int color, t_image *img)
 {
-	while (pos.x < size.x)
+	int	x;
+	int	y;
+
+	x = pos.x;
+	while (x < (int)size.x)
 	{
-		while (pos.y < size.y)
+		y = pos.y;
+		while (y < (int)size.y)
 		{
-			put_pixel_to_image(pos, color, img);
-			pos.y++;
+			put_pixel_to_image((t_coord){x, y}, color, img);
+			y++;
 		}
-		pos.x++;
+		x++;
 	}
 	return (0);
 }

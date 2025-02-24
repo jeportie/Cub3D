@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:06:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/23 21:37:41 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:30:56 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int	paint_wall(t_ray *ray, t_image *img)
 	int		y;
 	t_coord	pos;
 
-	y = 0;
 	pos.x = ray->x_screen;
-	while (y < ray->wall_height)
+	y = (int)ray->line_offset;
+	while (y < ray->line_offset + ray->wall_height)
 	{
-		pos.y = ray->line_offset;
+		pos.y = y;
 		put_pixel_to_image(pos, ray->chosen.color, img);
 		y++;
 	}

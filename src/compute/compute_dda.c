@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:45:46 by jeportie          #+#    #+#             */
-/*   Updated: 2025/01/27 15:46:25 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:43:52 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ float	compute_first_boundary_x(t_dda *d)
 	float	boundary_x;
 	float	dist_x;
 
-	boundary_x = (float)d->map_x * TILE_SIZE;
-	if (d->step_x > 0)
-		boundary_x = (float)(d->map_x + 1) * TILE_SIZE;
-	dist_x = boundary_x - d->px;
-	if (d->step_x < 0)
-		dist_x = d->px - ((float)d->map_x * TILE_SIZE);
-	return (fabsf(dist_x / d->dir_x));
+	boundary_x = (float)d->map.x * TILE_SIZE;
+	if (d->step.x > 0)
+		boundary_x = (float)(d->map.x + 1) * TILE_SIZE;
+	dist_x = boundary_x - d->pos.x;
+	if (d->step.x < 0)
+		dist_x = d->pos.x - ((float)d->map.x * TILE_SIZE);
+	return (fabsf(dist_x / d->dir.x));
 }
 
 float	compute_first_boundary_y(t_dda *d)
@@ -31,18 +31,18 @@ float	compute_first_boundary_y(t_dda *d)
 	float	boundary_y;
 	float	dist_y;
 
-	boundary_y = (float)d->map_y * TILE_SIZE;
-	if (d->step_y > 0)
-		boundary_y = (float)(d->map_y + 1) * TILE_SIZE;
-	dist_y = boundary_y - d->py;
-	if (d->step_y < 0)
-		dist_y = d->py - ((float)d->map_y * TILE_SIZE);
-	return (fabsf(dist_y / d->dir_y));
+	boundary_y = (float)d->map.y * TILE_SIZE;
+	if (d->step.y > 0)
+		boundary_y = (float)(d->map.y + 1) * TILE_SIZE;
+	dist_y = boundary_y - d->pos.y;
+	if (d->step.y < 0)
+		dist_y = d->pos.y - ((float)d->map.y * TILE_SIZE);
+	return (fabsf(dist_y / d->dir.y));
 }
 
 void	compute_initial_sides(t_dda *d, t_data *data)
 {
 	(void)data;
-	d->side_x = compute_first_boundary_x(d);
-	d->side_y = compute_first_boundary_y(d);
+	d->side.x = compute_first_boundary_x(d);
+	d->side.y = compute_first_boundary_y(d);
 }

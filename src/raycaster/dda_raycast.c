@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:30:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 07:56:37 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:50:01 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,27 +16,27 @@
 
 void	init_dda_struct(t_dda *d, t_data *data, float angle)
 {
-	d->px = data->player.pose.x;
-	d->py = data->player.pose.y;
-	d->dir_x = cosf(angle);
-	d->dir_y = sinf(angle);
-	d->map_x = (int)(d->px / TILE_SIZE);
-	d->map_y = (int)(d->py / TILE_SIZE);
-	d->step_x = 1;
-	if (d->dir_x < 0.0f)
-		d->step_x = -1;
-	d->step_y = 1;
-	if (d->dir_y < 0.0f)
-		d->step_y = -1;
-	if (fabsf(d->dir_x) < EPSILON)
-		d->dir_x = EPSILON;
-	if (fabsf(d->dir_y) < EPSILON)
-		d->dir_y = EPSILON;
-	d->delta_x = fabsf(1.0f / d->dir_x) * TILE_SIZE;
-	d->delta_y = fabsf(1.0f / d->dir_y) * TILE_SIZE;
-	d->side_x = 0.0f;
-	d->side_y = 0.0f;
-	d->side = 0;
+	d->pos.x = data->player.pose.x;
+	d->pos.y = data->player.pose.y;
+	d->dir.x = cosf(angle);
+	d->dir.y = sinf(angle);
+	d->map.x = (int)(d->pos.x / TILE_SIZE);
+	d->map.y = (int)(d->pos.y / TILE_SIZE);
+	d->step.x = 1;
+	if (d->dir.x < 0.0f)
+		d->step.x = -1;
+	d->step.y = 1;
+	if (d->dir.y < 0.0f)
+		d->step.y = -1;
+	if (fabsf(d->dir.x) < EPSILON)
+		d->dir.x = EPSILON;
+	if (fabsf(d->dir.y) < EPSILON)
+		d->dir.y = EPSILON;
+	d->delta.x = fabsf(1.0f / d->dir.x) * TILE_SIZE;
+	d->delta.y = fabsf(1.0f / d->dir.y) * TILE_SIZE;
+	d->side.x = 0.0f;
+	d->side.y = 0.0f;
+	d->sides = 0;
 	d->dist = 0.0f;
 }
 
@@ -44,24 +44,25 @@ int	run_dda_loop(t_data *data, t_dda *d)
 {
 	while (1)
 	{
-		if (d->side_x < d->side_y)
+		if (d->side.x < d->side.y)
 		{
-			d->side_x += d->delta_x;
-			d->map_x += d->step_x;
-			d->side = 0;
+			d->side.x += d->delta.x;
+			d->map.x += d->step.x;
+			d->sides = 0;
 		}
 		else
 		{
-			d->side_y += d->delta_y;
-			d->map_y += d->step_y;
-			d->side = 1;
+			d->side.y += d->delta.y;
+			d->map.y += d->step.y;
+			d->sides = 1;
 		}
-		if (d->map_x < 0 || d->map_x >= data->parse.map.width
-			|| d->map_y < 0 || d->map_y >= data->parse.map.height)
+		if (d->map.x < 0 || d->map.x >= data->parse.map.width
+			|| d->map.y < 0 || d->map.y >= data->parse.map.height)
 		{
 			break ;
 		}
-		if (data->map[d->map_y * data->parse.map.width + d->map_x] == '1')
+		if (data->map[(int)d->map.y * data->parse.map.width
+				+ (int)d->map.x] == '1')
 			break ;
 	}
 	return (0);
@@ -71,16 +72,16 @@ void	fill_rayinfo(t_dda *d, t_rayinfo *ray)
 {
 	float	dist;
 
-	if (d->side == 0)
-		dist = d->side_x - d->delta_x;
+	if (d->sides == 0)
+		dist = d->side.x - d->delta.x;
 	else
-		dist = d->side_y - d->delta_y;
+		dist = d->side.y - d->delta.y;
 	ray->dist = dist;
-	ray->rx = d->px + (dist * d->dir_x);
-	ray->ry = d->py + (dist * d->dir_y);
-	ray->tile_x = d->map_x;
-	ray->tile_y = d->map_y;
-	ray->map_index = d->side;
+	ray->collision.x = d->pos.x + (dist * d->dir.x);
+	ray->collision.y = d->pos.y + (dist * d->dir.y);
+	ray->tile.x = d->map.x;
+	ray->tile.y = d->map.y;
+	ray->map_index = d->sides;
 }
 
 t_rayinfo	cast_ray_dda(t_data *data, float angle)

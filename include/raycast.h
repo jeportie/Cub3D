@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 20:58:03 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 07:39:33 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:46:59 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,29 +26,12 @@ typedef struct s_line_vars
 
 typedef struct s_rayinfo
 {
-    float rx;       // Final x-coordinate of collision
-    float ry;       // Final y-coordinate of collision
+    t_coord collision;
+    t_coord tile;
     float dist;     // Distance to the collision
     int color;      // Color of the wall hit
-    int tile_x;     // Tile index in the x-direction
-    int tile_y;     // Tile index in the y-direction
     int map_index;  // Index in the map array
 } t_rayinfo;
-
-typedef struct s_ray_cast
-{
-    float player_x;       // Player's x position
-    float player_y;       // Player's y position
-    float sin_a;          // Sine of the ray angle
-    float cos_a;          // Cosine of the ray angle
-    int flag;             // Direction flag (up/down or left/right)
-    float tan_a;          // Tangent of the ray angle
-    float step_x;         // Step size in the x direction
-    float step_y;         // Step size in the y direction
-    float intercept_x;    // Initial x-intercept
-    float intercept_y;    // Initial y-intercept
-    t_rayinfo result;     // Final collision result
-} t_ray_cast;
 
 typedef enum e_wall_type
 {
@@ -57,11 +40,10 @@ typedef enum e_wall_type
 	WALL_HORIZONTAL  // Wall hit by horizontal ray
 }	t_wall_type;
 
+
 typedef struct s_ray
 {
     float angle;              // Current ray angle
-    t_rayinfo vertical;       // Information from vertical ray casting
-    t_rayinfo horizontal;     // Information from horizontal ray casting
     t_rayinfo chosen;         // The chosen ray (closest intersection)
     float corrected_distance; // Distance corrected for fisheye
     int wall_height;          // Height of the wall slice
@@ -71,35 +53,19 @@ typedef struct s_ray
     int x_screen;             // X-coordinate on the screen
 } t_ray;
 
-typedef struct s_rndr_ctx
-{
-    int x_screen;           // X-coordinate on the screen
-    int line_offset;        // Y-coordinate offset for centering
-    int prev_wall;          // Previous wall type for continuity
-    int old_wall_height;    // Previous wall height for continuity checks
-    int prev_tile_x;
-    int prev_tile_y; 
-} t_rndr_ctx;
-
 typedef struct s_dda
 {
-	float	px;
-	float	py;
-	float	dir_x;
-	float	dir_y;
-	int		map_x;
-	int		map_y;
-	int		step_x;
-	int		step_y;
-	float	delta_x;
-	float	delta_y;
-	float	side_x;
-	float	side_y;
-	int		side;
+    t_coord pos;
+    t_coord dir;
+    t_coord delta;
+    t_coord side;
+    t_coord map;
+    t_coord step;
+	int		sides;
 	float	dist;
 }	t_dda;
 
 t_rayinfo   cast_ray_dda(t_data *data, float ray_angle);
-int	process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov);
+int	        process_ray(t_data *data, t_ray *ray, float start_angle, int i, float fov);
 
 #endif
