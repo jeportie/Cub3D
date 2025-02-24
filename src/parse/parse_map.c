@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:30:16 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 15:42:42 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:53:29 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	parse_map(t_data *data)
 {
-	data->parse.config.map_file_fd 
+	data->parse.config.map_file_fd
 		= ft_open_file(data->parse.config.map_filename);
 	skip_metadata(data);
 	get_map_index(data);

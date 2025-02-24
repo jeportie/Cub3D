@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:54:36 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 15:41:24 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:54:58 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ int	check_texture(t_data *data)
 			printf("\033[31mError\n:Issue with one of the "
 				"texture.\nTexture File name: |%s|\n%s\033[0m\n",
 				data->parse.config.textures[i], strerror(errno));
-			// ft_clean_data_and_exit(data);
 		}
 		i++;
 	}

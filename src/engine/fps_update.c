@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_player_view.c                                 :+:      :+:    :+:   */
+/*   fps_update.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/24 17:08:08 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 11:45:09 by jeportie         ###   ########.fr       */
+/*   Created: 2025/02/24 10:18:15 by jeportie          #+#    #+#             */
+/*   Updated: 2025/02/24 12:09:35 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/cub3d.h"
-#include "../../include/raycast.h"
-#include "../../include/compute.h"
-#include "../../include/render.h"
+#include "../../include/engine.h"
+#include "../../include/error.h"
 
-int	draw_player_view(t_data *data, t_image *img)
+int	fps_update(t_data *data, double *delta, double *time_step)
 {
-	float		fov;
-	float		start_angle;
-	t_ray		ray;
-	int			i;
+	struct timespec	time;
 
-	i = 0;
-	fov = FOV_DEGREES * (M_PI / 180.0f);
-	start_angle = normalize_angle(data->player.pose.angle - (fov / 2));
-	draw_background(data, img);
-	while (i < RAYS)
+	if (clock_gettime(CLOCK_MONOTONIC, &time) != 0)
 	{
-		process_ray(data, &ray, start_angle, i);
-		draw_wall_slice(data, &ray, img);
-		i++;
+		ft_dprintf(2, ERR_GETTIME);
+		return (1);
 	}
+	*delta = get_time_in_seconds(time) - get_time_in_seconds(data->last_time);
+	data->last_time = time;
+	if (*delta > 0.1)
+		*delta = 0.1;
+	data->delta_accumulator += *delta;
+	*time_step = 1.0 / FRAME_RATE;
 	return (0);
 }

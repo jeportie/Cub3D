@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 13:30:20 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 08:50:01 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 11:33:10 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "../../include/raycast.h"
 #include "../../include/compute.h"
 
-void	init_dda_struct(t_dda *d, t_data *data, float angle)
+int	init_dda_struct(t_dda *d, t_data *data, float angle)
 {
 	d->pos.x = data->player.pose.x;
 	d->pos.y = data->player.pose.y;
@@ -38,6 +38,7 @@ void	init_dda_struct(t_dda *d, t_data *data, float angle)
 	d->side.y = 0.0f;
 	d->sides = 0;
 	d->dist = 0.0f;
+	return (0);
 }
 
 int	run_dda_loop(t_data *data, t_dda *d)
@@ -68,7 +69,7 @@ int	run_dda_loop(t_data *data, t_dda *d)
 	return (0);
 }
 
-void	fill_rayinfo(t_dda *d, t_rayinfo *ray)
+int	fill_rayinfo(t_dda *d, t_rayinfo *ray)
 {
 	float	dist;
 
@@ -82,9 +83,10 @@ void	fill_rayinfo(t_dda *d, t_rayinfo *ray)
 	ray->tile.x = d->map.x;
 	ray->tile.y = d->map.y;
 	ray->map_index = d->sides;
+	return (0);
 }
 
-t_rayinfo	cast_ray_dda(t_data *data, float angle)
+t_rayinfo	cast_ray_dda(t_data *data, double angle)
 {
 	t_rayinfo	ray;
 	t_dda		d;

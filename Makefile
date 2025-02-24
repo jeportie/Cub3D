@@ -6,7 +6,7 @@
 #    By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/16 21:46:57 by jeportie          #+#    #+#              #
-#    Updated: 2025/01/16 22:13:00 by jeportie         ###   ########.fr        #
+#    Updated: 2025/02/24 14:58:35 by jeportie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ NAME = cub3D
 ### BEGIN AUTO GENERATED FILES ###
 # List of source files:
 SRC = \
-  src/compute/calculate_intercept.c \
   src/compute/calculate_move_distance.c \
   src/compute/calculate_step.c \
   src/compute/calculate_tan_a.c \
@@ -23,42 +22,42 @@ SRC = \
   src/compute/correct_fisheye.c \
   src/compute/get_safe_cos_sin.c \
   src/compute/normalize_angle.c \
-  src/compute/calculate_distance.c \
   src/compute/compute_dda.c \
   src/compute/get_vectors.c \
+  src/compute/calculate_intercept.c \
   src/parse/check_for_color_doublon.c \
   src/parse/check_for_texture_doublon.c \
-  src/parse/free_and_error.c \
-  src/parse/parse_map.c \
-  src/parse/parse_map_utils_1.c \
   src/parse/parse_map_utils_2.c \
   src/parse/parse_map_utils_3.c \
   src/parse/parse_map_utils_4.c \
   src/parse/parse_start.c \
-  src/parse/parsing_colors.c \
-  src/parse/parsing_metadata.c \
   src/parse/parsing_utils.c \
   src/parse/set_texture.c \
+  src/parse/free_and_error.c \
+  src/parse/parse_map.c \
+  src/parse/parse_map_utils_1.c \
   src/parse/parse_map_utils_5.c \
+  src/parse/parsing_metadata.c \
+  src/parse/parsing_colors.c \
   src/render/draw_background.c \
   src/render/draw_line.c \
-  src/render/draw_player_view.c \
   src/render/draw_wall_slice.c \
-  src/utils/clamp.c \
-  src/utils/ft_strjoin_array.c \
-  src/utils/clear_image.c \
-  src/utils/get_time_in_seconds.c \
-  src/utils/init_image.c \
-  src/utils/init_texture.c \
-  src/utils/put_pixel_to_image.c \
-  src/game_loop.c \
-  src/input.c \
+  src/render/draw_player_view.c \
   src/player/player_init.c \
   src/player/player_update.c \
   src/player/rotate_player_angle.c \
   src/raycaster/dda_raycast.c \
   src/raycaster/process_rays.c \
-  src/texture_transform.c 
+  src/engine/clear_image.c \
+  src/engine/fps_update.c \
+  src/engine/ft_strjoin_array.c \
+  src/engine/game_loop.c \
+  src/engine/get_time_in_seconds.c \
+  src/engine/init_image.c \
+  src/engine/init_texture.c \
+  src/engine/input.c \
+  src/engine/put_pixel_to_image.c \
+  src/engine/texture_transform.c 
 ### END AUTO GENERATED FILES ###
 
 # **************************************************************************** #
@@ -75,10 +74,10 @@ VALG =		valgrind -s --leak-check=full \
 HELG =      valgrind --tool=helgrind --history-level=full \
 			--track-lockorders=yes --show-below-main=yes --free-is-write=yes
 
-LDFLAGS = -L./lib/minilibx -lmlx -L./lib/libgc -lgc -L./lib/libft -lft \
+LDFLAGS = -L./lib/minilibx -lmlx -L./lib/libft -lft \
 		  -lXext -lX11 -ldl -pthread -lm
 DEPFLAGS =  -MMD -MP
-INCLUDES = -I./include -I./lib/minilibx -I./lib/libgc/include -I./lib/libft/include
+INCLUDES = -I./include -I./lib/minilibx -I./lib/libft/include
 
 SRC_DIR = 	src
 OBJ_DIR = 	obj
@@ -122,7 +121,6 @@ run-prompt: download-script
 all: $(NAME)
 
 $(NAME): $(OBJ) $(OBJ_DIR)/main.o
-	make re -C lib/libgc
 	make re -C lib/libft
 	make -C lib/minilibx
 	@echo "Compiling $(NAME)..."

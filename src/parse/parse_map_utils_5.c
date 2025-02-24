@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:54:13 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 15:13:25 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/24 14:54:20 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	print_err_message_boundaries(t_data *data, int i, int j, int type)
 			"(First row : Point[%d][%d])\n\033[0m", j, i);
 	if (type == 2)
 		printf("\033[31mError\nThe Map must be closed "
-			"(Last row : Point[%d][%d])\n\033[0m", data->parse.map.height - 1, j);
+			"(Last row : Point[%d][%d])\n\033[0m",
+			data->parse.map.height - 1, j);
 	if (type == 3)
 		printf("\033[31mError\nThe Map must be closed "
 			"(First column : Point[%d][%d])\n\033[0m", i, j);
@@ -49,7 +50,8 @@ int	missing_texture(t_data *data)
 		else
 		{
 			printf("\033[31mError\n:Missing texture.\nTexture File name : |%s|"
-				"\n%s\033[0m\n", data->parse.config.textures[i], strerror(errno));
+				"\n%s\033[0m\n",
+				data->parse.config.textures[i], strerror(errno));
 			ft_clean_data_and_exit(data);
 		}
 	}
