@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 22:44:12 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 15:13:25 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/24 15:25:51 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,52 @@
 
 int	close_window(t_data *data)
 {
+	int	i;
+
 	ft_printf("Window close (X button) pressed. Exiting.\n");
+	i = 0;
+	free(data->map);
+	while (i < 4)
+	{
+		mlx_destroy_image(data->mlx, data->walls[i].img_ptr);
+		i++;
+	}
+	i = 0;
+	while (i < 2)
+	{
+		mlx_destroy_image(data->mlx, data->img[i].img_ptr);
+		i++;
+	}
 	mlx_destroy_window(data->mlx, data->win);
+	mlx_destroy_display(data->mlx);
 	ft_clean_data_and_exit(data);
 	exit(0);
 }
 
 int	key_press(int keycode, t_data *data)
 {
+	int	i;
+
 	ft_printf("Key Pressed: keycode = %d\n", keycode);
 	if (keycode == KEY_ESC)
 	{
 		ft_printf("ESC pressed. Exiting.\n");
+		free(data->map);
+		i = 0;
+		while (i < 4)
+		{
+			mlx_destroy_image(data->mlx, data->walls[i].img_ptr);
+			i++;
+		}
+		i = 0;
+		while (i < 2)
+		{
+			mlx_destroy_image(data->mlx, data->img[i].img_ptr);
+			i++;
+		}
 		mlx_destroy_window(data->mlx, data->win);
+		mlx_destroy_display(data->mlx);
+		free(data->mlx);
 		ft_clean_data_and_exit(data);
 		exit(0);
 	}
