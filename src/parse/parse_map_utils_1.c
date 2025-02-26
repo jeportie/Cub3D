@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:09:17 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 14:53:52 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:17:49 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	get_map_index(t_data *data)
 		line = get_next_line(data->parse.config.map_file_fd);
 		if (line == NULL)
 		{
-			printf("\033[31mUseError : NO_MAP or ERROR DURING OPENING"
+			printf("\033[31mError : NO_MAP or ERROR DURING OPENING"
 				"\n\033[0m\n");
 			ft_clean_data_and_exit(data);
 		}

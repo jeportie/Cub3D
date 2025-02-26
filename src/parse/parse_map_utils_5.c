@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 12:54:13 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/24 17:51:40 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:34:18 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,29 +39,24 @@ int	check_config_data(t_data *data)
 	return (0);
 }
 
-int	missing_texture(t_data *data)
+int	try_open_texture_file(t_data *data, int i)
 {
-	int	i;
+	int	fd;
 
-	i = 0;
-	while (i < 4)
+	fd = open(data->parse.config.textures[i], O_RDONLY);
+	data->parse.config.textures_files_fd[i] = fd;
+	if (fd == -1)
 	{
-		if (data->parse.config.textures[i])
-			i++;
-		else
-		{
-			printf("\033[31mError\n:Missing texture.\nTexture File name : |%s|"
-				"\nTextures will be set to default\033[0m\n",
-				data->parse.config.textures[i]);
-		}
+		printf("\033[31mError\n:Issue with one of the "
+			"texture.\nTexture File name: |%s|%s\n\033[0m\n",
+			data->parse.config.textures[i], strerror(errno));
+		ft_clean_data_and_exit(data);
 	}
 	return (0);
 }
 
-
 int	missing_color(t_data *data)
 {
-
 	if (data->parse.config.ceiling_color == -1)
 	{
 		printf("\033[31mError\n:Missing ceilling color\n\033[0m");

@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/31 17:28:54 by anastruc          #+#    #+#             */
-/*   Updated: 2025/02/21 16:45:51 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/26 11:37:26 by anastruc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	ft_check_east_doublon(char *line, t_data *data)
 	if (data->parse.config.flags[3] > 1)
 	{
 		printf("\033[31mError:\nMultiple EAST texture\n\033[0m");
+		free(line);
 		ft_clean_data_and_exit(data);
 	}
 	return (0);
