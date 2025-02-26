@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 20:35:05 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 17:24:34 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:35:02 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	get_texture_color(t_image *texture, t_coord pos)
 
 int	init_tr(t_tex *tr, t_ray *ray)
 {
+	int	raw_coord;
+
 	tr->full_height = ray->true_wall_height;
 	tr->ty_step = TILE_SIZE / tr->full_height;
 	tr->ty_off = 0.0f;
@@ -36,8 +38,6 @@ int	init_tr(t_tex *tr, t_ray *ray)
 	if (tr->full_height > THREE_D_HEIGHT)
 		tr->ty_off = (tr->full_height - THREE_D_HEIGHT) / 2.0f;
 	{
-		int	raw_coord;
-
 		if (ray->current_wall == WALL_VERTICAL)
 			raw_coord = (int)ray->chosen.collision.y;
 		else

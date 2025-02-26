@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/23 18:30:19 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 07:51:34 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:12:33 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	player_pos(t_data *data, int row, int col)
 		data->player.pose.angle = -M_PI / 2;
 	if (data->map[row * data->parse.map.width + col] == 'S')
 		data->player.pose.angle = M_PI / 2;
-	if (data->map[row * data->parse.map.width + col] == 'E')
-		data->player.pose.angle = M_PI;
 	if (data->map[row * data->parse.map.width + col] == 'W')
+		data->player.pose.angle = M_PI;
+	if (data->map[row * data->parse.map.width + col] == 'E')
 		data->player.pose.angle = 0;
 	data->player.pose.dx = cos(data->player.pose.angle);
 	data->player.pose.dy = sin(data->player.pose.angle);

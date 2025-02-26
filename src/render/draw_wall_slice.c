@@ -6,7 +6,7 @@
 /*   By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/24 17:06:17 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 08:30:56 by jeportie         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:16:29 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,9 +45,9 @@ int	draw_wall_slice(t_data *data, t_ray *ray, t_image *img)
 		else
 		{
 			if (cosf(ray->angle) > 0.0f)
-				texture_transform(&data->walls[2], ray, img);
-			else
 				texture_transform(&data->walls[3], ray, img);
+			else
+				texture_transform(&data->walls[2], ray, img);
 		}
 	}
 	else

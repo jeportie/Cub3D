@@ -6,7 +6,7 @@
 #    By: jeportie <jeportie@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/01/16 21:46:57 by jeportie          #+#    #+#              #
-#    Updated: 2025/02/24 14:58:35 by jeportie         ###   ########.fr        #
+#    Updated: 2025/02/26 13:53:25 by jeportie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,8 +115,6 @@ SCRIPT_URL = https://github.com/jeromeDev94/make_interface.git
 VERBOSE ?= @
 
 # Default target
-run-prompt: download-script
-	@./make_interface/exec/make_prompt
 
 all: $(NAME)
 
@@ -125,11 +123,6 @@ $(NAME): $(OBJ) $(OBJ_DIR)/main.o
 	make -C lib/minilibx
 	@echo "Compiling $(NAME)..."
 	$(CC) $(CFLAGS) $(OBJ) $(OBJ_DIR)/main.o -o $(NAME) $(LDFLAGS) > .compile.log 2>&1
-	@if [ "$(VERBOSE)" = "@" ]; then \
-		./make_interface/exec/progress $(words $(OBJ)) .compile.log; \
-	else \
-		cat .compile.log; \
-	fi
 	@echo "Compilation complete."
 
 classic: VERBOSE =

@@ -6,7 +6,7 @@
 /*   By: anastruc <anastruc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/21 13:50:02 by jeportie          #+#    #+#             */
-/*   Updated: 2025/02/24 17:51:28 by anastruc         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:57:51 by jeportie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_open_file(char *file_name)
 	fd = open(file_name, O_RDONLY);
 	if (fd == -1)
 	{
-		printf("\033[31mError\n :%s The file doesn't exist or"
+		printf("\033[31mError\n:%s\nThe file doesn't exist or "
 			"can not be open\033[0m\n", strerror(errno));
 		return (-1);
 	}
