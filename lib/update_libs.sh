@@ -1,9 +1,29 @@
 #!/bin/bash
+# Define arrays for submodule names and their corresponding URLs
+submodules=(\
+	"libft"\
+	"libgc"\
+	"minilibx"\
+	)
 
-git submodule deinit -f lib/libft lib/libgc -f lib/minilibx
-git rm -f lib/libft lib/libgc lib/minilibx
-rm -rf .git/modules/lib/libft .git/modules/lib/libgc .git/modules/lib/minilibx
+urls=(\
+	"https://github.com/jeportie/libft.git"\
+	"https://github.com/jeportie/libgc.git"\
+	"https://github.com/42Paris/minilibx-linux.git"\
+	)
 
-git submodule add https://github.com/jeportie/libft.git lib/libft
-git submodule add https://github.com/jeportie/libgc.git lib/libgc
-git submodule add https://github.com/jeportie/minilibx.git lib/minilibx
+# Deinitialize, remove, and delete cached module information for each submodule
+for module in "${submodules[@]}"; do
+  echo "Deinitializing and removing submodule: $module"
+  git submodule deinit -f "$module"
+  git rm -f "$module"
+  rm -rf "../.git/modules/lib/$module"
+done
+
+# Add each submodule using its corresponding URL
+for i in "${!submodules[@]}"; do
+  module="${submodules[$i]}"
+  url="${urls[$i]}"
+  echo "Adding submodule: $module from $url"
+  git submodule add "$url" "$module"
+done

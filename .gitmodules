@@ -1,12 +1,3 @@
-[submodule "lib/libft"]
-	path = lib/libft
-	url = https://github.com/jeportie/libft.git
-[submodule "lib/libgc"]
-	path = lib/libgc
-	url = https://github.com/jeportie/libgc.git
-[submodule "lib/minilibx"]
-	path = lib/minilibx
-	url = https://github.com/jeportie/minilibx.git
 [submodule "lib/lib/libft"]
 	path = lib/lib/libft
 	url = https://github.com/jeportie/libft.git
@@ -16,3 +7,12 @@
 [submodule "lib/lib/minilibx"]
 	path = lib/lib/minilibx
 	url = https://github.com/jeportie/minilibx.git
+[submodule "lib/libft"]
+	path = lib/libft
+	url = https://github.com/jeportie/libft.git
+[submodule "lib/libgc"]
+	path = lib/libgc
+	url = https://github.com/jeportie/libgc.git
+[submodule "lib/minilibx"]
+	path = lib/minilibx
+	url = https://github.com/42Paris/minilibx-linux.git
